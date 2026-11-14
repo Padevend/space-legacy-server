@@ -1,0 +1,967 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ======================================================
+// ENUMS
+// ======================================================
+
+enum MissionStatus {
+  PLANNED
+  ACTIVE
+  COMPLETED
+  PARTIALLY_COMPLETED
+  FAILED
+  UNKNOWN
+}
+
+enum EquipmentType {
+  SPACECRAFT
+  LANDER
+  ROVER
+  ORBITER
+  MODULE
+  STAGE
+  SCIENTIFIC_INSTRUMENT
+  COMPONENT
+  ARTIFACT
+  OTHER
+}
+
+enum OperationalStatus {
+  OPERATIONAL
+  INACTIVE
+  MISSION_ENDED
+  FAILED
+  UNKNOWN
+}
+
+enum PhysicalStatus {
+  LEFT_ON_SURFACE
+  IN_ORBIT
+  RETURNED_TO_EARTH
+  DESTROYED
+  LOST
+  UNKNOWN
+}
+
+enum EventType {
+  LAUNCH
+  LANDING
+  FLYBY
+  ORBIT_INSERTION
+  DEPLOYMENT
+  ACTIVATION
+  SCIENTIFIC_DISCOVERY
+  COMMUNICATION
+  LAST_SIGNAL
+  MISSION_END
+  OTHER
+}
+
+enum DatePrecision {
+  EXACT
+  ESTIMATED
+  YEAR_ONLY
+  MONTH_ONLY
+  UNKNOWN
+}
+
+enum CelestialBodyType {
+  STAR
+  PLANET
+  MOON
+  ASTEROID
+  DWARF_PLANET
+  COMET
+  OTHER
+}
+
+enum LocationType {
+  LAUNCH_SITE
+  LANDING_SITE
+  SURFACE_LOCATION
+  ORBIT
+  SPACE_REGION
+  FACILITY
+  OTHER
+}
+
+enum SourceType {
+  OFFICIAL_DOCUMENT
+  SCIENTIFIC_PAPER
+  NASA_WEBPAGE
+  DATASET
+  BOOK
+  ARTICLE
+  VIDEO
+  OTHER
+}
+
+enum StoryType {
+  LEGACY_STORY
+  BEHIND_THE_TECHNOLOGY
+  FINAL_CHAPTER
+  SPACE_FACT
+}
+
+enum PublicationStatus {
+  DRAFT
+  REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  AUDIO
+  MODEL_3D
+  DOCUMENT
+  ANIMATION
+  OTHER
+}
+
+enum MediaProvenance {
+  NASA_ARCHIVE
+  3D_RECONSTRUCTION
+  AI_GENERATED_ILLUSTRATION
+  DATA_VISUALIZATION
+  OTHER
+}
+
+enum DownloadStatus {
+  AVAILABLE
+  PENDING
+  FAILED
+  EXTERNAL_ONLY
+}
+
+enum MeasurementType {
+  MASS
+  DISTANCE
+  DURATION
+  TEMPERATURE
+  FREQUENCY
+  SPEED
+  FORCE
+  PRESSURE
+  POWER
+  VOLTAGE
+  OTHER
+}
+
+// ======================================================
+// CORE MODELS
+// ======================================================
+
+model Mission {
+  missionId   String        @id @default(uuid()) @db.Uuid
+  name        String
+  slug        String        @unique
+  description String?       @db.Text
+  agency      String?
+  missionStatus MissionStatus @default(UNKNOWN)
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  equipment   MissionEquipment[]
+  events      Event[]
+  people      MissionPerson[]
+  stories     StoryMission[]
+  sources     MissionSource[]
+  archives    ArchiveMission[]
+
+  @@index([name])
+  @@index([missionStatus])
+  @@map("missions")
+}
+
+model Equipment {
+  equipmentId       String             @id @default(uuid()) @db.Uuid
+  parentEquipmentId String?            @db.Uuid
+
+  name              String
+  slug              String             @unique
+  description       String?            @db.Text
+  equipmentType     EquipmentType
+  manufacturer      String?
+
+  operationalStatus OperationalStatus  @default(UNKNOWN)
+  physicalStatus    PhysicalStatus     @default(UNKNOWN)
+
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  // Recursive parent-child relationship
+  parent            Equipment?         @relation(
+    "EquipmentHierarchy",
+    fields: [parentEquipmentId],
+    references: [equipmentId],
+    onDelete: Restrict
+  )
+  children          Equipment[]        @relation("EquipmentHierarchy")
+
+  missions          MissionEquipment[]
+  events            EventEquipment[]
+  locations         EquipmentLocation[]
+  people            EquipmentPerson[]
+  stories           StoryEquipment[]
+  media             EquipmentMedia[]
+  sources           EquipmentSource[]
+  measurements      Measurement[]
+  archives          ArchiveEquipment[]
+
+  @@index([name])
+  @@index([equipmentType])
+  @@index([parentEquipmentId])
+  @@index([operationalStatus])
+  @@index([physicalStatus])
+  @@map("equipments")
+}
+
+model Event {
+  eventId       String        @id @default(uuid()) @db.Uuid
+  missionId     String        @db.Uuid
+
+  title         String
+  description   String?       @db.Text
+  eventType     EventType
+
+  eventDate     DateTime?     @db.Date
+  eventTime     DateTime?     @db.Time(0)
+  timeStandard  String?
+  datePrecision DatePrecision @default(UNKNOWN)
+  isEstimated   Boolean       @default(false)
+  sequenceOrder Int           @default(0)
+
+  createdAt     DateTime      @default(now())
+
+  mission       Mission       @relation(
+    fields: [missionId],
+    references: [missionId],
+    onDelete: Restrict
+  )
+
+  equipment     EventEquipment[]
+  locations     EventLocation[]
+  people        EventPerson[]
+  stories       StoryEvent[]
+  sources       EventSource[]
+  measurements  Measurement[]
+  archives      ArchiveEvent[]
+
+  @@index([missionId])
+  @@index([eventDate])
+  @@index([eventType])
+  @@index([sequenceOrder])
+  @@map("events")
+}
+
+model CelestialBody {
+  celestialBodyId String            @id @default(uuid()) @db.Uuid
+  name            String            @unique
+  bodyType        CelestialBodyType
+  description     String?           @db.Text
+
+  locations       Location[]
+
+  @@map("celestial_bodies")
+}
+
+model Location {
+  locationId      String       @id @default(uuid()) @db.Uuid
+  celestialBodyId String?      @db.Uuid
+
+  name            String
+  locationType    LocationType
+
+  latitude        Decimal?     @db.Decimal(10, 7)
+  longitude       Decimal?     @db.Decimal(10, 7)
+  altitude        Decimal?     @db.Decimal(14, 4)
+  referenceSystem String?
+  description     String?      @db.Text
+
+  celestialBody   CelestialBody? @relation(
+    fields: [celestialBodyId],
+    references: [celestialBodyId],
+    onDelete: SetNull
+  )
+
+  events          EventLocation[]
+  equipments      EquipmentLocation[]
+
+  @@index([celestialBodyId])
+  @@index([name])
+  @@map("locations")
+}
+
+model Person {
+  personId    String  @id @default(uuid()) @db.Uuid
+  fullName    String
+  biography   String? @db.Text
+  affiliation String?
+
+  missions    MissionPerson[]
+  events      EventPerson[]
+  equipments  EquipmentPerson[]
+
+  @@index([fullName])
+  @@map("people")
+}
+
+// ======================================================
+// DOCUMENTATION AND TRACEABILITY
+// ======================================================
+
+model Archive {
+  archiveId      String   @id @default(uuid()) @db.Uuid
+
+  externalId     String
+  archiveTitle  String
+  archiveProvider String
+  originalUrl    String
+
+  rawContent     Json     @db.JsonB
+
+  retrievedAt    DateTime @default(now())
+  archiveVersion String?
+  contentHash    String?
+
+  missions       ArchiveMission[]
+  equipments     ArchiveEquipment[]
+  events         ArchiveEvent[]
+  sources        ArchiveSource[]
+
+  @@unique([archiveProvider, externalId])
+  @@index([archiveProvider])
+  @@index([contentHash])
+  @@map("archives")
+}
+
+model Source {
+  sourceId        String     @id @default(uuid()) @db.Uuid
+
+  title           String
+  url             String
+  publisher       String
+  author          String?
+  publicationDate DateTime?  @db.Date
+  sourceType      SourceType
+  accessedAt      DateTime   @default(now())
+
+  missions        MissionSource[]
+  equipments      EquipmentSource[]
+  events          EventSource[]
+  measurements    MeasurementSource[]
+  stories         StorySource[]
+  archives        ArchiveSource[]
+
+  @@index([sourceType])
+  @@index([publisher])
+  @@map("sources")
+}
+
+// ======================================================
+// EDITORIAL CONTENT
+// ======================================================
+
+model Story {
+  storyId          String            @id @default(uuid()) @db.Uuid
+
+  title            String
+  slug             String            @unique
+  hook             String?           @db.Text
+  content          String            @db.Text
+
+  storyType        StoryType
+  durationSeconds  Int?
+  language         String            @default("en")
+  publicationStatus PublicationStatus @default(DRAFT)
+
+  publishedAt      DateTime?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  missions         StoryMission[]
+  equipments       StoryEquipment[]
+  events           StoryEvent[]
+  media            StoryMedia[]
+  sources          StorySource[]
+
+  @@index([storyType])
+  @@index([publicationStatus])
+  @@index([language])
+  @@map("stories")
+}
+
+model Media {
+  mediaId          String          @id @default(uuid()) @db.Uuid
+
+  title            String
+  mediaType        MediaType
+  url              String
+  thumbnailUrl     String?
+  caption          String?         @db.Text
+
+  credit           String?
+  creditUrl        String?
+
+  provenanceType   MediaProvenance
+  altText          String?         @db.Text
+  downloadStatus   DownloadStatus  @default(EXTERNAL_ONLY)
+
+  stories          StoryMedia[]
+  equipments       EquipmentMedia[]
+
+  @@index([mediaType])
+  @@index([provenanceType])
+  @@map("media")
+}
+
+// ======================================================
+// SCIENTIFIC DATA
+// ======================================================
+
+model Measurement {
+  measurementId  String          @id @default(uuid()) @db.Uuid
+
+  equipmentId    String?         @db.Uuid
+  eventId        String?         @db.Uuid
+
+  name           String
+  value          Decimal         @db.Decimal(24, 8)
+  unit           String
+  measurementType MeasurementType
+
+  context        String          @db.Text
+  measurementDate DateTime?
+  isApproximate  Boolean         @default(false)
+  uncertainty    Decimal?        @db.Decimal(24, 8)
+
+  equipment      Equipment?      @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Restrict
+  )
+
+  event          Event?          @relation(
+    fields: [eventId],
+    references: [eventId],
+    onDelete: Restrict
+  )
+
+  sources        MeasurementSource[]
+
+  @@index([equipmentId])
+  @@index([eventId])
+  @@index([measurementType])
+  @@index([measurementDate])
+  @@map("measurements")
+}
+
+// ======================================================
+// MISSION ASSOCIATIONS
+// ======================================================
+
+model MissionEquipment {
+  missionId                String @db.Uuid
+  equipmentId              String @db.Uuid
+
+  missionRole              String
+  participationDescription String? @db.Text
+
+  mission                  Mission   @relation(
+    fields: [missionId],
+    references: [missionId],
+    onDelete: Cascade
+  )
+
+  equipment                Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  @@id([missionId, equipmentId])
+  @@index([equipmentId])
+  @@map("mission_equipments")
+}
+
+model MissionPerson {
+  missionId    String @db.Uuid
+  personId     String @db.Uuid
+  roleInMission String
+
+  mission      Mission @relation(
+    fields: [missionId],
+    references: [missionId],
+    onDelete: Cascade
+  )
+
+  person       Person  @relation(
+    fields: [personId],
+    references: [personId],
+    onDelete: Cascade
+  )
+
+  @@id([missionId, personId])
+  @@index([personId])
+  @@map("mission_people")
+}
+
+model MissionSource {
+  missionId       String @db.Uuid
+  sourceId        String @db.Uuid
+  claimDescription String? @db.Text
+
+  mission         Mission @relation(
+    fields: [missionId],
+    references: [missionId],
+    onDelete: Cascade
+  )
+
+  source          Source  @relation(
+    fields: [sourceId],
+    references: [sourceId],
+    onDelete: Cascade
+  )
+
+  @@id([missionId, sourceId])
+  @@index([sourceId])
+  @@map("mission_sources")
+}
+
+model ArchiveMission {
+  archiveId   String @db.Uuid
+  missionId   String @db.Uuid
+  sectionName String?
+
+  archive     Archive @relation(
+    fields: [archiveId],
+    references: [archiveId],
+    onDelete: Cascade
+  )
+
+  mission     Mission @relation(
+    fields: [missionId],
+    references: [missionId],
+    onDelete: Cascade
+  )
+
+  @@id([archiveId, missionId])
+  @@index([missionId])
+  @@map("archive_missions")
+}
+
+// ======================================================
+// EQUIPMENT ASSOCIATIONS
+// ======================================================
+
+model EventEquipment {
+  eventId     String @db.Uuid
+  equipmentId String @db.Uuid
+
+  roleInEvent String?
+  description String? @db.Text
+
+  event       Event     @relation(
+    fields: [eventId],
+    references: [eventId],
+    onDelete: Cascade
+  )
+
+  equipment   Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  @@id([eventId, equipmentId])
+  @@index([equipmentId])
+  @@map("event_equipments")
+}
+
+model EquipmentLocation {
+  equipmentId       String   @db.Uuid
+  locationId        String   @db.Uuid
+
+  startDate         DateTime? @db.Date
+  endDate           DateTime? @db.Date
+  locationPrecision DatePrecision @default(UNKNOWN)
+
+  equipment         Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  location          Location @relation(
+    fields: [locationId],
+    references: [locationId],
+    onDelete: Cascade
+  )
+
+  @@id([equipmentId, locationId, startDate])
+  @@index([locationId])
+  @@map("equipment_locations")
+}
+
+model EquipmentPerson {
+  equipmentId    String @db.Uuid
+  personId       String @db.Uuid
+  roleInEquipment String
+
+  equipment     Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  person        Person @relation(
+    fields: [personId],
+    references: [personId],
+    onDelete: Cascade
+  )
+
+  @@id([equipmentId, personId])
+  @@index([personId])
+  @@map("equipment_people")
+}
+
+model EquipmentSource {
+  equipmentId     String @db.Uuid
+  sourceId        String @db.Uuid
+  claimDescription String? @db.Text
+
+  equipment       Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  source          Source @relation(
+    fields: [sourceId],
+    references: [sourceId],
+    onDelete: Cascade
+  )
+
+  @@id([equipmentId, sourceId])
+  @@index([sourceId])
+  @@map("equipment_sources")
+}
+
+model ArchiveEquipment {
+  archiveId        String @db.Uuid
+  equipmentId      String @db.Uuid
+  sectionName      String?
+  extractedReference String?
+
+  archive          Archive @relation(
+    fields: [archiveId],
+    references: [archiveId],
+    onDelete: Cascade
+  )
+
+  equipment        Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  @@id([archiveId, equipmentId])
+  @@index([equipmentId])
+  @@map("archive_equipments")
+}
+
+// ======================================================
+// EVENT ASSOCIATIONS
+// ======================================================
+
+model EventLocation {
+  eventId       String @db.Uuid
+  locationId    String @db.Uuid
+
+  locationRole  String?
+  sequenceOrder Int @default(0)
+
+  event         Event @relation(
+    fields: [eventId],
+    references: [eventId],
+    onDelete: Cascade
+  )
+
+  location      Location @relation(
+    fields: [locationId],
+    references: [locationId],
+    onDelete: Cascade
+  )
+
+  @@id([eventId, locationId])
+  @@index([locationId])
+  @@map("event_locations")
+}
+
+model EventPerson {
+  eventId     String @db.Uuid
+  personId    String @db.Uuid
+  roleInEvent String
+
+  event       Event @relation(
+    fields: [eventId],
+    references: [eventId],
+    onDelete: Cascade
+  )
+
+  person      Person @relation(
+    fields: [personId],
+    references: [personId],
+    onDelete: Cascade
+  )
+
+  @@id([eventId, personId])
+  @@index([personId])
+  @@map("event_people")
+}
+
+model EventSource {
+  eventId         String @db.Uuid
+  sourceId        String @db.Uuid
+  claimDescription String? @db.Text
+
+  event           Event @relation(
+    fields: [eventId],
+    references: [eventId],
+    onDelete: Cascade
+  )
+
+  source          Source @relation(
+    fields: [sourceId],
+    references: [sourceId],
+    onDelete: Cascade
+  )
+
+  @@id([eventId, sourceId])
+  @@index([sourceId])
+  @@map("event_sources")
+}
+
+model ArchiveEvent {
+  archiveId        String @db.Uuid
+  eventId          String @db.Uuid
+  sectionName      String?
+  extractedReference String?
+
+  archive          Archive @relation(
+    fields: [archiveId],
+    references: [archiveId],
+    onDelete: Cascade
+  )
+
+  event            Event @relation(
+    fields: [eventId],
+    references: [eventId],
+    onDelete: Cascade
+  )
+
+  @@id([archiveId, eventId])
+  @@index([eventId])
+  @@map("archive_events")
+}
+
+model ArchiveSource {
+  archiveId       String @db.Uuid
+  sourceId        String @db.Uuid
+  referenceContext String?
+
+  archive         Archive @relation(
+    fields: [archiveId],
+    references: [archiveId],
+    onDelete: Cascade
+  )
+
+  source          Source @relation(
+    fields: [sourceId],
+    references: [sourceId],
+    onDelete: Cascade
+  )
+
+  @@id([archiveId, sourceId])
+  @@index([sourceId])
+  @@map("archive_sources")
+}
+
+// ======================================================
+// STORY ASSOCIATIONS
+// ======================================================
+
+model StoryMission {
+  storyId      String @db.Uuid
+  missionId    String @db.Uuid
+  displayOrder Int @default(0)
+
+  story        Story @relation(
+    fields: [storyId],
+    references: [storyId],
+    onDelete: Cascade
+  )
+
+  mission      Mission @relation(
+    fields: [missionId],
+    references: [missionId],
+    onDelete: Cascade
+  )
+
+  @@id([storyId, missionId])
+  @@index([missionId])
+  @@map("story_missions")
+}
+
+model StoryEquipment {
+  storyId       String @db.Uuid
+  equipmentId   String @db.Uuid
+
+  displayOrder  Int @default(0)
+  narrativeRole String?
+
+  story         Story @relation(
+    fields: [storyId],
+    references: [storyId],
+    onDelete: Cascade
+  )
+
+  equipment     Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  @@id([storyId, equipmentId])
+  @@index([equipmentId])
+  @@map("story_equipments")
+}
+
+model StoryEvent {
+  storyId      String @db.Uuid
+  eventId      String @db.Uuid
+  displayOrder Int @default(0)
+
+  story        Story @relation(
+    fields: [storyId],
+    references: [storyId],
+    onDelete: Cascade
+  )
+
+  event        Event @relation(
+    fields: [eventId],
+    references: [eventId],
+    onDelete: Cascade
+  )
+
+  @@id([storyId, eventId])
+  @@index([eventId])
+  @@map("story_events")
+}
+
+model StoryMedia {
+  storyId         String @db.Uuid
+  mediaId         String @db.Uuid
+
+  displayOrder    Int @default(0)
+  captionOverride String? @db.Text
+
+  story           Story @relation(
+    fields: [storyId],
+    references: [storyId],
+    onDelete: Cascade
+  )
+
+  media           Media @relation(
+    fields: [mediaId],
+    references: [mediaId],
+    onDelete: Cascade
+  )
+
+  @@id([storyId, mediaId])
+  @@index([mediaId])
+  @@map("story_media")
+}
+
+model StorySource {
+  storyId         String @db.Uuid
+  sourceId        String @db.Uuid
+
+  claimDescription String? @db.Text
+  displayOrder    Int @default(0)
+
+  story           Story @relation(
+    fields: [storyId],
+    references: [storyId],
+    onDelete: Cascade
+  )
+
+  source          Source @relation(
+    fields: [sourceId],
+    references: [sourceId],
+    onDelete: Cascade
+  )
+
+  @@id([storyId, sourceId])
+  @@index([sourceId])
+  @@map("story_sources")
+}
+
+model EquipmentMedia {
+  equipmentId      String @db.Uuid
+  mediaId          String @db.Uuid
+  representationType String?
+
+  equipment        Equipment @relation(
+    fields: [equipmentId],
+    references: [equipmentId],
+    onDelete: Cascade
+  )
+
+  media             Media @relation(
+    fields: [mediaId],
+    references: [mediaId],
+    onDelete: Cascade
+  )
+
+  @@id([equipmentId, mediaId])
+  @@index([mediaId])
+  @@map("equipment_media")
+}
+
+// ======================================================
+// MEASUREMENT ASSOCIATIONS
+// ======================================================
+
+model MeasurementSource {
+  measurementId   String @db.Uuid
+  sourceId        String @db.Uuid
+  claimDescription String? @db.Text
+
+  measurement     Measurement @relation(
+    fields: [measurementId],
+    references: [measurementId],
+    onDelete: Cascade
+  )
+
+  source          Source @relation(
+    fields: [sourceId],
+    references: [sourceId],
+    onDelete: Cascade
+  )
+
+  @@id([measurementId, sourceId])
+  @@index([sourceId])
+  @@map("measurement_sources")
+}
