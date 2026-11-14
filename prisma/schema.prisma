@@ -5,7 +5,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 // ======================================================
@@ -130,7 +129,7 @@ enum MediaType {
 
 enum MediaProvenance {
   NASA_ARCHIVE
-  3D_RECONSTRUCTION
+  RECONSTRUCTION_3D @map("3D_RECONSTRUCTION")
   AI_GENERATED_ILLUSTRATION
   DATA_VISUALIZATION
   OTHER
@@ -201,12 +200,7 @@ model Equipment {
   updatedAt         DateTime           @updatedAt
 
   // Recursive parent-child relationship
-  parent            Equipment?         @relation(
-    "EquipmentHierarchy",
-    fields: [parentEquipmentId],
-    references: [equipmentId],
-    onDelete: Restrict
-  )
+  parent            Equipment?         @relation("EquipmentHierarchy", fields: [parentEquipmentId], references: [equipmentId], onDelete: Restrict)
   children          Equipment[]        @relation("EquipmentHierarchy")
 
   missions          MissionEquipment[]
@@ -244,11 +238,7 @@ model Event {
 
   createdAt     DateTime      @default(now())
 
-  mission       Mission       @relation(
-    fields: [missionId],
-    references: [missionId],
-    onDelete: Restrict
-  )
+  mission       Mission       @relation(fields: [missionId], references: [missionId], onDelete: Restrict)
 
   equipment     EventEquipment[]
   locations     EventLocation[]
@@ -289,11 +279,7 @@ model Location {
   referenceSystem String?
   description     String?      @db.Text
 
-  celestialBody   CelestialBody? @relation(
-    fields: [celestialBodyId],
-    references: [celestialBodyId],
-    onDelete: SetNull
-  )
+  celestialBody   CelestialBody? @relation(fields: [celestialBodyId], references: [celestialBodyId], onDelete: SetNull)
 
   events          EventLocation[]
   equipments      EquipmentLocation[]
@@ -364,6 +350,7 @@ model Source {
   stories         StorySource[]
   archives        ArchiveSource[]
 
+  @@unique([url])
   @@index([sourceType])
   @@index([publisher])
   @@map("sources")
@@ -446,17 +433,9 @@ model Measurement {
   isApproximate  Boolean         @default(false)
   uncertainty    Decimal?        @db.Decimal(24, 8)
 
-  equipment      Equipment?      @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Restrict
-  )
+  equipment      Equipment?      @relation(fields: [equipmentId], references: [equipmentId], onDelete: Restrict)
 
-  event          Event?          @relation(
-    fields: [eventId],
-    references: [eventId],
-    onDelete: Restrict
-  )
+  event          Event?          @relation(fields: [eventId], references: [eventId], onDelete: Restrict)
 
   sources        MeasurementSource[]
 
@@ -478,17 +457,9 @@ model MissionEquipment {
   missionRole              String
   participationDescription String? @db.Text
 
-  mission                  Mission   @relation(
-    fields: [missionId],
-    references: [missionId],
-    onDelete: Cascade
-  )
+  mission                  Mission   @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
-  equipment                Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment                Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
   @@id([missionId, equipmentId])
   @@index([equipmentId])
@@ -500,17 +471,9 @@ model MissionPerson {
   personId     String @db.Uuid
   roleInMission String
 
-  mission      Mission @relation(
-    fields: [missionId],
-    references: [missionId],
-    onDelete: Cascade
-  )
+  mission      Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
-  person       Person  @relation(
-    fields: [personId],
-    references: [personId],
-    onDelete: Cascade
-  )
+  person       Person  @relation(fields: [personId], references: [personId], onDelete: Cascade)
 
   @@id([missionId, personId])
   @@index([personId])
@@ -522,17 +485,9 @@ model MissionSource {
   sourceId        String @db.Uuid
   claimDescription String? @db.Text
 
-  mission         Mission @relation(
-    fields: [missionId],
-    references: [missionId],
-    onDelete: Cascade
-  )
+  mission         Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
-  source          Source  @relation(
-    fields: [sourceId],
-    references: [sourceId],
-    onDelete: Cascade
-  )
+  source          Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([missionId, sourceId])
   @@index([sourceId])
@@ -544,17 +499,9 @@ model ArchiveMission {
   missionId   String @db.Uuid
   sectionName String?
 
-  archive     Archive @relation(
-    fields: [archiveId],
-    references: [archiveId],
-    onDelete: Cascade
-  )
+  archive     Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
 
-  mission     Mission @relation(
-    fields: [missionId],
-    references: [missionId],
-    onDelete: Cascade
-  )
+  mission     Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
   @@id([archiveId, missionId])
   @@index([missionId])
@@ -572,17 +519,9 @@ model EventEquipment {
   roleInEvent String?
   description String? @db.Text
 
-  event       Event     @relation(
-    fields: [eventId],
-    references: [eventId],
-    onDelete: Cascade
-  )
+  event       Event     @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
 
-  equipment   Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment   Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
   @@id([eventId, equipmentId])
   @@index([equipmentId])
@@ -590,26 +529,19 @@ model EventEquipment {
 }
 
 model EquipmentLocation {
-  equipmentId       String   @db.Uuid
-  locationId        String   @db.Uuid
+  equipmentLocationId String        @id @default(uuid()) @db.Uuid
+  equipmentId         String        @db.Uuid
+  locationId          String        @db.Uuid
 
-  startDate         DateTime? @db.Date
-  endDate           DateTime? @db.Date
-  locationPrecision DatePrecision @default(UNKNOWN)
+  startDate           DateTime?     @db.Date
+  endDate             DateTime?     @db.Date
+  locationPrecision   DatePrecision @default(UNKNOWN)
 
-  equipment         Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment           Equipment     @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
-  location          Location @relation(
-    fields: [locationId],
-    references: [locationId],
-    onDelete: Cascade
-  )
+  location            Location      @relation(fields: [locationId], references: [locationId], onDelete: Cascade)
 
-  @@id([equipmentId, locationId, startDate])
+  @@unique([equipmentId, locationId, startDate])
   @@index([locationId])
   @@map("equipment_locations")
 }
@@ -619,17 +551,9 @@ model EquipmentPerson {
   personId       String @db.Uuid
   roleInEquipment String
 
-  equipment     Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment     Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
-  person        Person @relation(
-    fields: [personId],
-    references: [personId],
-    onDelete: Cascade
-  )
+  person        Person @relation(fields: [personId], references: [personId], onDelete: Cascade)
 
   @@id([equipmentId, personId])
   @@index([personId])
@@ -641,17 +565,9 @@ model EquipmentSource {
   sourceId        String @db.Uuid
   claimDescription String? @db.Text
 
-  equipment       Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment       Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
-  source          Source @relation(
-    fields: [sourceId],
-    references: [sourceId],
-    onDelete: Cascade
-  )
+  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([equipmentId, sourceId])
   @@index([sourceId])
@@ -664,17 +580,9 @@ model ArchiveEquipment {
   sectionName      String?
   extractedReference String?
 
-  archive          Archive @relation(
-    fields: [archiveId],
-    references: [archiveId],
-    onDelete: Cascade
-  )
+  archive          Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
 
-  equipment        Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment        Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
   @@id([archiveId, equipmentId])
   @@index([equipmentId])
@@ -692,17 +600,9 @@ model EventLocation {
   locationRole  String?
   sequenceOrder Int @default(0)
 
-  event         Event @relation(
-    fields: [eventId],
-    references: [eventId],
-    onDelete: Cascade
-  )
+  event         Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
 
-  location      Location @relation(
-    fields: [locationId],
-    references: [locationId],
-    onDelete: Cascade
-  )
+  location      Location @relation(fields: [locationId], references: [locationId], onDelete: Cascade)
 
   @@id([eventId, locationId])
   @@index([locationId])
@@ -714,17 +614,9 @@ model EventPerson {
   personId    String @db.Uuid
   roleInEvent String
 
-  event       Event @relation(
-    fields: [eventId],
-    references: [eventId],
-    onDelete: Cascade
-  )
+  event       Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
 
-  person      Person @relation(
-    fields: [personId],
-    references: [personId],
-    onDelete: Cascade
-  )
+  person      Person @relation(fields: [personId], references: [personId], onDelete: Cascade)
 
   @@id([eventId, personId])
   @@index([personId])
@@ -736,17 +628,9 @@ model EventSource {
   sourceId        String @db.Uuid
   claimDescription String? @db.Text
 
-  event           Event @relation(
-    fields: [eventId],
-    references: [eventId],
-    onDelete: Cascade
-  )
+  event           Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
 
-  source          Source @relation(
-    fields: [sourceId],
-    references: [sourceId],
-    onDelete: Cascade
-  )
+  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([eventId, sourceId])
   @@index([sourceId])
@@ -759,17 +643,9 @@ model ArchiveEvent {
   sectionName      String?
   extractedReference String?
 
-  archive          Archive @relation(
-    fields: [archiveId],
-    references: [archiveId],
-    onDelete: Cascade
-  )
+  archive          Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
 
-  event            Event @relation(
-    fields: [eventId],
-    references: [eventId],
-    onDelete: Cascade
-  )
+  event            Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
 
   @@id([archiveId, eventId])
   @@index([eventId])
@@ -781,17 +657,9 @@ model ArchiveSource {
   sourceId        String @db.Uuid
   referenceContext String?
 
-  archive         Archive @relation(
-    fields: [archiveId],
-    references: [archiveId],
-    onDelete: Cascade
-  )
+  archive         Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
 
-  source          Source @relation(
-    fields: [sourceId],
-    references: [sourceId],
-    onDelete: Cascade
-  )
+  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([archiveId, sourceId])
   @@index([sourceId])
@@ -807,17 +675,9 @@ model StoryMission {
   missionId    String @db.Uuid
   displayOrder Int @default(0)
 
-  story        Story @relation(
-    fields: [storyId],
-    references: [storyId],
-    onDelete: Cascade
-  )
+  story        Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
 
-  mission      Mission @relation(
-    fields: [missionId],
-    references: [missionId],
-    onDelete: Cascade
-  )
+  mission      Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
   @@id([storyId, missionId])
   @@index([missionId])
@@ -831,17 +691,9 @@ model StoryEquipment {
   displayOrder  Int @default(0)
   narrativeRole String?
 
-  story         Story @relation(
-    fields: [storyId],
-    references: [storyId],
-    onDelete: Cascade
-  )
+  story         Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
 
-  equipment     Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment     Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
   @@id([storyId, equipmentId])
   @@index([equipmentId])
@@ -853,17 +705,9 @@ model StoryEvent {
   eventId      String @db.Uuid
   displayOrder Int @default(0)
 
-  story        Story @relation(
-    fields: [storyId],
-    references: [storyId],
-    onDelete: Cascade
-  )
+  story        Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
 
-  event        Event @relation(
-    fields: [eventId],
-    references: [eventId],
-    onDelete: Cascade
-  )
+  event        Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
 
   @@id([storyId, eventId])
   @@index([eventId])
@@ -877,17 +721,9 @@ model StoryMedia {
   displayOrder    Int @default(0)
   captionOverride String? @db.Text
 
-  story           Story @relation(
-    fields: [storyId],
-    references: [storyId],
-    onDelete: Cascade
-  )
+  story           Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
 
-  media           Media @relation(
-    fields: [mediaId],
-    references: [mediaId],
-    onDelete: Cascade
-  )
+  media           Media @relation(fields: [mediaId], references: [mediaId], onDelete: Cascade)
 
   @@id([storyId, mediaId])
   @@index([mediaId])
@@ -901,17 +737,9 @@ model StorySource {
   claimDescription String? @db.Text
   displayOrder    Int @default(0)
 
-  story           Story @relation(
-    fields: [storyId],
-    references: [storyId],
-    onDelete: Cascade
-  )
+  story           Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
 
-  source          Source @relation(
-    fields: [sourceId],
-    references: [sourceId],
-    onDelete: Cascade
-  )
+  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([storyId, sourceId])
   @@index([sourceId])
@@ -923,17 +751,9 @@ model EquipmentMedia {
   mediaId          String @db.Uuid
   representationType String?
 
-  equipment        Equipment @relation(
-    fields: [equipmentId],
-    references: [equipmentId],
-    onDelete: Cascade
-  )
+  equipment        Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
-  media             Media @relation(
-    fields: [mediaId],
-    references: [mediaId],
-    onDelete: Cascade
-  )
+  media             Media @relation(fields: [mediaId], references: [mediaId], onDelete: Cascade)
 
   @@id([equipmentId, mediaId])
   @@index([mediaId])
@@ -949,19 +769,100 @@ model MeasurementSource {
   sourceId        String @db.Uuid
   claimDescription String? @db.Text
 
-  measurement     Measurement @relation(
-    fields: [measurementId],
-    references: [measurementId],
-    onDelete: Cascade
-  )
+  measurement     Measurement @relation(fields: [measurementId], references: [measurementId], onDelete: Cascade)
 
-  source          Source @relation(
-    fields: [sourceId],
-    references: [sourceId],
-    onDelete: Cascade
-  )
+  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([measurementId, sourceId])
   @@index([sourceId])
   @@map("measurement_sources")
 }
+
+// ======================================================
+// ADDITIVE MODELS (AUTH, RBAC, AUDIT, INGESTION)
+// ======================================================
+
+enum UserRole {
+  ADMIN
+  EDITOR
+}
+
+model User {
+  userId           String         @id @default(uuid()) @db.Uuid
+  email            String         @unique
+  passwordHash     String
+  role             UserRole       @default(EDITOR)
+  isActive         Boolean        @default(true)
+  failedLoginCount Int            @default(0)
+  lockedUntil      DateTime?
+  lastLoginAt      DateTime?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  refreshTokens    RefreshToken[]
+  auditLogs        AuditLog[]
+
+  @@index([email])
+  @@map("users")
+}
+
+model RefreshToken {
+  refreshTokenId String    @id @default(uuid()) @db.Uuid
+  tokenHash      String    @unique
+  userId         String    @db.Uuid
+  familyId       String    @db.Uuid
+  expiresAt      DateTime
+  revokedAt      DateTime?
+  replacedById   String?   @db.Uuid
+  userAgentHash  String?
+  createdAt      DateTime  @default(now())
+
+  user           User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([familyId])
+  @@map("refresh_tokens")
+}
+
+model AuditLog {
+  auditLogId   String   @id @default(uuid()) @db.Uuid
+  actorId      String?  @db.Uuid
+  action       String
+  entity       String
+  entityId     String
+  requestId    String?
+  diffSummary  Json?    @db.JsonB
+  createdAt    DateTime @default(now())
+
+  actor        User?    @relation(fields: [actorId], references: [userId], onDelete: SetNull)
+
+  @@index([actorId])
+  @@index([entity, entityId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+enum IngestionStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+model IngestionRun {
+  ingestionRunId String          @id @default(uuid()) @db.Uuid
+  status         IngestionStatus @default(PENDING)
+  countsSummary  Json?           @db.JsonB
+  errorSummary   String?         @db.Text
+  dryRun         Boolean         @default(false)
+  contentHash    String?
+  startedAt      DateTime        @default(now())
+  completedAt    DateTime?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("ingestion_runs")
+}
+
