@@ -67,3 +67,7 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
 ### D12 : Pagination par curseur opaque et agrégation de facettes pour le catalogue (N4, N5, N12)
 - **Décision :** La pagination des machines utilise un curseur opaque encodé en base64url contenant `{ createdAt, id }` avec un tri déterministe `[createdAt desc, id desc]`. La requête extrait `limit + 1` éléments pour déterminer `hasMore` sans `COUNT(*)` coûteux sur chaque requête.
 - **Facettes de filtrage :** Les facettes (`body`, `kind`, `state`) sont calculées en base via `groupBy` sur l'ensemble des machines publiées, permettant au client de disposer des décomptes exacts pour guider la navigation sans dépendre d'un moteur de recherche tiers hors MVP.
+
+### D13 : Isolation du module `logbook` et vérification de la machine parente (N4, N7)
+- **Décision :** Conformément à la règle d'isolation N4 et à la suite de tests `tests/unit/module_ownership.spec.ts`, le module `logbook` n'invoque pas le délégué `prisma.machine`. Pour vérifier l'existence et l'état de publication de la machine hôte sans violer les frontières d'isolation, `LogbookRepository` exécute une requête brute ciblée `SELECT id, slug, name FROM machines WHERE slug = $1 AND "isPublished" = true LIMIT 1` via `this.prisma.$queryRaw`.
+- **Performance réseau :** La liste de résumé des entrées (`GET /machines/:slug/logbook`) omet le champ verbeux `articleMarkdown` afin d'économiser la bande passante, tandis que le détail (`GET /machines/:slug/logbook/:entry`) retourne l'article intégral et les métadonnées vidéo.
