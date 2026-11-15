@@ -61,6 +61,12 @@ Une fois démarrée, l'application est disponible :
 - **Dashboard Mission Control (Admin) :** `http://localhost:3333/admin`
 - **Sonde de Disponibilité :** `http://localhost:3333/health/live`
 
+### Déploiement Cloud (Vercel & Neon PostgreSQL)
+Le backend est prêt pour le cloud et déployable directement sur **Vercel** en Serverless avec **Neon PostgreSQL**.
+- Convertissez vos certificats SSL pour le runtime serverless avec `node scripts/convert_ca_to_string.js ca.pem`.
+- Définissez `DATABASE_URL` et `CA_STRING` dans les variables d'environnement Vercel.
+- Consultez [docs/RUNBOOK.md](file:///home/pavel/Documents/Dev/NASA/SPACE%20LEGACY/Apps/server/docs/RUNBOOK.md) pour les instructions complètes.
+
 ---
 
 ## 5. Perspectives d'Évolution

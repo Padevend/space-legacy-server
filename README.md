@@ -61,6 +61,12 @@ Once started, the platform is ready:
 - **Mission Control Admin Dashboard:** `http://localhost:3333/admin`
 - **System Health:** `http://localhost:3333/health/live`
 
+### Cloud Deployment (Vercel & Neon PostgreSQL)
+The backend is cloud-ready and deployable directly on **Vercel** serverless functions with **Neon PostgreSQL**.
+- Convert SSL certificates for serverless runtime using `node scripts/convert_ca_to_string.js ca.pem`.
+- Set `DATABASE_URL` and `CA_STRING` in the Vercel project environment variables.
+- See [docs/RUNBOOK.md](file:///home/pavel/Documents/Dev/NASA/SPACE%20LEGACY/Apps/server/docs/RUNBOOK.md) for full deployment instructions.
+
 ---
 
 ## 5. Perspectives & Future Horizons

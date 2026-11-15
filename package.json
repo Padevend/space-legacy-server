@@ -16,14 +16,18 @@
     "#database/*": "./database/*.js",
     "#tests/*": "./tests/*.js"
   },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "tsx watch bin/server.ts",
-    "build": "tsc",
+    "build": "prisma generate && tsc",
+    "vercel-build": "prisma generate && tsc",
     "start": "node build/bin/server.js",
     "ace": "tsx ace.ts",
     "lint": "eslint .",
-    "format": "prettier --write \"app/**/*.ts\" \"bin/**/*.ts\" \"commands/**/*.ts\" \"config/**/*.ts\" \"start/**/*.ts\" \"tests/**/*.ts\" \"providers/**/*.ts\" \"ace.ts\" \"adonisrc.ts\"",
-    "format:check": "prettier --check \"app/**/*.ts\" \"bin/**/*.ts\" \"commands/**/*.ts\" \"config/**/*.ts\" \"start/**/*.ts\" \"tests/**/*.ts\" \"providers/**/*.ts\" \"ace.ts\" \"adonisrc.ts\"",
+    "format": "prettier --write \"api/**/*.ts\" \"app/**/*.ts\" \"bin/**/*.ts\" \"commands/**/*.ts\" \"config/**/*.ts\" \"start/**/*.ts\" \"tests/**/*.ts\" \"providers/**/*.ts\" \"ace.ts\" \"adonisrc.ts\"",
+    "format:check": "prettier --check \"api/**/*.ts\" \"app/**/*.ts\" \"bin/**/*.ts\" \"commands/**/*.ts\" \"config/**/*.ts\" \"start/**/*.ts\" \"tests/**/*.ts\" \"providers/**/*.ts\" \"ace.ts\" \"adonisrc.ts\"",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:unit": "vitest run tests/unit",

@@ -163,57 +163,56 @@ describe('E2E - Dashboard & Back-Office Interface (S11)', () => {
 
   describe('Consistency of Aggregations with Mutated Data', () => {
     it('accurately updates counters when content is toggled between published and unpublished', async () => {
-      // Initial overview read
-      const initialRes = await app.request('/api/v1/admin/overview', {
-        headers: { Authorization: `Bearer ${adminToken}` },
-      });
-      const initialBody = await initialRes.json();
-      const initialPublished = initialBody.overview.counters.machines.published;
-      const initialUnpublished = initialBody.overview.counters.machines.unpublished;
+      // Create an isolated temporary test machine to prevent cross-test parallel races
+      const moon = await prisma.celestialBody.findUnique({ where: { slug: 'moon' } });
+      expect(moon).not.toBeNull();
 
-      // Find an existing machine (e.g. curiosity)
-      const machine = await prisma.machine.findUnique({
-        where: { slug: 'curiosity' },
-      });
-      expect(machine).toBeDefined();
-      const wasPublished = machine!.isPublished;
-
-      // Toggle publication status using targeted PATCH
-      const patchRes = await app.request(`/api/v1/admin/machines/${machine!.id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${adminToken}`,
+      const testMachine = await prisma.machine.create({
+        data: {
+          slug: 'dashboard-temp-toggle-test',
+          name: 'Dashboard Temp Toggle Test',
+          summary: 'Temporary test machine summary for dashboard aggregation verification.',
+          description: 'Temporary test machine description for dashboard verification.',
+          missionPurpose: 'Test mission purpose.',
+          howItWorked: 'Test mechanism.',
+          discoveries: 'Test discoveries.',
+          kind: 'LANDER',
+          state: 'JOB_FINISHED',
+          bodyId: moon!.id,
+          isPublished: false,
         },
-        body: JSON.stringify({ isPublished: !wasPublished }),
       });
-      expect(patchRes.status).toBe(200);
 
-      // Verify mutated overview reflects immediately
-      const updatedRes = await app.request('/api/v1/admin/overview', {
-        headers: { Authorization: `Bearer ${adminToken}` },
-      });
-      const updatedBody = await updatedRes.json();
-      const newPublished = updatedBody.overview.counters.machines.published;
-      const newUnpublished = updatedBody.overview.counters.machines.unpublished;
+      try {
+        // Initial overview read
+        const initialRes = await app.request('/api/v1/admin/overview', {
+          headers: { Authorization: `Bearer ${adminToken}` },
+        });
+        const initialBody = await initialRes.json();
+        const initialPublished = initialBody.overview.counters.machines.published;
+        const initialUnpublished = initialBody.overview.counters.machines.unpublished;
 
-      if (wasPublished) {
-        expect(newPublished).toBe(initialPublished - 1);
-        expect(newUnpublished).toBe(initialUnpublished + 1);
-      } else {
-        expect(newPublished).toBe(initialPublished + 1);
-        expect(newUnpublished).toBe(initialUnpublished - 1);
+        // Toggle publication status using targeted PATCH
+        const patchRes = await app.request(`/api/v1/admin/machines/${testMachine.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${adminToken}`,
+          },
+          body: JSON.stringify({ isPublished: true }),
+        });
+        expect(patchRes.status).toBe(200);
+
+        // Verify mutated overview reflects immediately
+        const updatedRes = await app.request('/api/v1/admin/overview', {
+          headers: { Authorization: `Bearer ${adminToken}` },
+        });
+        const updatedBody = await updatedRes.json();
+        expect(updatedBody.overview.counters.machines.published).toBe(initialPublished + 1);
+        expect(updatedBody.overview.counters.machines.unpublished).toBe(initialUnpublished - 1);
+      } finally {
+        await prisma.machine.delete({ where: { id: testMachine.id } }).catch(() => {});
       }
-
-      // Revert back to original state to keep database idempotent
-      await app.request(`/api/v1/admin/machines/${machine!.id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${adminToken}`,
-        },
-        body: JSON.stringify({ isPublished: wasPublished }),
-      });
     });
   });
 });
