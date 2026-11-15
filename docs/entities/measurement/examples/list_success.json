@@ -2,8 +2,21 @@
   "success": true,
   "data": [
     {
-      "measurementId": "e3bad3fa-5243-41f2-bf2f-e3aa78ede120",
-      "equipmentId": "6f8e3c50-ec0d-4ab8-b0b5-a5440093939d",
+      "measurementId": "a6190c9e-871a-44ee-9304-3333f29a032d",
+      "equipmentId": "2dad677a-caeb-4b2d-8267-262f92fa1735",
+      "eventId": null,
+      "name": "Total Lunar Roving Vehicle Mass",
+      "value": "210.45678901",
+      "unit": "kg",
+      "measurementType": "MASS",
+      "context": "Earth weight including chassis, suspension, steering and battery assemblies.",
+      "measurementDate": "1972-12-07T05:33:00.000Z",
+      "isApproximate": false,
+      "uncertainty": "0.05000001"
+    },
+    {
+      "measurementId": "56c7e2b5-1251-4b83-b048-bbd662676227",
+      "equipmentId": "ac7c4b59-c195-483d-b165-4443647828f1",
       "eventId": null,
       "name": "Total Lunar Roving Vehicle Mass",
       "value": "210.45678901",
@@ -16,10 +29,10 @@
     }
   ],
   "meta": {
-    "requestId": "e24f66c2-48ef-4d7f-80f4-5f12ffa2257e",
+    "requestId": "3d2cb46c-03a4-4964-aea5-9220b72a4b54",
     "page": 1,
     "pageSize": 10,
-    "total": 1,
+    "total": 2,
     "totalPages": 1
   }
 }

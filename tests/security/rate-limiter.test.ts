@@ -1,8 +1,16 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { createApp } from '../../src/core/http/app.js';
-import { inMemoryLimiter, rateLimitMiddleware } from '../../src/core/security/rate-limiter.js';
-import { trustedProxyMiddleware } from '../../src/core/security/trusted-proxy.js';
-import type { ApiErrorResponse } from '../../src/core/exceptions/error-handler.js';
+import { Hono } from 'hono';
+import { inMemoryLimiter } from '../../app/infrastructure/rate_limit/memory_store.js';
+import { rateLimitMiddleware } from '../../app/infrastructure/rate_limit/limiter.js';
+import { trustedProxyMiddleware } from '../../app/infrastructure/security/trusted_proxy.js';
+import { exceptionHandler } from '#exceptions/handler';
+import type { ApiErrorResponse } from '#exceptions/handler';
+
+function createTestApp() {
+  const app = new Hono();
+  app.onError((err, c) => exceptionHandler.handle(err, c));
+  return app;
+}
 
 describe('Security: Rate Limiter & Trusted Proxy', () => {
   beforeEach(() => {
@@ -10,7 +18,7 @@ describe('Security: Rate Limiter & Trusted Proxy', () => {
   });
 
   it('sets standard RateLimit-* headers on allowed requests', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use(
       '/test-rate',
       rateLimitMiddleware({
@@ -29,7 +37,7 @@ describe('Security: Rate Limiter & Trusted Proxy', () => {
   });
 
   it('rejects the (N+1)th request with 429 TOO_MANY_REQUESTS and Retry-After header', async () => {
-    const app = createApp();
+    const app = createTestApp();
     const max = 3;
     app.use(
       '/test-exhaust',
@@ -61,7 +69,7 @@ describe('Security: Rate Limiter & Trusted Proxy', () => {
   });
 
   it('prevents rate-limit bypass: untrusted peer cannot spoof X-Forwarded-For', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use('*', trustedProxyMiddleware());
     app.use(
       '/test-spoof',
@@ -89,7 +97,7 @@ describe('Security: Rate Limiter & Trusted Proxy', () => {
   });
 
   it('respects X-Forwarded-For when request comes from a configured trusted proxy', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use('*', trustedProxyMiddleware());
     app.use(
       '/test-trusted',

@@ -1,11 +1,18 @@
 import { describe, it, expect } from 'vitest';
-import { createApp } from '../../src/core/http/app.js';
-import { csrfGuardMiddleware, strictCookieCsrfMiddleware } from '../../src/core/security/csrf.js';
-import type { ApiErrorResponse } from '../../src/core/exceptions/error-handler.js';
+import { Hono } from 'hono';
+import { csrfGuardMiddleware, strictCookieCsrfMiddleware } from '../../app/middleware/csrf_origin_middleware.js';
+import { exceptionHandler } from '#exceptions/handler';
+import type { ApiErrorResponse } from '#exceptions/handler';
+
+function createTestApp() {
+  const app = new Hono();
+  app.onError((err, c) => exceptionHandler.handle(err, c));
+  return app;
+}
 
 describe('Security: CSRF Guard', () => {
   it('allows safe methods (GET, HEAD, OPTIONS) regardless of Origin header', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use('*', csrfGuardMiddleware());
     app.get('/test-get', (c) => c.text('get-ok'));
 
@@ -18,7 +25,7 @@ describe('Security: CSRF Guard', () => {
   });
 
   it('blocks state-changing requests (POST) from disallowed Origin with 403 FORBIDDEN', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use('*', csrfGuardMiddleware());
     app.post('/test-post', (c) => c.text('post-ok'));
 
@@ -38,7 +45,7 @@ describe('Security: CSRF Guard', () => {
   });
 
   it('allows state-changing requests from allowed Origin', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use('*', csrfGuardMiddleware());
     app.post('/test-post', (c) => c.text('post-ok'));
 
@@ -54,7 +61,7 @@ describe('Security: CSRF Guard', () => {
   });
 
   it('strictCookieCsrfMiddleware blocks sensitive auth requests missing X-CSRF-Token header', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use('/auth-sensitive', strictCookieCsrfMiddleware());
     app.post('/auth-sensitive', (c) => c.text('sensitive-ok'));
 
@@ -74,7 +81,7 @@ describe('Security: CSRF Guard', () => {
   });
 
   it('strictCookieCsrfMiddleware allows requests with allowed Origin and valid X-CSRF-Token header', async () => {
-    const app = createApp();
+    const app = createTestApp();
     app.use('/auth-sensitive', strictCookieCsrfMiddleware());
     app.post('/auth-sensitive', (c) => c.text('sensitive-ok'));
 

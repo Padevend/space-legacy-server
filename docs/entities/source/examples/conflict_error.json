@@ -2,8 +2,8 @@
   "success": false,
   "error": {
     "code": "CONFLICT",
-    "message": "Source with URL 'https://history.nasa.gov/test-report-1794703458572.pdf' already exists.",
+    "message": "A record with this field already exists.",
     "status": 409,
-    "requestId": "a3ce8dbe-fa12-4693-b405-34ffe3a51982"
+    "requestId": "9813ce1a-2953-42fd-9e11-c13dac81c95c"
   }
 }

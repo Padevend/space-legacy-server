@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createServer } from '../../bin/server.js';
-import type { RouteEntry } from '../../commands/routes-list.js';
+import type { RouteEntry } from '../../commands/routes_list.js';
 
 describe('Documentation Anti-Drift Verification (Contract)', () => {
   it('ensures routes-map.json exists and accurately mirrors the server routing registry', () => {
@@ -35,7 +35,7 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
 
   it('verifies mutual type assignability between User serializer and docs/entities/user/model.ts', async () => {
     // Compile-time assignability assertion
-    type UserSerializerType = import('../../src/modules/auth/auth.schemas.js').UserProfileDto;
+    type UserSerializerType = import('../../app/modules/auth/validators/auth.js').UserProfileDto;
     type UserEntityType = import('../../docs/entities/user/model.js').User;
 
     type AssertAssignable<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
@@ -47,25 +47,25 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
     type AssertAssignable<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
 
     // CelestialBody
-    type CBSerializer = import('../../src/modules/celestial-bodies/celestial-bodies.schemas.js').CelestialBodyDto;
+    type CBSerializer = import('../../app/modules/celestial_bodies/validators/celestial_body.js').CelestialBodyDto;
     type CBEntity = import('../../docs/entities/celestial-body/model.js').CelestialBody;
     const cbAssignable: AssertAssignable<CBSerializer, CBEntity> = true;
     expect(cbAssignable).toBe(true);
 
     // Location
-    type LocSerializer = import('../../src/modules/locations/locations.schemas.js').LocationDto;
+    type LocSerializer = import('../../app/modules/locations/validators/location.js').LocationDto;
     type LocEntity = import('../../docs/entities/location/model.js').Location;
     const locAssignable: AssertAssignable<LocSerializer, LocEntity> = true;
     expect(locAssignable).toBe(true);
 
     // Person
-    type PersonSerializer = import('../../src/modules/people/people.schemas.js').PersonDto;
+    type PersonSerializer = import('../../app/modules/people/validators/person.js').PersonDto;
     type PersonEntity = import('../../docs/entities/person/model.js').Person;
     const personAssignable: AssertAssignable<PersonSerializer, PersonEntity> = true;
     expect(personAssignable).toBe(true);
 
     // Source
-    type SourceSerializer = import('../../src/modules/sources/sources.schemas.js').SourceDto;
+    type SourceSerializer = import('../../app/modules/sources/validators/source.js').SourceDto;
     type SourceEntity = import('../../docs/entities/source/model.js').Source;
     const sourceAssignable: AssertAssignable<SourceSerializer, SourceEntity> = true;
     expect(sourceAssignable).toBe(true);
@@ -75,25 +75,25 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
     type AssertAssignable<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
 
     // Mission
-    type MissionSerializer = import('../../src/modules/missions/missions.schemas.js').MissionDto;
+    type MissionSerializer = import('../../app/modules/missions/validators/mission.js').MissionDto;
     type MissionEntity = import('../../docs/entities/mission/model.js').Mission;
     const missionAssignable: AssertAssignable<MissionSerializer, MissionEntity> = true;
     expect(missionAssignable).toBe(true);
 
     // Equipment
-    type EquipmentSerializer = import('../../src/modules/equipment/equipment.schemas.js').EquipmentDto;
+    type EquipmentSerializer = import('../../app/modules/equipment/validators/equipment.js').EquipmentDto;
     type EquipmentEntity = import('../../docs/entities/equipment/model.js').Equipment;
     const equipAssignable: AssertAssignable<EquipmentSerializer, EquipmentEntity> = true;
     expect(equipAssignable).toBe(true);
 
     // Event
-    type EventSerializer = import('../../src/modules/events/events.schemas.js').EventDto;
+    type EventSerializer = import('../../app/modules/events/validators/event.js').EventDto;
     type EventEntity = import('../../docs/entities/event/model.js').Event;
     const eventAssignable: AssertAssignable<EventSerializer, EventEntity> = true;
     expect(eventAssignable).toBe(true);
 
     // Measurement
-    type MeasurementSerializer = import('../../src/modules/measurements/measurements.schemas.js').MeasurementDto;
+    type MeasurementSerializer = import('../../app/modules/measurements/validators/measurement.js').MeasurementDto;
     type MeasurementEntity = import('../../docs/entities/measurement/model.js').Measurement;
     const measurementAssignable: AssertAssignable<MeasurementSerializer, MeasurementEntity> = true;
     expect(measurementAssignable).toBe(true);
@@ -103,13 +103,13 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
     type AssertAssignable<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
 
     // Media
-    type MediaSerializer = import('../../src/modules/media/media.schemas.js').MediaDto;
+    type MediaSerializer = import('../../app/modules/media/validators/media.js').MediaDto;
     type MediaEntity = import('../../docs/entities/media/model.js').Media;
     const mediaAssignable: AssertAssignable<MediaSerializer, MediaEntity> = true;
     expect(mediaAssignable).toBe(true);
 
     // Story
-    type StorySerializer = import('../../src/modules/stories/stories.schemas.js').StoryDto;
+    type StorySerializer = import('../../app/modules/stories/validators/story.js').StoryDto;
     type StoryEntity = import('../../docs/entities/story/model.js').Story;
     const storyAssignable: AssertAssignable<StorySerializer, StoryEntity> = true;
     expect(storyAssignable).toBe(true);

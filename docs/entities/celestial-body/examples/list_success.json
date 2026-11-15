@@ -8,6 +8,12 @@
       "description": "Updated Europa description with water ocean details."
     },
     {
+      "celestialBodyId": "9e3370ec-c339-4502-9d47-de66af4347c2",
+      "name": "Europa-Test-1794709162750",
+      "bodyType": "MOON",
+      "description": "Sixth-closest moon of Jupiter."
+    },
+    {
       "celestialBodyId": "66595dee-2e1b-4733-bc3a-d9f0d015033c",
       "name": "Mars [TEST-SEED]",
       "bodyType": "PLANET",
@@ -57,10 +63,10 @@
     }
   ],
   "meta": {
-    "requestId": "7deee308-e772-49a8-99f1-124e31c8f4f1",
+    "requestId": "d0c0e008-9876-4290-8241-3a19d1a63ead",
     "page": 1,
     "pageSize": 10,
-    "total": 9,
-    "totalPages": 1
+    "total": 19,
+    "totalPages": 2
   }
 }

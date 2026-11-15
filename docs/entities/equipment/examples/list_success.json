@@ -80,37 +80,63 @@
       "updatedAt": "2026-11-15T00:44:20.811Z"
     },
     {
-      "equipmentId": "6a92a392-bf6f-4998-92d6-f4846dff7b11",
+      "equipmentId": "2dad677a-caeb-4b2d-8267-262f92fa1735",
       "parentEquipmentId": null,
-      "name": "Lunar Roving Vehicle (LRV-3)",
-      "slug": "lrv-test-1794703458584",
-      "description": "Electric four-wheeled rover used on the lunar surface during Apollo 17.",
-      "equipmentType": "ROVER",
-      "manufacturer": "Boeing / Delco",
-      "operationalStatus": "INACTIVE",
-      "physicalStatus": "LEFT_ON_SURFACE",
-      "createdAt": "2026-11-15T00:44:20.941Z",
-      "updatedAt": "2026-11-15T00:44:20.941Z"
-    },
-    {
-      "equipmentId": "b44547b4-d47a-4b54-b0b6-c4b5faefb41f",
-      "parentEquipmentId": null,
-      "name": "Lunar Roving Vehicle 1794703356362",
-      "slug": "lrv-1794703356362",
+      "name": "LRV Rover Mass Test-1794709158679",
+      "slug": "lrv-mass-1794709158679",
       "description": null,
       "equipmentType": "ROVER",
       "manufacturer": null,
       "operationalStatus": "UNKNOWN",
       "physicalStatus": "UNKNOWN",
-      "createdAt": "2026-11-15T00:42:36.363Z",
-      "updatedAt": "2026-11-15T00:42:36.363Z"
+      "createdAt": "2026-11-15T02:19:18.681Z",
+      "updatedAt": "2026-11-15T02:19:18.681Z"
+    },
+    {
+      "equipmentId": "50119aa5-1643-4b3d-a009-a85b0ef3f295",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794730214987",
+      "slug": "lrv-mass-1794730214987",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T08:10:14.988Z",
+      "updatedAt": "2026-11-15T08:10:14.988Z"
+    },
+    {
+      "equipmentId": "b21d94e2-ac60-4570-bc0c-9cfa39053e48",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794732231654",
+      "slug": "lrv-mass-1794732231654",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T08:43:51.659Z",
+      "updatedAt": "2026-11-15T08:43:51.659Z"
+    },
+    {
+      "equipmentId": "42f562a2-bc1a-4465-b502-3f6ecf7c1bc6",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794734255432",
+      "slug": "lrv-mass-1794734255432",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T09:17:35.439Z",
+      "updatedAt": "2026-11-15T09:17:35.439Z"
     }
   ],
   "meta": {
-    "requestId": "87a0a9e3-976b-4845-9a35-7d8bca770004",
+    "requestId": "057ffbb7-e300-44c0-a7e2-a6acc884f02d",
     "page": 1,
     "pageSize": 10,
-    "total": 8,
-    "totalPages": 1
+    "total": 21,
+    "totalPages": 3
   }
 }

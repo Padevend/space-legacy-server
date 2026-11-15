@@ -160,6 +160,7 @@ enum MeasurementType {
 // CORE MODELS
 // ======================================================
 
+// module: missions
 model Mission {
   missionId   String        @id @default(uuid()) @db.Uuid
   name        String
@@ -183,6 +184,7 @@ model Mission {
   @@map("missions")
 }
 
+// module: equipment
 model Equipment {
   equipmentId       String             @id @default(uuid()) @db.Uuid
   parentEquipmentId String?            @db.Uuid
@@ -221,6 +223,7 @@ model Equipment {
   @@map("equipments")
 }
 
+// module: events
 model Event {
   eventId       String        @id @default(uuid()) @db.Uuid
   missionId     String        @db.Uuid
@@ -255,6 +258,7 @@ model Event {
   @@map("events")
 }
 
+// module: celestial_bodies
 model CelestialBody {
   celestialBodyId String            @id @default(uuid()) @db.Uuid
   name            String            @unique
@@ -266,6 +270,7 @@ model CelestialBody {
   @@map("celestial_bodies")
 }
 
+// module: locations
 model Location {
   locationId      String       @id @default(uuid()) @db.Uuid
   celestialBodyId String?      @db.Uuid
@@ -289,6 +294,7 @@ model Location {
   @@map("locations")
 }
 
+// module: people
 model Person {
   personId    String  @id @default(uuid()) @db.Uuid
   fullName    String
@@ -307,6 +313,7 @@ model Person {
 // DOCUMENTATION AND TRACEABILITY
 // ======================================================
 
+// module: archives
 model Archive {
   archiveId      String   @id @default(uuid()) @db.Uuid
 
@@ -332,6 +339,7 @@ model Archive {
   @@map("archives")
 }
 
+// module: sources
 model Source {
   sourceId        String     @id @default(uuid()) @db.Uuid
 
@@ -360,6 +368,7 @@ model Source {
 // EDITORIAL CONTENT
 // ======================================================
 
+// module: stories
 model Story {
   storyId          String            @id @default(uuid()) @db.Uuid
 
@@ -389,6 +398,7 @@ model Story {
   @@map("stories")
 }
 
+// module: media
 model Media {
   mediaId          String          @id @default(uuid()) @db.Uuid
 
@@ -417,6 +427,7 @@ model Media {
 // SCIENTIFIC DATA
 // ======================================================
 
+// module: measurements
 model Measurement {
   measurementId  String          @id @default(uuid()) @db.Uuid
 
@@ -450,6 +461,7 @@ model Measurement {
 // MISSION ASSOCIATIONS
 // ======================================================
 
+// module: missions
 model MissionEquipment {
   missionId                String @db.Uuid
   equipmentId              String @db.Uuid
@@ -466,6 +478,7 @@ model MissionEquipment {
   @@map("mission_equipments")
 }
 
+// module: missions
 model MissionPerson {
   missionId    String @db.Uuid
   personId     String @db.Uuid
@@ -480,6 +493,7 @@ model MissionPerson {
   @@map("mission_people")
 }
 
+// module: sources
 model MissionSource {
   missionId       String @db.Uuid
   sourceId        String @db.Uuid
@@ -494,6 +508,7 @@ model MissionSource {
   @@map("mission_sources")
 }
 
+// module: archives
 model ArchiveMission {
   archiveId   String @db.Uuid
   missionId   String @db.Uuid
@@ -512,6 +527,7 @@ model ArchiveMission {
 // EQUIPMENT ASSOCIATIONS
 // ======================================================
 
+// module: events
 model EventEquipment {
   eventId     String @db.Uuid
   equipmentId String @db.Uuid
@@ -528,6 +544,7 @@ model EventEquipment {
   @@map("event_equipments")
 }
 
+// module: locations
 model EquipmentLocation {
   equipmentLocationId String        @id @default(uuid()) @db.Uuid
   equipmentId         String        @db.Uuid
@@ -546,6 +563,7 @@ model EquipmentLocation {
   @@map("equipment_locations")
 }
 
+// module: equipment
 model EquipmentPerson {
   equipmentId    String @db.Uuid
   personId       String @db.Uuid
@@ -560,6 +578,7 @@ model EquipmentPerson {
   @@map("equipment_people")
 }
 
+// module: sources
 model EquipmentSource {
   equipmentId     String @db.Uuid
   sourceId        String @db.Uuid
@@ -574,6 +593,7 @@ model EquipmentSource {
   @@map("equipment_sources")
 }
 
+// module: archives
 model ArchiveEquipment {
   archiveId        String @db.Uuid
   equipmentId      String @db.Uuid
@@ -593,6 +613,7 @@ model ArchiveEquipment {
 // EVENT ASSOCIATIONS
 // ======================================================
 
+// module: events
 model EventLocation {
   eventId       String @db.Uuid
   locationId    String @db.Uuid
@@ -609,6 +630,7 @@ model EventLocation {
   @@map("event_locations")
 }
 
+// module: events
 model EventPerson {
   eventId     String @db.Uuid
   personId    String @db.Uuid
@@ -623,6 +645,7 @@ model EventPerson {
   @@map("event_people")
 }
 
+// module: sources
 model EventSource {
   eventId         String @db.Uuid
   sourceId        String @db.Uuid
@@ -637,6 +660,7 @@ model EventSource {
   @@map("event_sources")
 }
 
+// module: archives
 model ArchiveEvent {
   archiveId        String @db.Uuid
   eventId          String @db.Uuid
@@ -652,6 +676,7 @@ model ArchiveEvent {
   @@map("archive_events")
 }
 
+// module: archives
 model ArchiveSource {
   archiveId       String @db.Uuid
   sourceId        String @db.Uuid
@@ -670,6 +695,7 @@ model ArchiveSource {
 // STORY ASSOCIATIONS
 // ======================================================
 
+// module: stories
 model StoryMission {
   storyId      String @db.Uuid
   missionId    String @db.Uuid
@@ -684,6 +710,7 @@ model StoryMission {
   @@map("story_missions")
 }
 
+// module: stories
 model StoryEquipment {
   storyId       String @db.Uuid
   equipmentId   String @db.Uuid
@@ -700,6 +727,7 @@ model StoryEquipment {
   @@map("story_equipments")
 }
 
+// module: stories
 model StoryEvent {
   storyId      String @db.Uuid
   eventId      String @db.Uuid
@@ -714,6 +742,7 @@ model StoryEvent {
   @@map("story_events")
 }
 
+// module: stories
 model StoryMedia {
   storyId         String @db.Uuid
   mediaId         String @db.Uuid
@@ -730,6 +759,7 @@ model StoryMedia {
   @@map("story_media")
 }
 
+// module: stories
 model StorySource {
   storyId         String @db.Uuid
   sourceId        String @db.Uuid
@@ -746,6 +776,7 @@ model StorySource {
   @@map("story_sources")
 }
 
+// module: media
 model EquipmentMedia {
   equipmentId      String @db.Uuid
   mediaId          String @db.Uuid
@@ -764,6 +795,7 @@ model EquipmentMedia {
 // MEASUREMENT ASSOCIATIONS
 // ======================================================
 
+// module: sources
 model MeasurementSource {
   measurementId   String @db.Uuid
   sourceId        String @db.Uuid
@@ -787,6 +819,7 @@ enum UserRole {
   EDITOR
 }
 
+// module: auth
 model User {
   userId           String         @id @default(uuid()) @db.Uuid
   email            String         @unique
@@ -806,6 +839,7 @@ model User {
   @@map("users")
 }
 
+// module: auth
 model RefreshToken {
   refreshTokenId String    @id @default(uuid()) @db.Uuid
   tokenHash      String    @unique
@@ -824,6 +858,7 @@ model RefreshToken {
   @@map("refresh_tokens")
 }
 
+// module: audit
 model AuditLog {
   auditLogId   String   @id @default(uuid()) @db.Uuid
   actorId      String?  @db.Uuid
@@ -849,6 +884,7 @@ enum IngestionStatus {
   FAILED
 }
 
+// module: ingestion
 model IngestionRun {
   ingestionRunId String          @id @default(uuid()) @db.Uuid
   status         IngestionStatus @default(PENDING)

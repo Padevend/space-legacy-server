@@ -1,12 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { createApp } from '../../src/core/http/app.js';
-import { registerGlobalMiddleware } from '../../start/kernel.js';
-import { AppException } from '../../src/core/exceptions/AppException.js';
+import { createServer } from '../../bin/server.js';
+import { AppException } from '#exceptions/app_exception';
 
 describe('Unified Error Handling (E2E)', () => {
   it('returns 404 with unified error envelope on nonexistent route', async () => {
-    const app = createApp();
-    registerGlobalMiddleware(app);
+    const app = createServer();
 
     const res = await app.request('/api/v1/nonexistent-endpoint-test');
 
@@ -24,8 +22,7 @@ describe('Unified Error Handling (E2E)', () => {
   });
 
   it('catches unhandled exceptions and formats as 500 INTERNAL_ERROR', async () => {
-    const app = createApp();
-    registerGlobalMiddleware(app);
+    const app = createServer();
 
     app.get('/test-crash', () => {
       throw new Error(
@@ -47,8 +44,7 @@ describe('Unified Error Handling (E2E)', () => {
     const originalEnv = process.env['NODE_ENV'];
     process.env['NODE_ENV'] = 'production';
 
-    const app = createApp();
-    registerGlobalMiddleware(app);
+    const app = createServer();
 
     app.get('/test-prod-leak', () => {
       throw new Error('/var/app/src/secret.ts:42 syntax error near SELECT * FROM users');

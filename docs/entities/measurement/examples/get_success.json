@@ -1,8 +1,8 @@
 {
   "success": true,
   "data": {
-    "measurementId": "e3bad3fa-5243-41f2-bf2f-e3aa78ede120",
-    "equipmentId": "6f8e3c50-ec0d-4ab8-b0b5-a5440093939d",
+    "measurementId": "56c7e2b5-1251-4b83-b048-bbd662676227",
+    "equipmentId": "ac7c4b59-c195-483d-b165-4443647828f1",
     "eventId": null,
     "name": "Total Lunar Roving Vehicle Mass",
     "value": "210.45678901",
@@ -13,20 +13,20 @@
     "isApproximate": false,
     "uncertainty": "0.05000001",
     "equipment": {
-      "equipmentId": "6f8e3c50-ec0d-4ab8-b0b5-a5440093939d",
-      "name": "LRV Rover Mass Test-1794703460807",
-      "slug": "lrv-mass-1794703460807"
+      "equipmentId": "ac7c4b59-c195-483d-b165-4443647828f1",
+      "name": "LRV Rover Mass Test-1794735211689",
+      "slug": "lrv-mass-1794735211689"
     },
     "sources": [
       {
-        "sourceId": "55eb204b-7545-4688-a50a-683f64aee315",
-        "title": "Lunar Surface Science Report-1794703460822",
-        "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov-1794703460822.pdf",
+        "sourceId": "75c7f30c-1856-4b35-a775-fc3026bdbeef",
+        "title": "Lunar Surface Science Report-1794735211698",
+        "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov-1794735211698.pdf",
         "claimDescription": "Apollo 17 Mission Report table 4-2"
       }
     ]
   },
   "meta": {
-    "requestId": "b9566437-3f30-4bbb-930a-f600e9d0b098"
+    "requestId": "5ff7005c-118c-44e0-9a8b-ec1dd6595f0a"
   }
 }

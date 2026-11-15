@@ -1,60 +1,99 @@
-import type { OpenAPIHono } from '@hono/zod-openapi';
-import type { AppEnv } from '../src/core/http/context.js';
-import { healthRouter } from '../src/modules/health/health.routes.js';
-import { authRouter } from '../src/modules/auth/auth.routes.js';
-import { usersRouter } from '../src/modules/users/users.routes.js';
-import {
-  publicCelestialBodiesRouter,
-  adminCelestialBodiesRouter,
-} from '../src/modules/celestial-bodies/celestial-bodies.routes.js';
-import { publicLocationsRouter, adminLocationsRouter } from '../src/modules/locations/locations.routes.js';
-import { publicPeopleRouter, adminPeopleRouter } from '../src/modules/people/people.routes.js';
-import { publicSourcesRouter, adminSourcesRouter } from '../src/modules/sources/sources.routes.js';
-import { publicMissionsRouter, adminMissionsRouter } from '../src/modules/missions/missions.routes.js';
-import { publicEquipmentRouter, adminEquipmentRouter } from '../src/modules/equipment/equipment.routes.js';
-import { publicEventsRouter, adminEventsRouter } from '../src/modules/events/events.routes.js';
-import { publicMeasurementsRouter, adminMeasurementsRouter } from '../src/modules/measurements/measurements.routes.js';
-import { publicMediaRouter, adminMediaRouter } from '../src/modules/media/media.routes.js';
-import { publicStoriesRouter, adminStoriesRouter } from '../src/modules/stories/stories.routes.js';
+import type { Hono } from 'hono';
+import router from '#infrastructure/http/router';
+import { HealthController } from '#modules/health/controllers/health_controller';
 
-export function registerRoutes(app: OpenAPIHono<AppEnv>): void {
-  // Liveness and Readiness Probes
-  app.route('/api/v1/health', healthRouter);
-  app.route('/health', healthRouter); // Root alias for infrastructure probes
+// Module route registrars
+import { registerHealthPublicRoutes } from '#modules/health/routes/public';
+import { registerAuthPublicRoutes } from '#modules/auth/routes/public';
+import { registerAuthAdminRoutes } from '#modules/auth/routes/admin';
+import { registerAuditAdminRoutes } from '#modules/audit/routes/admin';
+import { registerCelestialBodiesPublicRoutes } from '#modules/celestial_bodies/routes/public';
+import { registerCelestialBodiesAdminRoutes } from '#modules/celestial_bodies/routes/admin';
+import { registerLocationsPublicRoutes } from '#modules/locations/routes/public';
+import { registerLocationsAdminRoutes } from '#modules/locations/routes/admin';
+import { registerPeoplePublicRoutes } from '#modules/people/routes/public';
+import { registerPeopleAdminRoutes } from '#modules/people/routes/admin';
+import { registerSourcesPublicRoutes } from '#modules/sources/routes/public';
+import { registerSourcesAdminRoutes } from '#modules/sources/routes/admin';
+import { registerMissionsPublicRoutes } from '#modules/missions/routes/public';
+import { registerMissionsAdminRoutes } from '#modules/missions/routes/admin';
+import { registerEquipmentPublicRoutes } from '#modules/equipment/routes/public';
+import { registerEquipmentAdminRoutes } from '#modules/equipment/routes/admin';
+import { registerEventsPublicRoutes } from '#modules/events/routes/public';
+import { registerEventsAdminRoutes } from '#modules/events/routes/admin';
+import { registerMeasurementsPublicRoutes } from '#modules/measurements/routes/public';
+import { registerMeasurementsAdminRoutes } from '#modules/measurements/routes/admin';
+import { registerMediaPublicRoutes } from '#modules/media/routes/public';
+import { registerMediaAdminRoutes } from '#modules/media/routes/admin';
+import { registerStoriesPublicRoutes } from '#modules/stories/routes/public';
+import { registerStoriesAdminRoutes } from '#modules/stories/routes/admin';
+import { registerArchivesAdminRoutes } from '#modules/archives/routes/admin';
+import { registerIngestionAdminRoutes } from '#modules/ingestion/routes/admin';
+import { registerCatalogPublicRoutes } from '#modules/catalog/routes/public';
+import { registerDashboardAdminRoutes } from '#modules/dashboard/routes/admin';
 
-  // Auth & Session Management
-  app.route('/api/v1/auth', authRouter);
+// Root health aliases for infrastructure/container orchestration probes
+const rHealth = router.forModule('health');
+rHealth.get('/health/live', [HealthController, 'live']).as('health.root_live');
+rHealth.get('/health/ready', [HealthController, 'ready']).as('health.root_ready');
 
-  // Reference Data (Public)
-  app.route('/api/v1/celestial-bodies', publicCelestialBodiesRouter);
-  app.route('/api/v1/locations', publicLocationsRouter);
-  app.route('/api/v1/people', publicPeopleRouter);
-  app.route('/api/v1/sources', publicSourcesRouter);
+// Group all versioned API routes under /api/v1
+router.enterGroup('/api/v1', []);
 
-  // Core Domain (Public)
-  app.route('/api/v1/missions', publicMissionsRouter);
-  app.route('/api/v1/equipment', publicEquipmentRouter);
-  app.route('/api/v1/events', publicEventsRouter);
-  app.route('/api/v1/measurements', publicMeasurementsRouter);
+// Health Module
+registerHealthPublicRoutes(router);
 
-  // Editorial Content (Public)
-  app.route('/api/v1/media', publicMediaRouter);
-  app.route('/api/v1/stories', publicStoriesRouter);
+// Auth Module (Public + Admin)
+registerAuthPublicRoutes(router);
+registerAuthAdminRoutes(router);
 
-  // Admin Management Surfaces
-  app.route('/api/v1/admin/users', usersRouter);
-  app.route('/api/v1/admin/celestial-bodies', adminCelestialBodiesRouter);
-  app.route('/api/v1/admin/locations', adminLocationsRouter);
-  app.route('/api/v1/admin/people', adminPeopleRouter);
-  app.route('/api/v1/admin/sources', adminSourcesRouter);
+// Audit Module (Admin)
+registerAuditAdminRoutes(router);
 
-  // Core Domain (Admin)
-  app.route('/api/v1/admin/missions', adminMissionsRouter);
-  app.route('/api/v1/admin/equipment', adminEquipmentRouter);
-  app.route('/api/v1/admin/events', adminEventsRouter);
-  app.route('/api/v1/admin/measurements', adminMeasurementsRouter);
+// Reference Data Modules (Public + Admin)
+registerCelestialBodiesPublicRoutes(router);
+registerCelestialBodiesAdminRoutes(router);
 
-  // Editorial Content (Admin)
-  app.route('/api/v1/admin/media', adminMediaRouter);
-  app.route('/api/v1/admin/stories', adminStoriesRouter);
+registerLocationsPublicRoutes(router);
+registerLocationsAdminRoutes(router);
+
+registerPeoplePublicRoutes(router);
+registerPeopleAdminRoutes(router);
+
+registerSourcesPublicRoutes(router);
+registerSourcesAdminRoutes(router);
+
+// Core Domain Modules (Public + Admin)
+registerMissionsPublicRoutes(router);
+registerMissionsAdminRoutes(router);
+
+registerEquipmentPublicRoutes(router);
+registerEquipmentAdminRoutes(router);
+
+registerEventsPublicRoutes(router);
+registerEventsAdminRoutes(router);
+
+registerMeasurementsPublicRoutes(router);
+registerMeasurementsAdminRoutes(router);
+
+registerMediaPublicRoutes(router);
+registerMediaAdminRoutes(router);
+
+registerStoriesPublicRoutes(router);
+registerStoriesAdminRoutes(router);
+
+// Archives & Ingestion Modules (Admin)
+registerArchivesAdminRoutes(router);
+registerIngestionAdminRoutes(router);
+
+// Projections & Composed Query Modules
+registerCatalogPublicRoutes(router);
+registerDashboardAdminRoutes(router);
+
+router.leaveGroup();
+
+export function registerRoutes(app: Hono): void {
+  router.toHono(app);
 }
+
+export default router;

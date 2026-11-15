@@ -1,19 +1,20 @@
 {
   "success": true,
   "data": {
-    "equipmentId": "6a92a392-bf6f-4998-92d6-f4846dff7b11",
+    "equipmentId": "68d39106-ecbd-44e4-a87a-97847496c363",
     "parentEquipmentId": null,
     "name": "Lunar Roving Vehicle (LRV-3)",
-    "slug": "lrv-test-1794703458584",
+    "slug": "lrv-test-1794735198790",
     "description": "Electric four-wheeled rover used on the lunar surface during Apollo 17.",
     "equipmentType": "ROVER",
     "manufacturer": "Boeing / Delco",
     "operationalStatus": "INACTIVE",
     "physicalStatus": "LEFT_ON_SURFACE",
-    "createdAt": "2026-11-15T00:44:20.941Z",
-    "updatedAt": "2026-11-15T00:44:20.941Z"
+    "createdAt": "2026-11-15T09:33:22.927Z",
+    "updatedAt": "2026-11-15T09:33:22.927Z",
+    "parent": null
   },
   "meta": {
-    "requestId": "d815ad8c-1949-407c-9dff-79e0f52eaf9e"
+    "requestId": "b24e20ce-bab7-44e5-ad05-4e11395bf61c"
   }
 }
