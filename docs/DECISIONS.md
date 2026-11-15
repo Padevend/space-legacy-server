@@ -84,3 +84,14 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
   - Les réponses complètes avec `isCorrect` effectif et l'`explanation` scientifique NASA ne sont retournées qu'après la validation de la soumission dans le DTO de résultat.
   - L'évaluation des règles de badges (`QUIZ_COMPLETED_COUNT`, `PERFECT_SCORE_COUNT`, `BODY_ALL_QUIZZES`) s'exécute automatiquement dans la transaction de soumission. Tout nouveau badge décroché est inséré en base et renvoyé dans `newBadges`.
 - **Fusion événementielle asynchrone (N4) :** Le module `games` s'abonne à l'événement de domaine `VisitorMerged` via l'EventBus partagé. Lorsque l'utilisateur anonyme s'authentifie, toutes ses tentatives (`QuizAttempt`) et tous ses badges (`VisitorBadge`) sont fusionnés de manière atomique vers le compte connecté sans couplage direct entre les modules `identity` et `games`.
+
+### D16 : Surface d'administration `/api/v1/admin`, modifications ciblées en PATCH et matrice d'accès RBAC (N4, N5, N7, N12)
+- **Décision :** La surface d'administration `/api/v1/admin` est protégée au niveau du groupe de routage par la combinaison des middlewares `auth()` (résolution de session opaque via `SessionResolver`) et `requireRole('ADMIN')`.
+- **Matrice de contrôle d'accès (E2E-P7) :**
+  - Requête non authentifiée : 401 `UNAUTHENTICATED`.
+  - Session anonyme : 401 `UNAUTHENTICATED` (ou 403 si session sans compte).
+  - Utilisateur authentifié au rôle `USER` : 403 `FORBIDDEN` avec le message normé `"Admin role required to perform this action."`.
+  - Compte administrateur (`role: 'ADMIN'`) : Accès autorisé 200/201/204.
+- **Règle stricte des modifications ciblées (N5) :** Toutes les routes de mise à jour (`PATCH /bodies/:id`, `PATCH /machines/:id`, `PATCH /machines/:id/{sources,facts,events,images}/:subId`, `PATCH /logbook/:id`) acceptent exclusivement des corps partiels validés par Zod avec `.strict()`. Seuls les champs explicitement fournis sont mis à jour en base.
+- **Réflexion publique immédiate :** Tout basculement de `isPublished` ou modification de contenu éditorial est immédiatement visible ou masqué sur les endpoints publics (`/machines`, `/machines/:slug`, `/logbook`, `/bodies`) sans délai ni cache résiduel.
+- **Traçabilité des sources (N7) :** L'ajout ou l'édition de `MachineSource` applique la fonction `assertAllowedSourceUrl` contre `ALLOWED_SOURCE_HOSTS` (`nasa.gov`, `jpl.nasa.gov`), interdisant tout hôte non officiel avec une réponse 422 `UNSUPPORTED_SOURCE_HOST`.
