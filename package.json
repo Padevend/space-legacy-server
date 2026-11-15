@@ -36,7 +36,9 @@
     "routes:list": "tsx ace.ts routes:list",
     "docs:generate": "tsx ace.ts docs:generate",
     "db:migrate": "prisma migrate deploy",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "db:reset": "tsx commands/db_reset.ts",
+    "admin:create": "tsx commands/create_admin.ts"
   },
   "dependencies": {
     "@hono/node-server": "2.1.8",
