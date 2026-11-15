@@ -15,14 +15,17 @@ export const requestLogger = (): MiddlewareHandler => {
     const status = c.res.status;
     const userId = c.get('userId');
 
-    logger.info({
-      requestId,
-      method,
-      path,
-      status,
-      durationMs: duration,
-      clientIp,
-      ...(userId ? { userId } : {}),
-    }, `${method} ${path} -> ${status} (${duration}ms)`);
+    logger.info(
+      {
+        requestId,
+        method,
+        path,
+        status,
+        durationMs: duration,
+        clientIp,
+        ...(userId ? { userId } : {}),
+      },
+      `${method} ${path} -> ${status} (${duration}ms)`
+    );
   };
 };

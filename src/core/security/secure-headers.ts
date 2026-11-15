@@ -20,7 +20,10 @@ export const secureHeadersMiddleware = (): MiddlewareHandler => {
       c.header('Content-Security-Policy', securityConfig.headers.contentSecurityPolicy);
     }
 
-    if (securityConfig.headers.strictTransportSecurity) {
+    const isProd = process.env['NODE_ENV'] === 'production';
+    if (isProd) {
+      c.header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    } else if (securityConfig.headers.strictTransportSecurity) {
       c.header('Strict-Transport-Security', securityConfig.headers.strictTransportSecurity);
     }
   };

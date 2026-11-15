@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "data": {
+    "userId": "de8d2cbb-7652-4bb9-b012-45a6ff5e85ce",
+    "email": "auth-test-1794701190013@spacelegacy.test",
+    "role": "EDITOR",
+    "isActive": true,
+    "createdAt": "2026-11-15T00:06:31.008Z",
+    "updatedAt": "2026-11-15T00:06:33.113Z"
+  },
+  "meta": {
+    "requestId": "5fb016f3-5e4a-4543-b36e-12172155e44d"
+  }
+}

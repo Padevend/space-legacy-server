@@ -3,9 +3,7 @@ import { AppException, type ValidationErrorDetail } from './AppException.js';
 
 export function mapZodError(error: ZodError, prefix = ''): AppException {
   const details: ValidationErrorDetail[] = error.issues.map((issue) => {
-    const fullPath = prefix
-      ? `${prefix}.${issue.path.join('.')}`
-      : issue.path.join('.');
+    const fullPath = prefix ? `${prefix}.${issue.path.join('.')}` : issue.path.join('.');
 
     return {
       path: fullPath || 'body',

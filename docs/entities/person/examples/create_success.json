@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "data": {
+    "personId": "6c67c314-b50f-427d-a551-8154af4337b0",
+    "fullName": "Astronaut-Test-1794701190013",
+    "biography": "NASA astronaut and aerospace pioneer.",
+    "affiliation": "NASA"
+  },
+  "meta": {
+    "requestId": "b56e8d0a-5f96-4eff-ac4e-f3313e4c77dc"
+  }
+}

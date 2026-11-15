@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "data": [
+    {
+      "celestialBodyId": "2e71b02b-ff5d-466a-baed-7a6036d000a0",
+      "name": "Europa-Test-1794700955203",
+      "bodyType": "MOON",
+      "description": "Updated Europa description with water ocean details."
+    },
+    {
+      "celestialBodyId": "66595dee-2e1b-4733-bc3a-d9f0d015033c",
+      "name": "Mars [TEST-SEED]",
+      "bodyType": "PLANET",
+      "description": "The Red Planet [TEST DATA - NOT A REAL RECORD]."
+    },
+    {
+      "celestialBodyId": "479faba5-da3e-4af0-bc24-0d7b5b093a26",
+      "name": "Moon [TEST-SEED]",
+      "bodyType": "MOON",
+      "description": "The natural satellite of Earth [TEST DATA - NOT A REAL RECORD]."
+    }
+  ],
+  "meta": {
+    "requestId": "c6daf567-f950-48a3-aa3a-b3f83e522d3f",
+    "page": 1,
+    "pageSize": 10,
+    "total": 3,
+    "totalPages": 1
+  }
+}

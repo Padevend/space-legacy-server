@@ -41,15 +41,11 @@ export function toAppException(error: unknown): AppException {
     if (status === 415) return AppException.unsupportedMediaType(error.message);
     if (status === 429) return AppException.tooManyRequests(60, error.message);
     if (status === 503) return AppException.serviceUnavailable(error.message);
-    return new AppException({ code: 'INTERNAL_ERROR', status, message: error.message });
+    return new AppException({ code: 'INTERNAL_ERROR', message: error.message });
   }
 
   // Check Prisma error markers
-  if (
-    typeof error === 'object' &&
-    error !== null &&
-    ('code' in error || error.constructor.name.startsWith('Prisma'))
-  ) {
+  if (typeof error === 'object' && error !== null && ('code' in error || error.constructor.name.startsWith('Prisma'))) {
     return mapPrismaError(error);
   }
 
@@ -63,12 +59,10 @@ export function globalErrorHandler(err: Error, c: Context): Response {
   const appException = toAppException(err);
 
   // In production, mask non-exposed errors (internal 500s)
-  const isProd = appConfig.isProduction;
+  const isProd = process.env['NODE_ENV'] === 'production' || appConfig.isProduction;
   const shouldMask = isProd && (!appException.expose || appException.status >= 500);
 
-  const message = shouldMask
-    ? 'An unexpected internal error occurred. Please contact support.'
-    : appException.message;
+  const message = shouldMask ? 'An unexpected internal error occurred. Please contact support.' : appException.message;
 
   // Log error with full internal context & stack
   if (appException.status >= 500) {

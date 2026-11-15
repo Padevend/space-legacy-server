@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "data": [
+    {
+      "sourceId": "93900a1b-1da0-4f5f-a449-2a19aace26e1",
+      "title": "Apollo Program Summary Report",
+      "url": "https://history.nasa.gov/test-report-1794700955204.pdf",
+      "publisher": "NASA JSC",
+      "author": "NASA JSC Evaluation Team & Astronaut Office",
+      "publicationDate": "1975-04-01",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "accessedAt": "2026-11-15T00:02:36.609Z"
+    },
+    {
+      "sourceId": "753548e0-193b-42c3-ae79-f84e99e85009",
+      "title": "Apollo Program Summary Report",
+      "url": "https://history.nasa.gov/test-report-1794701190013.pdf",
+      "publisher": "NASA JSC",
+      "author": "NASA Evaluation Board",
+      "publicationDate": "1975-04-01",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "accessedAt": "2026-11-15T00:06:32.146Z"
+    }
+  ],
+  "meta": {
+    "requestId": "85f5b7cb-eef7-43d6-b9d5-e2bd8071837b",
+    "page": 1,
+    "pageSize": 10,
+    "total": 2,
+    "totalPages": 1
+  }
+}

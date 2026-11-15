@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "data": {
+    "sourceId": "753548e0-193b-42c3-ae79-f84e99e85009",
+    "title": "Apollo Program Summary Report",
+    "url": "https://history.nasa.gov/test-report-1794701190013.pdf",
+    "publisher": "NASA JSC",
+    "author": "NASA Evaluation Board",
+    "publicationDate": "1975-04-01",
+    "sourceType": "OFFICIAL_DOCUMENT",
+    "accessedAt": "2026-11-15T00:06:32.146Z"
+  },
+  "meta": {
+    "requestId": "73e97e1e-d058-4879-8c12-a0ab11e391ea"
+  }
+}

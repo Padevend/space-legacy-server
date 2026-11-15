@@ -42,6 +42,10 @@ class InMemoryRateLimiter {
   reset(key: string): void {
     this.store.delete(key);
   }
+
+  clear(): void {
+    this.store.clear();
+  }
 }
 
 export const inMemoryLimiter = new InMemoryRateLimiter();

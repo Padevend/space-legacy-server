@@ -1,4 +1,6 @@
+import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '@prisma/client';
+import { databaseConfig } from '../../../config/database.js';
 import { logger } from '../logger/index.js';
 
 declare global {
@@ -7,7 +9,9 @@ declare global {
 }
 
 export function createPrismaClient(): PrismaClient {
+  const adapter = new PrismaPg({ connectionString: databaseConfig.url });
   const client = new PrismaClient({
+    adapter,
     log: [
       { level: 'warn', emit: 'event' },
       { level: 'error', emit: 'event' },

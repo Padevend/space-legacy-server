@@ -1,16 +1,11 @@
 import { env } from '../start/env.js';
 
 export const corsConfig = {
-  origins: env.CORS_ALLOWED_ORIGINS.split(',').map((o) => o.trim()).filter(Boolean),
+  origins: env.CORS_ALLOWED_ORIGINS.split(',')
+    .map((o) => o.trim())
+    .filter(Boolean),
   allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowHeaders: [
-    'Content-Type',
-    'Authorization',
-    'X-Request-Id',
-    'X-CSRF-Token',
-    'Idempotency-Key',
-    'If-None-Match',
-  ],
+  allowHeaders: ['Content-Type', 'Authorization', 'X-Request-Id', 'X-CSRF-Token', 'Idempotency-Key', 'If-None-Match'],
   exposeHeaders: [
     'X-Request-Id',
     'ETag',

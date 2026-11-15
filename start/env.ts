@@ -61,12 +61,14 @@ const rawEnv = {
   LOG_FORMAT: process.env['LOG_FORMAT'] ?? (process.env['NODE_ENV'] === 'development' ? 'pretty' : 'json'),
 
   DOCS_ENABLED: process.env['DOCS_ENABLED'] ?? (process.env['NODE_ENV'] !== 'production' ? 'true' : 'false'),
-  EXPOSE_ERROR_DETAILS: process.env['EXPOSE_ERROR_DETAILS'] ?? (process.env['NODE_ENV'] !== 'production' ? 'true' : 'false'),
+  EXPOSE_ERROR_DETAILS:
+    process.env['EXPOSE_ERROR_DETAILS'] ?? (process.env['NODE_ENV'] !== 'production' ? 'true' : 'false'),
 
   REQUEST_TIMEOUT_MS: process.env['REQUEST_TIMEOUT_MS'] ?? 15000,
   BODY_LIMIT_BYTES: process.env['BODY_LIMIT_BYTES'] ?? 1048576,
 
-  INGESTION_BUNDLE_DIR: process.env['INGESTION_BUNDLE_DIR'] ?? resolve(process.cwd(), '../Data-pipeline/data-processing/results'),
+  INGESTION_BUNDLE_DIR:
+    process.env['INGESTION_BUNDLE_DIR'] ?? resolve(process.cwd(), '../Data-pipeline/data-processing/results'),
 };
 
 const parsed = envSchema.safeParse(rawEnv);

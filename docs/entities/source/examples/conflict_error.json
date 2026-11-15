@@ -1,0 +1,9 @@
+{
+  "success": false,
+  "error": {
+    "code": "CONFLICT",
+    "message": "Source with URL 'https://history.nasa.gov/test-report-1794701190013.pdf' already exists.",
+    "status": 409,
+    "requestId": "5bf11b84-b555-43cd-8940-a98545813d60"
+  }
+}

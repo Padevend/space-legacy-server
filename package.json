@@ -8,8 +8,8 @@
     "start": "node dist/bin/server.js",
     "ace": "tsx bin/console.ts",
     "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format": "prettier --write \"src/**/*.ts\" \"bin/**/*.ts\" \"commands/**/*.ts\" \"config/**/*.ts\" \"start/**/*.ts\" \"tests/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"bin/**/*.ts\" \"commands/**/*.ts\" \"config/**/*.ts\" \"start/**/*.ts\" \"tests/**/*.ts\"",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "vitest run tests/e2e",
@@ -27,6 +27,7 @@
     "@hono/node-server": "2.1.8",
     "@hono/zod-openapi": "1.6.3",
     "@node-rs/argon2": "2.0.2",
+    "@prisma/adapter-pg": "7.10.1",
     "@prisma/client": "7.10.1",
     "commander": "15.1.0",
     "dotenv": "16.4.7",
@@ -47,6 +48,11 @@
     "prisma": "7.10.1",
     "tsx": "4.19.3",
     "typescript": "5.8.2",
-    "vitest": "3.0.8"
+    "vitest": "3.2.6"
+  },
+  "pnpm": {
+    "overrides": {
+      "tinypool": ">=2.1.2"
+    }
   }
 }

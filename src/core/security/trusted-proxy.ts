@@ -11,8 +11,7 @@ function isIpInSubnet(ip: string, subnet: string): boolean {
   const bits = parseInt(bitsStr, 10);
   if (Number.isNaN(bits)) return false;
 
-  const ipToInt = (addr: string) =>
-    addr.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0) >>> 0;
+  const ipToInt = (addr: string) => addr.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0) >>> 0;
 
   const mask = bits === 0 ? 0 : (~0 << (32 - bits)) >>> 0;
   return (ipToInt(ip) & mask) === (ipToInt(range) & mask);
@@ -30,12 +29,22 @@ function isTrusted(peerIp: string): boolean {
 
 export const trustedProxyMiddleware = (): MiddlewareHandler => {
   return async (c, next) => {
-    // Get immediate peer IP (default from connection or socket)
-    let peerIp = '127.0.0.1';
-    const connInfo = (c.env as { incoming?: { socket?: { remoteAddress?: string } } })?.incoming?.socket?.remoteAddress;
-    if (connInfo) {
-      peerIp = connInfo.replace(/^::ffff:/, '');
-    }
+    // Get immediate peer IP (support test env, Node server env, or fallback)
+    const envObj = c.env as
+      | {
+          remoteAddress?: string;
+          incoming?: { socket?: { remoteAddress?: string } };
+          server?: { incoming?: { socket?: { remoteAddress?: string } } };
+        }
+      | undefined;
+
+    let peerIp =
+      envObj?.remoteAddress ??
+      envObj?.server?.incoming?.socket?.remoteAddress ??
+      envObj?.incoming?.socket?.remoteAddress ??
+      '127.0.0.1';
+
+    peerIp = peerIp.replace(/^::ffff:/, '');
 
     let resolvedClientIp = peerIp;
 
@@ -44,7 +53,6 @@ export const trustedProxyMiddleware = (): MiddlewareHandler => {
       const xff = c.req.header('x-forwarded-for');
       if (xff) {
         const ips = xff.split(',').map((ip) => ip.trim().replace(/^::ffff:/, ''));
-        // The first untrusted IP from the right or the first client IP on the left
         const clientCandidate = ips[0];
         if (clientCandidate) {
           resolvedClientIp = clientCandidate;

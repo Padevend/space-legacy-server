@@ -8,19 +8,19 @@ export interface ValidationErrorDetail {
 
 export interface AppExceptionOptions {
   code: ErrorCode;
-  message?: string;
-  status?: HttpStatus;
-  details?: ValidationErrorDetail[];
-  retryAfterSeconds?: number;
-  expose?: boolean;
+  message?: string | undefined;
+  status?: HttpStatus | undefined;
+  details?: ValidationErrorDetail[] | undefined;
+  retryAfterSeconds?: number | undefined;
+  expose?: boolean | undefined;
   cause?: unknown;
 }
 
 export class AppException extends Error {
   public readonly code: ErrorCode;
   public readonly status: HttpStatus;
-  public readonly details?: ValidationErrorDetail[];
-  public readonly retryAfterSeconds?: number;
+  public readonly details?: ValidationErrorDetail[] | undefined;
+  public readonly retryAfterSeconds?: number | undefined;
   public readonly expose: boolean;
 
   constructor(options: AppExceptionOptions) {
@@ -36,7 +36,7 @@ export class AppException extends Error {
     if (options.retryAfterSeconds !== undefined) {
       this.retryAfterSeconds = options.retryAfterSeconds;
     }
-    this.expose = options.expose ?? (this.status < 500);
+    this.expose = options.expose ?? this.status < 500;
   }
 
   static badRequest(message?: string, details?: ValidationErrorDetail[]): AppException {
@@ -76,6 +76,10 @@ export class AppException extends Error {
   }
 
   static validation(details: ValidationErrorDetail[], message = 'Request validation failed.'): AppException {
+    return new AppException({ code: 'VALIDATION_ERROR', message, details });
+  }
+
+  static unprocessable(message = 'Unprocessable entity.', details?: ValidationErrorDetail[]): AppException {
     return new AppException({ code: 'VALIDATION_ERROR', message, details });
   }
 

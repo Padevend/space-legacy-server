@@ -1,0 +1,9 @@
+{
+  "success": false,
+  "error": {
+    "code": "CONFLICT",
+    "message": "Celestial body with name 'Europa-Test-1794701190011' already exists.",
+    "status": 409,
+    "requestId": "490da748-2b93-4b6d-8410-b8d934ce4286"
+  }
+}

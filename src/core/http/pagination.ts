@@ -19,7 +19,10 @@ export function parseSort(
   defaultSort = 'createdAt:desc'
 ): ParsedSortOrder[] {
   const raw = sortParam || defaultSort;
-  const parts = raw.split(',').map((p) => p.trim()).filter(Boolean);
+  const parts = raw
+    .split(',')
+    .map((p) => p.trim())
+    .filter(Boolean);
   const result: ParsedSortOrder[] = [];
 
   for (const part of parts) {
@@ -58,7 +61,10 @@ export function parseInclude(
 ): string[] {
   if (!includeParam) return [];
 
-  const requested = includeParam.split(',').map((r) => r.trim()).filter(Boolean);
+  const requested = includeParam
+    .split(',')
+    .map((r) => r.trim())
+    .filter(Boolean);
 
   if (requested.length > maxRelations) {
     throw AppException.validation([
