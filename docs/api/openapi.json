@@ -243,6 +243,122 @@
           }
         }
       }
+    },
+    "/api/v1/session/anonymous": {
+      "post": {
+        "summary": "POST /api/v1/session/anonymous",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.anonymous_session",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/register": {
+      "post": {
+        "summary": "POST /api/v1/auth/register",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.register",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "summary": "POST /api/v1/auth/login",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.login",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/logout": {
+      "post": {
+        "summary": "POST /api/v1/auth/logout",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.logout",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/me": {
+      "get": {
+        "summary": "GET /api/v1/me",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.me",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "patch": {
+        "summary": "PATCH /api/v1/me",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.update_profile",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "summary": "DELETE /api/v1/me",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.delete_account",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/me/password": {
+      "patch": {
+        "summary": "PATCH /api/v1/me/password",
+        "description": "",
+        "tags": [
+          "identity"
+        ],
+        "operationId": "identity.update_password",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
     }
   }
 }

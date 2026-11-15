@@ -1,5 +1,32 @@
 [
   {
+    "method": "POST",
+    "path": "/api/v1/auth/login",
+    "module": "identity",
+    "name": "identity.login",
+    "auth": "public",
+    "rateLimitTier": "login",
+    "summary": "POST /api/v1/auth/login"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/auth/logout",
+    "module": "identity",
+    "name": "identity.logout",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "POST /api/v1/auth/logout"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/auth/register",
+    "module": "identity",
+    "name": "identity.register",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "POST /api/v1/auth/register"
+  },
+  {
     "method": "GET",
     "path": "/api/v1/bodies",
     "module": "celestial_bodies",
@@ -61,6 +88,51 @@
     "auth": "public",
     "rateLimitTier": "publicRead",
     "summary": "GET /api/v1/machines/:slug/logbook/:entry"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/me",
+    "module": "identity",
+    "name": "identity.delete_account",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "DELETE /api/v1/me"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/me",
+    "module": "identity",
+    "name": "identity.me",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/me"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/me",
+    "module": "identity",
+    "name": "identity.update_profile",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "PATCH /api/v1/me"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/me/password",
+    "module": "identity",
+    "name": "identity.update_password",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "PATCH /api/v1/me/password"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/session/anonymous",
+    "module": "identity",
+    "name": "identity.anonymous_session",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "POST /api/v1/session/anonymous"
   },
   {
     "method": "GET",
