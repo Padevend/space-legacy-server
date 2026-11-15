@@ -2,6 +2,7 @@ import { healthProvider } from '#modules/health/providers/health_provider';
 import { identityProvider } from '#modules/identity/providers/identity_provider';
 import { gamesProvider } from '#modules/games/providers/games_provider';
 import { dashboardProvider } from '#modules/dashboard/providers/dashboard_provider';
+import { ingestionProvider } from '#modules/ingestion/providers/ingestion_provider';
 
 export class ModulesProvider {
   register(): void {
@@ -9,6 +10,7 @@ export class ModulesProvider {
     identityProvider.register();
     gamesProvider.register();
     dashboardProvider.register();
+    ingestionProvider.register();
   }
 }
 

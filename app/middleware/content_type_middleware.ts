@@ -13,16 +13,28 @@ export const contentTypeMiddleware = (allowedTypes: string[] = ['application/jso
       const contentType = c.req.header('content-type');
 
       if (hasBody || contentType) {
+        const path = c.req.path;
+        const isUploadRoute = path.startsWith('/api/v1/admin/ingestion');
+        const effectiveAllowed = isUploadRoute
+          ? [
+              ...allowedTypes,
+              'multipart/form-data',
+              'application/zip',
+              'application/x-zip-compressed',
+              'application/octet-stream',
+            ]
+          : allowedTypes;
+
         if (!contentType) {
           throw AppException.unsupportedMediaType(
-            `Missing Content-Type header on state-changing request with payload. Allowed types: ${allowedTypes.join(', ')}`
+            `Missing Content-Type header on state-changing request with payload. Allowed types: ${effectiveAllowed.join(', ')}`
           );
         }
 
-        const isAllowed = allowedTypes.some((type) => contentType.toLowerCase().includes(type.toLowerCase()));
+        const isAllowed = effectiveAllowed.some((type) => contentType.toLowerCase().includes(type.toLowerCase()));
         if (!isAllowed) {
           throw AppException.unsupportedMediaType(
-            `Unsupported Content-Type: '${contentType}'. Allowed types: ${allowedTypes.join(', ')}`
+            `Unsupported Content-Type: '${contentType}'. Allowed types: ${effectiveAllowed.join(', ')}`
           );
         }
       }

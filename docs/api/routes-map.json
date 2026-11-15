@@ -10,6 +10,56 @@
     "summary": "Targeted partial PATCH update of a celestial body"
   },
   {
+    "method": "POST",
+    "path": "/api/v1/admin/ingestion",
+    "module": "ingestion",
+    "name": "admin.ingestion.import",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Validate and import a ZIP bundle atomically into database"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/ingestion/:id",
+    "module": "ingestion",
+    "name": "admin.ingestion.show",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Get ingestion batch status and report"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/ingestion/spec",
+    "module": "ingestion",
+    "name": "admin.ingestion.spec",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Get ingestion bundle specification and limits"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/ingestion/template.zip",
+    "module": "ingestion",
+    "name": "admin.ingestion.template",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Download valid template ZIP bundle"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/ingestion/validate",
+    "module": "ingestion",
+    "name": "admin.ingestion.validate",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Dry-run validation of a ZIP bundle without database mutation"
+  },
+  {
     "method": "GET",
     "path": "/api/v1/admin/logbook",
     "module": "logbook",

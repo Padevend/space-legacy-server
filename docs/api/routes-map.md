@@ -5,6 +5,11 @@ Auto-generated route registry of all active HTTP endpoints.
 | Method | Path | Module | Name | Auth | Role | Rate Limit | Summary |
 |---|---|---|---|---|---|---|---|
 | `PATCH` | `/api/v1/admin/bodies/:id` | `celestial_bodies` | `admin.bodies.update` | user | EDITOR | admin | Targeted partial PATCH update of a celestial body |
+| `POST` | `/api/v1/admin/ingestion` | `ingestion` | `admin.ingestion.import` | user | EDITOR | admin | Validate and import a ZIP bundle atomically into database |
+| `GET` | `/api/v1/admin/ingestion/:id` | `ingestion` | `admin.ingestion.show` | user | EDITOR | admin | Get ingestion batch status and report |
+| `GET` | `/api/v1/admin/ingestion/spec` | `ingestion` | `admin.ingestion.spec` | user | EDITOR | admin | Get ingestion bundle specification and limits |
+| `GET` | `/api/v1/admin/ingestion/template.zip` | `ingestion` | `admin.ingestion.template` | user | EDITOR | admin | Download valid template ZIP bundle |
+| `POST` | `/api/v1/admin/ingestion/validate` | `ingestion` | `admin.ingestion.validate` | user | EDITOR | admin | Dry-run validation of a ZIP bundle without database mutation |
 | `GET` | `/api/v1/admin/logbook` | `logbook` | `admin.logbook.index` | user | EDITOR | admin | List all logbook entries for administration |
 | `POST` | `/api/v1/admin/logbook` | `logbook` | `admin.logbook.store` | user | EDITOR | admin | Create new logbook entry for a machine |
 | `DELETE` | `/api/v1/admin/logbook/:id` | `logbook` | `admin.logbook.destroy` | user | EDITOR | admin | Delete a logbook entry |

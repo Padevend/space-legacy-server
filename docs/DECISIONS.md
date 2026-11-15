@@ -95,3 +95,21 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
 - **Règle stricte des modifications ciblées (N5) :** Toutes les routes de mise à jour (`PATCH /bodies/:id`, `PATCH /machines/:id`, `PATCH /machines/:id/{sources,facts,events,images}/:subId`, `PATCH /logbook/:id`) acceptent exclusivement des corps partiels validés par Zod avec `.strict()`. Seuls les champs explicitement fournis sont mis à jour en base.
 - **Réflexion publique immédiate :** Tout basculement de `isPublished` ou modification de contenu éditorial est immédiatement visible ou masqué sur les endpoints publics (`/machines`, `/machines/:slug`, `/logbook`, `/bodies`) sans délai ni cache résiduel.
 - **Traçabilité des sources (N7) :** L'ajout ou l'édition de `MachineSource` applique la fonction `assertAllowedSourceUrl` contre `ALLOWED_SOURCE_HOSTS` (`nasa.gov`, `jpl.nasa.gov`), interdisant tout hôte non officiel avec une réponse 422 `UNSUPPORTED_SOURCE_HOST`.
+
+### D17 : Ingestion sécurisée par archives ZIP et validation multicouche (N4, N6, N7, N8, N12)
+- **Décision :** Implémenter le module `ingestion` permettant l'importation par lots de machines, sources, faits, événements, images et quiz via des archives ZIP soumises à `POST /api/v1/admin/ingestion` (avec simulation dry-run `POST /api/v1/admin/ingestion/validate`).
+- **Garanties de sécurité et quotas stricts (Section 8) :**
+  - Taille d'archive : 25 Mo max (`ZIP_TOO_LARGE`).
+  - Nombre d'entrées : 300 entrées max (`ZIP_TOO_MANY_ENTRIES`).
+  - Décompression unitaire : 15 Mo max ; globale : 120 Mo max ; ratio : 50:1 max (`ZIP_BOMB_SUSPECTED`).
+  - Interdiction absolue des archives et entrées chiffrées (`ZIP_ENCRYPTED`).
+  - Protection Zip Slip stricte interdisant `..`, séparateurs absolus et caractères nuls (`ZIP_PATH_TRAVERSAL`).
+  - Rejet des métadonnées système (`__MACOSX/`, `.DS_Store`), profondeur > 4, longueur nom > 120 caractères (`ZIP_FORBIDDEN_ENTRY`).
+  - Liste blanche stricte d'extensions : `.json`, `.jpg`, `.jpeg`, `.png`, `.webp` (`FORBIDDEN_EXTENSION`).
+  - Validation binaire par signature (magic bytes) et parsing d'en-têtes purs en mémoire (rejet SVG, max 4000x4000 px et 16 Mégapixels) (`SIGNATURE_MISMATCH`, `IMAGE_INVALID`).
+  - Manifeste racine obligatoire (`MANIFEST_MISSING`, `MANIFEST_MISMATCH`).
+  - Validation Zod stricte de chaque fichier JSON (`SCHEMA_INVALID`).
+  - Intégrité référentielle et traçabilité N7 : corps célestes vérifiés en base, sources limitées aux domaines autorisés (`nasa.gov`, `jpl.nasa.gov`), `sourceKey` obligatoires (`REFERENCE_UNKNOWN`, `URL_NOT_ALLOWED`, `SOURCE_MISSING`).
+  - Unicité des slugs (`DUPLICATE_SLUG`).
+- **Atomicité transactionnelle et sécurité disque :** En cas d'erreur sur une seule entrée ou règle, rejet complet 422 avec enveloppe N12 et aucun enregistrement en base ni fichier sur disque (les écritures d'images et l'upsert SQL ne sont exécutés qu'après la validation totale du lot).
+- **Audit et traçabilité :** Chaque lot validé ou rejeté est persisté dans `ingestion_batches` avec son condensat SHA-256, son statut (`VALIDATED`, `COMMITTED`, `REJECTED`) et son rapport d'exécution détaillé.
