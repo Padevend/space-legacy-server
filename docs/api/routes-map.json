@@ -1,5 +1,15 @@
 [
   {
+    "method": "GET",
+    "path": "/admin",
+    "module": "dashboard",
+    "name": "admin.ui",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Admin mission control back-office frontend single-page application"
+  },
+  {
     "method": "PATCH",
     "path": "/api/v1/admin/bodies/:id",
     "module": "celestial_bodies",

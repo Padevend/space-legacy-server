@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPACE LEGACY — Mission Control & Back-Office</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Space Grotesk', sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .tab-active { border-color: #38bdf8; color: #38bdf8; background-color: rgba(56, 189, 248, 0.08); }
+    .badge-pill { display: inline-flex; align-items: center; padding: 0.125rem 0.625rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+  </style>
+</head>
+<body class="h-full flex flex-col overflow-hidden bg-slate-950 text-slate-100">
+
+  <!-- TOP BAR -->
+  <header class="h-16 border-b border-slate-800 bg-slate-900/80 backdrop-blur px-6 flex items-center justify-between shrink-0">
+    <div class="flex items-center space-x-3">
+      <div class="w-9 h-9 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+        <i data-lucide="orbit" class="w-5 h-5"></i>
+      </div>
+      <div>
+        <h1 class="font-bold text-base tracking-wide text-white flex items-center gap-2">
+          SPACE LEGACY <span class="text-xs px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-mono">MISSION CONTROL</span>
+        </h1>
+        <p class="text-xs text-slate-400">NASA Space Apps 2026 — Moon & Mars MVP</p>
+      </div>
+    </div>
+
+    <!-- AUTH BAR -->
+    <div id="authStatus" class="flex items-center space-x-4">
+      <div id="userInfo" class="hidden items-center space-x-3">
+        <span id="userEmail" class="text-xs text-slate-300 font-mono">admin@nasa.spaceapps</span>
+        <span class="badge-pill bg-sky-500/20 text-sky-400 border border-sky-500/30">ADMIN</span>
+        <button id="logoutBtn" class="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 transition">Logout</button>
+      </div>
+      <div id="loginPrompt" class="flex items-center space-x-2">
+        <input id="tokenInput" type="password" placeholder="Admin Bearer Token..." class="text-xs bg-slate-800 border border-slate-700 rounded px-3 py-1.5 w-64 text-slate-200 focus:outline-none focus:border-sky-500">
+        <button id="setTokenBtn" class="text-xs bg-sky-600 hover:bg-sky-500 text-white font-medium px-3 py-1.5 rounded transition">Connect</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="flex-1 flex overflow-hidden">
+    <!-- SIDEBAR NAV -->
+    <aside class="w-64 border-r border-slate-800 bg-slate-900/40 flex flex-col justify-between shrink-0 p-4">
+      <nav class="space-y-1.5" id="navSections">
+        <button data-section="overview" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition bg-sky-500/10 text-sky-400 border border-sky-500/20">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Overview
+        </button>
+        <button data-section="machines" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60">
+          <i data-lucide="rocket" class="w-4 h-4"></i> Machines & Logbook
+        </button>
+        <button data-section="quizzes" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60">
+          <i data-lucide="award" class="w-4 h-4"></i> Quizzes & Badges
+        </button>
+        <button data-section="ingestion" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60">
+          <i data-lucide="file-archive" class="w-4 h-4"></i> ZIP Ingestion
+        </button>
+        <button data-section="generation" class="nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60">
+          <i data-lucide="cpu" class="w-4 h-4"></i> AI Generation
+        </button>
+      </nav>
+
+      <!-- SYSTEM METRICS FOOTER -->
+      <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 text-xs space-y-2">
+        <div class="flex items-center justify-between text-slate-400">
+          <span>Backend Status</span>
+          <span class="flex items-center gap-1.5 text-emerald-400 font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> ONLINE
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-slate-400">
+          <span>Target Scope</span>
+          <span class="font-mono text-slate-200">Moon & Mars</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <main class="flex-1 overflow-y-auto p-8 relative">
+      <!-- GLOBAL TOAST NOTIFIER -->
+      <div id="toastContainer" class="fixed top-20 right-8 z-50 space-y-2 max-w-md"></div>
+
+      <!-- SECTION: OVERVIEW -->
+      <section id="section-overview" class="space-y-8">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-white">Mission Overview & Health</h2>
+          <p class="text-sm text-slate-400">Back-office telemetry, published assets, and operational pipeline status.</p>
+        </div>
+
+        <!-- STATS COUNTER GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="statsGrid">
+          <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-xs uppercase text-slate-400 font-medium tracking-wider">Machines</span>
+            <div class="mt-2 flex items-baseline justify-between">
+              <span id="statMachinesTotal" class="text-3xl font-bold text-white">-</span>
+              <span id="statMachinesPublished" class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">0 pub</span>
+            </div>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-xs uppercase text-slate-400 font-medium tracking-wider">Celestial Bodies</span>
+            <div class="mt-2 flex items-baseline justify-between">
+              <span id="statBodiesTotal" class="text-3xl font-bold text-white">2</span>
+              <span class="text-xs text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded font-mono">Moon / Mars</span>
+            </div>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-xs uppercase text-slate-400 font-medium tracking-wider">Logbook Entries</span>
+            <div class="mt-2 flex items-baseline justify-between">
+              <span id="statLogbookTotal" class="text-3xl font-bold text-white">-</span>
+              <span id="statLogbookPublished" class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">0 pub</span>
+            </div>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800">
+            <span class="text-xs uppercase text-slate-400 font-medium tracking-wider">Active Quizzes</span>
+            <div class="mt-2 flex items-baseline justify-between">
+              <span id="statQuizzesTotal" class="text-3xl font-bold text-white">-</span>
+              <span id="statQuizzesPublished" class="text-xs text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALERTS AND UNPUBLISHED SECTION -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Ingestion & Pipelines Alert -->
+          <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800 space-y-4">
+            <h3 class="text-base font-semibold text-white flex items-center gap-2">
+              <i data-lucide="activity" class="w-4 h-4 text-sky-400"></i> Pipeline Status
+            </h3>
+            <div id="latestIngestionCard" class="p-4 rounded-lg bg-slate-950 border border-slate-800 text-sm space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-400">Latest Ingestion Batch</span>
+                <span id="ingestionBatchStatus" class="badge-pill bg-slate-800 text-slate-300">Checking...</span>
+              </div>
+              <p id="ingestionBatchFile" class="font-mono text-xs text-slate-200 truncate">No recent batch</p>
+            </div>
+            <div class="flex items-center justify-between p-4 rounded-lg bg-slate-950 border border-slate-800 text-sm">
+              <span class="text-slate-300">Failed Generation Jobs</span>
+              <span id="failedJobsBadge" class="badge-pill bg-slate-800 text-slate-400">0</span>
+            </div>
+          </div>
+
+          <!-- Unpublished Content Attention -->
+          <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800 space-y-4">
+            <h3 class="text-base font-semibold text-white flex items-center gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-amber-400"></i> Editorial Attention Required
+            </h3>
+            <div id="unpublishedList" class="space-y-2">
+              <p class="text-xs text-slate-500">Loading unpublished items...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: MACHINES & TABBED EDITOR -->
+      <section id="section-machines" class="hidden space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight text-white">Machines & Artifacts</h2>
+            <p class="text-sm text-slate-400">Manage authentic NASA Moon and Mars rovers, landers, and orbiters.</p>
+          </div>
+          <button id="refreshMachinesBtn" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg flex items-center gap-2">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Refresh
+          </button>
+        </div>
+
+        <!-- SPLIT VIEW: LIST + TABBED EDITOR -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+          <!-- LEFT: FILTERABLE LIST (4 cols) -->
+          <div class="xl:col-span-4 space-y-4">
+            <div class="p-3 bg-slate-900/70 border border-slate-800 rounded-lg space-y-2">
+              <input id="machineSearchInput" type="text" placeholder="Filter by name or slug..." class="w-full text-xs bg-slate-950 border border-slate-800 rounded px-3 py-2 text-slate-200 focus:outline-none focus:border-sky-500">
+              <div class="flex gap-2">
+                <select id="bodyFilterSelect" class="flex-1 text-xs bg-slate-950 border border-slate-800 rounded px-2 py-1.5 text-slate-300">
+                  <option value="">All Bodies</option>
+                  <option value="moon">Moon</option>
+                  <option value="mars">Mars</option>
+                </select>
+                <select id="statusFilterSelect" class="flex-1 text-xs bg-slate-950 border border-slate-800 rounded px-2 py-1.5 text-slate-300">
+                  <option value="">All Statuses</option>
+                  <option value="published">Published</option>
+                  <option value="unpublished">Draft</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- MACHINE LIST -->
+            <div id="machineListContainer" class="space-y-2 max-h-[620px] overflow-y-auto pr-1">
+              <p class="text-xs text-slate-500 p-4 text-center">Loading machines...</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: TABBED EDITOR (8 cols) -->
+          <div class="xl:col-span-8 bg-slate-900/50 border border-slate-800 rounded-xl flex flex-col overflow-hidden">
+            <!-- TAB BAR -->
+            <div class="border-b border-slate-800 bg-slate-950/60 px-4 flex space-x-1 overflow-x-auto" id="machineTabsBar">
+              <button data-tab="identity" class="machine-tab px-3 py-3 text-xs font-medium border-b-2 tab-active transition whitespace-nowrap">Identity</button>
+              <button data-tab="mission" class="machine-tab px-3 py-3 text-xs font-medium border-b-2 border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">Mission & Story</button>
+              <button data-tab="metrics" class="machine-tab px-3 py-3 text-xs font-medium border-b-2 border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">Key Specs</button>
+              <button data-tab="timeline" class="machine-tab px-3 py-3 text-xs font-medium border-b-2 border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">Timeline Events</button>
+              <button data-tab="sources" class="machine-tab px-3 py-3 text-xs font-medium border-b-2 border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">Verified Sources</button>
+              <button data-tab="images" class="machine-tab px-3 py-3 text-xs font-medium border-b-2 border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">Images & AI Label</button>
+              <button data-tab="logbook" class="machine-tab px-3 py-3 text-xs font-medium border-b-2 border-transparent text-slate-400 hover:text-white transition whitespace-nowrap">Logbook</button>
+            </div>
+
+            <!-- TAB CONTENT CONTAINER -->
+            <div class="p-6 flex-1 overflow-y-auto" id="tabContentContainer">
+              <div id="editorEmptyState" class="py-16 text-center space-y-2">
+                <i data-lucide="mouse-pointer-click" class="w-8 h-8 mx-auto text-slate-600"></i>
+                <p class="text-sm text-slate-400 font-medium">Select a machine from the left column to inspect and edit.</p>
+              </div>
+
+              <!-- TAB 1: IDENTITY -->
+              <div id="tab-identity" class="tab-pane hidden space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Machine Name</label>
+                    <input id="editName" type="text" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Slug</label>
+                    <input id="editSlug" type="text" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 font-mono text-slate-300">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Kind</label>
+                    <select id="editKind" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                      <option value="ROVER">ROVER</option>
+                      <option value="LANDER">LANDER</option>
+                      <option value="HELICOPTER">HELICOPTER</option>
+                      <option value="ORBITER">ORBITER</option>
+                      <option value="PROBE">PROBE</option>
+                      <option value="DESCENT_STAGE">DESCENT_STAGE</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Status</label>
+                    <select id="editStatus" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                      <option value="OPERATIONAL">OPERATIONAL</option>
+                      <option value="INACTIVE">INACTIVE</option>
+                      <option value="LOST">LOST</option>
+                      <option value="ABANDONED">ABANDONED</option>
+                      <option value="DECOMMISSIONED">DECOMMISSIONED</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Operator</label>
+                    <input id="editOperator" type="text" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                  </div>
+                  <div class="flex items-center gap-3 pt-5">
+                    <input id="editIsPublished" type="checkbox" class="rounded bg-slate-950 border-slate-800 text-sky-500 w-4 h-4">
+                    <label for="editIsPublished" class="text-xs font-semibold text-slate-200">Published to Public Explorer</label>
+                  </div>
+                </div>
+                <div class="pt-4 flex justify-end">
+                  <button id="saveIdentityBtn" class="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded text-xs font-medium transition flex items-center gap-2">
+                    <i data-lucide="save" class="w-3.5 h-3.5"></i> Save Identity (PATCH)
+                  </button>
+                </div>
+              </div>
+
+              <!-- TAB 2: MISSION & STORY -->
+              <div id="tab-mission" class="tab-pane hidden space-y-4">
+                <div>
+                  <label class="block text-xs font-medium text-slate-400 mb-1">Mission Name</label>
+                  <input id="editMissionName" type="text" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-slate-400 mb-1">Target Landing Site</label>
+                  <input id="editLandingSite" type="text" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-slate-400 mb-1">Mission Description</label>
+                  <textarea id="editMissionDescription" rows="4" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white"></textarea>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-slate-400 mb-1">Historical Significance</label>
+                  <textarea id="editSignificance" rows="3" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white"></textarea>
+                </div>
+                <div class="pt-2 flex justify-end">
+                  <button id="saveMissionBtn" class="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded text-xs font-medium transition flex items-center gap-2">
+                    <i data-lucide="save" class="w-3.5 h-3.5"></i> Save Mission & Story (PATCH)
+                  </button>
+                </div>
+              </div>
+
+              <!-- TAB 3: KEY SPECS -->
+              <div id="tab-metrics" class="tab-pane hidden space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Mass (kg)</label>
+                    <input id="editMassKg" type="number" step="0.1" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Power Source</label>
+                    <input id="editPowerSource" type="text" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Primary Mission Duration (Days)</label>
+                    <input id="editPrimaryDays" type="number" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Operational Duration (Days)</label>
+                    <input id="editOperationalDays" type="number" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">Max Speed (km/h)</label>
+                    <input id="editSpeed" type="number" step="0.01" class="w-full text-xs bg-slate-950 border border-slate-800 rounded p-2 text-white">
+                  </div>
+                </div>
+                <div class="pt-2 flex justify-end">
+                  <button id="saveSpecsBtn" class="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded text-xs font-medium transition flex items-center gap-2">
+                    <i data-lucide="save" class="w-3.5 h-3.5"></i> Save Specs (PATCH)
+                  </button>
+                </div>
+              </div>
+
+              <!-- TAB 4: TIMELINE EVENTS -->
+              <div id="tab-timeline" class="tab-pane hidden space-y-4">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-xs uppercase font-semibold text-slate-400">Chronological Events</h4>
+                  <button id="addEventBtn" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs rounded flex items-center gap-1">
+                    <i data-lucide="plus" class="w-3 h-3"></i> Add Event
+                  </button>
+                </div>
+                <div id="eventsListContainer" class="space-y-2"></div>
+              </div>
+
+              <!-- TAB 5: SOURCES -->
+              <div id="tab-sources" class="tab-pane hidden space-y-4">
+                <div class="flex justify-between items-center">
+                  <div>
+                    <h4 class="text-xs uppercase font-semibold text-slate-400">NASA Verified Sources (N7)</h4>
+                    <p class="text-[11px] text-slate-500">Allowed domains: nasa.gov, jpl.nasa.gov</p>
+                  </div>
+                  <button id="addSourceBtn" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs rounded flex items-center gap-1">
+                    <i data-lucide="plus" class="w-3 h-3"></i> Add Source
+                  </button>
+                </div>
+                <div id="sourcesListContainer" class="space-y-2"></div>
+              </div>
+
+              <!-- TAB 6: IMAGES -->
+              <div id="tab-images" class="tab-pane hidden space-y-4">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-xs uppercase font-semibold text-slate-400">Machine Images & AI Provenance</h4>
+                  <button id="addImageBtn" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-sky-400 text-xs rounded flex items-center gap-1">
+                    <i data-lucide="plus" class="w-3 h-3"></i> Add Image
+                  </button>
+                </div>
+                <div id="imagesListContainer" class="grid grid-cols-2 gap-3"></div>
+              </div>
+
+              <!-- TAB 7: LOGBOOK -->
+              <div id="tab-logbook" class="tab-pane hidden space-y-4">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-xs uppercase font-semibold text-slate-400">Associated Logbook Narrative</h4>
+                </div>
+                <div id="machineLogbookContainer" class="space-y-3">
+                  <p class="text-xs text-slate-500">No logbook entry for this machine.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: QUIZZES & BADGES -->
+      <section id="section-quizzes" class="hidden space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-white">Quizzes & Gamification Badges</h2>
+          <p class="text-sm text-slate-400">Interactive educational challenges and milestone achievements.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800 space-y-4">
+            <h3 class="text-base font-semibold text-white flex items-center gap-2">
+              <i data-lucide="help-circle" class="w-4 h-4 text-purple-400"></i> Active Quizzes
+            </h3>
+            <div id="quizzesListContainer" class="space-y-3">
+              <p class="text-xs text-slate-500">Loading quizzes...</p>
+            </div>
+          </div>
+          <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800 space-y-4">
+            <h3 class="text-base font-semibold text-white flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-amber-400"></i> Available Badges
+            </h3>
+            <div id="badgesListContainer" class="space-y-3">
+              <p class="text-xs text-slate-500">Loading badges...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: INGESTION -->
+      <section id="section-ingestion" class="hidden space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-white">ZIP Bundle Ingestion (Section 8)</h2>
+          <p class="text-sm text-slate-400">Strict transactional bulk import for authentic NASA machines, quizzes, and images.</p>
+        </div>
+
+        <!-- SPEC & ACTIONS BAR -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800 space-y-3">
+            <h3 class="text-sm font-semibold text-white flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Security Defenses
+            </h3>
+            <ul class="text-xs text-slate-400 space-y-1.5 list-disc pl-4 font-mono">
+              <li>Max archive: 25 MB</li>
+              <li>Max entries: 300 files</li>
+              <li>Compression ratio: 50:1 ceiling</li>
+              <li>Zip Slip & Bomb strictly rejected</li>
+              <li>Image binary signature validation</li>
+            </ul>
+            <a href="/api/v1/admin/ingestion/template.zip" class="mt-4 inline-flex items-center gap-2 text-xs text-sky-400 hover:text-sky-300 font-medium">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download Reference ZIP Template
+            </a>
+          </div>
+
+          <!-- DRAG & DROP UPLOAD ZONE -->
+          <div class="lg:col-span-2 p-6 rounded-xl bg-slate-900/50 border border-dashed border-slate-700 flex flex-col items-center justify-center space-y-4 text-center">
+            <input type="file" id="zipFileInput" accept=".zip" class="hidden">
+            <div class="w-12 h-12 rounded-full bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+              <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-slate-200">Drop your compliant <span class="font-mono text-sky-400">bundle.zip</span> here</p>
+              <p class="text-xs text-slate-500 mt-1">Or click to select an archive from your local disk</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button id="selectZipBtn" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded text-xs">Choose File</button>
+              <span id="selectedZipName" class="text-xs font-mono text-slate-400">No file selected</span>
+            </div>
+            <div class="flex items-center gap-3 pt-2">
+              <button id="dryRunValidateBtn" disabled class="px-4 py-2 bg-slate-800 text-slate-500 rounded text-xs font-medium cursor-not-allowed transition flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Dry-Run Validate (0 disk / 0 db)
+              </button>
+              <button id="commitImportBtn" disabled class="px-4 py-2 bg-slate-800 text-slate-500 rounded text-xs font-medium cursor-not-allowed transition flex items-center gap-2">
+                <i data-lucide="arrow-down-circle" class="w-3.5 h-3.5"></i> Commit Import (Transactional)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXECUTION REPORT -->
+        <div id="ingestionReportContainer" class="hidden p-6 rounded-xl bg-slate-900 border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-semibold text-white flex items-center gap-2">
+              <i data-lucide="terminal" class="w-4 h-4 text-sky-400"></i> Ingestion Execution Report
+            </h3>
+            <span id="reportStatusBadge" class="badge-pill bg-slate-800 text-slate-300">REPORT</span>
+          </div>
+          <div id="reportSummary" class="text-xs text-slate-300 space-y-1"></div>
+          <div id="reportErrorsContainer" class="hidden space-y-2">
+            <h4 class="text-xs font-semibold text-rose-400 uppercase tracking-wide">Rejection Causes & Details</h4>
+            <div id="reportErrorsList" class="p-3 rounded bg-rose-950/20 border border-rose-900/40 text-xs font-mono text-rose-300 space-y-1"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: GENERATION -->
+      <section id="section-generation" class="hidden space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight text-white">AI Generation Jobs & Microservice</h2>
+            <p class="text-sm text-slate-400">Asynchronous story generation, telemetry synchronization, and logbook propagation.</p>
+          </div>
+          <button id="newJobBtn" class="px-3 py-1.5 bg-sky-600 hover:bg-sky-500 text-white rounded text-xs font-medium flex items-center gap-2">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Trigger New Job
+          </button>
+        </div>
+
+        <!-- JOBS TABLE -->
+        <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-950/60 border-b border-slate-800 text-slate-400 uppercase font-mono">
+              <tr>
+                <th class="p-3.5">Job ID / Target</th>
+                <th class="p-3.5">Type</th>
+                <th class="p-3.5">Status</th>
+                <th class="p-3.5">Metrics</th>
+                <th class="p-3.5">Created</th>
+                <th class="p-3.5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="generationJobsBody" class="divide-y divide-slate-800">
+              <tr>
+                <td colspan="6" class="p-8 text-center text-slate-500">Loading generation jobs...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // State management
+    const state = {
+      token: localStorage.getItem('space_legacy_admin_token') || '',
+      currentSection: 'overview',
+      machines: [],
+      selectedMachine: null,
+      selectedTab: 'identity',
+      isDirty: false,
+    };
+
+    // Helper: Toast notifications
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      const bg = type === 'error' ? 'bg-rose-900/90 border-rose-700 text-rose-100' : 'bg-slate-900/90 border-sky-600 text-sky-100';
+      toast.className = `p-3 rounded-lg border text-xs shadow-xl backdrop-blur transition-all flex items-center gap-2 ${bg}`;
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3500);
+    }
+
+    // Helper: Authenticated fetch
+    async function apiFetch(endpoint, options = {}) {
+      const headers = { ...(options.headers || {}) };
+      if (state.token) {
+        headers['Authorization'] = `Bearer ${state.token}`;
+      }
+      if (!(options.body instanceof FormData) && !(options.body instanceof Blob) && !headers['Content-Type'] && options.method && options.method !== 'GET') {
+        headers['Content-Type'] = 'application/json';
+      }
+      try {
+        const res = await fetch(endpoint, { ...options, headers });
+        const data = await res.json().catch(() => null);
+        if (!res.ok) {
+          const err = data?.error || { code: 'HTTP_ERROR', message: `Request failed with ${res.status}` };
+          throw err;
+        }
+        return data;
+      } catch (err) {
+        if (err.code === 'UNAUTHENTICATED' || err.code === 'FORBIDDEN') {
+          showToast('Authentication required. Enter admin bearer token.', 'error');
+        } else {
+          showToast(err.message || 'API Error', 'error');
+        }
+        throw err;
+      }
+    }
+
+    // Navigation switching
+    document.querySelectorAll('#navSections button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (state.isDirty && !confirm('You have unsaved changes. Discard and switch section?')) return;
+        state.isDirty = false;
+        const section = btn.dataset.section;
+        switchSection(section);
+      });
+    });
+
+    function switchSection(section) {
+      state.currentSection = section;
+      document.querySelectorAll('#navSections button').forEach(b => {
+        if (b.dataset.section === section) {
+          b.className = 'nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition bg-sky-500/10 text-sky-400 border border-sky-500/20';
+        } else {
+          b.className = 'nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60';
+        }
+      });
+      document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(`section-${section}`)?.classList.remove('hidden');
+
+      if (section === 'overview') loadOverview();
+      if (section === 'machines') loadMachines();
+      if (section === 'quizzes') loadQuizzes();
+      if (section === 'generation') loadGenerationJobs();
+      lucide.createIcons();
+    }
+
+    // Load Overview Data
+    async function loadOverview() {
+      try {
+        const res = await apiFetch('/api/v1/admin/overview');
+        const o = res.overview;
+        document.getElementById('statMachinesTotal').textContent = o.counters.machines.total;
+        document.getElementById('statMachinesPublished').textContent = `${o.counters.machines.published} published`;
+        document.getElementById('statLogbookTotal').textContent = o.counters.logbook.total;
+        document.getElementById('statLogbookPublished').textContent = `${o.counters.logbook.published} published`;
+        document.getElementById('statQuizzesTotal').textContent = o.counters.quizzes.total;
+        document.getElementById('failedJobsBadge').textContent = o.failedJobsCount;
+
+        if (o.latestIngestion) {
+          document.getElementById('ingestionBatchStatus').textContent = o.latestIngestion.status;
+          document.getElementById('ingestionBatchFile').textContent = `${o.latestIngestion.filename} (${new Date(o.latestIngestion.createdAt).toLocaleDateString()})`;
+        }
+
+        const unpubList = document.getElementById('unpublishedList');
+        unpubList.innerHTML = '';
+        if (o.unpublishedContent.machines.length === 0 && o.unpublishedContent.logbook.length === 0) {
+          unpubList.innerHTML = '<p class="text-xs text-emerald-400 flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5"></i> All Moon & Mars machines and entries are published.</p>';
+        } else {
+          o.unpublishedContent.machines.forEach(m => {
+            unpubList.innerHTML += `<div class="p-2 rounded bg-slate-950 border border-slate-800 text-xs flex justify-between items-center"><span class="text-slate-300 font-medium">${m.name}</span><span class="badge-pill bg-amber-500/20 text-amber-300 text-[10px]">DRAFT MACHINE</span></div>`;
+          });
+          o.unpublishedContent.logbook.forEach(l => {
+            unpubList.innerHTML += `<div class="p-2 rounded bg-slate-950 border border-slate-800 text-xs flex justify-between items-center"><span class="text-slate-300 font-medium">${l.title}</span><span class="badge-pill bg-purple-500/20 text-purple-300 text-[10px]">DRAFT LOGBOOK</span></div>`;
+          });
+        }
+        lucide.createIcons();
+      } catch (e) {
+        console.error('Failed to load overview', e);
+      }
+    }
+
+    // Load Machines List
+    async function loadMachines() {
+      try {
+        const bodyFilter = document.getElementById('bodyFilterSelect').value;
+        const statusFilter = document.getElementById('statusFilterSelect').value;
+        let url = '/api/v1/admin/machines?limit=50';
+        if (bodyFilter) url += `&body=${bodyFilter}`;
+        if (statusFilter === 'published') url += `&isPublished=true`;
+        if (statusFilter === 'unpublished') url += `&isPublished=false`;
+
+        const res = await apiFetch(url);
+        state.machines = res.machines || [];
+        renderMachineList();
+      } catch (e) {
+        console.error('Failed to load machines', e);
+      }
+    }
+
+    function renderMachineList() {
+      const container = document.getElementById('machineListContainer');
+      const query = document.getElementById('machineSearchInput').value.toLowerCase().trim();
+      const filtered = state.machines.filter(m => m.name.toLowerCase().includes(query) || m.slug.toLowerCase().includes(query));
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-500 p-4 text-center">No machines match filter.</p>';
+        return;
+      }
+
+      container.innerHTML = filtered.map(m => `
+        <div data-id="${m.id}" class="machine-item p-3 rounded-lg border border-slate-800 bg-slate-900/60 hover:bg-slate-800/80 cursor-pointer transition flex items-center justify-between">
+          <div>
+            <h4 class="text-xs font-semibold text-white">${m.name}</h4>
+            <p class="text-[11px] font-mono text-slate-400">${m.kind} &bull; ${m.celestialBody?.name || 'Moon/Mars'}</p>
+          </div>
+          <span class="badge-pill ${m.isPublished ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-800 text-slate-400'} text-[10px]">
+            ${m.isPublished ? 'PUB' : 'DRAFT'}
+          </span>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.machine-item').forEach(el => {
+        el.addEventListener('click', () => {
+          if (state.isDirty && !confirm('Unsaved changes will be discarded. Continue?')) return;
+          state.isDirty = false;
+          const id = el.dataset.id;
+          selectMachine(id);
+        });
+      });
+    }
+
+    async function selectMachine(id) {
+      try {
+        const res = await apiFetch(`/api/v1/admin/machines/${id}`);
+        state.selectedMachine = res.machine;
+        document.getElementById('editorEmptyState').classList.add('hidden');
+        populateMachineEditor(res.machine);
+        switchMachineTab(state.selectedTab || 'identity');
+      } catch (e) {
+        console.error('Failed to fetch machine detail', e);
+      }
+    }
+
+    function populateMachineEditor(m) {
+      document.getElementById('editName').value = m.name || '';
+      document.getElementById('editSlug').value = m.slug || '';
+      document.getElementById('editKind').value = m.kind || 'ROVER';
+      document.getElementById('editStatus').value = m.status || 'OPERATIONAL';
+      document.getElementById('editOperator').value = m.operator || '';
+      document.getElementById('editIsPublished').checked = !!m.isPublished;
+
+      document.getElementById('editMissionName').value = m.missionName || '';
+      document.getElementById('editLandingSite').value = m.targetLandingSite || '';
+      document.getElementById('editMissionDescription').value = m.missionDescription || '';
+      document.getElementById('editSignificance').value = m.significance || '';
+
+      document.getElementById('editMassKg').value = m.massKg || '';
+      document.getElementById('editPowerSource').value = m.powerSource || '';
+      document.getElementById('editPrimaryDays').value = m.primaryMissionDurationDays || '';
+      document.getElementById('editOperationalDays').value = m.operationalDurationDays || '';
+      document.getElementById('editSpeed').value = m.maxSpeedKmh || '';
+
+      // Render timeline events
+      const eventsContainer = document.getElementById('eventsListContainer');
+      eventsContainer.innerHTML = (m.events || []).map(e => `
+        <div class="p-2.5 rounded bg-slate-950 border border-slate-800 text-xs flex justify-between items-center">
+          <div>
+            <span class="font-medium text-slate-200">${e.title}</span>
+            <span class="text-slate-500 font-mono ml-2">(${new Date(e.eventDate).toLocaleDateString()})</span>
+          </div>
+          <span class="badge-pill bg-slate-800 text-slate-400 text-[10px]">${e.eventType}</span>
+        </div>
+      `).join('') || '<p class="text-xs text-slate-500">No events recorded.</p>';
+
+      // Render sources
+      const sourcesContainer = document.getElementById('sourcesListContainer');
+      sourcesContainer.innerHTML = (m.sources || []).map(s => `
+        <div class="p-2.5 rounded bg-slate-950 border border-slate-800 text-xs flex justify-between items-center">
+          <div>
+            <p class="font-medium text-slate-200">${s.title}</p>
+            <a href="${s.url}" target="_blank" class="text-sky-400 font-mono text-[11px] hover:underline">${s.url}</a>
+          </div>
+          <span class="badge-pill bg-sky-500/10 text-sky-400 text-[10px] font-mono">${s.sourceKey}</span>
+        </div>
+      `).join('') || '<p class="text-xs text-slate-500">No sources linked.</p>';
+
+      // Render images
+      const imagesContainer = document.getElementById('imagesListContainer');
+      imagesContainer.innerHTML = (m.images || []).map(img => `
+        <div class="p-3 rounded bg-slate-950 border border-slate-800 space-y-2">
+          <img src="${img.url}" alt="${img.caption || ''}" class="w-full h-32 object-cover rounded bg-slate-900" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\' fill=\\'%23334155\\'><text x=\\'50%\\' y=\\'50%\\' dominant-baseline=\\'middle\\' text-anchor=\\'middle\\' fill=\\'%2394a3b8\\' font-size=\\'12\\'>NASA</text></svg>'">
+          <p class="text-[11px] text-slate-300 truncate">${img.caption || 'No caption'}</p>
+          <div class="flex gap-2">
+            ${img.isPrimary ? '<span class="badge-pill bg-emerald-500/20 text-emerald-300 text-[10px]">PRIMARY</span>' : ''}
+            ${img.requiresAiLabel ? '<span class="badge-pill bg-amber-500/20 text-amber-300 text-[10px]">AI-GEN</span>' : '<span class="badge-pill bg-slate-800 text-slate-400 text-[10px]">AUTHENTIC</span>'}
+          </div>
+        </div>
+      `).join('') || '<p class="text-xs text-slate-500 col-span-2">No images linked.</p>';
+    }
+
+    // Machine Tab switching
+    document.querySelectorAll('#machineTabsBar button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        switchMachineTab(tab);
+      });
+    });
+
+    function switchMachineTab(tab) {
+      state.selectedTab = tab;
+      document.querySelectorAll('#machineTabsBar button').forEach(b => {
+        if (b.dataset.tab === tab) {
+          b.className = 'machine-tab px-3 py-3 text-xs font-medium border-b-2 tab-active transition whitespace-nowrap';
+        } else {
+          b.className = 'machine-tab px-3 py-3 text-xs font-medium border-b-2 border-transparent text-slate-400 hover:text-white transition whitespace-nowrap';
+        }
+      });
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+      document.getElementById(`tab-${tab}`)?.classList.remove('hidden');
+    }
+
+    // Save Handlers (Targeted PATCH)
+    document.getElementById('saveIdentityBtn')?.addEventListener('click', async () => {
+      if (!state.selectedMachine) return;
+      try {
+        const payload = {
+          name: document.getElementById('editName').value,
+          kind: document.getElementById('editKind').value,
+          status: document.getElementById('editStatus').value,
+          operator: document.getElementById('editOperator').value || null,
+          isPublished: document.getElementById('editIsPublished').checked,
+        };
+        await apiFetch(`/api/v1/admin/machines/${state.selectedMachine.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify(payload)
+        });
+        showToast('Identity updated successfully (PATCH).');
+        state.isDirty = false;
+        loadMachines();
+      } catch (e) { /* error handled by apiFetch */ }
+    });
+
+    document.getElementById('saveMissionBtn')?.addEventListener('click', async () => {
+      if (!state.selectedMachine) return;
+      try {
+        const payload = {
+          missionName: document.getElementById('editMissionName').value || null,
+          targetLandingSite: document.getElementById('editLandingSite').value || null,
+          missionDescription: document.getElementById('editMissionDescription').value || null,
+          significance: document.getElementById('editSignificance').value || null,
+        };
+        await apiFetch(`/api/v1/admin/machines/${state.selectedMachine.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify(payload)
+        });
+        showToast('Mission narrative updated (PATCH).');
+        state.isDirty = false;
+      } catch (e) { /* error handled */ }
+    });
+
+    document.getElementById('saveSpecsBtn')?.addEventListener('click', async () => {
+      if (!state.selectedMachine) return;
+      try {
+        const mass = parseFloat(document.getElementById('editMassKg').value);
+        const speed = parseFloat(document.getElementById('editSpeed').value);
+        const payload = {
+          massKg: isNaN(mass) ? null : mass,
+          powerSource: document.getElementById('editPowerSource').value || null,
+          primaryMissionDurationDays: parseInt(document.getElementById('editPrimaryDays').value) || null,
+          operationalDurationDays: parseInt(document.getElementById('editOperationalDays').value) || null,
+          maxSpeedKmh: isNaN(speed) ? null : speed,
+        };
+        await apiFetch(`/api/v1/admin/machines/${state.selectedMachine.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify(payload)
+        });
+        showToast('Specs updated successfully (PATCH).');
+        state.isDirty = false;
+      } catch (e) { /* error handled */ }
+    });
+
+    // Ingestion Handlers
+    const zipFileInput = document.getElementById('zipFileInput');
+    const selectZipBtn = document.getElementById('selectZipBtn');
+    const dryRunValidateBtn = document.getElementById('dryRunValidateBtn');
+    const commitImportBtn = document.getElementById('commitImportBtn');
+
+    selectZipBtn?.addEventListener('click', () => zipFileInput.click());
+    zipFileInput?.addEventListener('change', () => {
+      if (zipFileInput.files.length > 0) {
+        document.getElementById('selectedZipName').textContent = zipFileInput.files[0].name;
+        dryRunValidateBtn.disabled = false;
+        dryRunValidateBtn.className = 'px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded text-xs font-medium transition flex items-center gap-2';
+        commitImportBtn.disabled = false;
+        commitImportBtn.className = 'px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded text-xs font-medium transition flex items-center gap-2';
+      }
+    });
+
+    dryRunValidateBtn?.addEventListener('click', () => submitZipIngestion(true));
+    commitImportBtn?.addEventListener('click', () => submitZipIngestion(false));
+
+    async function submitZipIngestion(isValidateOnly) {
+      if (!zipFileInput.files[0]) return;
+      const file = zipFileInput.files[0];
+      const endpoint = isValidateOnly ? '/api/v1/admin/ingestion/validate' : '/api/v1/admin/ingestion';
+      try {
+        const res = await apiFetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/zip',
+            'x-filename': file.name
+          },
+          body: file
+        });
+        displayIngestionReport(res);
+        showToast(isValidateOnly ? 'Dry-run validation successful!' : 'Bundle imported successfully!');
+      } catch (err) {
+        displayIngestionReport({ status: 'REJECTED', report: { errors: [err] } });
+      }
+    }
+
+    function displayIngestionReport(data) {
+      const container = document.getElementById('ingestionReportContainer');
+      container.classList.remove('hidden');
+      const badge = document.getElementById('reportStatusBadge');
+      const summary = document.getElementById('reportSummary');
+      const errorsContainer = document.getElementById('reportErrorsContainer');
+      const errorsList = document.getElementById('reportErrorsList');
+
+      badge.textContent = data.status || 'REPORT';
+      badge.className = data.status === 'COMMITTED' || data.status === 'VALIDATED'
+        ? 'badge-pill bg-emerald-500/20 text-emerald-400'
+        : 'badge-pill bg-rose-500/20 text-rose-400';
+
+      summary.innerHTML = `
+        <p>Execution: <span class="font-mono">${data.status}</span></p>
+        <p>Batch ID: <span class="font-mono text-slate-400">${data.batchId || 'Dry-run (no DB write)'}</span></p>
+      `;
+
+      if (data.report?.errors?.length > 0) {
+        errorsContainer.classList.remove('hidden');
+        errorsList.innerHTML = data.report.errors.map(e => `
+          <div>&bull; [${e.code || 'ERROR'}] ${e.message} ${e.file ? `(file: ${e.file})` : ''}</div>
+        `).join('');
+      } else {
+        errorsContainer.classList.add('hidden');
+      }
+    }
+
+    // Generation Jobs
+    async function loadGenerationJobs() {
+      try {
+        const res = await apiFetch('/api/v1/admin/generation/jobs?limit=20');
+        const body = document.getElementById('generationJobsBody');
+        const jobs = res.jobs || [];
+        if (jobs.length === 0) {
+          body.innerHTML = '<tr><td colspan="6" class="p-8 text-center text-slate-500">No generation jobs yet.</td></tr>';
+          return;
+        }
+        body.innerHTML = jobs.map(j => `
+          <tr class="hover:bg-slate-900/40">
+            <td class="p-3.5 font-mono text-[11px] text-slate-300">${j.id.slice(0, 8)}... (${j.targetEntityId ? j.targetEntityId.slice(0, 8) : 'N/A'})</td>
+            <td class="p-3.5 text-slate-300">${j.jobType}</td>
+            <td class="p-3.5"><span class="badge-pill ${j.status === 'COMPLETED' ? 'bg-emerald-500/20 text-emerald-400' : j.status === 'FAILED' ? 'bg-rose-500/20 text-rose-400' : 'bg-sky-500/20 text-sky-400'} text-[10px]">${j.status}</span></td>
+            <td class="p-3.5 font-mono text-[11px] text-slate-400">${j.tokensUsed ? j.tokensUsed + ' tok' : '-'} &bull; ${j.generationTimeMs ? j.generationTimeMs + 'ms' : '-'}</td>
+            <td class="p-3.5 text-slate-400">${new Date(j.createdAt).toLocaleTimeString()}</td>
+            <td class="p-3.5 text-right space-x-1">
+              ${j.status === 'PENDING' ? `<button onclick="pollJob('${j.id}')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-sky-400 rounded text-[11px]">Sync</button>` : ''}
+              ${j.status === 'PENDING' ? `<button onclick="cancelJob('${j.id}')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-rose-400 rounded text-[11px]">Cancel</button>` : ''}
+            </td>
+          </tr>
+        `).join('');
+      } catch (e) {
+        console.error('Failed to load generation jobs', e);
+      }
+    }
+
+    window.pollJob = async function(id) {
+      try {
+        await apiFetch(`/api/v1/admin/generation/jobs/${id}/poll`, { method: 'POST' });
+        showToast('Job status synced.');
+        loadGenerationJobs();
+      } catch (e) { /* error */ }
+    };
+
+    window.cancelJob = async function(id) {
+      try {
+        await apiFetch(`/api/v1/admin/generation/jobs/${id}/cancel`, { method: 'POST' });
+        showToast('Job cancelled.');
+        loadGenerationJobs();
+      } catch (e) { /* error */ }
+    };
+
+    // Auth connection
+    document.getElementById('setTokenBtn')?.addEventListener('click', () => {
+      const val = document.getElementById('tokenInput').value.trim();
+      if (val) {
+        state.token = val;
+        localStorage.setItem('space_legacy_admin_token', val);
+        document.getElementById('loginPrompt').classList.add('hidden');
+        document.getElementById('userInfo').classList.remove('hidden');
+        document.getElementById('userInfo').classList.add('flex');
+        showToast('Token stored. Reloading overview...');
+        loadOverview();
+      }
+    });
+
+    document.getElementById('logoutBtn')?.addEventListener('click', () => {
+      state.token = '';
+      localStorage.removeItem('space_legacy_admin_token');
+      document.getElementById('userInfo').classList.add('hidden');
+      document.getElementById('loginPrompt').classList.remove('hidden');
+      showToast('Logged out.');
+    });
+
+    // Init
+    if (state.token) {
+      document.getElementById('loginPrompt').classList.add('hidden');
+      document.getElementById('userInfo').classList.remove('hidden');
+      document.getElementById('userInfo').classList.add('flex');
+    }
+    lucide.createIcons();
+    loadOverview();
+  </script>
+</body>
+</html>
