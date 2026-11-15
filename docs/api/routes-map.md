@@ -9,5 +9,7 @@ Auto-generated route registry of all active HTTP endpoints.
 | `GET` | `/api/v1/health/ready` | `health` | `health.ready` | public | - | publicRead | System Readiness Probe |
 | `GET` | `/api/v1/machines` | `machines` | `machines.public_list` | public | - | publicRead | GET /api/v1/machines |
 | `GET` | `/api/v1/machines/:slug` | `machines` | `machines.public_show` | public | - | publicRead | GET /api/v1/machines/:slug |
+| `GET` | `/api/v1/machines/:slug/logbook` | `logbook` | `logbook.public_list` | public | - | publicRead | GET /api/v1/machines/:slug/logbook |
+| `GET` | `/api/v1/machines/:slug/logbook/:entry` | `logbook` | `logbook.public_show` | public | - | publicRead | GET /api/v1/machines/:slug/logbook/:entry |
 | `GET` | `/health/live` | `health` | `health.root_live` | public | - | publicRead | GET /health/live |
 | `GET` | `/health/ready` | `health` | `health.root_ready` | public | - | publicRead | GET /health/ready |
