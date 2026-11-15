@@ -45,7 +45,7 @@
     "@prisma/adapter-pg": "7.10.1",
     "@prisma/client": "7.10.1",
     "commander": "15.1.0",
-    "dotenv": "16.4.7",
+    "dotenv": "18.0.10",
     "hono": "4.13.18",
     "jose": "6.2.17",
     "pg": "8.23.1",
