@@ -40,6 +40,12 @@ const envSchema = z.object({
   BODY_LIMIT_BYTES: z.coerce.number().int().positive().default(1048576), // 1MB default
 
   INGESTION_BUNDLE_DIR: z.string().default('/results'),
+
+  PYTHON_SERVICE_URL: z.string().url().default('http://127.0.0.1:8001'),
+  PYTHON_SERVICE_API_KEY: z.string().default('test-py-api-key'),
+  PYTHON_SERVICE_TIMEOUT_MS: z.coerce.number().int().positive().default(10000),
+  PYTHON_SERVICE_RETRY_COUNT: z.coerce.number().int().min(0).default(3),
+  PYTHON_ALLOWED_RESULT_HOSTS: z.string().default('nasa.gov,jpl.nasa.gov,media.nasa.gov'),
 });
 
 const rawEnv = {
@@ -69,6 +75,12 @@ const rawEnv = {
 
   INGESTION_BUNDLE_DIR:
     process.env['INGESTION_BUNDLE_DIR'] ?? resolve(process.cwd(), '../Data-pipeline/data-processing/results'),
+
+  PYTHON_SERVICE_URL: process.env['PYTHON_SERVICE_URL'] ?? 'http://127.0.0.1:8001',
+  PYTHON_SERVICE_API_KEY: readSecret('PYTHON_SERVICE_API_KEY', 'test-py-api-key'),
+  PYTHON_SERVICE_TIMEOUT_MS: process.env['PYTHON_SERVICE_TIMEOUT_MS'] ?? 10000,
+  PYTHON_SERVICE_RETRY_COUNT: process.env['PYTHON_SERVICE_RETRY_COUNT'] ?? 3,
+  PYTHON_ALLOWED_RESULT_HOSTS: process.env['PYTHON_ALLOWED_RESULT_HOSTS'] ?? 'nasa.gov,jpl.nasa.gov,media.nasa.gov',
 };
 
 const parsed = envSchema.safeParse(rawEnv);

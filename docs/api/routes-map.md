@@ -5,6 +5,11 @@ Auto-generated route registry of all active HTTP endpoints.
 | Method | Path | Module | Name | Auth | Role | Rate Limit | Summary |
 |---|---|---|---|---|---|---|---|
 | `PATCH` | `/api/v1/admin/bodies/:id` | `celestial_bodies` | `admin.bodies.update` | user | EDITOR | admin | Targeted partial PATCH update of a celestial body |
+| `GET` | `/api/v1/admin/generation/jobs` | `generation` | `admin.generation.jobs.index` | user | EDITOR | admin | List asynchronous generation jobs |
+| `POST` | `/api/v1/admin/generation/jobs` | `generation` | `admin.generation.jobs.create` | user | EDITOR | admin | Submit an article or video generation job |
+| `GET` | `/api/v1/admin/generation/jobs/:id` | `generation` | `admin.generation.jobs.show` | user | EDITOR | admin | Get generation job status and result |
+| `POST` | `/api/v1/admin/generation/jobs/:id/cancel` | `generation` | `admin.generation.jobs.cancel` | user | EDITOR | admin | Cancel a pending or running generation job |
+| `POST` | `/api/v1/admin/generation/jobs/:id/poll` | `generation` | `admin.generation.jobs.poll` | user | EDITOR | admin | Poll and synchronize external generation job status |
 | `POST` | `/api/v1/admin/ingestion` | `ingestion` | `admin.ingestion.import` | user | EDITOR | admin | Validate and import a ZIP bundle atomically into database |
 | `GET` | `/api/v1/admin/ingestion/:id` | `ingestion` | `admin.ingestion.show` | user | EDITOR | admin | Get ingestion batch status and report |
 | `GET` | `/api/v1/admin/ingestion/spec` | `ingestion` | `admin.ingestion.spec` | user | EDITOR | admin | Get ingestion bundle specification and limits |

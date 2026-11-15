@@ -878,6 +878,84 @@
           }
         }
       }
+    },
+    "/api/v1/admin/generation/jobs": {
+      "get": {
+        "summary": "List asynchronous generation jobs",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Generation"
+        ],
+        "operationId": "admin.generation.jobs.index",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "post": {
+        "summary": "Submit an article or video generation job",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Generation"
+        ],
+        "operationId": "admin.generation.jobs.create",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/generation/jobs/{id}": {
+      "get": {
+        "summary": "Get generation job status and result",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Generation"
+        ],
+        "operationId": "admin.generation.jobs.show",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/generation/jobs/{id}/poll": {
+      "post": {
+        "summary": "Poll and synchronize external generation job status",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Generation"
+        ],
+        "operationId": "admin.generation.jobs.poll",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/generation/jobs/{id}/cancel": {
+      "post": {
+        "summary": "Cancel a pending or running generation job",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Generation"
+        ],
+        "operationId": "admin.generation.jobs.cancel",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
     }
   }
 }

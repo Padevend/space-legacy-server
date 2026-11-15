@@ -10,6 +10,56 @@
     "summary": "Targeted partial PATCH update of a celestial body"
   },
   {
+    "method": "GET",
+    "path": "/api/v1/admin/generation/jobs",
+    "module": "generation",
+    "name": "admin.generation.jobs.index",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "List asynchronous generation jobs"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/generation/jobs",
+    "module": "generation",
+    "name": "admin.generation.jobs.create",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Submit an article or video generation job"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/generation/jobs/:id",
+    "module": "generation",
+    "name": "admin.generation.jobs.show",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Get generation job status and result"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/generation/jobs/:id/cancel",
+    "module": "generation",
+    "name": "admin.generation.jobs.cancel",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Cancel a pending or running generation job"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/generation/jobs/:id/poll",
+    "module": "generation",
+    "name": "admin.generation.jobs.poll",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Poll and synchronize external generation job status"
+  },
+  {
     "method": "POST",
     "path": "/api/v1/admin/ingestion",
     "module": "ingestion",
