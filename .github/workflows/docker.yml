@@ -1,0 +1,26 @@
+name: Docker Build & Verification
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  docker:
+    name: Build Container Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./docker/Dockerfile
+          push: false
+          tags: space-legacy-backend:test

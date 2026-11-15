@@ -1,29 +1,37 @@
-# dev
-.yarn/
-!.yarn/releases
-.vscode/*
-!.vscode/launch.json
-!.vscode/*.code-snippets
-.idea/workspace.xml
-.idea/usage.statistics.xml
-.idea/shelf
-
-# deps
+# Dependencies
 node_modules/
+.pnpm-store/
 
-# env
+# Builds and compiled outputs
+build/
+dist/
+*.tsbuildinfo
+
+# Environment and secrets
 .env
-.env.production
-agent.md
+.env.*
+!.env.example
+*.pem
+*.key
 
-# logs
+# Logs
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-# misc
+# Coverage and testing outputs
+coverage/
+.nyc_output/
+
+# IDE and OS
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
 .DS_Store
+Thumbs.db
