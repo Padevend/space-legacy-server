@@ -2,11 +2,7 @@ import type { HttpContext } from '#infrastructure/http/http_context';
 import type { Context } from 'hono';
 import { EquipmentService, equipmentService } from '../services/equipment_service.js';
 import { EquipmentSerializer, equipmentSerializer } from '../serializers/equipment_serializer.js';
-import {
-  type CreateEquipmentRequestDto,
-  type UpdateEquipmentRequestDto,
-  type LinkEquipmentPersonDto,
-} from '../validators/equipment.js';
+import { type CreateEquipmentRequestDto, type UpdateEquipmentRequestDto } from '../validators/equipment.js';
 
 export class AdminEquipmentController {
   constructor(
@@ -50,32 +46,6 @@ export class AdminEquipmentController {
   };
 
   delete = this.destroy;
-
-  // Person links
-  linkPerson = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const equipmentId = (('params' in ctxOrC && ctxOrC.params['equipmentId']) || c.req.param('equipmentId')) ?? '';
-    const personId = (('params' in ctxOrC && ctxOrC.params['personId']) || c.req.param('personId')) ?? '';
-    const body = ('body' in ctxOrC && ctxOrC.body ? ctxOrC.body : await c.req.json()) as LinkEquipmentPersonDto;
-
-    const link = await this.service.linkPerson(equipmentId, personId, body);
-    const serialized = this.serializer.serializeEquipmentPerson(link);
-
-    return 'response' in ctxOrC
-      ? ctxOrC.response.created(c, serialized)
-      : c.json({ success: true, data: serialized }, 201);
-  };
-
-  unlinkPerson = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const equipmentId = (('params' in ctxOrC && ctxOrC.params['equipmentId']) || c.req.param('equipmentId')) ?? '';
-    const personId = (('params' in ctxOrC && ctxOrC.params['personId']) || c.req.param('personId')) ?? '';
-
-    await this.service.unlinkPerson(equipmentId, personId);
-    return 'response' in ctxOrC
-      ? ctxOrC.response.ok(c, { message: 'Person unlinked from equipment successfully.' })
-      : c.json({ success: true, data: { message: 'Person unlinked from equipment successfully.' } }, 200);
-  };
 }
 
 export const adminEquipmentController = new AdminEquipmentController();

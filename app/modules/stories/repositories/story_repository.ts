@@ -4,7 +4,6 @@ import type { StoryModel } from '../models/story.js';
 import type { StoryMissionModel } from '../models/story_mission.js';
 import type { StoryEquipmentModel } from '../models/story_equipment.js';
 import type { StoryEventModel } from '../models/story_event.js';
-import type { StoryMediaModel } from '../models/story_media.js';
 import type { StorySourceModel } from '../models/story_source.js';
 import type { StoryType, PublicationStatus } from '#shared/enums';
 
@@ -96,7 +95,6 @@ export class StoryRepository {
       missions?: boolean;
       equipments?: boolean;
       events?: boolean;
-      media?: boolean;
       sources?: boolean;
     },
     publishedOnly: boolean = false
@@ -143,22 +141,6 @@ export class StoryRepository {
                 select: {
                   title: true,
                   eventType: true,
-                },
-              },
-            },
-          },
-        }),
-        ...(includes.media && {
-          media: {
-            take: 50,
-            orderBy: { displayOrder: 'asc' },
-            include: {
-              media: {
-                select: {
-                  title: true,
-                  url: true,
-                  thumbnailUrl: true,
-                  provenanceType: true,
                 },
               },
             },
@@ -289,26 +271,6 @@ export class StoryRepository {
   async unlinkEvent(storyId: string, eventId: string): Promise<void> {
     await this.prisma.storyEvent.delete({
       where: { storyId_eventId: { storyId, eventId } },
-    });
-  }
-
-  async linkMedia(
-    storyId: string,
-    mediaId: string,
-    displayOrder: number,
-    captionOverride?: string | null
-  ): Promise<StoryMediaModel> {
-    const cleanCaptionOverride = captionOverride ?? null;
-    return this.prisma.storyMedia.upsert({
-      where: { storyId_mediaId: { storyId, mediaId } },
-      create: { storyId, mediaId, displayOrder, captionOverride: cleanCaptionOverride },
-      update: { displayOrder, captionOverride: cleanCaptionOverride },
-    });
-  }
-
-  async unlinkMedia(storyId: string, mediaId: string): Promise<void> {
-    await this.prisma.storyMedia.delete({
-      where: { storyId_mediaId: { storyId, mediaId } },
     });
   }
 

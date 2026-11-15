@@ -1,6 +1,5 @@
 import type { EquipmentModel } from '../models/equipment.js';
 import type { EquipmentDto, EquipmentDetailDto } from '../validators/equipment.js';
-import type { EquipmentPersonModel } from '../models/equipment_person.js';
 
 export class EquipmentSerializer {
   serializeEquipment(equipment: EquipmentModel): EquipmentDto {
@@ -41,12 +40,6 @@ export class EquipmentSerializer {
           equipmentType: c.equipmentType,
         })),
       }),
-      ...(equipment.people !== undefined && {
-        people: equipment.people.map((p) => ({
-          personId: p.personId,
-          role: p.role,
-        })),
-      }),
       ...(equipment.missions !== undefined && {
         missions: equipment.missions.map((m) => ({
           missionId: m.missionId,
@@ -66,15 +59,6 @@ export class EquipmentSerializer {
           endDate: loc.endDate,
         })),
       }),
-    };
-  }
-
-  serializeEquipmentPerson(link: EquipmentPersonModel) {
-    return {
-      equipmentId: link.equipmentId,
-      personId: link.personId,
-      role: link.role,
-      createdAt: (link.createdAt ?? new Date()).toISOString(),
     };
   }
 }

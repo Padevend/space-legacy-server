@@ -2,31 +2,21 @@
   "success": true,
   "data": [
     {
-      "missionId": "5ea2c7b1-9f93-4690-9359-a63455874623",
+      "missionId": "22843a7f-0421-45b1-b36c-a837b65097d3",
       "name": "Apollo 11 Flight Campaign",
-      "slug": "test-mission-1794709162415",
+      "slug": "test-mission-1794747285472",
       "description": "First manned landing on lunar soil.",
       "agency": "NASA",
       "missionStatus": "COMPLETED",
-      "createdAt": "2026-11-15T02:19:23.641Z",
-      "updatedAt": "2026-11-15T02:19:23.641Z"
-    },
-    {
-      "missionId": "2b866416-688b-43df-8044-e2886cbef8d8",
-      "name": "Apollo 11 Flight Campaign",
-      "slug": "test-mission-1794735620600",
-      "description": "First manned landing on lunar soil.",
-      "agency": "NASA",
-      "missionStatus": "COMPLETED",
-      "createdAt": "2026-11-15T09:40:23.148Z",
-      "updatedAt": "2026-11-15T09:40:23.148Z"
+      "createdAt": "2026-11-15T12:54:47.544Z",
+      "updatedAt": "2026-11-15T12:54:47.544Z"
     }
   ],
   "meta": {
-    "requestId": "2687d8d8-5a3c-408f-b13a-8b4301195f0b",
+    "requestId": "cbc6beba-75ce-4165-9dff-6ff079731416",
     "page": 1,
     "pageSize": 10,
-    "total": 2,
+    "total": 1,
     "totalPages": 1
   }
 }

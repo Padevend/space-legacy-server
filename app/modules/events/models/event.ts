@@ -35,12 +35,6 @@ export interface EventModel {
     locationRole: string | null;
   }>;
 
-  people?: Array<{
-    personId: string;
-    fullName?: string;
-    roleInEvent: string | null;
-  }>;
-
   sources?: Array<{
     sourceId: string;
     title?: string;

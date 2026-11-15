@@ -7,7 +7,6 @@ import {
   type UpdateEventRequestDto,
   type LinkEventEquipmentRequestDto,
   type LinkEventLocationRequestDto,
-  type LinkEventPersonRequestDto,
 } from '../validators/event.js';
 
 export class AdminEventController {
@@ -99,30 +98,6 @@ export class AdminEventController {
     return 'response' in ctxOrC
       ? ctxOrC.response.ok(c, { message: 'Location unlinked from event successfully.' })
       : c.json({ success: true, data: { message: 'Location unlinked from event successfully.' } }, 200);
-  };
-
-  // Person links
-  linkPerson = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const eventId = (('params' in ctxOrC && ctxOrC.params['eventId']) || c.req.param('eventId')) ?? '';
-    const personId = (('params' in ctxOrC && ctxOrC.params['personId']) || c.req.param('personId')) ?? '';
-    const body = ('body' in ctxOrC && ctxOrC.body ? ctxOrC.body : await c.req.json()) as LinkEventPersonRequestDto;
-
-    const link = await this.service.linkPerson(eventId, personId, body);
-    const serialized = this.serializer.serializeEventPerson(link);
-
-    return 'response' in ctxOrC ? ctxOrC.response.ok(c, serialized) : c.json({ success: true, data: serialized }, 200);
-  };
-
-  unlinkPerson = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const eventId = (('params' in ctxOrC && ctxOrC.params['eventId']) || c.req.param('eventId')) ?? '';
-    const personId = (('params' in ctxOrC && ctxOrC.params['personId']) || c.req.param('personId')) ?? '';
-
-    await this.service.unlinkPerson(eventId, personId);
-    return 'response' in ctxOrC
-      ? ctxOrC.response.ok(c, { message: 'Person unlinked from event successfully.' })
-      : c.json({ success: true, data: { message: 'Person unlinked from event successfully.' } }, 200);
   };
 }
 

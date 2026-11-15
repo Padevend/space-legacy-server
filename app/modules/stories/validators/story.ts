@@ -54,20 +54,6 @@ export const storyDetailSchema = storySchema.extend({
       })
     )
     .optional(),
-  media: z
-    .array(
-      z.object({
-        mediaId: z.string().uuid(),
-        title: z.string().optional(),
-        url: z.string().optional(),
-        thumbnailUrl: z.string().nullable().optional(),
-        provenanceType: z.string().optional(),
-        requiresAiLabel: z.boolean().optional(),
-        displayOrder: z.number(),
-        captionOverride: z.string().nullable(),
-      })
-    )
-    .optional(),
   sources: z
     .array(
       z.object({
@@ -171,15 +157,6 @@ export const linkStoryEventSchema = z
   .strict();
 
 export type LinkStoryEventRequestDto = z.infer<typeof linkStoryEventSchema>;
-
-export const linkStoryMediaSchema = z
-  .object({
-    displayOrder: z.number().int().min(0).optional().default(0),
-    captionOverride: z.string().max(2000).nullable().optional(),
-  })
-  .strict();
-
-export type LinkStoryMediaRequestDto = z.infer<typeof linkStoryMediaSchema>;
 
 export const linkStorySourceSchema = z
   .object({

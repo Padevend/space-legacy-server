@@ -6,43 +6,28 @@ describe('Module Ownership Matrix & Repository Purity (Section 2.4 & 2.10)', () 
   const schemaPath = path.resolve(process.cwd(), 'prisma/schema.prisma');
   const schemaContent = fs.readFileSync(schemaPath, 'utf8');
 
-  // Expected model-to-module mapping from docs/architecture/module-ownership.md
+  // Expected model-to-module mapping for active modules
   const expectedOwnership: Record<string, string> = {
     Mission: 'missions',
     Equipment: 'equipment',
     Event: 'events',
     CelestialBody: 'celestial_bodies',
     Location: 'locations',
-    Person: 'people',
-    Archive: 'archives',
     Source: 'sources',
     Story: 'stories',
-    Media: 'media',
-    Measurement: 'measurements',
     MissionEquipment: 'missions',
-    MissionPerson: 'missions',
     MissionSource: 'sources',
-    ArchiveMission: 'archives',
     EventEquipment: 'events',
     EquipmentLocation: 'locations',
-    EquipmentPerson: 'equipment',
     EquipmentSource: 'sources',
-    ArchiveEquipment: 'archives',
     EventLocation: 'events',
-    EventPerson: 'events',
     EventSource: 'sources',
-    ArchiveEvent: 'archives',
-    ArchiveSource: 'archives',
     StoryMission: 'stories',
     StoryEquipment: 'stories',
     StoryEvent: 'stories',
-    StoryMedia: 'stories',
     StorySource: 'stories',
-    EquipmentMedia: 'media',
-    MeasurementSource: 'sources',
     User: 'auth',
     RefreshToken: 'auth',
-    AuditLog: 'audit',
     IngestionRun: 'ingestion',
   };
 
@@ -73,7 +58,7 @@ describe('Module Ownership Matrix & Repository Purity (Section 2.4 & 2.10)', () 
     const modulesDir = path.resolve(process.cwd(), 'app/modules');
     if (!fs.existsSync(modulesDir)) return;
 
-    // Model name to Prisma delegate name mapping (e.g. CelestialBody -> celestialBody, MissionEquipment -> missionEquipment)
+    // Model name to Prisma delegate name mapping (e.g. CelestialBody -> celestialBody)
     const modelToDelegate = (model: string) => model.charAt(0).toLowerCase() + model.slice(1);
 
     const moduleEntries = fs.readdirSync(modulesDir, { withFileTypes: true });

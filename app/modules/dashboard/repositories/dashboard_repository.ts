@@ -10,27 +10,23 @@ export class DashboardRepository {
       missionCount,
       eventCount,
       storyCount,
-      mediaCount,
       sourceCount,
       userCount,
       draftStories,
       reviewStories,
       publishedStories,
       archivedStories,
-      mediaAiCount,
     ] = await Promise.all([
       this.prisma.equipment.count(),
       this.prisma.mission.count(),
       this.prisma.event.count(),
       this.prisma.story.count(),
-      this.prisma.media.count(),
       this.prisma.source.count(),
       this.prisma.user.count(),
       this.prisma.story.count({ where: { publicationStatus: 'DRAFT' } }),
       this.prisma.story.count({ where: { publicationStatus: 'REVIEW' } }),
       this.prisma.story.count({ where: { publicationStatus: 'PUBLISHED' } }),
       this.prisma.story.count({ where: { publicationStatus: 'ARCHIVED' } }),
-      this.prisma.media.count({ where: { provenanceType: 'AI_GENERATED_ILLUSTRATION' } }),
     ]);
 
     return {
@@ -39,7 +35,7 @@ export class DashboardRepository {
         missions: missionCount,
         events: eventCount,
         stories: storyCount,
-        media: mediaCount,
+        media: 0,
         sources: sourceCount,
         users: userCount,
       },
@@ -49,7 +45,7 @@ export class DashboardRepository {
         published: publishedStories,
         archived: archivedStories,
       },
-      mediaAiCount,
+      mediaAiCount: 0,
     };
   }
 }

@@ -2,71 +2,71 @@
   "success": true,
   "data": [
     {
-      "celestialBodyId": "2e71b02b-ff5d-466a-baed-7a6036d000a0",
-      "name": "Europa-Test-1794700955203",
-      "bodyType": "MOON",
-      "description": "Updated Europa description with water ocean details."
-    },
-    {
-      "celestialBodyId": "9e3370ec-c339-4502-9d47-de66af4347c2",
-      "name": "Europa-Test-1794709162750",
-      "bodyType": "MOON",
-      "description": "Sixth-closest moon of Jupiter."
-    },
-    {
-      "celestialBodyId": "66595dee-2e1b-4733-bc3a-d9f0d015033c",
-      "name": "Mars [TEST-SEED]",
+      "celestialBodyId": "06bba060-71be-5850-acd7-e185aafb72dc",
+      "name": "Earth",
       "bodyType": "PLANET",
-      "description": "The Red Planet [TEST DATA - NOT A REAL RECORD]."
+      "description": null
     },
     {
-      "celestialBodyId": "479faba5-da3e-4af0-bc24-0d7b5b093a26",
-      "name": "Moon [TEST-SEED]",
-      "bodyType": "MOON",
-      "description": "The natural satellite of Earth [TEST DATA - NOT A REAL RECORD]."
+      "celestialBodyId": "31ae135c-80f8-5804-ba1a-6aaf0d52b0e6",
+      "name": "Eros",
+      "bodyType": "ASTEROID",
+      "description": null
     },
     {
-      "celestialBodyId": "5e1af060-ca80-42a0-b85b-b0fa6a48b1dd",
-      "name": "Moon-Equip-1794702168602",
+      "celestialBodyId": "00e486a1-85b2-5035-a70c-c03867959453",
+      "name": "Jupiter",
+      "bodyType": "PLANET",
+      "description": null
+    },
+    {
+      "celestialBodyId": "930f785c-a991-5e33-bee5-a719e1680435",
+      "name": "Luna",
       "bodyType": "MOON",
       "description": null
     },
     {
-      "celestialBodyId": "2e2f899e-dc6d-427a-90cb-437dfcc7ae5a",
-      "name": "Moon-Equip-1794702274660",
+      "celestialBodyId": "092ab3a1-4bed-5e00-96e7-895d226b3ceb",
+      "name": "Mars",
+      "bodyType": "PLANET",
+      "description": null
+    },
+    {
+      "celestialBodyId": "3c482120-3e7a-5d81-8cf2-bc977c9e4ce3",
+      "name": "Moon",
       "bodyType": "MOON",
       "description": null
     },
     {
-      "celestialBodyId": "827e991a-00f3-4d5f-85a7-b187aacead76",
-      "name": "Moon-Equip-1794702301066",
+      "celestialBodyId": "678e0f56-b09e-4508-9762-f4019a536554",
+      "name": "Moon-Equip-1794745499522",
       "bodyType": "MOON",
       "description": null
     },
     {
-      "celestialBodyId": "e668f902-62d1-4587-8dd4-95a601959c38",
-      "name": "Moon-Equip-1794702522623",
+      "celestialBodyId": "473da431-b128-4cd3-8017-7a7d057ecfe0",
+      "name": "Moon-Equip-1794745777281",
       "bodyType": "MOON",
       "description": null
     },
     {
-      "celestialBodyId": "4ef48768-1f47-4931-971b-87092b5092ec",
-      "name": "Moon-Equip-1794702653187",
+      "celestialBodyId": "cabc1303-c881-4f71-8082-64cf3c851e03",
+      "name": "Moon-Equip-1794746820963",
       "bodyType": "MOON",
       "description": null
     },
     {
-      "celestialBodyId": "b4a36aab-74dc-48be-95e1-38c8c414d5a2",
-      "name": "Moon-Equip-1794703460750",
+      "celestialBodyId": "74cbc096-33d0-47e6-915c-ac6e6efd99bb",
+      "name": "Moon-Equip-1794747178883",
       "bodyType": "MOON",
       "description": null
     }
   ],
   "meta": {
-    "requestId": "66f50273-f866-4b04-86ed-65da4a1f824f",
+    "requestId": "b1176446-0109-492a-bf7e-5771e2094ce1",
     "page": 1,
     "pageSize": 10,
-    "total": 20,
+    "total": 17,
     "totalPages": 2
   }
 }

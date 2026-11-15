@@ -21,7 +21,6 @@ describe('E2E: Stories Editorial Workflow & Visibility', () => {
   let missionId = '';
   let equipmentId = '';
   let eventId = '';
-  let mediaId = '';
   let sourceId = '';
 
   beforeAll(async () => {
@@ -82,16 +81,6 @@ describe('E2E: Stories Editorial Workflow & Visibility', () => {
       },
     });
     eventId = event.eventId;
-
-    const media = await prisma.media.create({
-      data: {
-        title: `Rover Photo ${Date.now()}`,
-        mediaType: 'IMAGE',
-        url: 'https://images.nasa.gov/as15-88-11866.jpg',
-        provenanceType: 'NASA_ARCHIVE',
-      },
-    });
-    mediaId = media.mediaId;
 
     const source = await prisma.source.create({
       data: {
@@ -255,12 +244,6 @@ describe('E2E: Stories Editorial Workflow & Visibility', () => {
       body: JSON.stringify({ displayOrder: 1, narrativeRole: 'Central subject' }),
     });
 
-    await app.request(`/api/v1/admin/stories/${storyId}/media/${mediaId}`, {
-      method: 'PUT',
-      headers: { 'content-type': 'application/json', authorization: `Bearer ${editorToken}` },
-      body: JSON.stringify({ displayOrder: 1, captionOverride: 'Rover parked on surface' }),
-    });
-
     await app.request(`/api/v1/admin/stories/${storyId}/events/${eventId}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json', authorization: `Bearer ${editorToken}` },
@@ -274,19 +257,18 @@ describe('E2E: Stories Editorial Workflow & Visibility', () => {
     });
 
     // 2. Fetch with 3 allowed includes
-    const getRes = await app.request(`/api/v1/stories/${testSlug}?include=missions,equipments,media`);
+    const getRes = await app.request(`/api/v1/stories/${testSlug}?include=missions,equipments,events`);
     expect(getRes.status).toBe(200);
     const getJson = (await getRes.json()) as StoryDetailResponse;
     expect(getJson.success).toBe(true);
     if (getJson.success) {
       expect(getJson.data.missions?.length).toBe(1);
       expect(getJson.data.equipments?.length).toBe(1);
-      expect(getJson.data.media?.length).toBe(1);
-      expect(getJson.data.media?.[0]?.captionOverride).toBe('Rover parked on surface');
+      expect(getJson.data.events?.length).toBe(1);
     }
 
     // 3. Include cap: >3 relations returns 422
-    const overCapRes = await app.request(`/api/v1/stories/${testSlug}?include=missions,equipments,media,sources`);
+    const overCapRes = await app.request(`/api/v1/stories/${testSlug}?include=missions,equipments,events,sources`);
     expect(overCapRes.status).toBe(422);
 
     // 4. Unlink relations

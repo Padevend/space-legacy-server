@@ -11,7 +11,6 @@ import {
   type LinkStoryMissionRequestDto,
   type LinkStoryEquipmentRequestDto,
   type LinkStoryEventRequestDto,
-  type LinkStoryMediaRequestDto,
   type LinkStorySourceRequestDto,
 } from '../validators/story.js';
 
@@ -193,34 +192,6 @@ export class AdminStoryController {
     return 'response' in ctxOrC
       ? ctxOrC.response.ok(c, { message: 'Event unlinked from story successfully.' })
       : c.json({ success: true, data: { message: 'Event unlinked from story successfully.' } }, 200);
-  };
-
-  linkMedia = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const storyId = (('params' in ctxOrC && ctxOrC.params['storyId']) || c.req.param('storyId')) ?? '';
-    const mediaId = (('params' in ctxOrC && ctxOrC.params['mediaId']) || c.req.param('mediaId')) ?? '';
-    const body = ('body' in ctxOrC && ctxOrC.body ? ctxOrC.body : await c.req.json()) as LinkStoryMediaRequestDto;
-
-    const link = await this.service.linkMedia(storyId, mediaId, body);
-    const serialized = this.serializer.serializeStoryMedia(link);
-    const status = c.req.method === 'PUT' ? 200 : 201;
-
-    return 'response' in ctxOrC
-      ? status === 200
-        ? ctxOrC.response.ok(c, serialized)
-        : ctxOrC.response.created(c, serialized)
-      : c.json({ success: true, data: serialized }, status as any);
-  };
-
-  unlinkMedia = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const storyId = (('params' in ctxOrC && ctxOrC.params['storyId']) || c.req.param('storyId')) ?? '';
-    const mediaId = (('params' in ctxOrC && ctxOrC.params['mediaId']) || c.req.param('mediaId')) ?? '';
-
-    await this.service.unlinkMedia(storyId, mediaId);
-    return 'response' in ctxOrC
-      ? ctxOrC.response.ok(c, { message: 'Media unlinked from story successfully.' })
-      : c.json({ success: true, data: { message: 'Media unlinked from story successfully.' } }, 200);
   };
 
   linkSource = async (ctxOrC: HttpContext | Context): Promise<Response> => {

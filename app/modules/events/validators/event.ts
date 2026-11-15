@@ -62,15 +62,6 @@ export const eventDetailSchema = eventSchema.extend({
       })
     )
     .optional(),
-  people: z
-    .array(
-      z.object({
-        personId: z.string().uuid(),
-        fullName: z.string().optional(),
-        roleInEvent: z.string().nullable(),
-      })
-    )
-    .optional(),
   sources: z
     .array(
       z.object({
@@ -157,11 +148,3 @@ export const linkEventLocationSchema = z
   .strict();
 
 export type LinkEventLocationRequestDto = z.infer<typeof linkEventLocationSchema>;
-
-export const linkEventPersonSchema = z
-  .object({
-    roleInEvent: z.string().max(255).nullable().optional(),
-  })
-  .strict();
-
-export type LinkEventPersonRequestDto = z.infer<typeof linkEventPersonSchema>;

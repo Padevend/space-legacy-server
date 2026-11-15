@@ -181,26 +181,6 @@ export class SourceRepository {
       where: { eventId_sourceId: { eventId, sourceId } },
     });
   }
-
-  // Measurement Sources
-  async linkMeasurement(
-    measurementId: string,
-    sourceId: string,
-    claimDescription?: string | null
-  ): Promise<SourceLinkModel> {
-    const row = await prisma.measurementSource.upsert({
-      where: { measurementId_sourceId: { measurementId, sourceId } },
-      update: { claimDescription: claimDescription ?? null },
-      create: { measurementId, sourceId, claimDescription: claimDescription ?? null },
-    });
-    return { targetId: row.measurementId, sourceId: row.sourceId, claimDescription: row.claimDescription };
-  }
-
-  async unlinkMeasurement(measurementId: string, sourceId: string): Promise<void> {
-    await prisma.measurementSource.delete({
-      where: { measurementId_sourceId: { measurementId, sourceId } },
-    });
-  }
 }
 
 export const sourceRepository = new SourceRepository();

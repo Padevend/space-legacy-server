@@ -1,16 +1,14 @@
 import { EquipmentRepository, equipmentRepository } from '../repositories/equipment_repository.js';
 import type { EquipmentModel } from '../models/equipment.js';
-import type { EquipmentPersonModel } from '../models/equipment_person.js';
 import { EquipmentHierarchy } from '../models/equipment_hierarchy.js';
 import { AppException } from '#exceptions/app_exception';
 import type {
   ListEquipmentQueryDto,
   CreateEquipmentRequestDto,
   UpdateEquipmentRequestDto,
-  LinkEquipmentPersonDto,
 } from '../validators/equipment.js';
 
-const ALLOWED_INCLUDES = ['parent', 'children', 'missions', 'locations', 'people'];
+const ALLOWED_INCLUDES = ['parent', 'children', 'missions', 'locations'];
 
 export class EquipmentService {
   constructor(private readonly repo: EquipmentRepository = equipmentRepository) {}
@@ -148,20 +146,6 @@ export class EquipmentService {
   async delete(id: string): Promise<EquipmentModel> {
     const current = await this.getByIdOrSlug(id);
     return this.repo.delete(current.equipmentId);
-  }
-
-  async linkPerson(equipmentId: string, personId: string, dto: LinkEquipmentPersonDto): Promise<EquipmentPersonModel> {
-    await this.getByIdOrSlug(equipmentId);
-    const role = dto.role ?? dto.roleInEquipment ?? null;
-    return this.repo.linkPerson(equipmentId, personId, role);
-  }
-
-  async unlinkPerson(equipmentId: string, personId: string): Promise<void> {
-    try {
-      await this.repo.unlinkPerson(equipmentId, personId);
-    } catch {
-      throw AppException.notFound('EquipmentPerson', 'Person link not found for this equipment.');
-    }
   }
 }
 

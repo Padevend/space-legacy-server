@@ -127,35 +127,6 @@ export class AdminSourceController {
       ? ctxOrC.response.ok(c, { message: 'Event source unlinked successfully.' })
       : c.json({ success: true, data: { message: 'Event source unlinked successfully.' } }, 200);
   };
-
-  // Measurement links
-  linkMeasurement = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const measurementId =
-      (('params' in ctxOrC && ctxOrC.params['measurementId']) || c.req.param('measurementId')) ?? '';
-    const paramSourceId = (('params' in ctxOrC && ctxOrC.params['sourceId']) || c.req.param('sourceId')) ?? '';
-    const body = ('body' in ctxOrC && ctxOrC.body ? ctxOrC.body : await c.req.json()) as LinkSourceDto;
-    if (paramSourceId && !body.sourceId) {
-      body.sourceId = paramSourceId;
-    }
-
-    const link = await this.service.linkMeasurement(measurementId, body);
-    const serialized = this.serializer.serializeSourceLink(link);
-
-    return 'response' in ctxOrC ? ctxOrC.response.ok(c, serialized) : c.json({ success: true, data: serialized }, 200);
-  };
-
-  unlinkMeasurement = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const measurementId =
-      (('params' in ctxOrC && ctxOrC.params['measurementId']) || c.req.param('measurementId')) ?? '';
-    const sourceId = (('params' in ctxOrC && ctxOrC.params['sourceId']) || c.req.param('sourceId')) ?? '';
-
-    await this.service.unlinkMeasurement(measurementId, sourceId);
-    return 'response' in ctxOrC
-      ? ctxOrC.response.ok(c, { message: 'Measurement source unlinked successfully.' })
-      : c.json({ success: true, data: { message: 'Measurement source unlinked successfully.' } }, 200);
-  };
 }
 
 export const adminSourceController = new AdminSourceController();

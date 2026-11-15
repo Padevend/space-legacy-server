@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -117,67 +116,26 @@ enum PublicationStatus {
   ARCHIVED
 }
 
-enum MediaType {
-  IMAGE
-  VIDEO
-  AUDIO
-  MODEL_3D
-  DOCUMENT
-  ANIMATION
-  OTHER
-}
-
-enum MediaProvenance {
-  NASA_ARCHIVE
-  RECONSTRUCTION_3D @map("3D_RECONSTRUCTION")
-  AI_GENERATED_ILLUSTRATION
-  DATA_VISUALIZATION
-  OTHER
-}
-
-enum DownloadStatus {
-  AVAILABLE
-  PENDING
-  FAILED
-  EXTERNAL_ONLY
-}
-
-enum MeasurementType {
-  MASS
-  DISTANCE
-  DURATION
-  TEMPERATURE
-  FREQUENCY
-  SPEED
-  FORCE
-  PRESSURE
-  POWER
-  VOLTAGE
-  OTHER
-}
-
 // ======================================================
 // CORE MODELS
 // ======================================================
 
 // module: missions
 model Mission {
-  missionId   String        @id @default(uuid()) @db.Uuid
-  name        String
-  slug        String        @unique
-  description String?       @db.Text
-  agency      String?
+  missionId     String        @id @default(uuid()) @db.Uuid
+  name          String
+  slug          String        @unique
+  description   String?       @db.Text
+  agency        String?
   missionStatus MissionStatus @default(UNKNOWN)
 
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 
-  equipment   MissionEquipment[]
-  events      Event[]
-  people      MissionPerson[]
-  stories     StoryMission[]
-  sources     MissionSource[]
-  archives    ArchiveMission[]
+  equipment     MissionEquipment[]
+  events        Event[]
+  stories       StoryMission[]
+  sources       MissionSource[]
 
   @@index([name])
   @@index([missionStatus])
@@ -186,34 +144,30 @@ model Mission {
 
 // module: equipment
 model Equipment {
-  equipmentId       String             @id @default(uuid()) @db.Uuid
-  parentEquipmentId String?            @db.Uuid
+  equipmentId       String            @id @default(uuid()) @db.Uuid
+  parentEquipmentId String?           @db.Uuid
 
   name              String
-  slug              String             @unique
-  description       String?            @db.Text
+  slug              String            @unique
+  description       String?           @db.Text
   equipmentType     EquipmentType
   manufacturer      String?
 
-  operationalStatus OperationalStatus  @default(UNKNOWN)
-  physicalStatus    PhysicalStatus     @default(UNKNOWN)
+  operationalStatus OperationalStatus @default(UNKNOWN)
+  physicalStatus    PhysicalStatus    @default(UNKNOWN)
 
-  createdAt         DateTime           @default(now())
-  updatedAt         DateTime           @updatedAt
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
 
   // Recursive parent-child relationship
-  parent            Equipment?         @relation("EquipmentHierarchy", fields: [parentEquipmentId], references: [equipmentId], onDelete: Restrict)
-  children          Equipment[]        @relation("EquipmentHierarchy")
+  parent            Equipment?        @relation("EquipmentHierarchy", fields: [parentEquipmentId], references: [equipmentId], onDelete: Restrict)
+  children          Equipment[]       @relation("EquipmentHierarchy")
 
   missions          MissionEquipment[]
   events            EventEquipment[]
   locations         EquipmentLocation[]
-  people            EquipmentPerson[]
   stories           StoryEquipment[]
-  media             EquipmentMedia[]
   sources           EquipmentSource[]
-  measurements      Measurement[]
-  archives          ArchiveEquipment[]
 
   @@index([name])
   @@index([equipmentType])
@@ -245,11 +199,8 @@ model Event {
 
   equipment     EventEquipment[]
   locations     EventLocation[]
-  people        EventPerson[]
   stories       StoryEvent[]
   sources       EventSource[]
-  measurements  Measurement[]
-  archives      ArchiveEvent[]
 
   @@index([missionId])
   @@index([eventDate])
@@ -294,50 +245,9 @@ model Location {
   @@map("locations")
 }
 
-// module: people
-model Person {
-  personId    String  @id @default(uuid()) @db.Uuid
-  fullName    String
-  biography   String? @db.Text
-  affiliation String?
-
-  missions    MissionPerson[]
-  events      EventPerson[]
-  equipments  EquipmentPerson[]
-
-  @@index([fullName])
-  @@map("people")
-}
-
 // ======================================================
 // DOCUMENTATION AND TRACEABILITY
 // ======================================================
-
-// module: archives
-model Archive {
-  archiveId      String   @id @default(uuid()) @db.Uuid
-
-  externalId     String
-  archiveTitle  String
-  archiveProvider String
-  originalUrl    String
-
-  rawContent     Json     @db.JsonB
-
-  retrievedAt    DateTime @default(now())
-  archiveVersion String?
-  contentHash    String?
-
-  missions       ArchiveMission[]
-  equipments     ArchiveEquipment[]
-  events         ArchiveEvent[]
-  sources        ArchiveSource[]
-
-  @@unique([archiveProvider, externalId])
-  @@index([archiveProvider])
-  @@index([contentHash])
-  @@map("archives")
-}
 
 // module: sources
 model Source {
@@ -354,9 +264,7 @@ model Source {
   missions        MissionSource[]
   equipments      EquipmentSource[]
   events          EventSource[]
-  measurements    MeasurementSource[]
   stories         StorySource[]
-  archives        ArchiveSource[]
 
   @@unique([url])
   @@index([sourceType])
@@ -370,91 +278,31 @@ model Source {
 
 // module: stories
 model Story {
-  storyId          String            @id @default(uuid()) @db.Uuid
+  storyId           String            @id @default(uuid()) @db.Uuid
 
-  title            String
-  slug             String            @unique
-  hook             String?           @db.Text
-  content          String            @db.Text
+  title             String
+  slug              String            @unique
+  hook              String?           @db.Text
+  content           String            @db.Text
 
-  storyType        StoryType
-  durationSeconds  Int?
-  language         String            @default("en")
+  storyType         StoryType
+  durationSeconds   Int?
+  language          String            @default("en")
   publicationStatus PublicationStatus @default(DRAFT)
 
-  publishedAt      DateTime?
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  publishedAt       DateTime?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
 
-  missions         StoryMission[]
-  equipments       StoryEquipment[]
-  events           StoryEvent[]
-  media            StoryMedia[]
-  sources          StorySource[]
+  missions          StoryMission[]
+  equipments        StoryEquipment[]
+  events            StoryEvent[]
+  sources           StorySource[]
 
   @@index([storyType])
   @@index([publicationStatus])
   @@index([language])
   @@map("stories")
-}
-
-// module: media
-model Media {
-  mediaId          String          @id @default(uuid()) @db.Uuid
-
-  title            String
-  mediaType        MediaType
-  url              String
-  thumbnailUrl     String?
-  caption          String?         @db.Text
-
-  credit           String?
-  creditUrl        String?
-
-  provenanceType   MediaProvenance
-  altText          String?         @db.Text
-  downloadStatus   DownloadStatus  @default(EXTERNAL_ONLY)
-
-  stories          StoryMedia[]
-  equipments       EquipmentMedia[]
-
-  @@index([mediaType])
-  @@index([provenanceType])
-  @@map("media")
-}
-
-// ======================================================
-// SCIENTIFIC DATA
-// ======================================================
-
-// module: measurements
-model Measurement {
-  measurementId  String          @id @default(uuid()) @db.Uuid
-
-  equipmentId    String?         @db.Uuid
-  eventId        String?         @db.Uuid
-
-  name           String
-  value          Decimal         @db.Decimal(24, 8)
-  unit           String
-  measurementType MeasurementType
-
-  context        String          @db.Text
-  measurementDate DateTime?
-  isApproximate  Boolean         @default(false)
-  uncertainty    Decimal?        @db.Decimal(24, 8)
-
-  equipment      Equipment?      @relation(fields: [equipmentId], references: [equipmentId], onDelete: Restrict)
-
-  event          Event?          @relation(fields: [eventId], references: [eventId], onDelete: Restrict)
-
-  sources        MeasurementSource[]
-
-  @@index([equipmentId])
-  @@index([eventId])
-  @@index([measurementType])
-  @@index([measurementDate])
-  @@map("measurements")
 }
 
 // ======================================================
@@ -470,7 +318,6 @@ model MissionEquipment {
   participationDescription String? @db.Text
 
   mission                  Mission   @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
-
   equipment                Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
   @@id([missionId, equipmentId])
@@ -478,49 +325,18 @@ model MissionEquipment {
   @@map("mission_equipments")
 }
 
-// module: missions
-model MissionPerson {
-  missionId    String @db.Uuid
-  personId     String @db.Uuid
-  roleInMission String
-
-  mission      Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
-
-  person       Person  @relation(fields: [personId], references: [personId], onDelete: Cascade)
-
-  @@id([missionId, personId])
-  @@index([personId])
-  @@map("mission_people")
-}
-
 // module: sources
 model MissionSource {
-  missionId       String @db.Uuid
-  sourceId        String @db.Uuid
+  missionId        String  @db.Uuid
+  sourceId         String  @db.Uuid
   claimDescription String? @db.Text
 
-  mission         Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
-
-  source          Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
+  mission          Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
+  source           Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([missionId, sourceId])
   @@index([sourceId])
   @@map("mission_sources")
-}
-
-// module: archives
-model ArchiveMission {
-  archiveId   String @db.Uuid
-  missionId   String @db.Uuid
-  sectionName String?
-
-  archive     Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
-
-  mission     Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
-
-  @@id([archiveId, missionId])
-  @@index([missionId])
-  @@map("archive_missions")
 }
 
 // ======================================================
@@ -529,14 +345,13 @@ model ArchiveMission {
 
 // module: events
 model EventEquipment {
-  eventId     String @db.Uuid
-  equipmentId String @db.Uuid
+  eventId     String  @db.Uuid
+  equipmentId String  @db.Uuid
 
   roleInEvent String?
   description String? @db.Text
 
   event       Event     @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-
   equipment   Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
   @@id([eventId, equipmentId])
@@ -555,7 +370,6 @@ model EquipmentLocation {
   locationPrecision   DatePrecision @default(UNKNOWN)
 
   equipment           Equipment     @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
   location            Location      @relation(fields: [locationId], references: [locationId], onDelete: Cascade)
 
   @@unique([equipmentId, locationId, startDate])
@@ -563,50 +377,18 @@ model EquipmentLocation {
   @@map("equipment_locations")
 }
 
-// module: equipment
-model EquipmentPerson {
-  equipmentId    String @db.Uuid
-  personId       String @db.Uuid
-  roleInEquipment String
-
-  equipment     Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
-  person        Person @relation(fields: [personId], references: [personId], onDelete: Cascade)
-
-  @@id([equipmentId, personId])
-  @@index([personId])
-  @@map("equipment_people")
-}
-
 // module: sources
 model EquipmentSource {
-  equipmentId     String @db.Uuid
-  sourceId        String @db.Uuid
+  equipmentId      String  @db.Uuid
+  sourceId         String  @db.Uuid
   claimDescription String? @db.Text
 
-  equipment       Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
-  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
+  equipment        Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
+  source           Source    @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([equipmentId, sourceId])
   @@index([sourceId])
   @@map("equipment_sources")
-}
-
-// module: archives
-model ArchiveEquipment {
-  archiveId        String @db.Uuid
-  equipmentId      String @db.Uuid
-  sectionName      String?
-  extractedReference String?
-
-  archive          Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
-
-  equipment        Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
-  @@id([archiveId, equipmentId])
-  @@index([equipmentId])
-  @@map("archive_equipments")
 }
 
 // ======================================================
@@ -615,14 +397,13 @@ model ArchiveEquipment {
 
 // module: events
 model EventLocation {
-  eventId       String @db.Uuid
-  locationId    String @db.Uuid
+  eventId       String   @db.Uuid
+  locationId    String   @db.Uuid
 
   locationRole  String?
-  sequenceOrder Int @default(0)
+  sequenceOrder Int      @default(0)
 
-  event         Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-
+  event         Event    @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
   location      Location @relation(fields: [locationId], references: [locationId], onDelete: Cascade)
 
   @@id([eventId, locationId])
@@ -630,65 +411,18 @@ model EventLocation {
   @@map("event_locations")
 }
 
-// module: events
-model EventPerson {
-  eventId     String @db.Uuid
-  personId    String @db.Uuid
-  roleInEvent String
-
-  event       Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-
-  person      Person @relation(fields: [personId], references: [personId], onDelete: Cascade)
-
-  @@id([eventId, personId])
-  @@index([personId])
-  @@map("event_people")
-}
-
 // module: sources
 model EventSource {
-  eventId         String @db.Uuid
-  sourceId        String @db.Uuid
+  eventId          String  @db.Uuid
+  sourceId         String  @db.Uuid
   claimDescription String? @db.Text
 
-  event           Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-
-  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
+  event            Event   @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
+  source           Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([eventId, sourceId])
   @@index([sourceId])
   @@map("event_sources")
-}
-
-// module: archives
-model ArchiveEvent {
-  archiveId        String @db.Uuid
-  eventId          String @db.Uuid
-  sectionName      String?
-  extractedReference String?
-
-  archive          Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
-
-  event            Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-
-  @@id([archiveId, eventId])
-  @@index([eventId])
-  @@map("archive_events")
-}
-
-// module: archives
-model ArchiveSource {
-  archiveId       String @db.Uuid
-  sourceId        String @db.Uuid
-  referenceContext String?
-
-  archive         Archive @relation(fields: [archiveId], references: [archiveId], onDelete: Cascade)
-
-  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
-
-  @@id([archiveId, sourceId])
-  @@index([sourceId])
-  @@map("archive_sources")
 }
 
 // ======================================================
@@ -697,12 +431,11 @@ model ArchiveSource {
 
 // module: stories
 model StoryMission {
-  storyId      String @db.Uuid
-  missionId    String @db.Uuid
-  displayOrder Int @default(0)
+  storyId      String  @db.Uuid
+  missionId    String  @db.Uuid
+  displayOrder Int     @default(0)
 
-  story        Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-
+  story        Story   @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
   mission      Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
 
   @@id([storyId, missionId])
@@ -712,14 +445,13 @@ model StoryMission {
 
 // module: stories
 model StoryEquipment {
-  storyId       String @db.Uuid
-  equipmentId   String @db.Uuid
+  storyId       String    @db.Uuid
+  equipmentId   String    @db.Uuid
 
-  displayOrder  Int @default(0)
+  displayOrder  Int       @default(0)
   narrativeRole String?
 
-  story         Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-
+  story         Story     @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
   equipment     Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
 
   @@id([storyId, equipmentId])
@@ -731,11 +463,10 @@ model StoryEquipment {
 model StoryEvent {
   storyId      String @db.Uuid
   eventId      String @db.Uuid
-  displayOrder Int @default(0)
+  displayOrder Int    @default(0)
 
-  story        Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-
-  event        Event @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
+  story        Story  @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
+  event        Event  @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
 
   @@id([storyId, eventId])
   @@index([eventId])
@@ -743,75 +474,23 @@ model StoryEvent {
 }
 
 // module: stories
-model StoryMedia {
-  storyId         String @db.Uuid
-  mediaId         String @db.Uuid
-
-  displayOrder    Int @default(0)
-  captionOverride String? @db.Text
-
-  story           Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-
-  media           Media @relation(fields: [mediaId], references: [mediaId], onDelete: Cascade)
-
-  @@id([storyId, mediaId])
-  @@index([mediaId])
-  @@map("story_media")
-}
-
-// module: stories
 model StorySource {
-  storyId         String @db.Uuid
-  sourceId        String @db.Uuid
+  storyId          String  @db.Uuid
+  sourceId         String  @db.Uuid
 
   claimDescription String? @db.Text
-  displayOrder    Int @default(0)
+  displayOrder     Int     @default(0)
 
-  story           Story @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-
-  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
+  story            Story   @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
+  source           Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
 
   @@id([storyId, sourceId])
   @@index([sourceId])
   @@map("story_sources")
 }
 
-// module: media
-model EquipmentMedia {
-  equipmentId      String @db.Uuid
-  mediaId          String @db.Uuid
-  representationType String?
-
-  equipment        Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
-  media             Media @relation(fields: [mediaId], references: [mediaId], onDelete: Cascade)
-
-  @@id([equipmentId, mediaId])
-  @@index([mediaId])
-  @@map("equipment_media")
-}
-
 // ======================================================
-// MEASUREMENT ASSOCIATIONS
-// ======================================================
-
-// module: sources
-model MeasurementSource {
-  measurementId   String @db.Uuid
-  sourceId        String @db.Uuid
-  claimDescription String? @db.Text
-
-  measurement     Measurement @relation(fields: [measurementId], references: [measurementId], onDelete: Cascade)
-
-  source          Source @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
-
-  @@id([measurementId, sourceId])
-  @@index([sourceId])
-  @@map("measurement_sources")
-}
-
-// ======================================================
-// ADDITIVE MODELS (AUTH, RBAC, AUDIT, INGESTION)
+// ADDITIVE MODELS (AUTH, RBAC, INGESTION)
 // ======================================================
 
 enum UserRole {
@@ -833,7 +512,6 @@ model User {
   updatedAt        DateTime       @updatedAt
 
   refreshTokens    RefreshToken[]
-  auditLogs        AuditLog[]
 
   @@index([email])
   @@map("users")
@@ -856,25 +534,6 @@ model RefreshToken {
   @@index([userId])
   @@index([familyId])
   @@map("refresh_tokens")
-}
-
-// module: audit
-model AuditLog {
-  auditLogId   String   @id @default(uuid()) @db.Uuid
-  actorId      String?  @db.Uuid
-  action       String
-  entity       String
-  entityId     String
-  requestId    String?
-  diffSummary  Json?    @db.JsonB
-  createdAt    DateTime @default(now())
-
-  actor        User?    @relation(fields: [actorId], references: [userId], onDelete: SetNull)
-
-  @@index([actorId])
-  @@index([entity, entityId])
-  @@index([createdAt])
-  @@map("audit_logs")
 }
 
 enum IngestionStatus {
@@ -901,4 +560,3 @@ model IngestionRun {
   @@index([createdAt])
   @@map("ingestion_runs")
 }
-

@@ -3,7 +3,6 @@ import type { Prisma } from '@prisma/client';
 import type { EventModel } from '../models/event.js';
 import type { EventEquipmentModel } from '../models/event_equipment.js';
 import type { EventLocationModel } from '../models/event_location.js';
-import type { EventPersonModel } from '../models/event_person.js';
 import type { EventType, DatePrecision } from '#shared/enums';
 
 export interface EventListParams {
@@ -89,7 +88,6 @@ export class EventsRepository {
       mission?: boolean;
       equipment?: boolean;
       locations?: boolean;
-      people?: boolean;
       sources?: boolean;
     }
   ): Promise<any | null> {
@@ -125,18 +123,6 @@ export class EventsRepository {
               location: {
                 select: {
                   name: true,
-                },
-              },
-            },
-          },
-        }),
-        ...(includes.people && {
-          people: {
-            take: 50,
-            include: {
-              person: {
-                select: {
-                  fullName: true,
                 },
               },
             },
@@ -252,22 +238,6 @@ export class EventsRepository {
   async unlinkLocation(eventId: string, locationId: string): Promise<void> {
     await this.prisma.eventLocation.delete({
       where: { eventId_locationId: { eventId, locationId } },
-    });
-  }
-
-  // EventPerson
-  async linkPerson(eventId: string, personId: string, roleInEvent?: string | null): Promise<EventPersonModel> {
-    const cleanRoleInEvent = roleInEvent || 'Participant';
-    return this.prisma.eventPerson.upsert({
-      where: { eventId_personId: { eventId, personId } },
-      create: { eventId, personId, roleInEvent: cleanRoleInEvent },
-      update: { roleInEvent: cleanRoleInEvent },
-    });
-  }
-
-  async unlinkPerson(eventId: string, personId: string): Promise<void> {
-    await this.prisma.eventPerson.delete({
-      where: { eventId_personId: { eventId, personId } },
     });
   }
 }

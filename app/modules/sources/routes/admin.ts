@@ -95,21 +95,4 @@ export function registerSourcesAdminRoutes(router: Router): void {
     .as('admin.sources.unlinkEvent')
     .use(middleware.ability('sources:write'))
     .docs({ summary: 'Unlink event from source', tags: ['Sources'] });
-
-  // Measurement source relation
-  r.post('/admin/measurements/:measurementId/sources', [AdminSourceController, 'linkMeasurement'])
-    .as('admin.sources.linkMeasurement')
-    .use(middleware.ability('sources:write'))
-    .validate({ body: linkSourceSchema })
-    .docs({ summary: 'Link measurement to source with claim description', tags: ['Sources'] });
-
-  r.put('/admin/measurements/:measurementId/sources/:sourceId', [AdminSourceController, 'linkMeasurement'])
-    .as('admin.sources.linkMeasurementPut')
-    .use(middleware.ability('sources:write'))
-    .docs({ summary: 'Link measurement to source with claim description', tags: ['Sources'] });
-
-  r.delete('/admin/measurements/:measurementId/sources/:sourceId', [AdminSourceController, 'unlinkMeasurement'])
-    .as('admin.sources.unlinkMeasurement')
-    .use(middleware.ability('sources:write'))
-    .docs({ summary: 'Unlink measurement from source', tags: ['Sources'] });
 }

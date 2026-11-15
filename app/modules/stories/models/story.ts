@@ -42,18 +42,6 @@ export interface StoryModel {
     };
   }>;
 
-  media?: Array<{
-    mediaId: string;
-    displayOrder: number;
-    captionOverride: string | null;
-    media?: {
-      title: string;
-      url: string;
-      thumbnailUrl: string | null;
-      provenanceType: string;
-    };
-  }>;
-
   sources?: Array<{
     sourceId: string;
     displayOrder: number;

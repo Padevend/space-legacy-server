@@ -3,7 +3,6 @@ import type { StoryModel } from '../models/story.js';
 import type { StoryMissionModel } from '../models/story_mission.js';
 import type { StoryEquipmentModel } from '../models/story_equipment.js';
 import type { StoryEventModel } from '../models/story_event.js';
-import type { StoryMediaModel } from '../models/story_media.js';
 import type { StorySourceModel } from '../models/story_source.js';
 import { AppException } from '#exceptions/app_exception';
 import { sanitizePlainText } from '#infrastructure/security/sanitizer';
@@ -17,12 +16,11 @@ import type {
   LinkStoryMissionRequestDto,
   LinkStoryEquipmentRequestDto,
   LinkStoryEventRequestDto,
-  LinkStoryMediaRequestDto,
   LinkStorySourceRequestDto,
 } from '../validators/story.js';
 
 const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-const ALLOWED_INCLUDES = ['missions', 'equipments', 'equipment', 'events', 'media', 'sources'];
+const ALLOWED_INCLUDES = ['missions', 'equipments', 'equipment', 'events', 'sources'];
 
 const ALLOWED_TRANSITIONS: Record<PublicationStatus, PublicationStatus[]> = {
   DRAFT: ['REVIEW', 'ARCHIVED'],
@@ -39,7 +37,6 @@ export class StoryService {
       missions: false,
       equipments: false,
       events: false,
-      media: false,
       sources: false,
     };
 
@@ -59,7 +56,6 @@ export class StoryService {
         if (part === 'missions') includes.missions = true;
         if (part === 'equipments' || part === 'equipment') includes.equipments = true;
         if (part === 'events') includes.events = true;
-        if (part === 'media') includes.media = true;
         if (part === 'sources') includes.sources = true;
       }
     }
@@ -279,23 +275,6 @@ export class StoryService {
       await this.repo.unlinkEvent(storyId, eventId);
     } catch {
       throw AppException.notFound('StoryEvent', 'Event link not found for this story.');
-    }
-  }
-
-  async linkMedia(storyId: string, mediaId: string, dto: LinkStoryMediaRequestDto): Promise<StoryMediaModel> {
-    const existing = await this.repo.findById(storyId);
-    if (!existing) {
-      throw AppException.notFound('Story', `Story with ID '${storyId}' not found.`);
-    }
-
-    return this.repo.linkMedia(storyId, mediaId, dto.displayOrder ?? 0, dto.captionOverride);
-  }
-
-  async unlinkMedia(storyId: string, mediaId: string): Promise<void> {
-    try {
-      await this.repo.unlinkMedia(storyId, mediaId);
-    } catch {
-      throw AppException.notFound('StoryMedia', 'Media link not found for this story.');
     }
   }
 

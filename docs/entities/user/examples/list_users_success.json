@@ -2,91 +2,91 @@
   "success": true,
   "data": [
     {
-      "userId": "3a91b747-fbdf-4a13-8c0d-97ae999658c2",
-      "email": "rbac-editor-1794735598010@spacelegacy.test",
+      "userId": "f05c8e25-dcc7-4c76-a7a2-6ac554aa3378",
+      "email": "mission-editor-1794747287381@spacelegacy.test",
       "role": "EDITOR",
       "isActive": true,
-      "createdAt": "2026-11-15T09:39:58.015Z",
-      "updatedAt": "2026-11-15T09:39:58.015Z"
+      "createdAt": "2026-11-15T12:54:47.386Z",
+      "updatedAt": "2026-11-15T12:54:47.386Z"
     },
     {
-      "userId": "a15b96bc-167c-4200-8239-cf0c383628c7",
-      "email": "rbac-admin-1794735597169@spacelegacy.test",
+      "userId": "6d98bbb6-951b-4645-944f-f4aa6a68a9cb",
+      "email": "rbac-editor-1794747287185@spacelegacy.test",
+      "role": "EDITOR",
+      "isActive": true,
+      "createdAt": "2026-11-15T12:54:47.190Z",
+      "updatedAt": "2026-11-15T12:54:47.190Z"
+    },
+    {
+      "userId": "b6044d8b-f062-48df-99ba-3c90f241a6a9",
+      "email": "sources-editor-1794747287166@spacelegacy.test",
+      "role": "EDITOR",
+      "isActive": true,
+      "createdAt": "2026-11-15T12:54:47.171Z",
+      "updatedAt": "2026-11-15T12:54:47.171Z"
+    },
+    {
+      "userId": "698b7623-ff4a-466c-9a5e-2327e4ff4d6d",
+      "email": "stories-editor-1794747287019@spacelegacy.test",
+      "role": "EDITOR",
+      "isActive": true,
+      "createdAt": "2026-11-15T12:54:47.035Z",
+      "updatedAt": "2026-11-15T12:54:47.035Z"
+    },
+    {
+      "userId": "f8d5be5c-2ee5-458f-8ce4-44ddcd91042a",
+      "email": "event-editor-1794747286778@spacelegacy.test",
+      "role": "EDITOR",
+      "isActive": true,
+      "createdAt": "2026-11-15T12:54:46.783Z",
+      "updatedAt": "2026-11-15T12:54:46.783Z"
+    },
+    {
+      "userId": "82e90312-09ad-4ba6-b101-6353e0517b98",
+      "email": "sources-admin-1794747285944@spacelegacy.test",
       "role": "ADMIN",
       "isActive": true,
-      "createdAt": "2026-11-15T09:39:57.413Z",
-      "updatedAt": "2026-11-15T09:39:57.413Z"
+      "createdAt": "2026-11-15T12:54:46.482Z",
+      "updatedAt": "2026-11-15T12:54:46.482Z"
     },
     {
-      "userId": "579a471d-7803-4d50-b268-e0a19d4541b0",
-      "email": "lockout-test-1794735596727@spacelegacy.test",
-      "role": "EDITOR",
-      "isActive": true,
-      "createdAt": "2026-11-15T09:39:57.412Z",
-      "updatedAt": "2026-11-15T09:39:58.061Z"
-    },
-    {
-      "userId": "66029f67-e64c-4db0-b4fc-23d89f207980",
-      "email": "rbac-editor-1794735215007@spacelegacy.test",
-      "role": "EDITOR",
-      "isActive": true,
-      "createdAt": "2026-11-15T09:33:35.011Z",
-      "updatedAt": "2026-11-15T09:33:35.011Z"
-    },
-    {
-      "userId": "009d7fbd-220b-4ea7-941e-f769c83cdb30",
-      "email": "rbac-admin-1794735213589@spacelegacy.test",
+      "userId": "44ea8958-4da7-4744-a305-74db508aea09",
+      "email": "mission-admin-1794747285919@spacelegacy.test",
       "role": "ADMIN",
       "isActive": true,
-      "createdAt": "2026-11-15T09:33:34.239Z",
-      "updatedAt": "2026-11-15T09:33:34.239Z"
+      "createdAt": "2026-11-15T12:54:46.365Z",
+      "updatedAt": "2026-11-15T12:54:46.365Z"
     },
     {
-      "userId": "af969a8c-4527-438b-87c0-1ad93e2ea78b",
-      "email": "meas-editor-1794735211663@spacelegacy.test",
+      "userId": "0a08f1ab-3b01-4103-8f2d-ad27799b436e",
+      "email": "auth-test-1794747285472@spacelegacy.test",
       "role": "EDITOR",
       "isActive": true,
-      "createdAt": "2026-11-15T09:33:31.665Z",
-      "updatedAt": "2026-11-15T09:33:31.665Z"
+      "createdAt": "2026-11-15T12:54:46.303Z",
+      "updatedAt": "2026-11-15T12:54:47.353Z"
     },
     {
-      "userId": "466b534c-2407-4b29-86ed-8e3928724e1f",
-      "email": "cb-editor-1794735211461@spacelegacy.test",
-      "role": "EDITOR",
-      "isActive": true,
-      "createdAt": "2026-11-15T09:33:31.476Z",
-      "updatedAt": "2026-11-15T09:33:31.476Z"
-    },
-    {
-      "userId": "b4883d2e-5fc0-4669-af6b-59d49d8cbc4f",
-      "email": "media-editor-1794735211236@spacelegacy.test",
-      "role": "EDITOR",
-      "isActive": true,
-      "createdAt": "2026-11-15T09:33:31.238Z",
-      "updatedAt": "2026-11-15T09:33:31.238Z"
-    },
-    {
-      "userId": "95effd2d-c27d-405c-bce6-6129cec580ac",
-      "email": "meas-admin-1794735209810@spacelegacy.test",
+      "userId": "fff68f57-1575-4b75-8e9f-818a2162ef12",
+      "email": "rbac-admin-1794747285891@spacelegacy.test",
       "role": "ADMIN",
       "isActive": true,
-      "createdAt": "2026-11-15T09:33:30.548Z",
-      "updatedAt": "2026-11-15T09:33:30.548Z"
+      "createdAt": "2026-11-15T12:54:46.228Z",
+      "updatedAt": "2026-11-15T12:54:46.228Z"
     },
     {
-      "userId": "28dbd8f9-7774-4456-8b2f-0ef7a530dabc",
-      "email": "mission-editor-1794735210362@spacelegacy.test",
-      "role": "EDITOR",
+      "userId": "109935cf-3a02-4b4d-b1e0-b092fb17ba04",
+      "email": "event-admin-1794747285915@spacelegacy.test",
+      "role": "ADMIN",
       "isActive": true,
-      "createdAt": "2026-11-15T09:33:30.366Z",
-      "updatedAt": "2026-11-15T09:33:30.366Z"
+      "createdAt": "2026-11-15T12:54:46.188Z",
+      "updatedAt": "2026-11-15T12:54:46.188Z"
     }
   ],
   "meta": {
-    "requestId": "0b31c7dc-65ac-44fd-957e-040145cbb2ce",
+    "requestId": "3d94c8eb-59ab-4533-a6a1-076960118047",
     "page": 1,
     "pageSize": 10,
-    "total": 335,
-    "totalPages": 34
+    "total": 100,
+    "totalPages": 10
   }
 }

@@ -1,17 +1,15 @@
 import { MissionRepository, missionRepository } from '../repositories/mission_repository.js';
 import type { MissionModel } from '../models/mission.js';
 import type { MissionEquipmentModel } from '../models/mission_equipment.js';
-import type { MissionPersonModel } from '../models/mission_person.js';
 import { AppException } from '#exceptions/app_exception';
 import type {
   ListMissionsQueryDto,
   CreateMissionRequestDto,
   UpdateMissionRequestDto,
   LinkMissionEquipmentDto,
-  LinkMissionPersonDto,
 } from '../validators/mission.js';
 
-const ALLOWED_INCLUDES = ['equipment', 'people', 'sources'];
+const ALLOWED_INCLUDES = ['equipment', 'sources'];
 
 export class MissionService {
   constructor(private readonly repo: MissionRepository = missionRepository) {}
@@ -39,7 +37,6 @@ export class MissionService {
   async getByIdOrSlug(idOrSlug: string, includeParam?: string): Promise<MissionModel> {
     const includes = {
       equipment: false,
-      people: false,
       sources: false,
     };
 
@@ -48,8 +45,8 @@ export class MissionService {
         .split(',')
         .map((s) => s.trim().toLowerCase())
         .filter(Boolean);
-      if (requested.length > 3) {
-        throw AppException.unprocessable('Maximum of 3 include relations allowed.');
+      if (requested.length > 2) {
+        throw AppException.unprocessable('Maximum of 2 include relations allowed.');
       }
       for (const req of requested) {
         if (!ALLOWED_INCLUDES.includes(req)) {
@@ -58,7 +55,6 @@ export class MissionService {
           );
         }
         if (req === 'equipment') includes.equipment = true;
-        if (req === 'people') includes.people = true;
         if (req === 'sources') includes.sources = true;
       }
     }
@@ -125,20 +121,6 @@ export class MissionService {
       await this.repo.unlinkEquipment(missionId, equipmentId);
     } catch {
       throw AppException.notFound('MissionEquipment', 'Equipment link not found for this mission.');
-    }
-  }
-
-  async linkPerson(missionId: string, personId: string, dto: LinkMissionPersonDto): Promise<MissionPersonModel> {
-    await this.getByIdOrSlug(missionId);
-    const role = dto.roleInMission ?? dto.role ?? 'Crew Member';
-    return this.repo.linkPerson(missionId, personId, role);
-  }
-
-  async unlinkPerson(missionId: string, personId: string): Promise<void> {
-    try {
-      await this.repo.unlinkPerson(missionId, personId);
-    } catch {
-      throw AppException.notFound('MissionPerson', 'Person link not found for this mission.');
     }
   }
 }

@@ -17,7 +17,7 @@ describe('E2E: Missions Core Domain Module', () => {
   let editorToken = '';
   const testMissionSlug = `test-mission-${Date.now()}`;
   let createdId = '';
-  let personId = '';
+  let equipmentId = '';
   let sourceId = '';
 
   beforeAll(async () => {
@@ -53,13 +53,14 @@ describe('E2E: Missions Core Domain Module', () => {
     });
 
     // 2. Reference entities for relations
-    const person = await prisma.person.create({
+    const equip = await prisma.equipment.create({
       data: {
-        fullName: `Astronaut Test ${Date.now()}`,
-        affiliation: 'NASA',
+        name: `Mission Test Equipment ${Date.now()}`,
+        slug: `mission-test-equip-${Date.now()}`,
+        equipmentType: 'LANDER',
       },
     });
-    personId = person.personId;
+    equipmentId = equip.equipmentId;
 
     const source = await prisma.source.create({
       data: {
@@ -166,17 +167,17 @@ describe('E2E: Missions Core Domain Module', () => {
     }
   });
 
-  it('manages relations (linking person and source) and returns populated details with include', async () => {
-    // 1. Link Person
-    const linkPersonRes = await app.request(`/api/v1/admin/missions/${createdId}/people/${personId}`, {
+  it('manages relations (linking equipment and source) and returns populated details with include', async () => {
+    // 1. Link Equipment
+    const linkEquipRes = await app.request(`/api/v1/admin/missions/${createdId}/equipment/${equipmentId}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
         authorization: `Bearer ${editorToken}`,
       },
-      body: JSON.stringify({ roleInMission: 'Mission Commander' }),
+      body: JSON.stringify({ missionRole: 'Primary Lander' }),
     });
-    expect(linkPersonRes.status).toBe(200);
+    expect(linkEquipRes.status).toBe(200);
 
     // 2. Link Source
     const linkSourceRes = await app.request(`/api/v1/admin/missions/${createdId}/sources/${sourceId}`, {
@@ -189,24 +190,23 @@ describe('E2E: Missions Core Domain Module', () => {
     });
     expect(linkSourceRes.status).toBe(200);
 
-    // 3. Query with include=people,sources
-    const includeRes = await app.request(`/api/v1/missions/${testMissionSlug}?include=people,sources`);
+    // 3. Query with include=equipment,sources
+    const includeRes = await app.request(`/api/v1/missions/${testMissionSlug}?include=equipment,sources`);
     expect(includeRes.status).toBe(200);
     const json = (await includeRes.json()) as MissionDetailResponse;
     expect(json.success).toBe(true);
     if (json.success) {
-      expect(json.data.people).toBeDefined();
-      expect(json.data.people?.length).toBeGreaterThan(0);
-      expect(json.data.people?.[0]?.roleInMission).toBe('Mission Commander');
+      expect(json.data.equipment).toBeDefined();
+      expect(json.data.equipment?.length).toBeGreaterThan(0);
 
       expect(json.data.sources).toBeDefined();
       expect(json.data.sources?.length).toBeGreaterThan(0);
       expect(json.data.sources?.[0]?.claimDescription).toBe('Primary flight trajectory logs');
     }
 
-    // 4. Test include depth restriction (> 3 relations -> 422)
+    // 4. Test include depth restriction (> 2 relations -> 422)
     const excessIncludeRes = await app.request(
-      `/api/v1/missions/${testMissionSlug}?include=equipment,people,sources,invalidRel`
+      `/api/v1/missions/${testMissionSlug}?include=equipment,sources,invalidRel`
     );
     expect(excessIncludeRes.status).toBe(422);
   });

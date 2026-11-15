@@ -9,7 +9,6 @@ import {
   linkStoryMissionSchema,
   linkStoryEquipmentSchema,
   linkStoryEventSchema,
-  linkStoryMediaSchema,
   linkStorySourceSchema,
 } from '../validators/story.js';
 import { middleware } from '#start/kernel';
@@ -152,29 +151,6 @@ export function registerStoriesAdminRoutes(router: Router): void {
     .where('eventId', r.matchers.uuid())
     .use(middleware.ability('stories:write'))
     .docs({ summary: 'Unlink event from story', tags: ['Stories'] });
-
-  r.post('/admin/stories/:storyId/media/:mediaId', [AdminStoryController, 'linkMedia'])
-    .as('admin.stories.linkMedia')
-    .where('storyId', r.matchers.uuid())
-    .where('mediaId', r.matchers.uuid())
-    .use(middleware.ability('stories:write'))
-    .validate({ body: linkStoryMediaSchema })
-    .docs({ summary: 'Link media to story with caption override', tags: ['Stories'] });
-
-  r.put('/admin/stories/:storyId/media/:mediaId', [AdminStoryController, 'linkMedia'])
-    .as('admin.stories.linkMediaPut')
-    .where('storyId', r.matchers.uuid())
-    .where('mediaId', r.matchers.uuid())
-    .use(middleware.ability('stories:write'))
-    .validate({ body: linkStoryMediaSchema })
-    .docs({ summary: 'Link media to story with caption override', tags: ['Stories'] });
-
-  r.delete('/admin/stories/:storyId/media/:mediaId', [AdminStoryController, 'unlinkMedia'])
-    .as('admin.stories.unlinkMedia')
-    .where('storyId', r.matchers.uuid())
-    .where('mediaId', r.matchers.uuid())
-    .use(middleware.ability('stories:write'))
-    .docs({ summary: 'Unlink media from story', tags: ['Stories'] });
 
   r.post('/admin/stories/:storyId/sources/:sourceId', [AdminStoryController, 'linkSource'])
     .as('admin.stories.linkSource')

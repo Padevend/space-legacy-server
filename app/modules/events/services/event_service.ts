@@ -2,7 +2,6 @@ import { EventsRepository, eventsRepository } from '../repositories/events_repos
 import type { EventModel } from '../models/event.js';
 import type { EventEquipmentModel } from '../models/event_equipment.js';
 import type { EventLocationModel } from '../models/event_location.js';
-import type { EventPersonModel } from '../models/event_person.js';
 import { AppException } from '#exceptions/app_exception';
 import type {
   ListEventsQueryDto,
@@ -10,10 +9,9 @@ import type {
   UpdateEventRequestDto,
   LinkEventEquipmentRequestDto,
   LinkEventLocationRequestDto,
-  LinkEventPersonRequestDto,
 } from '../validators/event.js';
 
-const ALLOWED_INCLUDES = ['mission', 'equipment', 'locations', 'people', 'sources'];
+const ALLOWED_INCLUDES = ['mission', 'equipment', 'locations', 'sources'];
 
 export class EventService {
   constructor(private readonly repo: EventsRepository = eventsRepository) {}
@@ -49,7 +47,6 @@ export class EventService {
       mission: false,
       equipment: false,
       locations: false,
-      people: false,
       sources: false,
     };
 
@@ -69,7 +66,6 @@ export class EventService {
         if (part === 'mission') includes.mission = true;
         if (part === 'equipment') includes.equipment = true;
         if (part === 'locations') includes.locations = true;
-        if (part === 'people') includes.people = true;
         if (part === 'sources') includes.sources = true;
       }
     }
@@ -177,19 +173,6 @@ export class EventService {
       await this.repo.unlinkLocation(eventId, locationId);
     } catch {
       throw AppException.notFound('EventLocation', 'Location link not found for this event.');
-    }
-  }
-
-  async linkPerson(eventId: string, personId: string, dto: LinkEventPersonRequestDto): Promise<EventPersonModel> {
-    await this.getById(eventId);
-    return this.repo.linkPerson(eventId, personId, dto.roleInEvent);
-  }
-
-  async unlinkPerson(eventId: string, personId: string): Promise<void> {
-    try {
-      await this.repo.unlinkPerson(eventId, personId);
-    } catch {
-      throw AppException.notFound('EventPerson', 'Person link not found for this event.');
     }
   }
 }

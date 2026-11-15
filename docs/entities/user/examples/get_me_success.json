@@ -1,14 +1,14 @@
 {
   "success": true,
   "data": {
-    "userId": "bde86d86-1802-40fc-b4db-5317082e0f8d",
-    "email": "auth-test-1794735609944@spacelegacy.test",
+    "userId": "0a08f1ab-3b01-4103-8f2d-ad27799b436e",
+    "email": "auth-test-1794747285472@spacelegacy.test",
     "role": "EDITOR",
     "isActive": true,
-    "createdAt": "2026-11-15T09:40:11.612Z",
-    "updatedAt": "2026-11-15T09:40:16.606Z"
+    "createdAt": "2026-11-15T12:54:46.303Z",
+    "updatedAt": "2026-11-15T12:54:48.304Z"
   },
   "meta": {
-    "requestId": "7e9ec478-e7d0-4c1b-a1f3-baa6f3c39912"
+    "requestId": "7443e060-0100-4214-b2d6-f82a13327301"
   }
 }

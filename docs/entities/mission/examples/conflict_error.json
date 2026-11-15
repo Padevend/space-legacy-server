@@ -2,8 +2,8 @@
   "success": false,
   "error": {
     "code": "CONFLICT",
-    "message": "Mission with slug 'test-mission-1794735620600' already exists.",
+    "message": "Mission with slug 'test-mission-1794747285472' already exists.",
     "status": 409,
-    "requestId": "7f466147-e811-4955-93b5-fbe03b63884d"
+    "requestId": "85475285-38d5-47a4-8815-e6c5c4902f32"
   }
 }
