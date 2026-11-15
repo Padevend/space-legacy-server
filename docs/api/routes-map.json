@@ -28,6 +28,15 @@
   },
   {
     "method": "GET",
+    "path": "/api/v1/badges",
+    "module": "games",
+    "name": "games.badges_list",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/badges"
+  },
+  {
+    "method": "GET",
     "path": "/api/v1/bodies",
     "module": "celestial_bodies",
     "name": "celestial_bodies.public_list",
@@ -124,6 +133,42 @@
     "auth": "public",
     "rateLimitTier": "publicRead",
     "summary": "PATCH /api/v1/me/password"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/me/progress",
+    "module": "games",
+    "name": "games.me_progress",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/me/progress"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/quizzes",
+    "module": "games",
+    "name": "games.quizzes_list",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/quizzes"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/quizzes/:slug",
+    "module": "games",
+    "name": "games.quizzes_show",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/quizzes/:slug"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/quizzes/:slug/attempts",
+    "module": "games",
+    "name": "games.submit_attempt",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "POST /api/v1/quizzes/:slug/attempts"
   },
   {
     "method": "POST",

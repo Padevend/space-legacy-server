@@ -359,6 +359,81 @@
           }
         }
       }
+    },
+    "/api/v1/quizzes": {
+      "get": {
+        "summary": "GET /api/v1/quizzes",
+        "description": "",
+        "tags": [
+          "games"
+        ],
+        "operationId": "games.quizzes_list",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/quizzes/{slug}": {
+      "get": {
+        "summary": "GET /api/v1/quizzes/:slug",
+        "description": "",
+        "tags": [
+          "games"
+        ],
+        "operationId": "games.quizzes_show",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/quizzes/{slug}/attempts": {
+      "post": {
+        "summary": "POST /api/v1/quizzes/:slug/attempts",
+        "description": "",
+        "tags": [
+          "games"
+        ],
+        "operationId": "games.submit_attempt",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/me/progress": {
+      "get": {
+        "summary": "GET /api/v1/me/progress",
+        "description": "",
+        "tags": [
+          "games"
+        ],
+        "operationId": "games.me_progress",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/badges": {
+      "get": {
+        "summary": "GET /api/v1/badges",
+        "description": "",
+        "tags": [
+          "games"
+        ],
+        "operationId": "games.badges_list",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
     }
   }
 }
