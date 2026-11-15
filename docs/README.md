@@ -5,6 +5,7 @@ Welcome to the architectural and API specification repository for **SPACE LEGACY
 ## Reading Order
 
 1. **Architecture & Foundation**:
+   - [Guide Fonctionnel des Modules (FR)](MODULE_DOCS.md): Description accessible et non technique de chaque module avec cas d'usage situationnels.
    - [Architecture Overview](architecture/overview.md): High-level system context, data ingestion pipeline, and component diagram.
    - [Module Structure](architecture/module-structure.md): AdonisJS-inspired modular monolith layout and strict layering rules.
    - [Request Lifecycle](architecture/request-lifecycle.md): The ordered 13-stage middleware pipeline.
