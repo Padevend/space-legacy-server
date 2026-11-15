@@ -50,3 +50,16 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
 
 ### D9 : Stratégie de migration de schéma (N10)
 - **Décision :** Comme l'application n'est pas encore déployée en production publique avec des données utilisateurs réelles, repartir en étape S3 d'une migration initiale propre pour le schéma cible du MVP, permettant un `prisma migrate reset` instantané à froid.
+
+### D10 : Architecture du socle partagé `app/shared/` et communication inter-modules (N4, N12)
+- **Décision :** Structurer `app/shared` en 6 piliers isolés :
+  1. `enums.ts` : 10 énumérations de domaine alignées sur Prisma Client.
+  2. `errors.ts` : Hiérarchie d'erreurs typées respectant le contrat uniforme N12 (`{ error: { code, message, details } }`), sanitisant tout message générique pour exclure chemins de fichiers et fragments SQL.
+  3. `http.ts` : Réponses JSON standardisées (`jsonSuccess`, `jsonPaginated`, `jsonError`) et encodage/décodage de curseurs opaques base64url pour la pagination.
+  4. `config.ts` : Validation Zod stricte au démarrage avec valeurs par défaut sécurisées.
+  5. `events/` : Bus d'événements transactionnel in-memory (`VisitorMerged`, `VisitorDeleted`) transmettant le client de transaction (`Prisma.TransactionClient`) aux listeners pour garantir l'atomicité.
+  6. `security/` : Hachage Argon2id (min 10 caractères), jetons de session opaques cryptographiques de 32 octets (condensat SHA-256 en base), durées glissantes (90j visiteur, 30j compte), et validation stricte d'URLs contre les domaines autorisés (`nasa.gov`, `jpl.nasa.gov`).
+
+### D11 : Quarantaine des modules pré-recadrage et seed authentique NASA (N1, N7)
+- **Décision :** Déplacement des modules v1/v2 dans `legacy/` via `git mv` afin de préserver l'historique Git sans perturber le typage TypeScript (`tsconfig.json` exclut `legacy/`).
+- **Seed conforme N7 :** Seuls la Lune et Mars sont injectés, accompagnés de 7 machines réelles de la NASA dont chaque fait, chiffre et date est relié à une source officielle `nasa.gov` / `jpl.nasa.gov`. Aucune donnée inventée.

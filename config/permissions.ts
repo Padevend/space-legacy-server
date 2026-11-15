@@ -55,20 +55,7 @@ export const rolePermissions: Record<UserRole, readonly Permission[]> = {
     'measurements:write',
     'measurements:delete',
   ],
-  EDITOR: [
-    'admin:access',
-    'equipment:write',
-    'missions:write',
-    'events:write',
-    'stories:write',
-    'stories:publish',
-    'media:write',
-    'sources:write',
-    'locations:write',
-    'people:write',
-    'celestial_bodies:write',
-    'measurements:write',
-  ],
+  USER: [],
 };
 
 export function hasPermission(role: UserRole, permission: Permission): boolean {

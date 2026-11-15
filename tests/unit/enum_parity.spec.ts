@@ -2,20 +2,17 @@ import { describe, it, expect } from 'vitest';
 import * as PrismaClientPkg from '@prisma/client';
 import * as DomainEnums from '#shared/enums';
 
-describe('Enum Parity Test (Section 2.4 & 2.10)', () => {
+describe('Enum Parity Test (Section 5)', () => {
   const enumsToCheck = [
-    'MissionStatus',
-    'EquipmentType',
-    'OperationalStatus',
-    'PhysicalStatus',
-    'EventType',
-    'DatePrecision',
-    'CelestialBodyType',
-    'LocationType',
-    'SourceType',
-    'StoryType',
-    'PublicationStatus',
-    'UserRole',
+    'AccountRole',
+    'MachineKind',
+    'MachineState',
+    'MediaLabel',
+    'ContentOrigin',
+    'GenerationKind',
+    'GenerationStatus',
+    'QuizLevel',
+    'BadgeRule',
     'IngestionStatus',
   ];
 
