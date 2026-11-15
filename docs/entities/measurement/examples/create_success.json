@@ -1,8 +1,8 @@
 {
   "success": true,
   "data": {
-    "measurementId": "56c7e2b5-1251-4b83-b048-bbd662676227",
-    "equipmentId": "ac7c4b59-c195-483d-b165-4443647828f1",
+    "measurementId": "4df6fdd4-3913-404b-92fc-458f10fade8c",
+    "equipmentId": "ae32c1eb-3809-40e2-824c-ce6ff856b553",
     "eventId": null,
     "name": "Total Lunar Roving Vehicle Mass",
     "value": "210.45678901",
@@ -14,6 +14,6 @@
     "uncertainty": "0.05000001"
   },
   "meta": {
-    "requestId": "5c6ee4d0-d1d4-4022-8a38-1fa0fa53b5b4"
+    "requestId": "7b340b72-a115-4721-834e-066211ce7ace"
   }
 }

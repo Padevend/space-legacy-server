@@ -2,8 +2,8 @@
   "success": false,
   "error": {
     "code": "VALIDATION_ERROR",
-    "message": "Cycle detected in equipment hierarchy: '68d39106-ecbd-44e4-a87a-97847496c363' already exists in parent ancestor chain.",
+    "message": "Cycle detected in equipment hierarchy: '43ab08a6-ffaa-46c5-883f-4a8860d008bb' already exists in parent ancestor chain.",
     "status": 422,
-    "requestId": "c6ade822-39a8-411f-82f6-64888ef44f9b"
+    "requestId": "824281c5-4fb6-4ad1-9ca9-e2cc625cb15b"
   }
 }

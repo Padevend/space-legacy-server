@@ -1,9 +1,9 @@
 {
   "success": true,
   "data": {
-    "locationId": "7314f2bd-e9a6-48f0-a49d-bde06296fbc3",
+    "locationId": "e25442be-ce54-4b0c-a5d7-c8c6c6bbec18",
     "celestialBodyId": "479faba5-da3e-4af0-bc24-0d7b5b093a26",
-    "name": "Statio Tranquillitatis 1794735207904",
+    "name": "Statio Tranquillitatis 1794735620680",
     "locationType": "LANDING_SITE",
     "latitude": 0.67408,
     "longitude": 23.47297,
@@ -12,6 +12,6 @@
     "description": "First crewed landing site on the lunar surface."
   },
   "meta": {
-    "requestId": "4381bbfb-9dd9-4cdf-a8ef-03c9163f5881"
+    "requestId": "c7822060-4edd-4659-bf30-93791fe976d9"
   }
 }

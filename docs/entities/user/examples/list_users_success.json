@@ -2,6 +2,30 @@
   "success": true,
   "data": [
     {
+      "userId": "3a91b747-fbdf-4a13-8c0d-97ae999658c2",
+      "email": "rbac-editor-1794735598010@spacelegacy.test",
+      "role": "EDITOR",
+      "isActive": true,
+      "createdAt": "2026-11-15T09:39:58.015Z",
+      "updatedAt": "2026-11-15T09:39:58.015Z"
+    },
+    {
+      "userId": "a15b96bc-167c-4200-8239-cf0c383628c7",
+      "email": "rbac-admin-1794735597169@spacelegacy.test",
+      "role": "ADMIN",
+      "isActive": true,
+      "createdAt": "2026-11-15T09:39:57.413Z",
+      "updatedAt": "2026-11-15T09:39:57.413Z"
+    },
+    {
+      "userId": "579a471d-7803-4d50-b268-e0a19d4541b0",
+      "email": "lockout-test-1794735596727@spacelegacy.test",
+      "role": "EDITOR",
+      "isActive": true,
+      "createdAt": "2026-11-15T09:39:57.412Z",
+      "updatedAt": "2026-11-15T09:39:58.061Z"
+    },
+    {
       "userId": "66029f67-e64c-4db0-b4fc-23d89f207980",
       "email": "rbac-editor-1794735215007@spacelegacy.test",
       "role": "EDITOR",
@@ -56,37 +80,13 @@
       "isActive": true,
       "createdAt": "2026-11-15T09:33:30.366Z",
       "updatedAt": "2026-11-15T09:33:30.366Z"
-    },
-    {
-      "userId": "96452db5-b5eb-469e-aaf4-a24caa27c415",
-      "email": "cb-admin-1794735209535@spacelegacy.test",
-      "role": "ADMIN",
-      "isActive": true,
-      "createdAt": "2026-11-15T09:33:30.293Z",
-      "updatedAt": "2026-11-15T09:33:30.293Z"
-    },
-    {
-      "userId": "2ce4fcb6-360f-4612-8e07-cc5c70081d02",
-      "email": "media-admin-1794735209299@spacelegacy.test",
-      "role": "ADMIN",
-      "isActive": true,
-      "createdAt": "2026-11-15T09:33:29.823Z",
-      "updatedAt": "2026-11-15T09:33:29.823Z"
-    },
-    {
-      "userId": "a1dd7d0e-0f6f-4e45-bada-d54f620ec793",
-      "email": "loc-editor-1794735209812@spacelegacy.test",
-      "role": "EDITOR",
-      "isActive": true,
-      "createdAt": "2026-11-15T09:33:29.818Z",
-      "updatedAt": "2026-11-15T09:33:29.818Z"
     }
   ],
   "meta": {
-    "requestId": "39c55b2c-0c86-4a8e-9347-aec2ae19b4aa",
+    "requestId": "0b31c7dc-65ac-44fd-957e-040145cbb2ce",
     "page": 1,
     "pageSize": 10,
-    "total": 332,
+    "total": 335,
     "totalPages": 34
   }
 }
