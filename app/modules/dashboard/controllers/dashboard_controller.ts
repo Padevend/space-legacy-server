@@ -22,9 +22,13 @@ export class DashboardController {
   serveUi = async (ctxOrC: HttpContext | Context) => {
     const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
     if (!this.cachedHtml || process.env.NODE_ENV !== 'production') {
-      const htmlPath = resolve(process.cwd(), 'dashboard/index.html');
-      if (existsSync(htmlPath)) {
-        this.cachedHtml = readFileSync(htmlPath, 'utf-8');
+      const candidates = [
+        resolve(process.cwd(), 'dashboard/index.html'),
+        resolve(process.cwd(), 'build/dashboard/index.html'),
+      ];
+      const found = candidates.find((p) => existsSync(p));
+      if (found) {
+        this.cachedHtml = readFileSync(found, 'utf-8');
       } else {
         this.cachedHtml = '<!DOCTYPE html><html><body><h1>Space Legacy Mission Control</h1></body></html>';
       }
