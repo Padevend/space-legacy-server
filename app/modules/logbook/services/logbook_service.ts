@@ -80,6 +80,53 @@ export class LogbookService {
       },
     };
   }
+
+  // Admin Operations
+  async listAdminEntries(params: {
+    machineId?: string | undefined;
+    isPublished?: boolean | undefined;
+    q?: string | undefined;
+    page: number;
+    limit: number;
+  }) {
+    return this.repo.findAllAdmin(params);
+  }
+
+  async getAdminEntryById(id: string) {
+    const entry = await this.repo.findById(id);
+    if (!entry) {
+      throw new NotFoundError(`Logbook entry with id '${id}' not found.`);
+    }
+    return entry;
+  }
+
+  async createEntry(data: any) {
+    if (data.isPublished && !data.publishedAt) {
+      data.publishedAt = new Date();
+    }
+    return this.repo.create(data);
+  }
+
+  async patchEntry(id: string, data: any) {
+    const existing = await this.repo.findById(id);
+    if (!existing) {
+      throw new NotFoundError(`Logbook entry with id '${id}' not found.`);
+    }
+
+    if (data.isPublished && !existing.publishedAt && !data.publishedAt) {
+      data.publishedAt = new Date();
+    }
+
+    return this.repo.update(id, data);
+  }
+
+  async deleteEntry(id: string) {
+    const existing = await this.repo.findById(id);
+    if (!existing) {
+      throw new NotFoundError(`Logbook entry with id '${id}' not found.`);
+    }
+    await this.repo.delete(id);
+  }
 }
 
 export const logbookService = new LogbookService();

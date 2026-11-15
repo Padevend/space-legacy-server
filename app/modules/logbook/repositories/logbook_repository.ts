@@ -73,6 +73,109 @@ export class LogbookRepository {
       },
     });
   }
+
+  // Admin Methods
+  async findAllAdmin(params: {
+    machineId?: string | undefined;
+    isPublished?: boolean | undefined;
+    q?: string | undefined;
+    page: number;
+    limit: number;
+  }) {
+    const where: any = {};
+    if (params.machineId) where.machineId = params.machineId;
+    if (params.isPublished !== undefined) where.isPublished = params.isPublished;
+    if (params.q) {
+      where.OR = [
+        { title: { contains: params.q, mode: 'insensitive' } },
+        { summary: { contains: params.q, mode: 'insensitive' } },
+      ];
+    }
+
+    const [total, rows] = await Promise.all([
+      this.prisma.logbookEntry.count({ where }),
+      this.prisma.logbookEntry.findMany({
+        where,
+        include: {
+          machine: {
+            select: { id: true, slug: true, name: true },
+          },
+        },
+        orderBy: [{ updatedAt: 'desc' }, { id: 'desc' }],
+        skip: (params.page - 1) * params.limit,
+        take: params.limit,
+      }),
+    ]);
+
+    return {
+      items: rows,
+      total,
+      page: params.page,
+      limit: params.limit,
+      totalPages: Math.ceil(total / params.limit) || 1,
+    };
+  }
+
+  async findById(id: string) {
+    return this.prisma.logbookEntry.findUnique({
+      where: { id },
+      include: {
+        machine: {
+          select: { id: true, slug: true, name: true },
+        },
+      },
+    });
+  }
+
+  async create(data: any) {
+    return this.prisma.logbookEntry.create({
+      data,
+      include: {
+        machine: {
+          select: { id: true, slug: true, name: true },
+        },
+      },
+    });
+  }
+
+  async update(id: string, data: any) {
+    const payload: Record<string, any> = {};
+    const fields = [
+      'machineId',
+      'slug',
+      'title',
+      'summary',
+      'articleMarkdown',
+      'articleOrigin',
+      'videoUrl',
+      'videoOrigin',
+      'videoDurationSec',
+      'isPublished',
+      'publishedAt',
+    ];
+
+    for (const f of fields) {
+      if (data[f] !== undefined) {
+        payload[f] = data[f];
+      }
+    }
+
+    return this.prisma.logbookEntry.update({
+      where: { id },
+      data: payload,
+      include: {
+        machine: {
+          select: { id: true, slug: true, name: true },
+        },
+      },
+    });
+  }
+
+  async delete(id: string) {
+    await this.prisma.logbookEntry.delete({
+      where: { id },
+    });
+  }
 }
 
 export const logbookRepository = new LogbookRepository();
