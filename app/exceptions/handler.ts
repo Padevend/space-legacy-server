@@ -2,6 +2,7 @@ import type { Context } from 'hono';
 import { HTTPException } from 'hono/http-exception';
 import { ZodError } from 'zod';
 import { AppException, type ValidationErrorDetail } from './app_exception.js';
+import { AppError } from '#shared/errors';
 import { mapZodError } from './zod_error_mapper.js';
 import { mapPrismaError } from './prisma_error_mapper.js';
 import { appConfig } from '#config/app';
@@ -24,6 +25,15 @@ export class ExceptionHandler {
   toAppException(error: unknown): AppException {
     if (error instanceof AppException) {
       return error;
+    }
+
+    if (error instanceof AppError) {
+      return new AppException({
+        code: error.code as any,
+        message: error.message,
+        status: error.statusCode as any,
+        details: error.details as any,
+      });
     }
 
     if (error instanceof ZodError) {
@@ -106,12 +116,9 @@ export class ExceptionHandler {
         message,
         status: appException.status,
         requestId,
+        details: appException.details || [],
       },
     };
-
-    if (appException.details && appException.details.length > 0) {
-      payload.error.details = appException.details;
-    }
 
     if (appException.retryAfterSeconds !== undefined) {
       payload.error.retryAfterSeconds = appException.retryAfterSeconds;
@@ -133,6 +140,7 @@ export class ExceptionHandler {
         message: `The requested endpoint '${c.req.method} ${c.req.path}' was not found.`,
         status: 404,
         requestId,
+        details: [],
       },
     };
 
