@@ -1,0 +1,843 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "a-proximite-de-shoemaker",
+    "titre": "NEAR Shoemaker (433 Éros)",
+    "categorie": "petits-corps",
+    "sous_categorie": "asteroides",
+    "lieu": "Astéroïde géocroiseur 433 Éros",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiple avec 4 propositions et une seule bonne réponse.",
+      "qcm_multiple": "Question à choix multiple avec 5 propositions et 2 à 4 bonnes réponses.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Liste d'éléments mélangés à remettre dans l'ordre chronologique ou logique.",
+      "association": "Paires d'éléments à relier entre une colonne de gauche et une colonne de droite.",
+      "saisie_numerique": "Réponse numérique exacte ou comprise dans une tolérance définie."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "near-n1-q01",
+          "type": "qcm",
+          "theme": "Destination",
+          "question": "Sur quel objet spatial la sonde NEAR Shoemaker a-t-elle réussi à tourner en orbite puis à se poser ?",
+          "choix": [
+            "L'astéroïde Éros",
+            "La planète Vénus",
+            "La lune Titan",
+            "La comète de Halley"
+          ],
+          "reponse": "L'astéroïde Éros",
+          "indice": "Cet astéroïde en forme de cacahuète s'appelle 433 Éros.",
+          "explication": "NEAR Shoemaker est devenue la première sonde spatiale à orbiter autour d'un astéroïde (433 Éros) et à s'y poser.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3964/Asteroid_Eros.jpeg"
+        },
+        {
+          "id": "near-n1-q02",
+          "type": "vrai_faux",
+          "theme": "Statut actuel",
+          "question": "Vrai ou faux : La sonde NEAR Shoemaker repose toujours aujourd'hui à la surface de l'astéroïde Éros.",
+          "reponse": true,
+          "indice": "Elle a atterri doucement en février 2001 et n'a pas redécollé.",
+          "explication": "NEAR Shoemaker s'est posée sur Éros en février 2001 et y demeure depuis comme un vestige silencieux.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q03",
+          "type": "qcm",
+          "theme": "Forme d'Éros",
+          "question": "À quel aliment compare-t-on souvent la forme allongée de l'astéroïde 433 Éros ?",
+          "choix": [
+            "Une cacahuète ou une pomme de terre",
+            "Une orange bien ronde",
+            "Une part de pizza triangulaire",
+            "Un bretzel"
+          ],
+          "reponse": "Une cacahuète ou une pomme de terre",
+          "indice": "Les petits astéroïdes n'ont pas assez de gravité pour être ronds comme les planètes.",
+          "explication": "Avec ses 34 km de long, Éros présente une silhouette allongée et incurvée semblable à une cacahuète ou une pomme de terre.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3964/Asteroid_Eros.jpeg"
+        },
+        {
+          "id": "near-n1-q04",
+          "type": "qcm_multiple",
+          "theme": "Exploits de NEAR",
+          "question": "Quelles grandes premières spatiales NEAR Shoemaker a-t-elle accomplies ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Premier vaisseau à tourner en orbite autour d'un astéroïde",
+            "Premier vaisseau à atterrir à la surface d'un astéroïde",
+            "Premier vaisseau à photographier un astéroïde géocroiseur de près",
+            "Premier vaisseau à poser des astronautes sur Mars",
+            "Premier vaisseau à traverser les anneaux de Saturne"
+          ],
+          "reponses": [
+            "Premier vaisseau à tourner en orbite autour d'un astéroïde",
+            "Premier vaisseau à atterrir à la surface d'un astéroïde",
+            "Premier vaisseau à photographier un astéroïde géocroiseur de près"
+          ],
+          "indice": "La sonde n'emportait aucun astronaute et visait un astéroïde proche de la Terre.",
+          "explication": "NEAR Shoemaker a été la première sonde à orbiter autour d'un astéroïde, à en cartographier la surface en détail et à s'y poser.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2019/04/eros_000214_1.jpg"
+        },
+        {
+          "id": "near-n1-q05",
+          "type": "qcm",
+          "theme": "Hommage scientifique",
+          "question": "En l'honneur de quel célèbre géologue et planétologue la sonde NEAR a-t-elle été rebaptisée « NEAR Shoemaker » ?",
+          "choix": [
+            "Eugene Shoemaker",
+            "Galilée",
+            "Isaac Newton",
+            "Thomas Pesquet"
+          ],
+          "reponse": "Eugene Shoemaker",
+          "indice": "Son nom de famille est directement dans le nom complet de la sonde.",
+          "explication": "La sonde NEAR (Near Earth Asteroid Rendezvous) a été renommée NEAR Shoemaker en hommage au géologue Eugene Shoemaker.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q06",
+          "type": "association",
+          "theme": "Objets rencontrés",
+          "question": "Relie chaque élément de la mission NEAR Shoemaker à sa description.",
+          "colonne_gauche": [
+            "433 Éros",
+            "253 Mathilde",
+            "NEAR Shoemaker"
+          ],
+          "colonne_droite": [
+            "Astéroïde autour duquel la sonde s'est mise en orbite et posée",
+            "Astéroïde survolé en chemin en juin 1997",
+            "Première sonde à atterrir sur un astéroïde"
+          ],
+          "reponse": [
+            {
+              "gauche": "433 Éros",
+              "droite": "Astéroïde autour duquel la sonde s'est mise en orbite et posée"
+            },
+            {
+              "gauche": "253 Mathilde",
+              "droite": "Astéroïde survolé en chemin en juin 1997"
+            },
+            {
+              "gauche": "NEAR Shoemaker",
+              "droite": "Première sonde à atterrir sur un astéroïde"
+            }
+          ],
+          "indice": "Avant d'arriver à Éros, la sonde a croisé un autre astéroïde sombre nommé Mathilde.",
+          "explication": "NEAR Shoemaker a survolé 253 Mathilde en route vers sa cible principale, l'astéroïde 433 Éros.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q07",
+          "type": "qcm",
+          "theme": "Année d'atterrissage",
+          "question": "En quelle année la sonde NEAR Shoemaker s'est-elle posée sur l'astéroïde Éros ?",
+          "choix": [
+            "2001",
+            "1969",
+            "1985",
+            "2024"
+          ],
+          "reponse": "2001",
+          "indice": "C'était le 12 février, au tout début du XXIe siècle.",
+          "explication": "Le 12 février 2001, après un an en orbite, NEAR Shoemaker a effectué un atterrissage contrôlé sur 433 Éros.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q08",
+          "type": "saisie_numerique",
+          "theme": "Numéro d'astéroïde",
+          "question": "Quel numéro officiel porte l'astéroïde Éros exploré par NEAR Shoemaker ?",
+          "reponse": 433,
+          "unite": "numéro",
+          "tolerance": 0,
+          "indice": "Il s'appelle « 433 Éros ».",
+          "explication": "Éros est le 433e astéroïde découvert, d'où sa désignation officielle 433 Éros.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q09",
+          "type": "qcm_multiple",
+          "theme": "Surface d'Éros",
+          "question": "Que voit-on à la surface de l'astéroïde Éros sur les photos prises par NEAR Shoemaker ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "De nombreux cratères d'impact",
+            "Des milliers de rochers et blocs de pierre",
+            "Une couche de poussière grise appelée régolithe",
+            "Des arbres et des rivières",
+            "Des nuages de pluie"
+          ],
+          "reponses": [
+            "De nombreux cratères d'impact",
+            "Des milliers de rochers et blocs de pierre",
+            "Une couche de poussière grise appelée régolithe"
+          ],
+          "indice": "Comme la Lune, un astéroïde n'a pas d'air ni d'eau et porte les cicatrices des impacts.",
+          "explication": "Les clichés de NEAR Shoemaker révèlent une surface criblée de cratères, jonchée de rochers et recouverte de poussière.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2019/04/eros_000214_1.jpg"
+        },
+        {
+          "id": "near-n1-q10",
+          "type": "qcm",
+          "theme": "Énergie de la sonde",
+          "question": "Comment la sonde NEAR Shoemaker produisait-elle son électricité dans l'espace ?",
+          "choix": [
+            "Avec quatre grands panneaux solaires",
+            "En brûlant du charbon",
+            "Avec une éolienne",
+            "Grâce à un câble branché sur la Terre"
+          ],
+          "reponse": "Avec quatre grands panneaux solaires",
+          "indice": "Elle captait la lumière du Soleil grâce à quatre ailes bleutées.",
+          "explication": "NEAR Shoemaker utilisait quatre panneaux solaires fixés autour de son corps octogonal.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q11",
+          "type": "ordre",
+          "theme": "Étapes de la mission NEAR",
+          "question": "Remets dans l'ordre les étapes de la mission NEAR Shoemaker.",
+          "elements": [
+            "Atterrissage en douceur sur Éros (février 2001)",
+            "Lancement depuis la Terre (février 1996)",
+            "Mise en orbite autour d'Éros (février 2000)",
+            "Survol de l'astéroïde Mathilde (juin 1997)"
+          ],
+          "reponse": [
+            "Lancement depuis la Terre (février 1996)",
+            "Survol de l'astéroïde Mathilde (juin 1997)",
+            "Mise en orbite autour d'Éros (février 2000)",
+            "Atterrissage en douceur sur Éros (février 2001)"
+          ],
+          "indice": "La sonde a d'abord tourné autour d'Éros pendant un an avant de s'y poser.",
+          "explication": "Lancée en 1996, NEAR a survolé Mathilde en 1997, orbité autour d'Éros dès février 2000 et s'y est posée en février 2001.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q12",
+          "type": "vrai_faux",
+          "theme": "Conception de l'atterrissage",
+          "question": "Vrai ou faux : Au départ, NEAR Shoemaker n'avait pas de pieds d'atterrissage car elle n'était pas prévue pour se poser sur Éros.",
+          "reponse": true,
+          "indice": "Les ingénieurs ont décidé de tenter l'atterrissage en fin de mission car l'astéroïde a une gravité minuscule.",
+          "explication": "NEAR n'était conçue que pour rester en orbite, mais les ingénieurs ont réussi à la poser en douceur sur ses panneaux solaires et son bord inférieur.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q13",
+          "type": "qcm",
+          "theme": "Gravité sur Éros",
+          "question": "Si tu sautais sur l'astéroïde Éros, que se passerait-il par rapport à la Terre ?",
+          "choix": [
+            "Tu t'envolerais très haut et très lentement car la gravité y est minuscule",
+            "Tu resterais collé au sol comme par un aimant géant",
+            "Tu pèserais dix fois plus lourd que sur Terre",
+            "Tu tomberais deux fois plus vite"
+          ],
+          "reponse": "Tu t'envolerais très haut et très lentement car la gravité y est minuscule",
+          "indice": "Éros est beaucoup plus petit et léger que la Terre.",
+          "explication": "La gravité sur Éros est environ mille fois plus faible que sur Terre, ce qui a permis à la sonde de s'y poser très lentement.",
+          "media_url": null
+        },
+        {
+          "id": "near-n1-q14",
+          "type": "qcm_multiple",
+          "theme": "Ce que NEAR a étudié",
+          "question": "Quelles informations NEAR Shoemaker a-t-elle mesurées sur l'astéroïde Éros ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Sa forme et sa taille précises",
+            "Les éléments chimiques présents dans ses roches",
+            "Son champ magnétique et sa gravité",
+            "La température de ses océans",
+            "La vitesse de ses ouragans"
+          ],
+          "reponses": [
+            "Sa forme et sa taille précises",
+            "Les éléments chimiques présents dans ses roches",
+            "Son champ magnétique et sa gravité"
+          ],
+          "indice": "Éros n'a ni air ni eau liquide.",
+          "explication": "NEAR Shoemaker a cartographié la forme d'Éros, analysé la composition de sa surface et mesuré sa gravité et son magnétisme.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3964/Asteroid_Eros.jpeg"
+        },
+        {
+          "id": "near-n1-q15",
+          "type": "qcm",
+          "theme": "Catégorie d'astéroïde",
+          "question": "Pourquoi appelle-t-on Éros un astéroïde « géocroiseur » ?",
+          "choix": [
+            "Parce que son orbite l'amène relativement près de celle de la Terre",
+            "Parce qu'il a la même taille que la Terre",
+            "Parce qu'il tourne autour de la Terre comme la Lune",
+            "Parce qu'il est recouvert d'herbe"
+          ],
+          "reponse": "Parce que son orbite l'amène relativement près de celle de la Terre",
+          "indice": "Le préfixe « géo- » désigne la Terre.",
+          "explication": "Un astéroïde géocroiseur (Near-Earth Asteroid) suit une orbite qui s'approche de l'orbite terrestre.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "near-n2-q01",
+          "type": "qcm",
+          "theme": "Signification de l'acronyme",
+          "question": "Que signifie l'acronyme NEAR dans le nom de la mission NEAR Shoemaker ?",
+          "choix": [
+            "Near Earth Asteroid Rendezvous",
+            "New Exploration of Asteroid Rings",
+            "Nuclear Energy Asteroid Rover",
+            "Northern European Astronomical Research"
+          ],
+          "reponse": "Near Earth Asteroid Rendezvous",
+          "indice": "Il désigne un rendez-vous spatial avec un astéroïde proche de la Terre.",
+          "explication": "NEAR signifie Near Earth Asteroid Rendezvous, première mission du programme Discovery de la NASA.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Dimensions d'Éros",
+          "question": "Quelle est la longueur approximative, en kilomètres, de l'astéroïde 433 Éros selon sa plus grande dimension ?",
+          "reponse": 34,
+          "unite": "km",
+          "tolerance": 2,
+          "indice": "Il mesure environ 34 × 11 × 11 kilomètres.",
+          "explication": "433 Éros est un astéroïde allongé mesurant environ 34,4 km de long pour 11,2 km de large et d'épaisseur.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3964/Asteroid_Eros.jpeg"
+        },
+        {
+          "id": "near-n2-q03",
+          "type": "qcm_multiple",
+          "theme": "Incident de décembre 1998",
+          "question": "Que s'est-il passé en décembre 1998 lors de la première tentative de mise en orbite autour d'Éros ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La poussée du moteur principal s'est interrompue prématurément",
+            "La sonde a perdu le contact radio avec la Terre pendant environ 27 heures",
+            "La mission a dû être replanifiée pour une mise en orbite en février 2000 après un survol rapide",
+            "La sonde s'est écrasée sur Éros dès 1998",
+            "Les quatre panneaux solaires se sont détachés"
+          ],
+          "reponses": [
+            "La poussée du moteur principal s'est interrompue prématurément",
+            "La sonde a perdu le contact radio avec la Terre pendant environ 27 heures",
+            "La mission a dû être replanifiée pour une mise en orbite en février 2000 après un survol rapide"
+          ],
+          "indice": "Cet incident a retardé la mise en orbite d'un peu plus d'un an.",
+          "explication": "Suite à l'interruption de la manœuvre d'insertion en décembre 1998, NEAR a effectué un survol d'Éros puis est revenue s'insérer en orbite le 14 février 2000.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q04",
+          "type": "qcm",
+          "theme": "Date d'insertion en orbite",
+          "question": "À quelle date symbolique NEAR Shoemaker est-elle finalement entrée en orbite autour de l'astéroïde Éros ?",
+          "choix": [
+            "Le 14 février 2000 (jour de la Saint-Valentin, autour d'Éros)",
+            "Le 1er avril 1999",
+            "Le 25 décembre 2002",
+            "Le 14 juillet 1996"
+          ],
+          "reponse": "Le 14 février 2000 (jour de la Saint-Valentin, autour d'Éros)",
+          "indice": "Éros est le nom du dieu grec de l'amour.",
+          "explication": "Le 14 février 2000, jour de la Saint-Valentin, NEAR est entrée en orbite autour de 433 Éros.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2019/04/eros_000214_1.jpg"
+        },
+        {
+          "id": "near-n2-q05",
+          "type": "vrai_faux",
+          "theme": "Données après atterrissage",
+          "question": "Vrai ou faux : Après s'être posée sur Éros le 12 février 2001, la sonde NEAR Shoemaker a survécu à l'impact et a continué à transmettre des données pendant plus de deux semaines.",
+          "reponse": true,
+          "indice": "Son spectromètre à rayons gamma a même fonctionné encore mieux directement posé sur le sol.",
+          "explication": "Contre toute attente, NEAR Shoemaker est restée intacte après l'atterrissage et a transmis des données scientifiques jusqu'au 28 février 2001.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q06",
+          "type": "association",
+          "theme": "Instruments de NEAR",
+          "question": "Associe chaque instrument scientifique de NEAR Shoemaker à son rôle.",
+          "colonne_gauche": [
+            "MSI (Multi-Spectral Imager)",
+            "NLR (NEAR Laser Rangefinder)",
+            "XGRS (X-Ray/Gamma-Ray Spectrometer)",
+            "MAG (Magnetometer)"
+          ],
+          "colonne_droite": [
+            "Cartographie photographique de la surface en plusieurs longueurs d'onde",
+            "Mesure précise de l'altitude et du relief topographique par laser",
+            "Analyse de la composition chimique des éléments de surface",
+            "Recherche d'un éventuel champ magnétique propre à Éros"
+          ],
+          "reponse": [
+            {
+              "gauche": "MSI (Multi-Spectral Imager)",
+              "droite": "Cartographie photographique de la surface en plusieurs longueurs d'onde"
+            },
+            {
+              "gauche": "NLR (NEAR Laser Rangefinder)",
+              "droite": "Mesure précise de l'altitude et du relief topographique par laser"
+            },
+            {
+              "gauche": "XGRS (X-Ray/Gamma-Ray Spectrometer)",
+              "droite": "Analyse de la composition chimique des éléments de surface"
+            },
+            {
+              "gauche": "MAG (Magnetometer)",
+              "droite": "Recherche d'un éventuel champ magnétique propre à Éros"
+            }
+          ],
+          "indice": "NLR utilisait des impulsions laser pour dresser la carte 3D d'Éros.",
+          "explication": "Ces instruments ont permis d'établir la forme 3D, la composition chondritique et l'absence de champ magnétique notable d'Éros.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q07",
+          "type": "qcm",
+          "theme": "Nature géologique d'Éros",
+          "question": "À quel type de météorites primitives la composition de l'astéroïde 433 Éros correspond-elle ?",
+          "choix": [
+            "Les chondrites ordinaires",
+            "Les météorites ferreuses pures",
+            "Les basaltes lunaires",
+            "Les comètes glacées"
+          ],
+          "reponse": "Les chondrites ordinaires",
+          "indice": "Éros est un astéroïde silicaté de type S qui n'a pas subi de fusion planétaire complète.",
+          "explication": "Les mesures XGRS ont montré qu'Éros a une composition chimique semblable aux chondrites ordinaires, vestiges primitifs du système solaire.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q08",
+          "type": "qcm",
+          "theme": "Vitesse d'atterrissage",
+          "question": "À quelle vitesse verticale très lente NEAR Shoemaker a-t-elle touché le sol d'Éros le 12 février 2001 ?",
+          "choix": [
+            "Environ 1,5 à 1,8 mètre par seconde (environ 6 km/h)",
+            "Plus de 100 mètres par seconde",
+            "Environ 1 000 km/h",
+            "À la vitesse du son"
+          ],
+          "reponse": "Environ 1,5 à 1,8 mètre par seconde (environ 6 km/h)",
+          "indice": "C'est l'allure d'un marcheur rapide, ce qui explique pourquoi la sonde ne s'est pas brisée.",
+          "explication": "Grâce à une série de freinages propulsifs, NEAR Shoemaker s'est posée à environ 1,5-1,8 m/s, l'un des atterrissages les plus doux de l'histoire spatiale.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q09",
+          "type": "qcm_multiple",
+          "theme": "Survol de 253 Mathilde",
+          "question": "Qu'a révélé le survol de l'astéroïde 253 Mathilde par NEAR en juin 1997 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une surface très sombre reflétant aussi peu de lumière que du charbon (astéroïde de type C)",
+            "D'énormes cratères d'impact presque aussi larges que le rayon de l'astéroïde",
+            "Une faible densité indiquant une structure poreuse de type « tas de gravats »",
+            "La présence de geysers d'eau liquide",
+            "Un anneau de poussière brillant comme Saturne"
+          ],
+          "reponses": [
+            "Une surface très sombre reflétant aussi peu de lumière que du charbon (astéroïde de type C)",
+            "D'énormes cratères d'impact presque aussi larges que le rayon de l'astéroïde",
+            "Une faible densité indiquant une structure poreuse de type « tas de gravats »"
+          ],
+          "indice": "Mathilde est un astéroïde carboné de la ceinture principale.",
+          "explication": "Le survol de 253 Mathilde a révélé un corps carboné très sombre, creusé de cratères géants et doté d'une faible densité.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q10",
+          "type": "qcm",
+          "theme": "Nombre d'images",
+          "question": "Environ combien d'images de l'astéroïde 433 Éros la sonde NEAR Shoemaker a-t-elle prises pendant sa mission ?",
+          "choix": [
+            "Environ 160 000 images",
+            "Seulement 12 images",
+            "10 millions d'images",
+            "Aucune image, uniquement des sons"
+          ],
+          "reponse": "Environ 160 000 images",
+          "indice": "Elle a photographié la totalité de la surface d'Éros sous tous les angles.",
+          "explication": "NEAR Shoemaker a transmis environ 160 000 photographies haute résolution, permettant de cartographier Éros jusqu'à des détails centimétriques lors de la descente.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2019/04/eros_000214_1.jpg"
+        },
+        {
+          "id": "near-n2-q11",
+          "type": "ordre",
+          "theme": "Descente finale du 12 février 2001",
+          "question": "Remets dans l'ordre les événements du 12 février 2001 lors de la descente finale de NEAR Shoemaker.",
+          "elements": [
+            "Contact avec la surface d'Éros à environ 1,6 m/s et poursuite du signal radio",
+            "Quitte son orbite circulaire à 35 km d'altitude pour entamer la descente",
+            "Prise des dernières photographies à très haute résolution jusqu'à 120 mètres du sol",
+            "Exécution de quatre manœuvres de freinage propulsif pour ralentir la chute"
+          ],
+          "reponse": [
+            "Quitte son orbite circulaire à 35 km d'altitude pour entamer la descente",
+            "Exécution de quatre manœuvres de freinage propulsif pour ralentir la chute",
+            "Prise des dernières photographies à très haute résolution jusqu'à 120 mètres du sol",
+            "Contact avec la surface d'Éros à environ 1,6 m/s et poursuite du signal radio"
+          ],
+          "indice": "La sonde a pris des clichés rapprochés juste avant de toucher le sol.",
+          "explication": "Partie de 35 km d'altitude, NEAR a freiné par quatre impulsions, pris 69 images durant la descente jusqu'à 120 m, puis s'est posée en douceur.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q12",
+          "type": "vrai_faux",
+          "theme": "Programme Discovery",
+          "question": "Vrai ou faux : NEAR Shoemaker a été la toute première mission lancée dans le cadre du programme Discovery de la NASA (« plus vite, mieux, moins cher »).",
+          "reponse": true,
+          "indice": "Elle a été lancée en février 1996, quelques mois avant Mars Pathfinder.",
+          "explication": "Lancée le 17 février 1996, NEAR a inauguré le programme Discovery de la NASA dédié aux missions scientifiques ciblées à coût maîtrisé.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q13",
+          "type": "qcm",
+          "theme": "Structure interne d'Éros",
+          "question": "Contrairement à Mathilde, qu'ont montré les mesures de gravité de NEAR sur la structure interne d'Éros ?",
+          "choix": [
+            "Éros est un corps rocheux relativement homogène et fracturé plutôt qu'un assemblage lâche",
+            "Éros est entièrement creux à l'intérieur",
+            "Éros est composé d'un noyau d'or pur",
+            "Éros est constitué de glace d'eau pure"
+          ],
+          "reponse": "Éros est un corps rocheux relativement homogène et fracturé plutôt qu'un assemblage lâche",
+          "indice": "Sa densité (2,67 g/cm³) est proche de celle des roches silicatées terrestres.",
+          "explication": "La densité uniforme d'Éros (2,67 g/cm³) et ses réseaux de failles montrent qu'il s'agit d'un bloc rocheux consolidé mais intensément fracturé par les impacts.",
+          "media_url": null
+        },
+        {
+          "id": "near-n2-q14",
+          "type": "qcm_multiple",
+          "theme": "Phénomènes de surface sur Éros",
+          "question": "Quelles formations géologiques remarquables ont été découvertes sur Éros grâce aux images rapprochées de NEAR ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Des « étangs » plats de poussière fine accumulée au fond de certains cratères",
+            "Une grande dépression en forme de selle nommée Himeros",
+            "Un immense cratère nommé Psyché",
+            "Des volcans de lave en fusion",
+            "Des dunes de sable poussées par le vent"
+          ],
+          "reponses": [
+            "Des « étangs » plats de poussière fine accumulée au fond de certains cratères",
+            "Une grande dépression en forme de selle nommée Himeros",
+            "Un immense cratère nommé Psyché"
+          ],
+          "indice": "Sans atmosphère, il n'y a ni vent ni lave active sur Éros.",
+          "explication": "NEAR a observé de curieux dépôts lisses de poussière (« dust ponds ») ainsi que les grandes structures Himeros et Psyché.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3964/Asteroid_Eros.jpeg"
+        },
+        {
+          "id": "near-n2-q15",
+          "type": "qcm",
+          "theme": "Gestion de mission",
+          "question": "Quel laboratoire a conçu et piloté la sonde NEAR Shoemaker pour le compte de la NASA ?",
+          "choix": [
+            "Le laboratoire de physique appliquée de l'université Johns Hopkins (JHUAPL)",
+            "Le Centre spatial guyanais",
+            "L'agence spatiale japonaise JAXA",
+            "La station spatiale Mir"
+          ],
+          "reponse": "Le laboratoire de physique appliquée de l'université Johns Hopkins (JHUAPL)",
+          "indice": "Ce laboratoire est situé dans le Maryland aux États-Unis.",
+          "explication": "NEAR Shoemaker a été développée et opérée par l'Applied Physics Laboratory de l'université Johns Hopkins (JHUAPL).",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "near-n3-q01",
+          "type": "qcm",
+          "theme": "Analyse de l'anomalie de décembre 1998",
+          "question": "Quelle a été la cause technique de la perte de contact et de l'échec initial d'insertion orbitale de NEAR autour d'Éros le 20 décembre 1998 ?",
+          "choix": [
+            "L'allumage du moteur principal à biergol a déclenché un dépassement du seuil d'accélération latérale programmé, provoquant l'arrêt immédiat de la poussée et une mise en sécurité avec désorientation des panneaux solaires",
+            "Une collision directe avec un satellite naturel d'Éros a détruit le réservoir d'hydrazine",
+            "Le calculateur de bord a été effacé par une éruption solaire de classe X",
+            "La sonde a épuisé tout son carburant lors du survol de Mathilde"
+          ],
+          "reponse": "L'allumage du moteur principal à biergol a déclenché un dépassement du seuil d'accélération latérale programmé, provoquant l'arrêt immédiat de la poussée et une mise en sécurité avec désorientation des panneaux solaires",
+          "indice": "Le logiciel de protection contre les anomalies a interrompu la combustion dès la première seconde.",
+          "explication": "Une accélération transitoire lors de l'allumage a dépassé le seuil logiciel de sécurité, coupant le moteur et entraînant une perte d'attitude et de liaison pendant 27 heures.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Résolution ultime avant impact",
+          "question": "À quelle altitude approximative au-dessus du sol d'Éros, en mètres, la caméra MSI de NEAR Shoemaker a-t-elle pris sa toute dernière image avant le contact final le 12 février 2001 ?",
+          "reponse": 120,
+          "unite": "mètres",
+          "tolerance": 10,
+          "indice": "Cette image ultime montre des détails d'environ 1 centimètre de large.",
+          "explication": "La dernière image transmise lors de la descente contrôlée a été prise à environ 120 mètres d'altitude, révélant des détails de l'ordre du centimètre.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q03",
+          "type": "qcm_multiple",
+          "theme": "Exploitation scientifique post-atterrissage",
+          "question": "Pourquoi l'extension de mission de NEAR Shoemaker au sol d'Éros entre le 12 et le 28 février 2001 a-t-elle eu une valeur scientifique exceptionnelle ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Le spectromètre à rayons gamma (GRS) placé au contact direct du régolithe a gagné d'un facteur ~10 en sensibilité par rapport aux mesures orbitales",
+            "Il a permis de mesurer directement les abondances d'éléments majeurs (Fe, Si, O, Mg, K) dans le régolithe d'Éros",
+            "Il a démontré la capacité à opérer et commander un vaisseau non conçu pour l'atterrissage à la surface d'un petit corps",
+            "Il a permis de forer une carotte de 10 mètres de profondeur dans le noyau d'Éros",
+            "Il a redécollé d'Éros pour rapporter un échantillon sur Terre"
+          ],
+          "reponses": [
+            "Le spectromètre à rayons gamma (GRS) placé au contact direct du régolithe a gagné d'un facteur ~10 en sensibilité par rapport aux mesures orbitales",
+            "Il a permis de mesurer directement les abondances d'éléments majeurs (Fe, Si, O, Mg, K) dans le régolithe d'Éros",
+            "Il a démontré la capacité à opérer et commander un vaisseau non conçu pour l'atterrissage à la surface d'un petit corps"
+          ],
+          "indice": "L'antenne à gain élevé ne pointait plus vers la Terre au sol, obligeant à communiquer via l'antenne à faible gain.",
+          "explication": "Une fois posé, le détecteur gamma de NEAR s'est trouvé à quelques centimètres du sol, améliorant considérablement le rapport signal/bruit pour l'analyse élémentaire.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q04",
+          "type": "qcm",
+          "theme": "Dynamique orbitale autour d'un corps irrégulier",
+          "question": "Quel défi majeur la mécanique orbitale autour de 433 Éros posait-elle aux navigateurs de NEAR Shoemaker ?",
+          "choix": [
+            "Le champ gravitationnel fortement non sphérique et la rotation rapide d'Éros (période de 5,27 h) induisent de fortes perturbations orbitales risquant d'éjecter la sonde ou de la faire impacter la surface",
+            "La traînée atmosphérique dense d'Éros freinait la sonde à chaque orbite",
+            "La pression de radiation d'Éros repoussait la sonde à plus de 10 000 km",
+            "Le champ magnétique d'Éros inversait la polarité des panneaux solaires"
+          ],
+          "reponse": "Le champ gravitationnel fortement non sphérique et la rotation rapide d'Éros (période de 5,27 h) induisent de fortes perturbations orbitales risquant d'éjecter la sonde ou de la faire impacter la surface",
+          "indice": "La vitesse de libération sur Éros n'est que d'environ 10 m/s et la forme en cacahuète crée de forts harmoniques gravitationnels.",
+          "explication": "Autour d'un corps allongé en rotation rapide avec une vitesse de libération de ~10 m/s, les harmoniques gravitationnels déstabilisent rapidement les orbites basses.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3964/Asteroid_Eros.jpeg"
+        },
+        {
+          "id": "near-n3-q05",
+          "type": "vrai_faux",
+          "theme": "Déplétion en soufre sur Éros",
+          "question": "Vrai ou faux : Les spectromètres XGRS de NEAR Shoemaker ont mis en évidence un appauvrissement marqué en soufre à la surface d'Éros par rapport aux chondrites ordinaires, attribué au vieillissement spatial (space weathering) et aux micrométéorites.",
+          "reponse": true,
+          "indice": "La vaporisation sélective due aux impacts micrométéoritiques et au vent solaire appauvrit la couche superficielle en éléments volatils comme le soufre.",
+          "explication": "L'analyse XGRS a montré que les rapports Mg/Si, Fe/Si et Al/Si correspondent aux chondrites ordinaires, mais que le soufre est nettement appauvri en surface.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q06",
+          "type": "association",
+          "theme": "Paramètres physiques de 433 Éros",
+          "question": "Relie chaque paramètre physique de 433 Éros mesuré par NEAR Shoemaker à sa valeur caractéristique.",
+          "colonne_gauche": [
+            "Dimensions triaxiales",
+            "Densité moyenne",
+            "Période de rotation sidérale",
+            "Gravité de surface"
+          ],
+          "colonne_droite": [
+            "Environ 34,4 × 11,2 × 11,2 km",
+            "Environ 2,67 g/cm³",
+            "5,27 heures",
+            "Environ un millième de la gravité terrestre"
+          ],
+          "reponse": [
+            {
+              "gauche": "Dimensions triaxiales",
+              "droite": "Environ 34,4 × 11,2 × 11,2 km"
+            },
+            {
+              "gauche": "Densité moyenne",
+              "droite": "Environ 2,67 g/cm³"
+            },
+            {
+              "gauche": "Période de rotation sidérale",
+              "droite": "5,27 heures"
+            },
+            {
+              "gauche": "Gravité de surface",
+              "droite": "Environ un millième de la gravité terrestre"
+            }
+          ],
+          "indice": "La densité de 2,67 g/cm³ est typique d'une roche silicatée fracturée avec environ 20-30 % de porosité.",
+          "explication": "La cartographie laser NLR et le suivi Doppler ont établi avec précision les dimensions, la densité, la rotation et le champ gravitationnel d'Éros.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q07",
+          "type": "qcm",
+          "theme": "Origine des « étangs de poussière »",
+          "question": "Quel mécanisme physique a été proposé pour expliquer la formation des « dust ponds » (dépôts plats de poussière fine) observés par NEAR au fond de nombreux cratères d'Éros ?",
+          "choix": [
+            "La lévitation et le transport électrostatique des grains de poussière les plus fins chargés par le rayonnement solaire UV et le vent solaire, suivis de leur piégeage dans les dépressions ombragées",
+            "L'écoulement de rivières d'eau liquide lors du passage d'Éros au périhélie",
+            "Le dépôt de cendres issues d'un volcanisme actif au pôle Sud d'Éros",
+            "Le triage éolien par des tempêtes de poussière atmosphériques"
+          ],
+          "reponse": "La lévitation et le transport électrostatique des grains de poussière les plus fins chargés par le rayonnement solaire UV et le vent solaire, suivis de leur piégeage dans les dépressions ombragées",
+          "indice": "Sur un corps sans air, la photoémission UV crée de forts gradients de potentiel électrique au terminateur.",
+          "explication": "Les gradients électrostatiques induits par la photoémission UV mobilisent les grains submicroniques de régolithe qui s'accumulent ensuite au fond des cratères.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2019/04/eros_000214_1.jpg"
+        },
+        {
+          "id": "near-n3-q08",
+          "type": "qcm",
+          "theme": "Stratégie d'atterrissage sans trains d'atterrissage",
+          "question": "Comment la géométrie de contact de NEAR Shoemaker lors de son atterrissage sur Éros a-t-elle été conçue par les ingénieurs du JHUAPL ?",
+          "choix": [
+            "La sonde s'est posée sur les extrémités de deux de ses panneaux solaires et sur le bord inférieur du corps principal, formant un trépied stable sous très faible gravité",
+            "Elle a déployé quatre jambes télescopiques équipées de harpons pyrotechniques",
+            "Elle a gonflé un coussin d'air sphérique autour de l'antenne à gain élevé",
+            "Elle s'est plantée verticalement par le cône de la tuyère du moteur principal"
+          ],
+          "reponse": "La sonde s'est posée sur les extrémités de deux de ses panneaux solaires et sur le bord inférieur du corps principal, formant un trépied stable sous très faible gravité",
+          "indice": "Dans cette posture inclinée, deux panneaux solaires restaient éclairés par le Soleil pour alimenter la sonde au sol.",
+          "explication": "La sonde s'est immobilisée en appui sur le bord de son châssis et deux panneaux solaires, maintenant une production électrique suffisante pour communiquer via l'antenne faible gain.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q09",
+          "type": "qcm_multiple",
+          "theme": "Architecture du véhicule spatial",
+          "question": "Quelles caractéristiques matérielles définissaient la sonde NEAR Shoemaker ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un corps principal en prisme octogonal d'environ 1,7 m de côté",
+            "Une antenne parabolique fixe à gain élevé de 1,5 m de diamètre monté sur le pont supérieur",
+            "Quatre panneaux solaires fixes en arséniure de gallium",
+            "Un générateur nucléaire RTG au plutonium-238",
+            "Un bras robotique articulé de 3 mètres avec foreuse"
+          ],
+          "reponses": [
+            "Un corps principal en prisme octogonal d'environ 1,7 m de côté",
+            "Une antenne parabolique fixe à gain élevé de 1,5 m de diamètre monté sur le pont supérieur",
+            "Quatre panneaux solaires fixes en arséniure de gallium"
+          ],
+          "indice": "L'orbite d'Éros restant à moins de 1,78 UA du Soleil, l'énergie solaire suffisait.",
+          "explication": "NEAR Shoemaker combinait un châssis octogonal simple, une antenne fixe de 1,5 m et quatre panneaux solaires fixes, sans mécanismes de pointage complexes.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q10",
+          "type": "qcm",
+          "theme": "Décroissance du nombre de petits cratères",
+          "question": "Quelle anomalie statistique surprenante la cartographie haute résolution d'Éros par NEAR a-t-elle révélée concernant la population de cratères ?",
+          "choix": [
+            "Un déficit marqué en petits cratères de diamètre inférieur à 100 mètres, causé par l'effacement sismique global dû aux impacts ultérieurs sur ce petit corps",
+            "Une absence totale de cratères de plus de 500 mètres de diamètre",
+            "Une répartition strictement concentrée sur un seul hémisphère",
+            "La présence de cratères parfaitement carrés"
+          ],
+          "reponse": "Un déficit marqué en petits cratères de diamètre inférieur à 100 mètres, causé par l'effacement sismique global dû aux impacts ultérieurs sur ce petit corps",
+          "indice": "Sur un corps de seulement 34 km, l'onde sismique d'un impact moyen secoue l'ensemble de l'astéroïde.",
+          "explication": "La secousse sismique globale générée par des impacts ultérieurs fait glisser le régolithe et efface les petits cratères (< 100 m) à la surface d'Éros.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2019/04/eros_000214_1.jpg"
+        },
+        {
+          "id": "near-n3-q11",
+          "type": "ordre",
+          "theme": "Séquence complète de la mission NEAR",
+          "question": "Classe dans l'ordre chronologique ces étapes majeures de la mission NEAR Shoemaker.",
+          "elements": [
+            "Survol d'assistance gravitationnelle terrestre (janvier 1998)",
+            "Lancement par une fusée Delta II (février 1996)",
+            "Insertion en orbite autour de 433 Éros (février 2000)",
+            "Atterrissage contrôlé sur 433 Éros (février 2001)",
+            "Survol de l'astéroïde 253 Mathilde (juin 1997)"
+          ],
+          "reponse": [
+            "Lancement par une fusée Delta II (février 1996)",
+            "Survol de l'astéroïde 253 Mathilde (juin 1997)",
+            "Survol d'assistance gravitationnelle terrestre (janvier 1998)",
+            "Insertion en orbite autour de 433 Éros (février 2000)",
+            "Atterrissage contrôlé sur 433 Éros (février 2001)"
+          ],
+          "indice": "La sonde est repassée près de la Terre en janvier 1998 pour incliner son plan orbital vers celui d'Éros.",
+          "explication": "Après le lancement (1996) et le survol de Mathilde (1997), NEAR a utilisé la Terre pour changer d'inclinaison orbitale en 1998 avant d'atteindre Éros en 2000 et d'y atterrir en 2001.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q12",
+          "type": "vrai_faux",
+          "theme": "Magnétisme des astéroïdes",
+          "question": "Vrai ou faux : Le magnétomètre de NEAR Shoemaker a détecté un champ magnétique intrinsèque puissant autour d'Éros, comparable à celui de la Terre.",
+          "reponse": false,
+          "indice": "Éros est un corps chondritique non différencié dépourvu de noyau métallique liquide actif.",
+          "explication": "NEAR Shoemaker n'a détecté aucune magnétisation rémanente significative sur Éros, fixant une limite supérieure très basse à son moment magnétique.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q13",
+          "type": "qcm",
+          "theme": "Mode de communication post-atterrissage",
+          "question": "Comment les contrôleurs au sol ont-ils communiqué avec NEAR Shoemaker après son atterrissage sur Éros alors que son antenne principale à gain élevé ne pointait plus vers la Terre ?",
+          "choix": [
+            "En utilisant l'antenne omnidirectionnelle à faible gain et les grandes antennes de 70 mètres du Deep Space Network pour envoyer des commandes et recevoir la télémétrie du spectromètre gamma",
+            "En faisant rebondir le signal radio sur la surface de la Lune",
+            "En utilisant la sonde Mars Global Surveyor comme relais",
+            "Aucune communication n'a eu lieu après le contact avec le sol"
+          ],
+          "reponse": "En utilisant l'antenne omnidirectionnelle à faible gain et les grandes antennes de 70 mètres du Deep Space Network pour envoyer des commandes et recevoir la télémétrie du spectromètre gamma",
+          "indice": "Le débit de données était très faible (quelques bits par seconde), mais suffisant pour les spectres gamma.",
+          "explication": "Grâce aux antennes de 70 m du DSN captant le signal de l'antenne à faible gain, la NASA a même pu commander une prolongation de mission de 14 jours au sol.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q14",
+          "type": "qcm_multiple",
+          "theme": "Bilan de la campagne orbitale",
+          "question": "Quels résultats scientifiques ont été obtenus durant l'année passée en orbite autour d'Éros (février 2000 - février 2001) ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Acquisition de plus de 11 millions de mesures altimétriques laser (NLR) produisant un modèle topographique global précis",
+            "Couverture photographique quasi complète à des résolutions atteignant quelques mètres par pixel",
+            "Détermination précise de la masse d'Éros (environ 6,69 × 10¹⁵ kg) par suivi radiométrique",
+            "Découverte de deux satellites naturels en orbite autour d'Éros",
+            "Observation d'une activité cométaire avec queue de gaz et de poussière"
+          ],
+          "reponses": [
+            "Acquisition de plus de 11 millions de mesures altimétriques laser (NLR) produisant un modèle topographique global précis",
+            "Couverture photographique quasi complète à des résolutions atteignant quelques mètres par pixel",
+            "Détermination précise de la masse d'Éros (environ 6,69 × 10¹⁵ kg) par suivi radiométrique"
+          ],
+          "indice": "NEAR a également recherché d'éventuelles lunes autour d'Éros sans en trouver.",
+          "explication": "NEAR a combiné altimétrie laser, imagerie multispectrale, spectrométrie X/gamma et gravimétrie pour caractériser entièrement 433 Éros.",
+          "media_url": null
+        },
+        {
+          "id": "near-n3-q15",
+          "type": "qcm",
+          "theme": "Fin définitive de mission",
+          "question": "Pourquoi les communications avec NEAR Shoemaker ont-elles définitivement cessé après le 28 février 2001 ?",
+          "choix": [
+            "L'éloignement d'Éros par rapport au Soleil et l'inclinaison défavorable des panneaux solaires au sol ont plongé la sonde dans le froid extrême et privé ses systèmes d'énergie",
+            "Une fusée de destruction a été déclenchée pour éviter de contaminer Éros",
+            "Un astéroïde de 10 km a pulvérisé Éros",
+            "La sonde a redécollé vers Vesta"
+          ],
+          "reponse": "L'éloignement d'Éros par rapport au Soleil et l'inclinaison défavorable des panneaux solaires au sol ont plongé la sonde dans le froid extrême et privé ses systèmes d'énergie",
+          "indice": "Une tentative d'écoute ultérieure en décembre 2002 n'a capté aucun signal.",
+          "explication": "Avec la baisse de l'éclairement solaire au sol et des températures descendant vers -150 °C, la mission a pris fin le 28 février 2001, laissant NEAR Shoemaker reposer sur Éros.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3964/Asteroid_Eros.jpeg"
+        }
+      ]
+    }
+  }
+}

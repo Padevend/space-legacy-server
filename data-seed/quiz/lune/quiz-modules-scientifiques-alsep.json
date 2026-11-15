@@ -1,0 +1,842 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "modules-scientifiques-alsep",
+    "titre": "Quiz : Les modules scientifiques ALSEP et Apollo 12",
+    "categorie": "lune",
+    "sous_categorie": "exploration-scientifique",
+    "lieu": "Oceanus Procellarum (Océan des Tempêtes), Lune",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec une seule bonne réponse parmi 4 propositions.",
+      "qcm_multiple": "Question à choix multiples avec 2 à 4 bonnes réponses parmi 5 propositions.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Éléments à remettre dans le bon ordre chronologique ou logique.",
+      "association": "Éléments de deux colonnes à relier par paires.",
+      "saisie_numerique": "Valeur numérique précise à saisir avec une unité et une marge de tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "msa-n1-q01",
+          "type": "qcm",
+          "theme": "Rôle des ALSEP",
+          "question": "À quoi servaient les modules scientifiques ALSEP laissés par les astronautes sur la Lune ?",
+          "indice": "Ils envoyaient des informations scientifiques aux chercheurs sur Terre.",
+          "choix": [
+            "À poursuivre des expériences scientifiques après le départ des astronautes",
+            "À éclairer la Lune la nuit",
+            "À abriter les astronautes pendant leur sommeil",
+            "À fabriquer de l'oxygène pour la Terre"
+          ],
+          "reponse": "À poursuivre des expériences scientifiques après le départ des astronautes",
+          "explication": "Les stations ALSEP étaient des laboratoires automatiques laissés sur la Lune pour mesurer les séismes et l'environnement lunaire pendant des années.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/apollo12_lunar_module.jpg"
+        },
+        {
+          "id": "msa-n1-q02",
+          "type": "qcm_multiple",
+          "theme": "Instruments",
+          "question": "Quels appareils scientifiques pouvaient faire partie d'un module ALSEP ? (Plusieurs bonnes réponses)",
+          "indice": "Certains mesurent les tremblements de Lune et d'autres renvoient la lumière laser.",
+          "choix": [
+            "Des sismomètres pour détecter les tremblements de Lune",
+            "Des rétroréflecteurs laser",
+            "Des appareils mesurant le vent solaire",
+            "Des télescopes sous-marins",
+            "Des stations météo pour la pluie"
+          ],
+          "reponses": [
+            "Des sismomètres pour détecter les tremblements de Lune",
+            "Des rétroréflecteurs laser",
+            "Des appareils mesurant le vent solaire"
+          ],
+          "explication": "Les stations ALSEP regroupaient plusieurs instruments comme des sismomètres, des détecteurs de particules solaires ou des rétroréflecteurs.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q03",
+          "type": "vrai_faux",
+          "theme": "Installation",
+          "question": "Vrai ou faux : Les instruments de l'ALSEP étaient reliés par des câbles à une station centrale.",
+          "indice": "La station centrale leur fournissait l'électricité et envoyait leurs données vers la Terre.",
+          "reponse": true,
+          "explication": "Vrai ! Les astronautes installaient les instruments autour d'une station centrale à laquelle ils étaient reliés par des câbles.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q04",
+          "type": "qcm",
+          "theme": "Première station ALSEP",
+          "question": "Quelle mission Apollo a déployé la toute première station complète ALSEP en novembre 1969 ?",
+          "indice": "C'est la mission qui a atterri juste à côté de la sonde Surveyor 3.",
+          "choix": [
+            "Apollo 12",
+            "Apollo 11",
+            "Apollo 8",
+            "Apollo 17"
+          ],
+          "reponse": "Apollo 12",
+          "explication": "Apollo 12 (novembre 1969) a déployé la première station ALSEP complète dans l'Océan des Tempêtes.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/apollo12_lunar_module.jpg"
+        },
+        {
+          "id": "msa-n1-q05",
+          "type": "qcm",
+          "theme": "Accident de caméra",
+          "question": "Pourquoi la caméra de télévision d'Apollo 12 est-elle tombée en panne pendant son installation ?",
+          "indice": "Elle a été tournée par erreur vers l'astre le plus brillant et brûlant du ciel.",
+          "choix": [
+            "Parce qu'elle a été pointée par erreur vers le Soleil",
+            "Parce qu'elle est tombée dans un cratère profond",
+            "Parce que sa batterie a gelé",
+            "Parce qu'un astronaute a marché sur le fil"
+          ],
+          "reponse": "Parce qu'elle a été pointée par erreur vers le Soleil",
+          "explication": "Lors de son installation, la caméra TV a été involontairement dirigée vers le Soleil, ce qui a grillé son tube capteur.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q06",
+          "type": "saisie_numerique",
+          "theme": "Pièces récupérées",
+          "question": "Combien de kilogrammes de pièces les astronautes d'Apollo 12 ont-ils démontés sur Surveyor 3 pour les rapporter sur Terre ?",
+          "indice": "C'est un nombre rond égal à 10 kg.",
+          "reponse": 10,
+          "unite": "kg",
+          "tolerance": 0,
+          "explication": "Lors de leur deuxième sortie, Conrad et Bean ont rendu visite à Surveyor 3 et ont prélevé environ 10 kg de pièces pour les étudier sur Terre.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/news/image/conrad_19990709_c.jpg"
+        },
+        {
+          "id": "msa-n1-q07",
+          "type": "qcm",
+          "theme": "Tremblement de Lune",
+          "question": "Comment les astronautes d'Apollo 12 ont-ils provoqué le tout premier tremblement de Lune artificiel enregistré ?",
+          "indice": "Une fois remontés dans le vaisseau principal, ils ont fait s'écraser l'étage vide du module lunaire.",
+          "choix": [
+            "En faisant s'écraser volontairement leur module lunaire vide sur la Lune",
+            "En sautant très fort tous les deux en même temps",
+            "En tirant un missile depuis la Terre",
+            "En roulant à toute vitesse avec un rover"
+          ],
+          "reponse": "En faisant s'écraser volontairement leur module lunaire vide sur la Lune",
+          "explication": "Après le retour de l'équipage en orbite, le module lunaire Intrepid a été largué et s'est écrasé à 60 km du sismomètre, créant le premier séisme lunaire artificiel.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q08",
+          "type": "vrai_faux",
+          "theme": "Durée de fonctionnement",
+          "question": "Vrai ou faux : Les stations scientifiques ALSEP ont fonctionné sur la Lune pendant presque huit ans, jusqu'en septembre 1977.",
+          "indice": "Elles ont été éteintes le 30 septembre 1977.",
+          "reponse": true,
+          "explication": "Vrai ! Allumée le 19 novembre 1969, la station ALSEP d'Apollo 12 (ainsi que les autres stations) a fonctionné jusqu'au 30 septembre 1977.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q09",
+          "type": "qcm",
+          "theme": "Roches lunaires",
+          "question": "Quel poids total de roches et de sol lunaires l'équipage d'Apollo 12 a-t-il collecté ?",
+          "indice": "Un peu plus de 34 kilogrammes (34,35 kg).",
+          "choix": [
+            "34,35 kg",
+            "5 kg",
+            "120 kg",
+            "500 g"
+          ],
+          "reponse": "34,35 kg",
+          "explication": "Pete Conrad et Alan Bean ont récolté 34,35 kg d'échantillons de roches et de sol lunaires, en plus des pièces de Surveyor 3.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q10",
+          "type": "ordre",
+          "theme": "Déroulement Apollo 12",
+          "question": "Remets dans l'ordre les étapes de la mission Apollo 12 sur la Lune.",
+          "indice": "De l'alunissage jusqu'au décollage vers la Terre.",
+          "elements": [
+            "Visite de Surveyor 3 et récupération de 10 kg de pièces",
+            "Alunissage d'Intrepid dans l'Océan des Tempêtes",
+            "Installation de la station scientifique ALSEP lors de la 1re sortie",
+            "Décollage du module lunaire vers le vaisseau en orbite"
+          ],
+          "reponse": [
+            "Alunissage d'Intrepid dans l'Océan des Tempêtes",
+            "Installation de la station scientifique ALSEP lors de la 1re sortie",
+            "Visite de Surveyor 3 et récupération de 10 kg de pièces",
+            "Décollage du module lunaire vers le vaisseau en orbite"
+          ],
+          "explication": "Apollo 12 s'est posé le 19 novembre 1969, a déployé l'ALSEP lors de la 1re sortie, a visité Surveyor 3 lors de la 2e sortie et a décollé le 20 novembre.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q11",
+          "type": "qcm_multiple",
+          "theme": "Équipage Apollo 12",
+          "question": "Quels astronautes ont participé à la mission Apollo 12 ? (Plusieurs bonnes réponses)",
+          "indice": "Ils étaient trois : Pete Conrad, Alan Bean et Richard Gordon.",
+          "choix": [
+            "Charles « Pete » Conrad",
+            "Alan L. Bean",
+            "Richard F. Gordon Jr.",
+            "Neil Armstrong",
+            "Buzz Aldrin"
+          ],
+          "reponses": [
+            "Charles « Pete » Conrad",
+            "Alan L. Bean",
+            "Richard F. Gordon Jr."
+          ],
+          "explication": "Pete Conrad et Alan Bean ont marché sur la Lune tandis que Richard Gordon pilotait le module de commande en orbite.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q12",
+          "type": "qcm",
+          "theme": "Lieu d'alunissage",
+          "question": "Dans quelle grande plaine lunaire Apollo 12 s'est-il posé ?",
+          "indice": "Son nom latin signifie « Océan des Tempêtes ».",
+          "choix": [
+            "Oceanus Procellarum",
+            "Mare Tranquillitatis",
+            "Mare Imbrium",
+            "Mare Frigoris"
+          ],
+          "reponse": "Oceanus Procellarum",
+          "explication": "Apollo 12 s'est posé dans Oceanus Procellarum (l'Océan des Tempêtes), à environ 180 mètres de Surveyor 3.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q13",
+          "type": "association",
+          "theme": "Éléments de la mission",
+          "question": "Associe chaque nom de la mission Apollo 12 à ce qu'il désigne.",
+          "indice": "Distingue la station scientifique, le module lunaire et la sonde visitée.",
+          "colonne_gauche": [
+            "ALSEP",
+            "Intrepid",
+            "Surveyor 3"
+          ],
+          "colonne_droite": [
+            "La sonde robotisée visitée par les astronautes",
+            "Le module lunaire d'Apollo 12",
+            "L'ensemble d'instruments scientifiques laissé sur la Lune"
+          ],
+          "reponse": [
+            {
+              "gauche": "ALSEP",
+              "droite": "L'ensemble d'instruments scientifiques laissé sur la Lune"
+            },
+            {
+              "gauche": "Intrepid",
+              "droite": "Le module lunaire d'Apollo 12"
+            },
+            {
+              "gauche": "Surveyor 3",
+              "droite": "La sonde robotisée visitée par les astronautes"
+            }
+          ],
+          "explication": "Intrepid était le module lunaire, ALSEP la station scientifique déployée au sol, et Surveyor 3 l'atterrisseur robotisé de 1967.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q14",
+          "type": "qcm",
+          "theme": "Énergie de l'ALSEP",
+          "question": "Comment l'ALSEP produisait-il son électricité même pendant la longue nuit glaciale de la Lune ?",
+          "indice": "Il utilisait un générateur qui transforme la chaleur d'un matériau radioactif en électricité.",
+          "choix": [
+            "Avec un générateur nucléaire à chaleur (RTG)",
+            "Avec une éolienne géante",
+            "Avec une rallonge électrique venue de la Terre",
+            "Avec un barrage hydraulique"
+          ],
+          "reponse": "Avec un générateur nucléaire à chaleur (RTG)",
+          "explication": "Le générateur SNAP-27 utilisait la chaleur dégagée par du plutonium-238 pour produire de l'électricité jour et nuit.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n1-q15",
+          "type": "qcm_multiple",
+          "theme": "Sorties sur la Lune",
+          "question": "Que peut-on dire des deux sorties à pied d'Apollo 12 sur la Lune ? (Plusieurs bonnes réponses)",
+          "indice": "Elles ont duré au total 7 heures et 45 minutes sur 1,35 km.",
+          "choix": [
+            "Les astronautes ont fait deux sorties sur la Lune",
+            "Ils ont marché 1,35 km au total",
+            "La deuxième sortie était une marche géologique de 1,3 km vers Surveyor 3",
+            "Ils ont utilisé un véhicule LRV à quatre roues",
+            "Ils sont restés 3 semaines sur la Lune"
+          ],
+          "reponses": [
+            "Les astronautes ont fait deux sorties sur la Lune",
+            "Ils ont marché 1,35 km au total",
+            "La deuxième sortie était une marche géologique de 1,3 km vers Surveyor 3"
+          ],
+          "explication": "Conrad et Bean ont effectué deux sorties totalisant 7 h 45 min et 1,35 km (dont 1,3 km lors de la seconde sortie géologique jusqu'à Surveyor 3).",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "msa-n2-q01",
+          "type": "qcm",
+          "theme": "Calendrier Apollo 12",
+          "question": "À quelles dates la mission Apollo 12 a-t-elle décollé puis aluni ?",
+          "indice": "En novembre 1969, cinq jours séparent le lancement de l'alunissage.",
+          "choix": [
+            "Lancement le 14 novembre 1969 et alunissage le 19 novembre 1969",
+            "Lancement le 16 juillet 1969 et alunissage le 20 juillet 1969",
+            "Lancement le 26 juillet 1971 et alunissage le 30 juillet 1971",
+            "Lancement le 17 avril 1967 et alunissage le 20 avril 1967"
+          ],
+          "reponse": "Lancement le 14 novembre 1969 et alunissage le 19 novembre 1969",
+          "explication": "Apollo 12 a décollé de Cap Canaveral le 14 novembre 1969 et s'est posé sur la Lune le 19 novembre 1969 à 06:54:35 UT.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_12_launch.jpg"
+        },
+        {
+          "id": "msa-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Distance d'impact sismique",
+          "question": "À quelle distance approximative (en km) de la station sismique d'Apollo 12 l'étage de remontée d'Intrepid a-t-il été volontairement écrasé ?",
+          "indice": "Une distance de 60 km qui a permis de créer le premier séisme lunaire artificiel enregistré.",
+          "reponse": 60,
+          "unite": "km",
+          "tolerance": 2,
+          "explication": "L'étage de remontée a percuté la Lune à environ 60 km de la station sismique d'Apollo 12, générant le premier séisme lunaire artificiel enregistré.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q03",
+          "type": "qcm",
+          "theme": "Durée de séjour",
+          "question": "Combien de temps le module lunaire Intrepid d'Apollo 12 est-il resté sur la surface de la Lune ?",
+          "indice": "31 heures et 31 minutes.",
+          "choix": [
+            "31 heures et 31 minutes",
+            "21 heures et 36 minutes",
+            "66 heures et 55 minutes",
+            "7 heures et 45 minutes"
+          ],
+          "reponse": "31 heures et 31 minutes",
+          "explication": "Intrepid a aluni le 19 novembre à 06:54:35 UT et a décollé le 20 novembre à 14:25:47 UT, soit un séjour de 31 heures et 31 minutes.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q04",
+          "type": "vrai_faux",
+          "theme": "Arrêt des ALSEP",
+          "question": "Vrai ou faux : La station ALSEP d'Apollo 12 a été arrêtée le 30 septembre 1977 en même temps que les autres stations ALSEP.",
+          "indice": "Toutes les stations ALSEP actives ont été arrêtées à cette même date.",
+          "reponse": true,
+          "explication": "Vrai, mise en marche le 19 novembre 1969 à 14:21 UT, la station centrale d'Apollo 12 a été arrêtée avec les autres stations ALSEP le 30 septembre 1977.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q05",
+          "type": "qcm",
+          "theme": "Source d'énergie",
+          "question": "Quel isotope radioactif fournissait la chaleur nécessaire au générateur électrique SNAP-27 de l'ALSEP ?",
+          "indice": "Un isotope du plutonium dont la demi-vie est de 89,6 ans.",
+          "choix": [
+            "Plutonium-238",
+            "Uranium-235",
+            "Carbone-14",
+            "Tritium"
+          ],
+          "reponse": "Plutonium-238",
+          "explication": "Le générateur SNAP-27 était alimenté par une capsule combustible contenant du plutonium-238 (demi-vie de 89,6 ans).",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q06",
+          "type": "qcm_multiple",
+          "theme": "Instruments ALSEP Apollo 12",
+          "question": "Quels instruments faisaient partie de l'ALSEP déployé lors d'Apollo 12 ? (Plusieurs bonnes réponses)",
+          "indice": "Ils étudiaient l'activité sismique, les ions suprathermiques et la très fine atmosphère lunaire.",
+          "choix": [
+            "Un sismomètre passif",
+            "Un détecteur d'ions suprathermiques",
+            "Une jauge ionique à cathode froide",
+            "Un radar météorologique Doppler",
+            "Un spectromètre de masse atmosphérique terrestre"
+          ],
+          "reponses": [
+            "Un sismomètre passif",
+            "Un détecteur d'ions suprathermiques",
+            "Une jauge ionique à cathode froide"
+          ],
+          "explication": "L'ALSEP d'Apollo 12 comprenait notamment un sismomètre passif, un détecteur d'ions suprathermiques et une jauge ionique à cathode froide.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q07",
+          "type": "qcm",
+          "theme": "Masse du module lunaire",
+          "question": "Quelle était la masse totale au lancement du module lunaire Intrepid d'Apollo 12 (ergols inclus) ?",
+          "indice": "Légèrement supérieure à celle d'Eagle (15 103 kg), elle atteignait 15 235 kg.",
+          "choix": [
+            "15 235 kg",
+            "15 103 kg",
+            "16 430 kg",
+            "2 383 kg"
+          ],
+          "reponse": "15 235 kg",
+          "explication": "La masse totale au départ d'Intrepid (1969-099C) était de 15 235 kg.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q08",
+          "type": "ordre",
+          "theme": "Chronologie de mission",
+          "question": "Classe ces événements de la mission Apollo 12 dans l'ordre chronologique exact (19 et 20 novembre 1969).",
+          "indice": "Suis les heures UT du 19 au 20 novembre 1969.",
+          "elements": [
+            "Décollage d'Intrepid de la Lune (20 nov., 14:25:47 UT)",
+            "Allumage de la station centrale ALSEP (19 nov., 14:21 UT)",
+            "Alunissage d'Intrepid dans Oceanus Procellarum (19 nov., 06:54:35 UT)",
+            "Deuxième sortie EVA et visite de Surveyor 3 (20 nov., 03:54:45 UT)"
+          ],
+          "reponse": [
+            "Alunissage d'Intrepid dans Oceanus Procellarum (19 nov., 06:54:35 UT)",
+            "Allumage de la station centrale ALSEP (19 nov., 14:21 UT)",
+            "Deuxième sortie EVA et visite de Surveyor 3 (20 nov., 03:54:45 UT)",
+            "Décollage d'Intrepid de la Lune (20 nov., 14:25:47 UT)"
+          ],
+          "explication": "Intrepid s'est posé le 19 nov. à 06:54:35 UT, l'ALSEP a été allumé à 14:21 UT, la 2e EVA a débuté le 20 nov. à 03:54:45 UT et le décollage a eu lieu à 14:25:47 UT.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q09",
+          "type": "qcm",
+          "theme": "Panne caméra TV",
+          "question": "Quel composant précis de la caméra de télévision d'Apollo 12 a été endommagé lorsqu'elle a été pointée vers le Soleil ?",
+          "indice": "C'est le tube analyseur d'image de la caméra.",
+          "choix": [
+            "Le tube vidicon",
+            "L'objectif grand-angle en quartz",
+            "Le câble coaxial d'alimentation",
+            "Le trépied en aluminium"
+          ],
+          "reponse": "Le tube vidicon",
+          "explication": "Pointée par inadvertance vers le Soleil lors de son installation, la caméra a subi la destruction de son tube vidicon, la rendant inutilisable.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q10",
+          "type": "vrai_faux",
+          "theme": "Distance à Surveyor 3",
+          "question": "Vrai ou faux : Intrepid s'est posé à environ 180 mètres de la sonde Surveyor 3, qui avait aluni en avril 1967.",
+          "indice": "Cette précision a permis aux astronautes de s'y rendre à pied lors de la seconde sortie.",
+          "reponse": true,
+          "explication": "Vrai, Intrepid a atterri à environ 180 mètres de Surveyor 3 dans Oceanus Procellarum.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/news/image/conrad_19990709_c.jpg"
+        },
+        {
+          "id": "msa-n2-q11",
+          "type": "qcm_multiple",
+          "theme": "Travaux scientifiques Apollo 12",
+          "question": "Quelles activités scientifiques ont été réalisées par Conrad et Bean sur la Lune en plus du déploiement de l'ALSEP ? (Plusieurs bonnes réponses)",
+          "indice": "Ils ont étudié les roches, le régolithe, le vent solaire et une sonde précédente.",
+          "choix": [
+            "Collecte d'échantillons géologiques (34,35 kg)",
+            "Études de mécanique des sols sur les propriétés physiques du régolithe",
+            "Collecte de particules du vent solaire sur feuille métallique",
+            "Prélèvement de pièces de la sonde Surveyor 3",
+            "Installation d'un observatoire astronomique habité"
+          ],
+          "reponses": [
+            "Collecte d'échantillons géologiques (34,35 kg)",
+            "Études de mécanique des sols sur les propriétés physiques du régolithe",
+            "Collecte de particules du vent solaire sur feuille métallique",
+            "Prélèvement de pièces de la sonde Surveyor 3"
+          ],
+          "explication": "En plus de l'ALSEP, l'équipage a réalisé la collecte géologique, la photographie, la mécanique des sols, l'expérience de vent solaire et le démontage de pièces de Surveyor 3.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q12",
+          "type": "association",
+          "theme": "Chiffres clés Apollo 12",
+          "question": "Associe chaque valeur numérique d'Apollo 12 à sa signification.",
+          "indice": "Relie la durée des EVA, la distance marchée, la masse de roches et la masse des pièces de Surveyor 3.",
+          "colonne_gauche": [
+            "7 h 45 min",
+            "1,35 km",
+            "34,35 kg",
+            "10 kg"
+          ],
+          "colonne_droite": [
+            "Masse des pièces de Surveyor 3 rapportées sur Terre",
+            "Masse totale des roches et du sol collectés",
+            "Distance totale parcourue à pied lors des deux sorties",
+            "Durée cumulée des deux sorties extravéhiculaires"
+          ],
+          "reponse": [
+            {
+              "gauche": "7 h 45 min",
+              "droite": "Durée cumulée des deux sorties extravéhiculaires"
+            },
+            {
+              "gauche": "1,35 km",
+              "droite": "Distance totale parcourue à pied lors des deux sorties"
+            },
+            {
+              "gauche": "34,35 kg",
+              "droite": "Masse totale des roches et du sol collectés"
+            },
+            {
+              "gauche": "10 kg",
+              "droite": "Masse des pièces de Surveyor 3 rapportées sur Terre"
+            }
+          ],
+          "explication": "Conrad et Bean ont marché 1,35 km en 7 h 45 min au total, récoltant 34,35 kg d'échantillons géologiques et environ 10 kg de composants de Surveyor 3.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q13",
+          "type": "qcm",
+          "theme": "Identifiant NSSDCA",
+          "question": "Quel est l'identifiant NSSDCA du module lunaire d'Apollo 12 ?",
+          "indice": "Il commence par 1969-099C.",
+          "choix": [
+            "1969-099C",
+            "1969-099A",
+            "1969-059C",
+            "1971-063C"
+          ],
+          "reponse": "1969-099C",
+          "explication": "L'identifiant international NSSDCA du module lunaire Intrepid d'Apollo 12 est 1969-099C (1969-099A étant le module de commande).",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q14",
+          "type": "qcm",
+          "theme": "Station centrale ALSEP",
+          "question": "Quelle était la masse de la boîte constituant la station centrale de l'ALSEP ?",
+          "indice": "Elle pesait 25 kg pour un volume rangé de 34 800 cm³.",
+          "choix": [
+            "25 kg",
+            "48 kg",
+            "4 kg",
+            "17 kg"
+          ],
+          "reponse": "25 kg",
+          "explication": "La station centrale de l'ALSEP était un boîtier de 25 kg (volume rangé de 34 800 cm³) qui distribuait l'énergie et relayait les données.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n2-q15",
+          "type": "qcm_multiple",
+          "theme": "Sorties EVA d'Apollo 12",
+          "question": "Quelles affirmations sur les deux sorties extravéhiculaires d'Apollo 12 sont exactes ? (Plusieurs bonnes réponses)",
+          "indice": "Vérifie les dates (19 et 20 novembre 1969) et les objectifs de chaque sortie.",
+          "choix": [
+            "La première sortie (19 novembre, 11:32:35 à 15:28:38 UT) a permis de déployer l'ALSEP",
+            "La seconde sortie (20 novembre, 03:54:45 à 07:44:00 UT) a couvert 1,3 km",
+            "La visite de Surveyor 3 a eu lieu lors de la deuxième sortie",
+            "Les deux sorties ont eu lieu le même jour calendaire UT",
+            "La caméra TV a fonctionné parfaitement durant toute la deuxième sortie"
+          ],
+          "reponses": [
+            "La première sortie (19 novembre, 11:32:35 à 15:28:38 UT) a permis de déployer l'ALSEP",
+            "La seconde sortie (20 novembre, 03:54:45 à 07:44:00 UT) a couvert 1,3 km",
+            "La visite de Surveyor 3 a eu lieu lors de la deuxième sortie"
+          ],
+          "explication": "La 1re EVA (19 nov.) a été consacrée au déploiement de l'ALSEP et aux prélèvements proches du LM ; la 2e EVA (20 nov., 1,3 km) a permis la traversée géologique et la visite de Surveyor 3.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "msa-n3-q01",
+          "type": "qcm",
+          "theme": "Devis de masse Intrepid",
+          "question": "Quelle était la répartition des masses sèches et des ergols entre les deux étages du module lunaire Intrepid d'Apollo 12 ?",
+          "indice": "La somme des quatre valeurs donne la masse totale de 15 235 kg.",
+          "choix": [
+            "Remontée : 2 383 kg à sec + 2 375 kg d'ergols ; Descente : 2 118 kg à sec + 8 359 kg d'ergols",
+            "Remontée : 2 445 kg à sec + 2 376 kg d'ergols ; Descente : 2 034 kg à sec + 8 248 kg d'ergols",
+            "Remontée : 2 385 kg à sec + 2 375 kg d'ergols ; Descente : 2 797 kg à sec + 8 873 kg d'ergols",
+            "Remontée : 3 000 kg à sec + 3 000 kg d'ergols ; Descente : 3 000 kg à sec + 6 235 kg d'ergols"
+          ],
+          "reponse": "Remontée : 2 383 kg à sec + 2 375 kg d'ergols ; Descente : 2 118 kg à sec + 8 359 kg d'ergols",
+          "explication": "Sur Intrepid (15 235 kg), l'étage de remontée pesait 2 383 kg à sec (2 375 kg d'ergols) et l'étage de descente 2 118 kg à sec (8 359 kg d'ergols).",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Thermodynamique RTG",
+          "question": "Si la puissance du générateur SNAP-27 passe de 70 W à l'installation à 63,5 W après un an, quelle est la baisse absolue de puissance électrique (en watts) sur cette première année ?",
+          "indice": "Calcule 70 - 63,5.",
+          "reponse": 6.5,
+          "unite": "W",
+          "tolerance": 0.1,
+          "explication": "La puissance électrique du SNAP-27 diminue de 6,5 W au cours de la première année (passant d'environ 70 W à 63,5 W sous 16 V CC).",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q03",
+          "type": "qcm",
+          "theme": "Architecture du SNAP-27",
+          "question": "Comment la chaleur de la capsule de plutonium-238 était-elle convertie en électricité dans le générateur SNAP-27 ?",
+          "indice": "Des couples thermoélectriques en tellurure de plomb reliaient deux cylindres concentriques.",
+          "choix": [
+            "Par conduction radiale entre deux cylindres concentriques reliés par 442 thermocouples en tellurure de plomb",
+            "Par rayonnement infrarouge vers des panneaux photovoltaïques en arséniure de gallium",
+            "Par un cycle thermodynamique de Stirling à hélium sous pression",
+            "Par effet photoélectrique direct des particules alpha sur une grille de cuivre"
+          ],
+          "reponse": "Par conduction radiale entre deux cylindres concentriques reliés par 442 thermocouples en tellurure de plomb",
+          "explication": "La capsule de combustible (~4 kg) insérée dans le cylindre interne transférait sa chaleur vers le cylindre externe via 442 couples thermoélectriques radiaux en tellurure de plomb, l'excès de chaleur étant dissipé par 8 ailettes.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q04",
+          "type": "vrai_faux",
+          "theme": "Coordonnées sélénographiques",
+          "question": "Vrai ou faux : Le site d'alunissage d'Intrepid (3,0128° S, 23,4219° W) et la station centrale ALSEP d'Apollo 12 (3,0094° S, 23,4246° W) se trouvent tous deux dans l'hémisphère sud et ouest de la Lune.",
+          "indice": "Les latitudes sont sud (S) et les longitudes ouest (W).",
+          "reponse": true,
+          "explication": "Vrai, les coordonnées confirmées par les images LRO (DE 421) placent Intrepid à 3,0128° S, 23,4219° W et la station centrale ALSEP à 3,0094° S, 23,4246° W.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q05",
+          "type": "qcm",
+          "theme": "Télécommunications ALSEP",
+          "question": "Quelle fréquence descendante spécifique l'ALSEP d'Apollo 12 utilisait-il pour transmettre sa télémétrie vers la Terre ?",
+          "indice": "2278,5 MHz (soit 0,5 MHz de plus que l'ALSEP d'Apollo 15).",
+          "choix": [
+            "2278,5 MHz",
+            "2278,0 MHz",
+            "2276,5 MHz",
+            "2119,0 MHz"
+          ],
+          "reponse": "2278,5 MHz",
+          "explication": "Alors que toutes les stations ALSEP recevaient sur 2119 MHz, l'ALSEP d'Apollo 12 émettait sa télémétrie sur 2278,5 MHz via son antenne hélicoïdale axiale de 58 cm.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q06",
+          "type": "qcm_multiple",
+          "theme": "Contrôle thermique et électronique ALSEP",
+          "question": "Quels éléments techniques composaient la station centrale de l'ALSEP d'Apollo 12 ? (Plusieurs bonnes réponses)",
+          "indice": "Cette station assurait le contrôle thermique, le traitement des données et les télécommunications.",
+          "choix": [
+            "Des éléments passifs (isolation, réflecteurs, revêtements thermiques) et des résistances chauffantes",
+            "Des émetteurs, récepteurs, processeurs de données et multiplexeurs",
+            "Une unité de conditionnement et de distribution de puissance reliée au RTG par câble",
+            "Une antenne hélicoïdale axiale modifiée de 58 cm de long et 3,8 cm de diamètre",
+            "Un ordinateur quantique refroidi à l'azote liquide"
+          ],
+          "reponses": [
+            "Des éléments passifs (isolation, réflecteurs, revêtements thermiques) et des résistances chauffantes",
+            "Des émetteurs, récepteurs, processeurs de données et multiplexeurs",
+            "Une unité de conditionnement et de distribution de puissance reliée au RTG par câble",
+            "Une antenne hélicoïdale axiale modifiée de 58 cm de long et 3,8 cm de diamètre"
+          ],
+          "explication": "La station centrale (25 kg, 34 800 cm³) intégrait régulation thermique passive/active, électronique de télémétrie, conditionnement électrique et antenne hélicoïdale pointée vers la Terre.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q07",
+          "type": "qcm",
+          "theme": "Sismologie lunaire active",
+          "question": "À quelles coordonnées sélénographiques l'étage de remontée d'Intrepid a-t-il percuté la Lune pour créer le premier séisme artificiel enregistré ?",
+          "indice": "À environ 60 km du site d'alunissage d'Apollo 12.",
+          "choix": [
+            "3,94° S, 338,80° E",
+            "26,36° N, 0,25° E",
+            "0,67416° N, 23,47314° E",
+            "3,0128° S, 23,4219° W"
+          ],
+          "reponse": "3,94° S, 338,80° E",
+          "explication": "Largué le 20 novembre 1969 à 20:21:30 UT après amarrage au CSM de Richard Gordon, l'étage de remontée a frappé la Lune à 3,94° S, 338,80° E.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q08",
+          "type": "ordre",
+          "theme": "Séquence de rendez-vous et impact",
+          "question": "Ordonne chronologiquement les opérations orbitales d'Apollo 12 le 20 novembre 1969 (en heures UT).",
+          "indice": "Du décollage de la surface lunaire jusqu'au largage pour impact sismique.",
+          "elements": [
+            "Largage de l'étage de remontée d'Intrepid pour impact lunaire (20:21:30 UT)",
+            "Décollage d'Intrepid de la surface lunaire (14:25:47 UT)",
+            "Amarrage d'Intrepid au module de commande piloté par Richard F. Gordon Jr. (17:58:22 UT)"
+          ],
+          "reponse": [
+            "Décollage d'Intrepid de la surface lunaire (14:25:47 UT)",
+            "Amarrage d'Intrepid au module de commande piloté par Richard F. Gordon Jr. (17:58:22 UT)",
+            "Largage de l'étage de remontée d'Intrepid pour impact lunaire (20:21:30 UT)"
+          ],
+          "explication": "Intrepid a décollé le 20 novembre à 14:25:47 UT, s'est amarré au CSM à 17:58:22 UT, puis a été largué à 20:21:30 UT pour impacter la Lune.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q09",
+          "type": "qcm",
+          "theme": "Architecture du SNAP-27",
+          "question": "Quelles sont les dimensions exactes de l'ensemble générateur SNAP-27 (cylindre central et ailettes rayonnantes) ?",
+          "indice": "Cylindre de 46 cm de haut et diamètre total d'une pointe d'ailette à l'autre de 40 cm.",
+          "choix": [
+            "Cylindre central de 46 cm de haut avec 8 ailettes rectangulaires d'une envergure totale de 40 cm",
+            "Cylindre central de 58 cm de haut avec 4 ailettes de 3,8 cm de diamètre",
+            "Cube de 1,7 m de côté pesant 25 kg",
+            "Prisme octogonal de 4,2 m de large"
+          ],
+          "reponse": "Cylindre central de 46 cm de haut avec 8 ailettes rectangulaires d'une envergure totale de 40 cm",
+          "explication": "L'assemblage SNAP-27 (17 kg) consistait en un cylindre central de 46 cm de haut entouré de 8 ailettes rayonnantes rectangulaires atteignant 40 cm de diamètre hors tout.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q10",
+          "type": "vrai_faux",
+          "theme": "Déploiement du combustible RTG",
+          "question": "Vrai ou faux : La capsule de plutonium-238 (environ 4 kg) était déjà insérée dans le générateur SNAP-27 avant le lancement depuis Cap Canaveral.",
+          "indice": "Les astronautes l'ont insérée manuellement dans le cylindre interne lors du déploiement sur la Lune.",
+          "reponse": false,
+          "explication": "Faux, la fiche technique précise que la capsule de combustible (~4 kg en forme de longue tige) était placée dans le cylindre interne du RTG par les astronautes lors du déploiement sur la Lune.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q11",
+          "type": "qcm_multiple",
+          "theme": "Objectifs scientifiques ALSEP 12",
+          "question": "Quels phénomènes physiques les trois instruments décrits de l'ALSEP d'Apollo 12 étaient-ils conçus pour mesurer ? (Plusieurs bonnes réponses)",
+          "indice": "Chaque instrument ciblait un milieu différent : intérieur lunaire, ions et exosphère.",
+          "choix": [
+            "L'activité sismique et les propriétés physiques de la croûte et de l'intérieur lunaires",
+            "Le flux, la composition, l'énergie et la vitesse des ions positifs de basse énergie",
+            "La pression et les variations temporelles ou solaires de l'atmosphère lunaire",
+            "La concentration en dioxyde de carbone des océans lunaires",
+            "La vitesse des vents stratosphériques de la Lune"
+          ],
+          "reponses": [
+            "L'activité sismique et les propriétés physiques de la croûte et de l'intérieur lunaires",
+            "Le flux, la composition, l'énergie et la vitesse des ions positifs de basse énergie",
+            "La pression et les variations temporelles ou solaires de l'atmosphère lunaire"
+          ],
+          "explication": "Le sismomètre passif étudiait la croûte et l'intérieur, le détecteur d'ions suprathermiques mesurait les ions positifs de basse énergie, et la jauge à cathode froide surveillait l'exosphère.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q12",
+          "type": "association",
+          "theme": "Grandeurs physiques ALSEP",
+          "question": "Associe chaque grandeur physique de l'ALSEP d'Apollo 12 à sa valeur exacte.",
+          "indice": "Relie la demi-vie du Pu-238, la tension du RTG, la fréquence montante et le volume de la station centrale.",
+          "colonne_gauche": [
+            "Demi-vie du plutonium-238",
+            "Tension nominale de sortie du RTG",
+            "Fréquence de télécommande montante ALSEP",
+            "Volume rangé de la station centrale"
+          ],
+          "colonne_droite": [
+            "34 800 cm³",
+            "2119 MHz",
+            "16 V CC",
+            "89,6 ans"
+          ],
+          "reponse": [
+            {
+              "gauche": "Demi-vie du plutonium-238",
+              "droite": "89,6 ans"
+            },
+            {
+              "gauche": "Tension nominale de sortie du RTG",
+              "droite": "16 V CC"
+            },
+            {
+              "gauche": "Fréquence de télécommande montante ALSEP",
+              "droite": "2119 MHz"
+            },
+            {
+              "gauche": "Volume rangé de la station centrale",
+              "droite": "34 800 cm³"
+            }
+          ],
+          "explication": "Ces quatre valeurs caractérisent le carburant isotopique (89,6 ans), la sortie électrique du SNAP-27 (16 V CC), la liaison montante (2119 MHz) et l'encombrement de la station centrale (34 800 cm³).",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q13",
+          "type": "qcm",
+          "theme": "Comparaison EASEP vs ALSEP",
+          "question": "Quelle évolution majeure distingue l'ALSEP (déployé dès Apollo 12) de l'EASEP d'Apollo 11 ?",
+          "indice": "Cela concerne l'autonomie énergétique et la capacité à fonctionner durant la nuit lunaire de 14 jours.",
+          "choix": [
+            "Le remplacement des panneaux solaires par un générateur RTG SNAP-27 permettant un fonctionnement continu jour et nuit",
+            "L'abandon de toute liaison radio directe avec la Terre au profit d'un relais martien",
+            "La réduction de la masse totale de 48 kg à 5 kg",
+            "L'utilisation exclusive de piles alcalines jetables"
+          ],
+          "reponse": "Le remplacement des panneaux solaires par un générateur RTG SNAP-27 permettant un fonctionnement continu jour et nuit",
+          "explication": "Alors que l'EASEP d'Apollo 11 dépendait de panneaux solaires et ne fonctionnait que le jour lunaire, l'ALSEP utilisait un RTG SNAP-27 au plutonium-238 assurant des mesures continues jusqu'en 1977.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q14",
+          "type": "qcm",
+          "theme": "Gestion de programme NASA",
+          "question": "Quel responsable occupait le poste de Project Manager au NASA Johnson Space Center pour le programme documenté dans la fiche ?",
+          "indice": "Consulte les données du personnel de programme dans l'archive.",
+          "choix": [
+            "Mr. Wilbert F. Eichelman",
+            "Mr. Floyd I. Roberson",
+            "Dr. John B. Hanley",
+            "Mr. Richard F. Gordon Jr."
+          ],
+          "reponse": "Mr. Wilbert F. Eichelman",
+          "explication": "Mr. Wilbert F. Eichelman était Project Manager au NASA Johnson Space Center, tandis que Mr. Floyd I. Roberson était Program Manager et Dr. John B. Hanley Program Scientist au siège de la NASA.",
+          "media_url": null
+        },
+        {
+          "id": "msa-n3-q15",
+          "type": "qcm_multiple",
+          "theme": "Analyse comparative des LM Apollo",
+          "question": "Quelles affirmations comparant les modules lunaires d'Apollo 11, Apollo 12 et Apollo 15 sont exactes ? (Plusieurs bonnes réponses)",
+          "indice": "Compare les masses totales et les propulseurs communs aux trois véhicules.",
+          "choix": [
+            "Tous trois partageaient la même architecture à deux étages avec moteur de descente (~45 000 N) et de remontée (~15 000 N)",
+            "La masse totale a augmenté progressivement : 15 103 kg (Apollo 11), 15 235 kg (Apollo 12) et 16 430 kg (Apollo 15)",
+            "Tous trois utilisaient de l'aérozine 50 et du peroxyde d'azote comme ergols",
+            "Tous trois étaient propulsés vers la Lune par un lanceur Saturn 5 depuis Cap Canaveral",
+            "Aucun des trois n'a laissé son étage de descente sur la Lune"
+          ],
+          "reponses": [
+            "Tous trois partageaient la même architecture à deux étages avec moteur de descente (~45 000 N) et de remontée (~15 000 N)",
+            "La masse totale a augmenté progressivement : 15 103 kg (Apollo 11), 15 235 kg (Apollo 12) et 16 430 kg (Apollo 15)",
+            "Tous trois utilisaient de l'aérozine 50 et du peroxyde d'azote comme ergols",
+            "Tous trois étaient propulsés vers la Lune par un lanceur Saturn 5 depuis Cap Canaveral"
+          ],
+          "explication": "Les trois LM reposaient sur la même architecture bi-étage lancée par Saturn 5, avec une masse croissante (15 103 kg, 15 235 kg, 16 430 kg) selon la charge scientifique embarquée.",
+          "media_url": null
+        }
+      ]
+    }
+  }
+}

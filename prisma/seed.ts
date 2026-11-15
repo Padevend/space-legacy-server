@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { prisma } from '#infrastructure/database/prisma_client';
 import { hashPassword } from '#shared/security/password';
 
@@ -784,6 +786,19 @@ export async function main() {
       },
     },
   });
+
+  // 5.2.1 Seed Complete Authentic Quizzes from see_quizzz.sql
+  const candidateSqlPaths = [
+    path.resolve(process.cwd(), 'see_quizzz.sql'),
+    path.resolve(__dirname, 'see_quizzz.sql'),
+    path.resolve(process.cwd(), 'prisma', 'see_quizzz.sql'),
+    path.resolve(process.cwd(), 'data-seed', 'see_quizzz.sql'),
+  ];
+  const quizSqlPath = candidateSqlPaths.find((p) => fs.existsSync(p));
+  if (quizSqlPath) {
+    const quizSql = fs.readFileSync(quizSqlPath, 'utf8');
+    await prisma.$executeRawUnsafe(quizSql);
+  }
 
   // 5.3 Badges
   await prisma.badge.upsert({

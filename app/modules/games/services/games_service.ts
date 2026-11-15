@@ -171,7 +171,11 @@ export class GamesService {
             if (badge.bodyId) {
               const bodyQuizzes = await this.repo.findPublishedQuizzes({ body: badge.body?.slug });
               const bodyQuizIds = bodyQuizzes.map((bq) => bq.id);
-              if (bodyQuizIds.length > 0 && bodyQuizIds.every((id) => stats.completedQuizIds.has(id))) {
+              const completedCount = bodyQuizIds.filter((id) => stats.completedQuizIds.has(id)).length;
+              if (
+                (badge.threshold > 0 && completedCount >= badge.threshold) ||
+                (bodyQuizIds.length > 0 && bodyQuizIds.every((id) => stats.completedQuizIds.has(id)))
+              ) {
                 eligible = true;
               }
             }

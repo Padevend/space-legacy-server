@@ -1,0 +1,839 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "pioneer-10-et-11",
+    "titre": "Pioneer 10 et 11",
+    "categorie": "systeme-solaire-externe",
+    "sous_categorie": "exploration-interstellaire",
+    "lieu": "Espace interstellaire (après survols de Jupiter et Saturne)",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiple avec 4 propositions et une seule bonne réponse.",
+      "qcm_multiple": "Question à choix multiple avec 5 propositions et 2 à 4 bonnes réponses.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Liste d'éléments mélangés à remettre dans l'ordre chronologique ou logique.",
+      "association": "Paires d'éléments à relier entre une colonne de gauche et une colonne de droite.",
+      "saisie_numerique": "Réponse numérique exacte ou comprise dans une tolérance définie."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "pio-n1-q01",
+          "type": "qcm",
+          "theme": "Destination",
+          "question": "Où se trouvent aujourd'hui les sondes spatiales Pioneer 10 et Pioneer 11 ?",
+          "choix": [
+            "Elles dérivent silencieusement hors du système solaire",
+            "Elles sont posées sur la Lune",
+            "Elles tournent autour de Mars",
+            "Elles sont revenues sur Terre"
+          ],
+          "reponse": "Elles dérivent silencieusement hors du système solaire",
+          "indice": "Après avoir visité les planètes géantes, elles ont continué tout droit vers les étoiles.",
+          "explication": "Pioneer 10 et 11 ont quitté le système solaire et dérivent silencieusement dans l'espace profond.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/04/jupiter_pioneer_10_art-jpg.webp"
+        },
+        {
+          "id": "pio-n1-q02",
+          "type": "vrai_faux",
+          "theme": "Planètes explorées",
+          "question": "Vrai ou faux : Pioneer 10 et Pioneer 11 ont été les premiers vaisseaux spatiaux à explorer les planètes géantes de notre système solaire.",
+          "reponse": true,
+          "indice": "Elles sont passées près de Jupiter et de Saturne dans les années 1970.",
+          "explication": "Pioneer 10 et 11 ont ouvert la voie à l'exploration des planètes géantes Jupiter et Saturne.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/Pioneer11SaturnArt-full.jpg"
+        },
+        {
+          "id": "pio-n1-q03",
+          "type": "qcm",
+          "theme": "Pioneer 10",
+          "question": "Quelle planète géante Pioneer 10 a-t-elle survolée en premier en décembre 1973 ?",
+          "choix": [
+            "Jupiter",
+            "Mercure",
+            "Vénus",
+            "Neptune"
+          ],
+          "reponse": "Jupiter",
+          "indice": "C'est la plus grosse planète du système solaire, célèbre pour sa Grande Tache Rouge.",
+          "explication": "En décembre 1973, Pioneer 10 est devenue la première sonde à survoler Jupiter et à en envoyer des images rapprochées.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/pioneer10-16x9.jpg"
+        },
+        {
+          "id": "pio-n1-q04",
+          "type": "qcm_multiple",
+          "theme": "Planètes visitées",
+          "question": "Quelles planètes géantes ont été survolées par les sondes Pioneer 10 et 11 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Jupiter",
+            "Saturne",
+            "Mercure",
+            "Vénus",
+            "Pluton"
+          ],
+          "reponses": [
+            "Jupiter",
+            "Saturne"
+          ],
+          "indice": "L'une est la plus grande planète et l'autre possède de magnifiques anneaux.",
+          "explication": "Pioneer 10 a survolé Jupiter en 1973, et Pioneer 11 a survolé Jupiter en 1974 puis Saturne en 1979.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/Pioneer11SaturnArt-full.jpg"
+        },
+        {
+          "id": "pio-n1-q05",
+          "type": "qcm",
+          "theme": "Plaque Pioneer",
+          "question": "Quel objet spécial est fixé sur les sondes Pioneer 10 et 11 au cas où des extraterrestres les trouveraient un jour ?",
+          "choix": [
+            "Une plaque en aluminium doré avec des dessins et une carte",
+            "Un téléphone portable",
+            "Une boîte de chocolats",
+            "Un livre d'histoire de 500 pages"
+          ],
+          "reponse": "Une plaque en aluminium doré avec des dessins et une carte",
+          "indice": "Cette plaque montre un homme, une femme et l'emplacement de notre Soleil.",
+          "explication": "Les sondes Pioneer portent une plaque gravée en aluminium anodisé or représentant l'humanité et la position de la Terre.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/05/1973-73-H-196.jpg"
+        },
+        {
+          "id": "pio-n1-q06",
+          "type": "association",
+          "theme": "Survols historiques",
+          "question": "Relie chaque sonde Pioneer à sa grande première spatiale.",
+          "colonne_gauche": [
+            "Pioneer 10",
+            "Pioneer 11",
+            "Plaque de Pioneer"
+          ],
+          "colonne_droite": [
+            "Premier survol de Jupiter en 1973",
+            "Premier survol de Saturne en 1979",
+            "Message gravé destiné d'éventuels extraterrestres"
+          ],
+          "reponse": [
+            {
+              "gauche": "Pioneer 10",
+              "droite": "Premier survol de Jupiter en 1973"
+            },
+            {
+              "gauche": "Pioneer 11",
+              "droite": "Premier survol de Saturne en 1979"
+            },
+            {
+              "gauche": "Plaque de Pioneer",
+              "droite": "Message gravé destiné d'éventuels extraterrestres"
+            }
+          ],
+          "indice": "Pioneer 11 est partie un an après Pioneer 10 et a continué jusqu'à Saturne.",
+          "explication": "Pioneer 10 a survolé Jupiter la première en 1973, Pioneer 11 a atteint Saturne en 1979, et toutes deux emportent la célèbre plaque.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n1-q07",
+          "type": "qcm",
+          "theme": "Rencontre avec Saturne",
+          "question": "En quelle année Pioneer 11 a-t-elle réalisé le tout premier survol rapproché de Saturne et de ses anneaux ?",
+          "choix": [
+            "1979",
+            "1969",
+            "1999",
+            "2020"
+          ],
+          "reponse": "1979",
+          "indice": "C'était six ans après le survol de Jupiter par Pioneer 10.",
+          "explication": "Pioneer 11 a survolé Saturne en septembre 1979, révélant de nouveaux détails sur ses anneaux.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/Pioneer11SaturnArt-full.jpg"
+        },
+        {
+          "id": "pio-n1-q08",
+          "type": "saisie_numerique",
+          "theme": "Numéros des sondes",
+          "question": "Quel numéro porte la sonde sœur de Pioneer 10 qui a survolé Jupiter puis Saturne ?",
+          "reponse": 11,
+          "unite": "numéro",
+          "tolerance": 0,
+          "indice": "C'est le nombre entier qui suit 10.",
+          "explication": "Il s'agit de Pioneer 11, lancée en avril 1973 un an après Pioneer 10.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n1-q09",
+          "type": "qcm_multiple",
+          "theme": "Ce que montre la plaque",
+          "question": "Que peut-on voir dessiné sur la plaque dorée des sondes Pioneer ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un homme et une femme",
+            "Une carte montrant la position du Soleil par rapport à des étoiles",
+            "Les planètes du système solaire avec la trajectoire de la sonde",
+            "Une photo d'un château fort",
+            "Le drapeau d'une équipe de football"
+          ],
+          "reponses": [
+            "Un homme et une femme",
+            "Une carte montrant la position du Soleil par rapport à des étoiles",
+            "Les planètes du système solaire avec la trajectoire de la sonde"
+          ],
+          "indice": "Les dessins de Carl Sagan et Frank Drake expliquent d'où vient la sonde et qui l'a construite.",
+          "explication": "La plaque représente un couple humain devant la silhouette de la sonde, une carte des pulsars et le schéma du système solaire.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/05/1973-73-H-196.jpg"
+        },
+        {
+          "id": "pio-n1-q10",
+          "type": "qcm",
+          "theme": "Fin des communications",
+          "question": "Pourquoi ne reçoit-on plus de nouvelles des sondes Pioneer 10 et 11 aujourd'hui ?",
+          "choix": [
+            "Elles sont trop loin et n'ont plus assez d'énergie électrique pour émettre",
+            "Elles ont été détruites par un astéroïde",
+            "Elles sont tombées dans le Soleil",
+            "Leurs antennes ont fondu"
+          ],
+          "reponse": "Elles sont trop loin et n'ont plus assez d'énergie électrique pour émettre",
+          "indice": "Leur dernier signal a été reçu au début des années 2000.",
+          "explication": "L'énergie de leurs générateurs ayant diminué avec le temps et la distance étant immense, le contact a été perdu en 1995 pour Pioneer 11 et en 2003 pour Pioneer 10.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n1-q11",
+          "type": "ordre",
+          "theme": "Voyage de Pioneer 11",
+          "question": "Remets dans l'ordre le voyage de la sonde Pioneer 11.",
+          "elements": [
+            "Survol de Saturne (1979)",
+            "Décollage depuis la Terre (1973)",
+            "Survol de Jupiter (1974)",
+            "Sortie vers l'espace interstellaire"
+          ],
+          "reponse": [
+            "Décollage depuis la Terre (1973)",
+            "Survol de Jupiter (1974)",
+            "Survol de Saturne (1979)",
+            "Sortie vers l'espace interstellaire"
+          ],
+          "indice": "Jupiter est plus proche de la Terre que Saturne.",
+          "explication": "Lancée en 1973, Pioneer 11 a survolé Jupiter en 1974, puis Saturne en 1979 avant de poursuivre vers l'espace interstellaire.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n1-q12",
+          "type": "vrai_faux",
+          "theme": "Ceinture d'astéroïdes",
+          "question": "Vrai ou faux : Pioneer 10 a été le tout premier vaisseau spatial à traverser la ceinture d'astéroïdes située entre Mars et Jupiter.",
+          "reponse": true,
+          "indice": "Avant elle, personne ne savait si un vaisseau pouvait passer sans être détruit par les rochers.",
+          "explication": "Pioneer 10 a traversé sans encombre la ceinture d'astéroïdes entre juillet 1972 et février 1973.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/04/jupiter_pioneer_10_art-jpg.webp"
+        },
+        {
+          "id": "pio-n1-q13",
+          "type": "qcm",
+          "theme": "Lune de Saturne",
+          "question": "Quelle grande lune de Saturne entourée d'une épaisse atmosphère a été photographiée par Pioneer 11 ?",
+          "choix": [
+            "Titan",
+            "Phobos",
+            "Io",
+            "Europe"
+          ],
+          "reponse": "Titan",
+          "indice": "Son nom commence par un T et signifie géant.",
+          "explication": "Pioneer 11 a pris des images de Saturne et de sa plus grande lune, Titan.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/06/PIA00338.jpg"
+        },
+        {
+          "id": "pio-n1-q14",
+          "type": "qcm_multiple",
+          "theme": "Forme des sondes",
+          "question": "À quoi ressemblent les sondes Pioneer 10 et Pioneer 11 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Elles ont une grande antenne parabolique blanche",
+            "Elles ont de longs bras portant leurs générateurs d'énergie",
+            "Elles ressemblent à une voiture à 4 roues",
+            "Elles ont de grandes ailes d'avion",
+            "Elles sont en forme de pyramide"
+          ],
+          "reponses": [
+            "Elles ont une grande antenne parabolique blanche",
+            "Elles ont de longs bras portant leurs générateurs d'énergie"
+          ],
+          "indice": "La grande antenne sert à envoyer les messages jusqu'à la Terre.",
+          "explication": "Pioneer 10 et 11 possèdent une grande antenne parabolique de 2,74 m de diamètre et des mâts déployables.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/04/jupiter_pioneer_10_art-jpg.webp"
+        },
+        {
+          "id": "pio-n1-q15",
+          "type": "qcm",
+          "theme": "Direction dans le ciel",
+          "question": "Vers quelle constellation la sonde Pioneer 10 se dirige-t-elle dans l'espace lointain ?",
+          "choix": [
+            "Le Taureau",
+            "La Grande Ourse",
+            "Le Lion",
+            "Le Scorpion"
+          ],
+          "reponse": "Le Taureau",
+          "indice": "Elle voyage en direction de l'étoile brillante Aldébaran.",
+          "explication": "Pioneer 10 se dirige vers la constellation du Taureau, où elle passera près d'Aldébaran dans environ deux millions d'années.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "pio-n2-q01",
+          "type": "qcm",
+          "theme": "Lancement et trajectoire",
+          "question": "Quand la sonde Pioneer 10 a-t-elle été lancée vers Jupiter ?",
+          "choix": [
+            "Le 2 mars 1972",
+            "Le 20 juillet 1969",
+            "Le 4 octobre 1957",
+            "Le 12 avril 1981"
+          ],
+          "reponse": "Le 2 mars 1972",
+          "indice": "Elle a atteint Jupiter en décembre 1973 après un voyage de 21 mois.",
+          "explication": "Lancée le 2 mars 1972, Pioneer 10 a traversé la ceinture d'astéroïdes avant de survoler Jupiter en décembre 1973.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/04/jupiter_pioneer_10_art-jpg.webp"
+        },
+        {
+          "id": "pio-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Diamètre d'antenne",
+          "question": "Quel est le diamètre approximatif, en mètres, de la grande antenne parabolique à gain élevé des sondes Pioneer 10 et 11 ?",
+          "reponse": 2.74,
+          "unite": "mètres",
+          "tolerance": 0.1,
+          "indice": "Cela correspond à 9 pieds de diamètre.",
+          "explication": "L'antenne parabolique à gain élevé de Pioneer 10 et 11 mesurait 2,74 mètres (9 pieds) de diamètre.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q03",
+          "type": "qcm_multiple",
+          "theme": "Découvertes sur Saturne",
+          "question": "Quelles découvertes majeures Pioneer 11 a-t-elle réalisées lors de son survol de Saturne en septembre 1979 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La découverte de l'anneau F de Saturne",
+            "La détection d'une nouvelle lune (Épiméthée)",
+            "La première étude de la magnétosphère de Saturne",
+            "La découverte de volcans actifs sur Titan",
+            "L'observation de forêts sur Encelade"
+          ],
+          "reponses": [
+            "La découverte de l'anneau F de Saturne",
+            "La détection d'une nouvelle lune (Épiméthée)",
+            "La première étude de la magnétosphère de Saturne"
+          ],
+          "indice": "Pioneer 11 a frôlé le plan des anneaux à seulement 21 000 km des sommets nuageux.",
+          "explication": "Pioneer 11 a découvert l'étroit anneau F, observé Épiméthée et cartographié le champ magnétique et les ceintures de radiations de Saturne.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/Pioneer11SaturnArt-full.jpg"
+        },
+        {
+          "id": "pio-n2-q04",
+          "type": "qcm",
+          "theme": "Conception de la plaque",
+          "question": "Qui a conçu le message gravé sur la plaque des sondes Pioneer 10 et 11 ?",
+          "choix": [
+            "Carl Sagan et Frank Drake (avec le dessin de Linda Salzman Sagan)",
+            "Neil Armstrong et Buzz Aldrin",
+            "Wernher von Braun et Robert Goddard",
+            "Albert Einstein et Edwin Hubble"
+          ],
+          "reponse": "Carl Sagan et Frank Drake (avec le dessin de Linda Salzman Sagan)",
+          "indice": "Carl Sagan était un célèbre astronome et vulgarisateur scientifique américain.",
+          "explication": "La plaque Pioneer a été imaginée par Carl Sagan et Frank Drake, et illustrée par Linda Salzman Sagan.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/05/1973-73-H-196.jpg"
+        },
+        {
+          "id": "pio-n2-q05",
+          "type": "vrai_faux",
+          "theme": "Assistance gravitationnelle",
+          "question": "Vrai ou faux : Pioneer 11 a utilisé la gravité de Jupiter en décembre 1974 pour modifier sa trajectoire et se propulser vers Saturne.",
+          "reponse": true,
+          "indice": "C'était l'une des premières utilisations de la fronde gravitationnelle interplanétaire.",
+          "explication": "En passant à 43 000 km de Jupiter, Pioneer 11 a bénéficié d'une assistance gravitationnelle qui l'a envoyée vers Saturne.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q06",
+          "type": "association",
+          "theme": "Chronologie Pioneer",
+          "question": "Associe chaque date clé aux événements des missions Pioneer 10 et 11.",
+          "colonne_gauche": [
+            "3 décembre 1973",
+            "1er septembre 1979",
+            "30 septembre 1995",
+            "23 janvier 2003"
+          ],
+          "colonne_droite": [
+            "Survol rapproché de Jupiter par Pioneer 10",
+            "Survol rapproché de Saturne par Pioneer 11",
+            "Fin de la mission officielle de Pioneer 11",
+            "Dernier signal très faible reçu de Pioneer 10"
+          ],
+          "reponse": [
+            {
+              "gauche": "3 décembre 1973",
+              "droite": "Survol rapproché de Jupiter par Pioneer 10"
+            },
+            {
+              "gauche": "1er septembre 1979",
+              "droite": "Survol rapproché de Saturne par Pioneer 11"
+            },
+            {
+              "gauche": "30 septembre 1995",
+              "droite": "Fin de la mission officielle de Pioneer 11"
+            },
+            {
+              "gauche": "23 janvier 2003",
+              "droite": "Dernier signal très faible reçu de Pioneer 10"
+            }
+          ],
+          "indice": "Pioneer 10 a continué à émettre près de 8 ans plus longtemps que Pioneer 11.",
+          "explication": "Ces dates jalonnent les survols planétaires et la fin des communications radio avec Pioneer 11 (1995) puis Pioneer 10 (2003).",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q07",
+          "type": "qcm",
+          "theme": "Source d'énergie",
+          "question": "Comment Pioneer 10 et 11 produisaient-elles leur électricité si loin du Soleil, là où les panneaux solaires sont inefficaces ?",
+          "choix": [
+            "Grâce à quatre générateurs thermoélectriques à radio-isotopes (RTG) SNAP-19",
+            "Grâce à d'immenses voiles solaires",
+            "Grâce à une pile à hydrogène rechargeable",
+            "Grâce au champ magnétique de Jupiter"
+          ],
+          "reponse": "Grâce à quatre générateurs thermoélectriques à radio-isotopes (RTG) SNAP-19",
+          "indice": "Ces générateurs convertissent la chaleur de la désintégration du plutonium-238 en électricité.",
+          "explication": "Chaque sonde était équipée de 4 RTG SNAP-19 montés au bout de deux mâts de 3 mètres pour éloigner les radiations des instruments.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/04/jupiter_pioneer_10_art-jpg.webp"
+        },
+        {
+          "id": "pio-n2-q08",
+          "type": "qcm",
+          "theme": "Étalon physique de la plaque",
+          "question": "Quel phénomène physique universel sert d'unité de longueur et de temps sur la plaque des sondes Pioneer ?",
+          "choix": [
+            "La transition hyperfine de l'atome d'hydrogène neutre (longueur d'onde de 21 cm)",
+            "La durée d'une année terrestre",
+            "La taille d'un grain de sable",
+            "La vitesse d'une fusée Saturn V"
+          ],
+          "reponse": "La transition hyperfine de l'atome d'hydrogène neutre (longueur d'onde de 21 cm)",
+          "indice": "L'hydrogène est l'élément chimique le plus abondant dans l'Univers.",
+          "explication": "La transition spin-flip de l'hydrogène neutre fournit une longueur d'onde de 21 cm et une fréquence de 1420 MHz compréhensibles par toute civilisation scientifique.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/05/1973-73-H-196.jpg"
+        },
+        {
+          "id": "pio-n2-q09",
+          "type": "qcm_multiple",
+          "theme": "Dangers affrontés",
+          "question": "Quels défis majeurs Pioneer 10 et 11 ont-elles dû surmonter pour réussir leur mission ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La traversée de la ceinture principale d'astéroïdes",
+            "Les intenses ceintures de radiations de Jupiter",
+            "Le passage à proximité des anneaux de Saturne",
+            "L'atterrissage dans un océan d'ammoniac",
+            "Le freinage atmosphérique autour de Vénus"
+          ],
+          "reponses": [
+            "La traversée de la ceinture principale d'astéroïdes",
+            "Les intenses ceintures de radiations de Jupiter",
+            "Le passage à proximité des anneaux de Saturne"
+          ],
+          "indice": "Pioneer 10 et 11 étaient des sondes de survol et de croisière interplanétaire.",
+          "explication": "Pioneer 10 et 11 ont prouvé qu'un vaisseau pouvait traverser la ceinture d'astéroïdes, résister aux radiations de Jupiter et franchir le plan des anneaux de Saturne.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q10",
+          "type": "qcm",
+          "theme": "Orientation vers les étoiles",
+          "question": "Dans quelle direction générale la sonde Pioneer 11 s'éloigne-t-elle du système solaire ?",
+          "choix": [
+            "Vers la constellation de l'Écu (Scutum), près du centre de la Voie lactée",
+            "Vers l'étoile Polaire",
+            "Vers la galaxie d'Andromède",
+            "Vers le pôle Sud céleste"
+          ],
+          "reponse": "Vers la constellation de l'Écu (Scutum), près du centre de la Voie lactée",
+          "indice": "Elle voyage à l'opposé de Pioneer 10 dans le plan galactique.",
+          "explication": "Pioneer 11 se dirige vers la constellation de l'Écu (Scutum), dans la direction générale du centre galactique.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q11",
+          "type": "ordre",
+          "theme": "Jalons Pioneer 10",
+          "question": "Range ces étapes clés de la mission Pioneer 10 dans l'ordre chronologique.",
+          "elements": [
+            "Franchissement de l'orbite de Neptune (1983)",
+            "Lancement depuis Cap Canaveral (mars 1972)",
+            "Survol de Jupiter (décembre 1973)",
+            "Fin des contacts radio avec la Terre (janvier 2003)"
+          ],
+          "reponse": [
+            "Lancement depuis Cap Canaveral (mars 1972)",
+            "Survol de Jupiter (décembre 1973)",
+            "Franchissement de l'orbite de Neptune (1983)",
+            "Fin des contacts radio avec la Terre (janvier 2003)"
+          ],
+          "indice": "De 1972 à 2003, la mission a duré plus de 30 ans.",
+          "explication": "Lancée en mars 1972, Pioneer 10 a survolé Jupiter en décembre 1973, dépassé l'orbite de Neptune en 1983 et émis son dernier signal en janvier 2003.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q12",
+          "type": "vrai_faux",
+          "theme": "Rôle d'éclaireur",
+          "question": "Vrai ou faux : La trajectoire de Pioneer 11 près des anneaux de Saturne a servi d'éclaireur pour valider la sécurité du passage des sondes Voyager 1 et 2.",
+          "reponse": true,
+          "indice": "Pioneer 11 a testé l'environnement des anneaux deux ans avant Voyager 1.",
+          "explication": "En traversant sans dommage le plan des anneaux de Saturne en 1979, Pioneer 11 a validé la sécurité de la trajectoire de Voyager 2.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/Pioneer11SaturnArt-full.jpg"
+        },
+        {
+          "id": "pio-n2-q13",
+          "type": "qcm",
+          "theme": "Stabilisation",
+          "question": "Comment les sondes Pioneer 10 et 11 maintenaient-elles leur orientation dans l'espace ?",
+          "choix": [
+            "Par rotation rapide sur elles-mêmes (stabilisation par spin)",
+            "À l'aide de quatre roues de réaction comme Kepler",
+            "Grâce à des volets aérodynamiques",
+            "Par un câble relié à la Terre"
+          ],
+          "reponse": "Par rotation rapide sur elles-mêmes (stabilisation par spin)",
+          "indice": "Elles tournaient sur leur axe à environ 4,8 tours par minute, comme une toupie.",
+          "explication": "Pioneer 10 et 11 étaient stabilisées par rotation (spin-stabilized), ce qui permettait à leurs instruments de balayer le ciel à chaque tour.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q14",
+          "type": "qcm_multiple",
+          "theme": "Instruments scientifiques",
+          "question": "Quels types de mesures scientifiques Pioneer 10 et 11 ont-elles effectuées dans le système solaire externe ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Cartographie des champs magnétiques et des particules chargées",
+            "Prise d'images par photopolarimètre imageur (IPP)",
+            "Mesure de la densité des micrométéoroïdes et de la poussière interplanétaire",
+            "Analyse d'échantillons de roches forés sur Io",
+            "Cartographie radar sous la glace d'Europe"
+          ],
+          "reponses": [
+            "Cartographie des champs magnétiques et des particules chargées",
+            "Prise d'images par photopolarimètre imageur (IPP)",
+            "Mesure de la densité des micrométéoroïdes et de la poussière interplanétaire"
+          ],
+          "indice": "Aucun atterrisseur ni radar pénétrant n'équipait les sondes Pioneer.",
+          "explication": "Pioneer 10 et 11 emportaient des magnétomètres, détecteurs de radiations, compteurs de météoroïdes et un photopolarimètre imageur.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n2-q15",
+          "type": "qcm",
+          "theme": "Anomalie Pioneer",
+          "question": "Quel phénomène physique inattendu a été observé en suivant la trajectoire de Pioneer 10 et 11 très loin du Soleil ?",
+          "choix": [
+            "Une minuscule décélération supplémentaire vers le Soleil appelée « anomalie Pioneer »",
+            "Une accélération soudaine vers la galaxie d'Andromède",
+            "Une inversion spontanée de leur rotation",
+            "L'apparition d'une atmosphère autour de l'antenne"
+          ],
+          "reponse": "Une minuscule décélération supplémentaire vers le Soleil appelée « anomalie Pioneer »",
+          "indice": "Ce phénomène a finalement été expliqué par le rayonnement thermique asymétrique des RTG.",
+          "explication": "L'anomalie Pioneer correspondait à une infime décélération vers le Soleil, attribuée ensuite à la pression de radiation thermique émise par les RTG.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "pio-n3-q01",
+          "type": "qcm",
+          "theme": "Résolution de l'anomalie Pioneer",
+          "question": "Quelle explication physique rigoureuse a finalement résolu « l'anomalie Pioneer » observée sur Pioneer 10 et 11 à grande distance héliocentrique ?",
+          "choix": [
+            "Le recul photonique causé par l'émission thermique anisotrope des générateurs RTG et de l'électronique réfléchie par l'arrière de l'antenne parabolique",
+            "Une violation de la relativité générale à l'échelle du système solaire externe",
+            "La traînée aérodynamique exercée par la matière noire froide",
+            "Une fuite continue d'hydrazine sur le propulseur axial"
+          ],
+          "reponse": "Le recul photonique causé par l'émission thermique anisotrope des générateurs RTG et de l'électronique réfléchie par l'arrière de l'antenne parabolique",
+          "indice": "La chaleur rayonnée préférentiellement dans une direction exerce une force de recul de l'ordre de 8,74 × 10⁻¹⁰ m/s².",
+          "explication": "La modélisation thermique fine a montré que le rayonnement infrarouge des RTG réfléchi par le dos de la parabole génère une force de recul photonique rendant compte de l'accélération anormale.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Astrophysique et plaque Pioneer",
+          "question": "Sur la plaque des sondes Pioneer, l'échelle de distance et de temps repose sur la transition hyperfine de l'hydrogène neutre. Quelle est, en centimètres, la longueur d'onde de cette raie spectrale ?",
+          "reponse": 21,
+          "unite": "cm",
+          "tolerance": 0.5,
+          "indice": "C'est la célèbre raie radio à 1 420 MHz utilisée en radioastronomie.",
+          "explication": "La transition hyperfine de l'atome d'hydrogène neutre émet un photon d'une longueur d'onde de 21,1 cm (fréquence 1420,4 MHz).",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/05/1973-73-H-196.jpg"
+        },
+        {
+          "id": "pio-n3-q03",
+          "type": "qcm_multiple",
+          "theme": "Contraintes radiatives à Jupiter",
+          "question": "Quelles conséquences l'environnement radiatif extrême de la magnétosphère jovienne a-t-il eues sur Pioneer 10 lors de son passage au périapse en décembre 1973 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Dégradation temporaire et commandes erronées générées par les particules piégées dans les circuits électroniques",
+            "Perte de certaines images de la lune Io due à la saturation et aux parasites radiatifs",
+            "Validation des seuils de blindage nécessaires pour les missions ultérieures Voyager et Galileo",
+            "Destruction définitive des quatre RTG SNAP-19",
+            "Fusion complète du réflecteur parabolique en aluminium"
+          ],
+          "reponses": [
+            "Dégradation temporaire et commandes erronées générées par les particules piégées dans les circuits électroniques",
+            "Perte de certaines images de la lune Io due à la saturation et aux parasites radiatifs",
+            "Validation des seuils de blindage nécessaires pour les missions ultérieures Voyager et Galileo"
+          ],
+          "indice": "Pioneer 10 est passée à environ 130 000 km des nuages supérieurs de Jupiter, au cœur des ceintures de radiations.",
+          "explication": "Les radiations intenses de Jupiter ont provoqué des faux déclenchements électroniques et la perte d'images d'Io, tout en fournissant des données cruciales pour blinder Voyager et Galileo.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/pioneer10-16x9.jpg"
+        },
+        {
+          "id": "pio-n3-q04",
+          "type": "qcm",
+          "theme": "Mécanique céleste de Pioneer 11",
+          "question": "Quelle manœuvre orbitale audacieuse a permis à Pioneer 11 de rejoindre Saturne après son survol de Jupiter en décembre 1974 ?",
+          "choix": [
+            "Un survol rétrograde rapproché à 43 000 km de Jupiter qui a courbé sa trajectoire de près de 180° à travers le système solaire interne vers Saturne",
+            "L'allumage d'un moteur ionique au xénon pendant trois ans",
+            "Une mise en orbite autour de Mars pour se ravitailler en ergols",
+            "Un freinage atmosphérique dans la haute atmosphère de Jupiter"
+          ],
+          "reponse": "Un survol rétrograde rapproché à 43 000 km de Jupiter qui a courbé sa trajectoire de près de 180° à travers le système solaire interne vers Saturne",
+          "indice": "Sa trajectoire a traversé le système solaire d'un côté à l'autre bien au-dessus du plan de l'écliptique.",
+          "explication": "En passant très près de Jupiter sur une trajectoire rétrograde, Pioneer 11 a utilisé l'assistance gravitationnelle jovienne pour traverser le système solaire vers Saturne.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/Pioneer11SaturnArt-full.jpg"
+        },
+        {
+          "id": "pio-n3-q05",
+          "type": "vrai_faux",
+          "theme": "Traversée du plan des anneaux",
+          "question": "Vrai ou faux : Lors de son survol de Saturne en septembre 1979, Pioneer 11 a traversé le plan des anneaux juste à l'extérieur de l'anneau A, à une distance où l'on craignait un impact fatal avec des débris.",
+          "reponse": true,
+          "indice": "C'est lors de ce passage critique qu'elle a découvert l'anneau F.",
+          "explication": "Pioneer 11 a franchi le plan des anneaux à environ 35 000 km du bord externe de l'anneau A, survivant aux micrométéoroïdes et découvrant l'anneau F.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/Pioneer11SaturnArt-full.jpg"
+        },
+        {
+          "id": "pio-n3-q06",
+          "type": "association",
+          "theme": "Instrumentation et principe physique",
+          "question": "Relie chaque sous-système de Pioneer 10/11 à son principe de fonctionnement ou sa contrainte d'ingénierie.",
+          "colonne_gauche": [
+            "Photopolarimètre imageur (IPP)",
+            "RTG SNAP-19",
+            "Stabilisation par spin (~4,8 tr/min)",
+            "Plaque en aluminium anodisé or"
+          ],
+          "colonne_droite": [
+            "Construction d'images ligne par ligne en exploitant la rotation de la sonde",
+            "Production d'environ 155 W au lancement via la décroissance du Pu-238",
+            "Maintien passif du pointage de l'antenne vers la Terre sans roues de réaction",
+            "Gravure de 14 pulsars et de leurs périodes en binaire pour localiser le Soleil"
+          ],
+          "reponse": [
+            {
+              "gauche": "Photopolarimètre imageur (IPP)",
+              "droite": "Construction d'images ligne par ligne en exploitant la rotation de la sonde"
+            },
+            {
+              "gauche": "RTG SNAP-19",
+              "droite": "Production d'environ 155 W au lancement via la décroissance du Pu-238"
+            },
+            {
+              "gauche": "Stabilisation par spin (~4,8 tr/min)",
+              "droite": "Maintien passif du pointage de l'antenne vers la Terre sans roues de réaction"
+            },
+            {
+              "gauche": "Plaque en aluminium anodisé or",
+              "droite": "Gravure de 14 pulsars et de leurs périodes en binaire pour localiser le Soleil"
+            }
+          ],
+          "indice": "L'IPP n'était pas une caméra matricielle classique mais un télescope à balayage.",
+          "explication": "L'architecture spin-stabilisée de Pioneer dictait le balayage optique de l'IPP, le déploiement radial des RTG SNAP-19 et la simplicité du contrôle d'attitude.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n3-q07",
+          "type": "qcm",
+          "theme": "Datation cosmique sur la plaque",
+          "question": "Comment la carte des 14 pulsars gravée sur la plaque Pioneer permet-elle à une intelligence extraterrestre de déterminer l'époque du lancement de la sonde ?",
+          "choix": [
+            "En comparant les fréquences de rotation des pulsars gravées en binaire avec leurs fréquences ralenties observées au moment de la découverte",
+            "En mesurant la demi-vie radioactive de l'aluminium de la plaque",
+            "En comptant le nombre d'anneaux autour de Saturne sur le schéma",
+            "En lisant la date grégorienne écrite en chiffres romains"
+          ],
+          "reponse": "En comparant les fréquences de rotation des pulsars gravées en binaire avec leurs fréquences ralenties observées au moment de la découverte",
+          "indice": "Les pulsars ralentissent progressivement à un taux connu (spin-down).",
+          "explication": "Chaque rayon de la carte indique en binaire la période de rotation d'un pulsar à l'époque du lancement ; le ralentissement séculaire des pulsars sert ainsi d'horloge cosmique.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/05/1973-73-H-196.jpg"
+        },
+        {
+          "id": "pio-n3-q08",
+          "type": "qcm",
+          "theme": "Bilan énergétique",
+          "question": "Pourquoi les communications avec Pioneer 10 ont-elles pris fin en janvier 2003 alors que la sonde était à environ 80 unités astronomiques de la Terre ?",
+          "choix": [
+            "La décroissance radioactive du Pu-238 et la dégradation des thermocouples avaient réduit la puissance des RTG sous le seuil requis pour alimenter l'émetteur radio",
+            "La sonde est entrée dans le nuage d'Oort et a été percutée par une comète",
+            "Le Deep Space Network de la NASA a été définitivement fermé",
+            "L'orbite de la Terre l'a placée derrière le Soleil en permanence"
+          ],
+          "reponse": "La décroissance radioactive du Pu-238 et la dégradation des thermocouples avaient réduit la puissance des RTG sous le seuil requis pour alimenter l'émetteur radio",
+          "indice": "La demi-vie du plutonium-238 est de 87,7 ans, mais la dégradation des jonctions thermoélectriques accélère la baisse de puissance.",
+          "explication": "Après plus de 30 ans, la puissance électrique disponible des RTG SNAP-19 était devenue trop faible pour alimenter simultanément l'émetteur et les systèmes de bord.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n3-q09",
+          "type": "qcm_multiple",
+          "theme": "Héritage scientifique et technique",
+          "question": "Quels apports scientifiques et d'ingénierie de Pioneer 10 et 11 ont directement conditionné la conception du programme Voyager ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La démonstration que la ceinture principale d'astéroïdes ne présente pas un flux de débris prohibitif pour une sonde",
+            "La mesure directe de la densité et de l'énergie des protons et électrons piégés dans la magnétosphère de Jupiter",
+            "La reconnaissance de la sécurité du couloir de traversée du plan des anneaux de Saturne",
+            "La mise au point du système d'atterrissage par airbags utilisé sur Mars",
+            "Le test en vol du télescope spatial à photométrie de transit"
+          ],
+          "reponses": [
+            "La démonstration que la ceinture principale d'astéroïdes ne présente pas un flux de débris prohibitif pour une sonde",
+            "La mesure directe de la densité et de l'énergie des protons et électrons piégés dans la magnétosphère de Jupiter",
+            "La reconnaissance de la sécurité du couloir de traversée du plan des anneaux de Saturne"
+          ],
+          "indice": "Pioneer 10 et 11 ont joué le rôle d'éclaireurs pour les sondes Voyager.",
+          "explication": "Les mesures de poussières interplanétaires, de radiations joviennes et de densité des anneaux saturniens par Pioneer 10/11 ont permis de dimensionner et sécuriser les missions Voyager.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n3-q10",
+          "type": "qcm",
+          "theme": "Structure interne de Jupiter",
+          "question": "Quelle découverte fondamentale sur la structure interne de Jupiter les données radiométriques et gravitationnelles de Pioneer 10 et 11 ont-elles confirmée ?",
+          "choix": [
+            "Jupiter est une planète majoritairement fluide composée d'hydrogène et d'hélium liquides sans surface solide, et émet plus de chaleur interne qu'elle n'en reçoit du Soleil",
+            "Jupiter possède une croûte continentale de basalte sous une fine couche de nuages",
+            "Le noyau de Jupiter est composé d'eau liquide à température ambiante",
+            "Jupiter ne possède aucun champ magnétique intrinsèque"
+          ],
+          "reponse": "Jupiter est une planète majoritairement fluide composée d'hydrogène et d'hélium liquides sans surface solide, et émet plus de chaleur interne qu'elle n'en reçoit du Soleil",
+          "indice": "Les mesures du radiomètre infrarouge et l'analyse Doppler de la trajectoire ont révélé le bilan thermique et le profil de densité de Jupiter.",
+          "explication": "Les observations infrarouges et gravitationnelles de Pioneer 10 et 11 ont confirmé la nature fluide de Jupiter et son excès d'émission thermique interne.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/pioneer10-16x9.jpg"
+        },
+        {
+          "id": "pio-n3-q11",
+          "type": "ordre",
+          "theme": "Déroulement d'un survol planétaire Pioneer",
+          "question": "Ordonne les étapes techniques caractéristiques du survol de Jupiter par Pioneer 10 en décembre 1973.",
+          "elements": [
+            "Passage au périapse à environ 130 000 km au sommet des ceintures de radiations internes",
+            "Entrée dans la magnétosphère externe de Jupiter et franchissement de l'onde de choc",
+            "Reprise de la télémétrie nominale après la sortie des zones de radiations les plus intenses",
+            "Début du balayage photographique par le photopolarimètre imageur (IPP) durant l'approche"
+          ],
+          "reponse": [
+            "Entrée dans la magnétosphère externe de Jupiter et franchissement de l'onde de choc",
+            "Début du balayage photographique par le photopolarimètre imageur (IPP) durant l'approche",
+            "Passage au périapse à environ 130 000 km au sommet des ceintures de radiations internes",
+            "Reprise de la télémétrie nominale après la sortie des zones de radiations les plus intenses"
+          ],
+          "indice": "La magnétosphère de Jupiter s'étend à des millions de kilomètres bien avant le point le plus proche.",
+          "explication": "Pioneer 10 a d'abord franchi l'onde de choc magnétosphérique, entamé l'imagerie d'approche, subi le pic de radiations au périapse puis poursuivi sa télémétrie en s'éloignant.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n3-q12",
+          "type": "vrai_faux",
+          "theme": "Vitesse de libération solaire",
+          "question": "Vrai ou faux : Pioneer 10 a atteint la vitesse de libération du système solaire dès son survol de Jupiter en décembre 1973, devenant le premier objet artificiel sur une trajectoire hyperbolique d'échappement solaire.",
+          "reponse": true,
+          "indice": "L'assistance gravitationnelle de Jupiter a augmenté sa vitesse héliocentrique au-delà de la vitesse d'évasion.",
+          "explication": "Grâce à l'assistance gravitationnelle de Jupiter en décembre 1973, Pioneer 10 est devenue le premier artefact humain à atteindre la vitesse de libération du système solaire.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/04/jupiter_pioneer_10_art-jpg.webp"
+        },
+        {
+          "id": "pio-n3-q13",
+          "type": "qcm",
+          "theme": "Statut actuel",
+          "question": "Quel est le statut opérationnel exact de Pioneer 10 et Pioneer 11 dans l'espace interstellaire ?",
+          "choix": [
+            "Ce sont des vestiges inertes et silencieux qui poursuivent leur trajectoire balistique hors du système solaire sans liaison radio",
+            "Elles transmettent encore des images haute définition chaque semaine",
+            "Elles ont été capturées en orbite autour d'une exoplanète",
+            "Elles ont été désorbitées dans l'atmosphère de Saturne"
+          ],
+          "reponse": "Ce sont des vestiges inertes et silencieux qui poursuivent leur trajectoire balistique hors du système solaire sans liaison radio",
+          "indice": "Le contexte rappelle qu'elles « dérivent silencieusement hors du système solaire ».",
+          "explication": "Privées d'énergie électrique suffisante pour émettre depuis 1995 et 2003, Pioneer 10 et 11 poursuivent silencieusement leur course interstellaire.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n3-q14",
+          "type": "qcm_multiple",
+          "theme": "Comparaison Pioneer 10 vs Pioneer 11",
+          "question": "Quelles affirmations distinguent correctement Pioneer 10 de Pioneer 11 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Pioneer 10 a survolé uniquement Jupiter tandis que Pioneer 11 a survolé Jupiter puis Saturne",
+            "Pioneer 10 se dirige vers la constellation du Taureau tandis que Pioneer 11 se dirige vers l'Écu (Scutum)",
+            "Pioneer 10 a maintenu le contact radio avec la Terre jusqu'en 2003 contre 1995 pour Pioneer 11",
+            "Pioneer 10 était alimentée par panneaux solaires alors que Pioneer 11 utilisait des RTG",
+            "Pioneer 11 s'est posée sur Titan en 1979"
+          ],
+          "reponses": [
+            "Pioneer 10 a survolé uniquement Jupiter tandis que Pioneer 11 a survolé Jupiter puis Saturne",
+            "Pioneer 10 se dirige vers la constellation du Taureau tandis que Pioneer 11 se dirige vers l'Écu (Scutum)",
+            "Pioneer 10 a maintenu le contact radio avec la Terre jusqu'en 2003 contre 1995 pour Pioneer 11"
+          ],
+          "indice": "Les deux sondes étaient quasi identiques sur le plan matériel (RTG SNAP-19), mais leurs trajectoires différaient.",
+          "explication": "Bien que quasi jumelles techniquement, Pioneer 10 et 11 ont suivi des trajectoires opposées après Jupiter, Pioneer 11 visitant Saturne avant de quitter le système solaire.",
+          "media_url": null
+        },
+        {
+          "id": "pio-n3-q15",
+          "type": "qcm",
+          "theme": "Protection de la plaque",
+          "question": "Pourquoi la plaque des sondes Pioneer a-t-elle été fixée sur les montants de soutien de l'antenne, tournée vers l'intérieur du vaisseau ?",
+          "choix": [
+            "Pour la protéger de l'érosion par les poussières interstellaires et les micrométéoroïdes durant des millions d'années",
+            "Pour servir de miroir de visée au capteur solaire",
+            "Pour refroidir l'ordinateur de bord par conduction",
+            "Pour éviter qu'elle ne reflète la lumière vers la Terre"
+          ],
+          "reponse": "Pour la protéger de l'érosion par les poussières interstellaires et les micrométéoroïdes durant des millions d'années",
+          "indice": "Orientée vers le corps de la sonde, elle est abritée du flux frontal de poussières.",
+          "explication": "Montée sur les entretoises de l'antenne face au corps de la sonde, la plaque est protégée de l'abrasion par les micrométéoroïdes interstellaires.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/05/1973-73-H-196.jpg"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,747 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "helicoptere-ingenuity",
+    "titre": "Hélicoptère Ingenuity",
+    "categorie": "mars",
+    "sous_categorie": "exploration-robotique",
+    "lieu": "Cratère Jezero, Mars",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "4 choix, une seule bonne réponse. Champ 'reponse' = texte identique à un choix.",
+      "qcm_multiple": "5 choix, plusieurs bonnes réponses (au moins 2). Champ 'reponses' = liste de textes identiques à des choix. Toutes les bonnes réponses doivent être cochées, aucune mauvaise.",
+      "vrai_faux": "Affirmation à juger. Champ 'reponse' = true ou false.",
+      "ordre": "Éléments à remettre dans l'ordre. Champ 'elements' = liste mélangée, 'reponse' = liste dans le bon ordre.",
+      "association": "Relier chaque élément de 'colonne_gauche' à son partenaire de 'colonne_droite' (mélangée). Champ 'reponse' = liste de paires {gauche, droite}.",
+      "saisie_numerique": "Réponse numérique libre. Champs 'reponse' (nombre), 'unite' et 'tolerance' (écart accepté en valeur absolue)."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "hel-n1-q01",
+          "type": "qcm",
+          "theme": "Identité",
+          "question": "Sur quelle planète a volé Ingenuity ?",
+          "choix": ["Vénus", "Mars", "Mercure", "Jupiter"],
+          "reponse": "Mars",
+          "indice": "C'est la planète rouge.",
+          "explication": "Ingenuity a volé au-dessus du cratère Jezero, sur Mars.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/downloadable_items/4/5/45954_PIA24581.jpg"
+        },
+        {
+          "id": "hel-n1-q02",
+          "type": "qcm",
+          "theme": "Identité",
+          "question": "Quel genre d'engin est Ingenuity ?",
+          "choix": ["Un sous-marin", "Une fusée", "Un petit hélicoptère", "Un ballon"],
+          "reponse": "Un petit hélicoptère",
+          "indice": "Il a des pales qui tournent pour voler.",
+          "explication": "Ingenuity est un petit hélicoptère. C'est le premier engin à avoir volé de façon motorisée et contrôlée sur une autre planète.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q03",
+          "type": "qcm",
+          "theme": "Arrivée",
+          "question": "Comment Ingenuity est-il arrivé sur Mars ?",
+          "choix": [
+            "Dans la valise d'un astronaute",
+            "Il a volé tout seul depuis la Terre",
+            "Poussé par un camion spatial",
+            "Accroché sous le ventre du rover Perseverance"
+          ],
+          "reponse": "Accroché sous le ventre du rover Perseverance",
+          "indice": "Il a voyagé en s'accrochant à un autre robot.",
+          "explication": "Ingenuity s'est posé sur Mars le 18 février 2021, attaché sous le ventre du rover Perseverance.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2021/04/1e-pia24437.jpg"
+        },
+        {
+          "id": "hel-n1-q04",
+          "type": "qcm",
+          "theme": "Structure",
+          "question": "Combien pèse Ingenuity ?",
+          "choix": [
+            "Autant qu'un éléphant",
+            "Autant qu'une voiture",
+            "Environ deux bouteilles d'eau d'un litre",
+            "Autant qu'un camion"
+          ],
+          "reponse": "Environ deux bouteilles d'eau d'un litre",
+          "indice": "Il est très léger, car il doit pouvoir voler.",
+          "explication": "Ingenuity pèse environ 1,8 kg, soit à peu près deux bouteilles d'eau d'un litre.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q05",
+          "type": "qcm",
+          "theme": "Records",
+          "question": "Combien de vols Ingenuity a-t-il réalisés sur Mars ?",
+          "choix": ["72", "Un seul", "12", "500"],
+          "reponse": "72",
+          "indice": "C'est plus de soixante, mais bien moins que cent.",
+          "explication": "Ingenuity a réalisé 72 vols, pour environ 128,8 minutes passées dans les airs.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/ingenuity-flight-log-by-the-numbers.jpg"
+        },
+        {
+          "id": "hel-n1-q06",
+          "type": "qcm",
+          "theme": "Histoire",
+          "question": "Pourquoi dit-on que son premier vol était un « moment des frères Wright » ?",
+          "choix": [
+            "Parce qu'il s'est passé en Amérique",
+            "Parce que c'était le premier vol motorisé et contrôlé sur une autre planète",
+            "Parce qu'il portait les noms de deux frères",
+            "Parce qu'il a duré une journée entière"
+          ],
+          "reponse": "Parce que c'était le premier vol motorisé et contrôlé sur une autre planète",
+          "indice": "Les frères Wright ont réalisé le premier vol d'avion sur Terre.",
+          "explication": "Le premier vol d'Ingenuity a prouvé qu'on peut voler de façon motorisée et contrôlée sur Mars, comme les frères Wright l'avaient fait sur Terre.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q07",
+          "type": "qcm",
+          "theme": "Fin de mission",
+          "question": "Qu'est-ce qui a empêché Ingenuity de voler à la fin ?",
+          "choix": [
+            "Une tempête de poussière l'a renversé",
+            "Il a perdu une roue",
+            "Il a été heurté par Perseverance",
+            "Une pale de son rotor a été abîmée à l'atterrissage"
+          ],
+          "reponse": "Une pale de son rotor a été abîmée à l'atterrissage",
+          "indice": "Cela concerne ce qui lui permet de voler.",
+          "explication": "Après son vol du 18 janvier, des images ont montré qu'une ou plusieurs pales du rotor étaient endommagées. Il ne pouvait plus voler.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q08",
+          "type": "vrai_faux",
+          "theme": "Énergie",
+          "question": "Vrai ou faux : Ingenuity fabriquait son électricité avec un panneau solaire placé au-dessus de ses hélices.",
+          "reponse": true,
+          "indice": "Sur Mars, il y a la lumière du Soleil.",
+          "explication": "Vrai. Un panneau solaire placé au-dessus des rotors rechargeait les batteries d'Ingenuity.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q09",
+          "type": "vrai_faux",
+          "theme": "Fin de mission",
+          "question": "Vrai ou faux : Ingenuity pouvait encore voler après son dernier atterrissage.",
+          "reponse": false,
+          "indice": "Une partie de ses hélices était abîmée.",
+          "explication": "Faux. Ingenuity est resté debout et en contact avec la Terre, mais il n'était plus capable de voler.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q10",
+          "type": "qcm_multiple",
+          "theme": "Structure",
+          "question": "Que possédait Ingenuity ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un panneau solaire",
+            "Des hélices (rotors)",
+            "Une caméra couleur",
+            "Un moteur à essence",
+            "Un siège pour un astronaute"
+          ],
+          "reponses": [
+            "Un panneau solaire",
+            "Des hélices (rotors)",
+            "Une caméra couleur"
+          ],
+          "indice": "Trois choix sont corrects. Il n'avait ni essence ni passager.",
+          "explication": "Ingenuity avait un panneau solaire, des rotors pour voler et une caméra couleur.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/anatomy-of-ingenuity-mars-helicopter.jpg"
+        },
+        {
+          "id": "hel-n1-q11",
+          "type": "qcm_multiple",
+          "theme": "Découvertes",
+          "question": "Qu'a photographié Ingenuity depuis les airs ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Des dunes de sable",
+            "Le rover Perseverance",
+            "Des traces de roues du rover",
+            "Des forêts",
+            "Des villes"
+          ],
+          "reponses": [
+            "Des dunes de sable",
+            "Le rover Perseverance",
+            "Des traces de roues du rover"
+          ],
+          "indice": "Trois choix sont corrects. Il n'y a ni forêt ni ville sur Mars.",
+          "explication": "Ingenuity a photographié des dunes, le rover Perseverance et ses traces de roues.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q12",
+          "type": "qcm_multiple",
+          "theme": "Identité",
+          "question": "Quels mots décrivent Ingenuity ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Léger (environ 1,8 kg)",
+            "Alimenté par le Soleil",
+            "Capable de voler sur Mars",
+            "Capable de rouler sur la Lune",
+            "Plus lourd qu'une voiture"
+          ],
+          "reponses": [
+            "Léger (environ 1,8 kg)",
+            "Alimenté par le Soleil",
+            "Capable de voler sur Mars"
+          ],
+          "indice": "Trois choix sont corrects.",
+          "explication": "Ingenuity était léger, alimenté par un panneau solaire et capable de voler sur Mars.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q13",
+          "type": "ordre",
+          "theme": "Chronologie",
+          "question": "Remets l'aventure d'Ingenuity dans l'ordre.",
+          "elements": [
+            "Il réalise 72 vols",
+            "Il est déposé sur le sol de Jezero",
+            "Une pale abîmée l'empêche de voler",
+            "Il se pose sur Mars sous le ventre de Perseverance",
+            "Il fait son tout premier vol"
+          ],
+          "reponse": [
+            "Il se pose sur Mars sous le ventre de Perseverance",
+            "Il est déposé sur le sol de Jezero",
+            "Il fait son tout premier vol",
+            "Il réalise 72 vols",
+            "Une pale abîmée l'empêche de voler"
+          ],
+          "indice": "Il doit d'abord arriver sur Mars avant de pouvoir décoller.",
+          "explication": "Arrivée le 18 février 2021, déploiement le 3 avril, premier vol le 19 avril 2021, puis 72 vols au total et enfin un atterrissage qui a abîmé une pale.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n1-q14",
+          "type": "association",
+          "theme": "Records",
+          "question": "Associe chaque chiffre à ce qu'il décrit.",
+          "colonne_gauche": ["72", "24 mètres", "17 kilomètres", "1,8 kilogramme"],
+          "colonne_droite": [
+            "Sa masse",
+            "Le nombre de vols",
+            "La distance totale parcourue en vol",
+            "Son altitude maximale"
+          ],
+          "reponse": [
+            { "gauche": "72", "droite": "Le nombre de vols" },
+            { "gauche": "24 mètres", "droite": "Son altitude maximale" },
+            { "gauche": "17 kilomètres", "droite": "La distance totale parcourue en vol" },
+            { "gauche": "1,8 kilogramme", "droite": "Sa masse" }
+          ],
+          "indice": "Une seule valeur est un petit nombre de kilogrammes.",
+          "explication": "Ingenuity a réalisé 72 vols, atteint 24 m d'altitude, parcouru environ 17 km en vol et pesait 1,8 kg.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/detail_files/2/7/27896_ingenuity_numbers1.24_0R1-web.jpg"
+        },
+        {
+          "id": "hel-n1-q15",
+          "type": "saisie_numerique",
+          "theme": "Records",
+          "question": "À quelle hauteur maximale, en mètres, Ingenuity est-il monté ? (C'est à peu près la hauteur d'un immeuble de huit étages.)",
+          "reponse": 24,
+          "unite": "mètres",
+          "tolerance": 0,
+          "indice": "C'est un peu plus de vingt mètres.",
+          "explication": "Ingenuity a atteint 24 m d'altitude, soit environ 79 pieds.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "hel-n2-q01",
+          "type": "qcm",
+          "theme": "Dates",
+          "question": "À quelle date Ingenuity a-t-il réalisé son premier vol sur Mars ?",
+          "choix": ["3 avril 2021", "18 février 2021", "19 avril 2021", "5 juillet 2021"],
+          "reponse": "19 avril 2021",
+          "indice": "C'est environ deux semaines après son déploiement sur le sol.",
+          "explication": "Ingenuity a décollé pour la première fois le 19 avril 2021, prouvant qu'un vol motorisé et contrôlé était possible sur Mars.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2021/04/ncam_flight10000000.pbin_.jpeg"
+        },
+        {
+          "id": "hel-n2-q02",
+          "type": "qcm",
+          "theme": "Dates",
+          "question": "Quelle est la date d'atterrissage de Perseverance, avec Ingenuity attaché sous son ventre ?",
+          "choix": ["18 février 2021", "19 avril 2021", "3 avril 2021", "4 septembre 2021"],
+          "reponse": "18 février 2021",
+          "indice": "C'est le début de l'année 2021.",
+          "explication": "Perseverance s'est posé le 18 février 2021 avec Ingenuity attaché à son ventre.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n2-q03",
+          "type": "qcm",
+          "theme": "Dates",
+          "question": "Quand Ingenuity a-t-il été déposé sur le sol du cratère Jezero ?",
+          "choix": ["18 février 2021", "3 avril 2021", "25 avril 2021", "30 avril 2021"],
+          "reponse": "3 avril 2021",
+          "indice": "Cela s'est passé avant son premier vol.",
+          "explication": "Ingenuity a été déployé sur le sol de Jezero le 3 avril 2021, avant son premier vol du 19 avril.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n2-q04",
+          "type": "qcm",
+          "theme": "Mission",
+          "question": "Quelle durée la fenêtre initiale de test en vol d'Ingenuity prévoyait-elle ?",
+          "choix": ["90 sols", "10 sols", "1 an terrestre", "30 sols (31 jours terrestres)"],
+          "reponse": "30 sols (31 jours terrestres)",
+          "indice": "Un sol est un jour martien.",
+          "explication": "La fenêtre de test prévue était de 30 sols. Ingenuity a finalement réalisé 72 vols.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n2-q05",
+          "type": "qcm",
+          "theme": "Records",
+          "question": "Quelle distance totale Ingenuity a-t-il parcourue en vol ?",
+          "choix": ["Environ 1,7 km", "Environ 170 km", "Environ 17 km", "Environ 400 m"],
+          "reponse": "Environ 17 km",
+          "indice": "C'est à peu près le tiers d'un marathon.",
+          "explication": "Ingenuity a parcouru environ 17 km (11 miles) en vol au cours de ses 72 vols.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/detail_files/2/7/27897_ingenuity_poster-horizontal-web.jpg"
+        },
+        {
+          "id": "hel-n2-q06",
+          "type": "qcm",
+          "theme": "Records",
+          "question": "Quelle a été la vitesse maximale au sol d'Ingenuity ?",
+          "choix": [
+            "10 m/s (36 km/h)",
+            "1 m/s (3,6 km/h)",
+            "50 m/s (180 km/h)",
+            "100 m/s (360 km/h)"
+          ],
+          "reponse": "10 m/s (36 km/h)",
+          "indice": "C'est à peu près la vitesse d'un cycliste rapide.",
+          "explication": "Sa vitesse maximale au sol a été de 10 m/s, soit environ 22,4 mph ou 36 km/h.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n2-q07",
+          "type": "qcm",
+          "theme": "Exploration",
+          "question": "Qu'a survolé Ingenuity lors de son neuvième vol, le 5 juillet 2021 ?",
+          "choix": [
+            "Le sommet d'Olympus Mons",
+            "Une calotte polaire",
+            "Le canyon Valles Marineris",
+            "Les dunes de la région nommée Séítah"
+          ],
+          "reponse": "Les dunes de la région nommée Séítah",
+          "indice": "C'est une région du cratère Jezero.",
+          "explication": "Lors de son neuvième vol, Ingenuity a survolé un champ de dunes de la région Séítah, dans le cratère Jezero.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2021/07/e3-pia24725-ingenuity-spots-dune-fields-during-ninth-flight.jpg"
+        },
+        {
+          "id": "hel-n2-q08",
+          "type": "vrai_faux",
+          "theme": "Ingénierie",
+          "question": "Vrai ou faux : Ingenuity était conçu pour toucher le sol à environ 1 m/s lors de ses atterrissages.",
+          "reponse": true,
+          "indice": "C'est environ 2,2 mph.",
+          "explication": "Vrai. Un contact à environ 1 m/s permettait aux capteurs de confirmer l'atterrissage et d'arrêter les rotors avant qu'il ne rebondisse.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n2-q09",
+          "type": "vrai_faux",
+          "theme": "Communication",
+          "question": "Vrai ou faux : Perseverance servait de relais de communication entre Ingenuity et la Terre.",
+          "reponse": true,
+          "indice": "Ingenuity ne communiquait pas directement avec la Terre.",
+          "explication": "Vrai. Le rover Perseverance servait de relais de communication pour l'hélicoptère.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n2-q10",
+          "type": "qcm_multiple",
+          "theme": "Exploration",
+          "question": "Quelles zones ou formations Ingenuity a-t-il survolées ou cartographiées ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Séítah",
+            "Raised Ridges",
+            "Faillefeu",
+            "Valles Marineris",
+            "Olympus Mons"
+          ],
+          "reponses": [
+            "Séítah",
+            "Raised Ridges",
+            "Faillefeu"
+          ],
+          "indice": "Valles Marineris et Olympus Mons sont loin du cratère Jezero.",
+          "explication": "Séítah et Raised Ridges ont été observées lors du neuvième vol, et une vue 3D de Faillefeu a été créée à partir du treizième vol.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/detail_files/2/6/26251_26251_PIA24811-web.jpg"
+        },
+        {
+          "id": "hel-n2-q11",
+          "type": "qcm_multiple",
+          "theme": "Instruments",
+          "question": "Quelles caméras équipaient Ingenuity ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une caméra de navigation pointée vers le bas",
+            "Une caméra couleur",
+            "Une caméra panoramique orientable sur un mât",
+            "Une caméra thermique pour détecter la glace",
+            "Un microscope"
+          ],
+          "reponses": [
+            "Une caméra de navigation pointée vers le bas",
+            "Une caméra couleur"
+          ],
+          "indice": "Deux choix sont corrects.",
+          "explication": "Ingenuity avait une caméra de navigation pointée vers le sol pour suivre le terrain en vol, et une caméra couleur.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/mars2020-raw-images/pub/ods/surface/sol/00345/ids/edr/browse/heli/HNM_0345_0697565970_631ECM_N0190001HELI00506_0000LUJ02_1200.jpg"
+        },
+        {
+          "id": "hel-n2-q12",
+          "type": "qcm_multiple",
+          "theme": "Climat",
+          "question": "Quelles contraintes compliquaient la vie d'Ingenuity sur Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Des nuits à environ -85 °C",
+            "Des tempêtes de poussière régionales",
+            "Le besoin de recharger sa batterie grâce au Soleil",
+            "Des pluies torrentielles",
+            "Une gravité plus forte que sur Terre"
+          ],
+          "reponses": [
+            "Des nuits à environ -85 °C",
+            "Des tempêtes de poussière régionales",
+            "Le besoin de recharger sa batterie grâce au Soleil"
+          ],
+          "indice": "Il ne pleut pas sur Mars, et sa gravité est plus faible que sur Terre.",
+          "explication": "Les nuits pouvaient descendre à environ -85 °C, la poussière réduisait la lumière du Soleil et la batterie dépendait du panneau solaire.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/detail_files/2/6/26498_PIA25096-web.jpg"
+        },
+        {
+          "id": "hel-n2-q13",
+          "type": "ordre",
+          "theme": "Chronologie",
+          "question": "Remets ces vols dans l'ordre chronologique.",
+          "elements": [
+            "Neuvième vol (5 juillet 2021)",
+            "Premier vol (19 avril 2021)",
+            "Treizième vol (4 septembre 2021)",
+            "Troisième vol (25 avril 2021)"
+          ],
+          "reponse": [
+            "Premier vol (19 avril 2021)",
+            "Troisième vol (25 avril 2021)",
+            "Neuvième vol (5 juillet 2021)",
+            "Treizième vol (4 septembre 2021)"
+          ],
+          "indice": "Les numéros de vol croissent avec le temps.",
+          "explication": "Les vols sont numérotés dans l'ordre chronologique : 19 avril, 25 avril, 5 juillet puis 4 septembre 2021.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2021/04/2-pia24625-ingenuity-spots-perseverance-annotated-web.jpg"
+        },
+        {
+          "id": "hel-n2-q14",
+          "type": "association",
+          "theme": "Chronologie",
+          "question": "Associe chaque date à l'événement correspondant.",
+          "colonne_gauche": ["18 février 2021", "3 avril 2021", "19 avril 2021", "5 juillet 2021"],
+          "colonne_droite": [
+            "Premier vol sur Mars",
+            "Déploiement sur le sol de Jezero",
+            "Neuvième vol au-dessus de Séítah",
+            "Arrivée sur Mars sous le ventre de Perseverance"
+          ],
+          "reponse": [
+            { "gauche": "18 février 2021", "droite": "Arrivée sur Mars sous le ventre de Perseverance" },
+            { "gauche": "3 avril 2021", "droite": "Déploiement sur le sol de Jezero" },
+            { "gauche": "19 avril 2021", "droite": "Premier vol sur Mars" },
+            { "gauche": "5 juillet 2021", "droite": "Neuvième vol au-dessus de Séítah" }
+          ],
+          "indice": "L'arrivée précède le déploiement, qui précède le premier vol.",
+          "explication": "Arrivée le 18 février, déploiement le 3 avril, premier vol le 19 avril et neuvième vol le 5 juillet 2021.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n2-q15",
+          "type": "saisie_numerique",
+          "theme": "Records",
+          "question": "Quelle est la durée totale de vol d'Ingenuity, en minutes (valeur arrondie à l'unité acceptée) ?",
+          "reponse": 128.8,
+          "unite": "minutes",
+          "tolerance": 1,
+          "indice": "C'est un peu plus de deux heures cumulées.",
+          "explication": "Ingenuity a cumulé environ 128,8 minutes de vol sur ses 72 vols.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "hel-n3-q01",
+          "type": "qcm",
+          "theme": "Analyse de crise",
+          "question": "Après une coupure d'énergie totale la nuit, quel problème est apparu au lever du Soleil lors de la perte de communications des sols 427 et 428 ?",
+          "choix": [
+            "L'horloge d'Ingenuity n'était plus synchronisée avec celle du rover",
+            "Les rotors tournaient à l'envers",
+            "La caméra de navigation ne s'allumait plus",
+            "Le panneau solaire se repliait sur lui-même"
+          ],
+          "reponse": "L'horloge d'Ingenuity n'était plus synchronisée avec celle du rover",
+          "indice": "Le problème concerne le temps, pas la mécanique.",
+          "explication": "Quand le panneau solaire a recommencé à charger la batterie, l'horloge de l'hélicoptère n'était plus synchronisée avec celle du rover, ce qui a perturbé les communications.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q02",
+          "type": "qcm",
+          "theme": "Opérations",
+          "question": "Pourquoi Perseverance a-t-il reçu l'ordre de s'éloigner d'Ingenuity juste après son déploiement ?",
+          "choix": [
+            "Pour que le rover ne gêne pas l'envol des rotors",
+            "Pour tester la liaison radio à longue distance",
+            "Pour que le panneau solaire d'Ingenuity reçoive la lumière du Soleil au plus vite",
+            "Pour dégager la piste d'atterrissage de l'hélicoptère"
+          ],
+          "reponse": "Pour que le panneau solaire d'Ingenuity reçoive la lumière du Soleil au plus vite",
+          "indice": "Pense à la source d'énergie de l'hélicoptère.",
+          "explication": "Perseverance s'est éloigné pour que le panneau solaire placé au-dessus des rotors puisse capter le Soleil dès que possible.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q03",
+          "type": "qcm",
+          "theme": "Analyse de crise",
+          "question": "À quelle hauteur approximative Ingenuity a-t-il perdu le contact avec Perseverance lors de son dernier vol ?",
+          "choix": [
+            "Environ 12 m, en pleine montée",
+            "Au sol, avant le décollage",
+            "Environ 1 m (3 pieds) au-dessus de la surface",
+            "À 24 m, au sommet de sa trajectoire"
+          ],
+          "reponse": "Environ 1 m (3 pieds) au-dessus de la surface",
+          "indice": "Le contact a été perdu presque au moment de l'atterrissage.",
+          "explication": "Environ 1 m au-dessus du sol, Ingenuity a perdu le contact avec le rover qui sert de relais. Une ou plusieurs pales ont été endommagées à l'atterrissage.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q04",
+          "type": "qcm",
+          "theme": "Ingénierie",
+          "question": "Pourquoi l'atterrissage d'Ingenuity était-il conçu pour un contact avec le sol d'environ 1 m/s ?",
+          "choix": [
+            "Pour économiser la batterie",
+            "Pour éviter d'abîmer la caméra de navigation",
+            "Pour synchroniser plus vite l'horloge de mission",
+            "Pour que les capteurs confirment facilement le contact et arrêtent les rotors avant tout rebond"
+          ],
+          "reponse": "Pour que les capteurs confirment facilement le contact et arrêtent les rotors avant tout rebond",
+          "indice": "Il s'agit de détecter le contact sans rebondir.",
+          "explication": "Un contact à environ 1 m/s permettait aux capteurs embarqués de confirmer l'atterrissage et d'arrêter les rotors avant un éventuel rebond.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q05",
+          "type": "qcm",
+          "theme": "Arrivée",
+          "question": "Quelle largeur avait le parachute de Perseverance, le plus grand jamais déployé sur Mars ?",
+          "choix": ["5,5 m", "21,5 m", "50 m", "100 m"],
+          "reponse": "21,5 m",
+          "indice": "Cela équivaut à environ 70 pieds.",
+          "explication": "Le parachute de Perseverance, qui a amené Ingenuity, mesurait 70,5 pieds soit 21,5 m de large.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2022/04/pia25219-1-1041.jpg"
+        },
+        {
+          "id": "hel-n3-q06",
+          "type": "qcm",
+          "theme": "Avenir",
+          "question": "Quelles capacités les hélicoptères de récupération d'échantillons auraient-ils ajoutées à la conception d'Ingenuity ?",
+          "choix": [
+            "Un moteur à réaction et un habitacle pressurisé",
+            "Une alimentation nucléaire et un bras de forage",
+            "Des roues et une capacité de préhension",
+            "Un parachute intégré et des flotteurs"
+          ],
+          "reponse": "Des roues et une capacité de préhension",
+          "indice": "Ils devaient ramasser des tubes d'échantillons posés sur le sol.",
+          "explication": "Le concept des Sample Recovery Helicopters prévoyait d'ajouter des roues et des moyens de préhension pour ramasser les tubes d'échantillons laissés par Perseverance.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/02/msr-family-bw-srhcolor-1.png"
+        },
+        {
+          "id": "hel-n3-q07",
+          "type": "qcm",
+          "theme": "Instruments",
+          "question": "À quoi servait la caméra de navigation montée dans le fuselage et pointée vers le bas ?",
+          "choix": [
+            "À photographier le ciel martien",
+            "À suivre le sol pendant le vol",
+            "À détecter des fossiles",
+            "À mesurer la température du sol"
+          ],
+          "reponse": "À suivre le sol pendant le vol",
+          "indice": "Son orientation donne la réponse.",
+          "explication": "Cette caméra, pointée directement vers le bas, permettait à l'hélicoptère de suivre le terrain défilant sous lui pendant le vol.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/mars2020-raw-images/pub/ods/surface/sol/00924/ids/edr/browse/heli/HNM_0924_0748963000_017ECM_N0600001HELI04456_0000A0J01_1200.jpg"
+        },
+        {
+          "id": "hel-n3-q08",
+          "type": "vrai_faux",
+          "theme": "Fin de mission",
+          "question": "Vrai ou faux : après son dernier atterrissage, Ingenuity est resté debout et en communication avec les contrôleurs.",
+          "reponse": true,
+          "indice": "Il était endommagé mais pas hors service pour les communications.",
+          "explication": "Vrai. L'hélicoptère est resté debout et en contact avec les contrôleurs, mais une ou plusieurs pales étaient endommagées et il ne pouvait plus voler.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q09",
+          "type": "vrai_faux",
+          "theme": "Énergie",
+          "question": "Vrai ou faux : Ingenuity était alimenté par un générateur nucléaire.",
+          "reponse": false,
+          "indice": "Pense à ce qui est placé au-dessus de ses rotors.",
+          "explication": "Faux. Ingenuity était alimenté par un panneau solaire qui rechargeait sa batterie.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q10",
+          "type": "qcm_multiple",
+          "theme": "Analyse de crise",
+          "question": "Quels risques liés à l'hiver martien menaçaient Ingenuity ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Des cycles de froid extrêmes sur les composants",
+            "La perte de l'horloge de mission",
+            "Une batterie trop faible pour alimenter les chauffages",
+            "Des pluies acides",
+            "Une surchauffe du moteur de rotor"
+          ],
+          "reponses": [
+            "Des cycles de froid extrêmes sur les composants",
+            "La perte de l'horloge de mission",
+            "Une batterie trop faible pour alimenter les chauffages"
+          ],
+          "indice": "Les deux derniers choix sont physiquement absurdes sur Mars en hiver.",
+          "explication": "Chaque nuit d'hiver, la batterie se vidait, les chauffages s'éteignaient, l'électronique subissait un froid extrême et l'horloge de mission pouvait être perdue.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q11",
+          "type": "qcm_multiple",
+          "theme": "Records",
+          "question": "Quelles valeurs sont équivalentes à la vitesse maximale au sol d'Ingenuity ? (Plusieurs bonnes réponses)",
+          "choix": ["10 m/s", "36 km/h", "22,4 mph", "100 km/h", "3,6 km/h"],
+          "reponses": ["10 m/s", "36 km/h", "22,4 mph"],
+          "indice": "1 m/s correspond à 3,6 km/h.",
+          "explication": "10 m/s correspondent à 36 km/h, soit environ 22,4 mph.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q12",
+          "type": "qcm_multiple",
+          "theme": "Exploration",
+          "question": "Quelles données ou images ont été obtenues grâce à Ingenuity ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une vue 3D de la butte Faillefeu à partir du 13e vol",
+            "Des images de la zone Raised Ridges lors du 9e vol",
+            "Des images des traces du rover Perseverance lors du 9e vol",
+            "Des images de la surface de Vénus",
+            "Une carte complète de Mars"
+          ],
+          "reponses": [
+            "Une vue 3D de la butte Faillefeu à partir du 13e vol",
+            "Des images de la zone Raised Ridges lors du 9e vol",
+            "Des images des traces du rover Perseverance lors du 9e vol"
+          ],
+          "indice": "Ingenuity n'a volé qu'au-dessus du cratère Jezero.",
+          "explication": "Ingenuity a fourni des vues de Faillefeu, de Raised Ridges et des traces de Perseverance dans la zone de Jezero.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2021/07/e2-pia24727-ingenuity-spots-raised-ridges-during-ninth-flight.jpg"
+        },
+        {
+          "id": "hel-n3-q13",
+          "type": "ordre",
+          "theme": "Analyse de crise",
+          "question": "Remets dans l'ordre la séquence de l'anomalie d'hiver qui a coupé les communications.",
+          "elements": [
+            "L'horloge d'Ingenuity n'est plus synchronisée avec celle du rover",
+            "Au lever du Soleil, le panneau solaire recharge la batterie",
+            "Les communications avec le rover sont perdues",
+            "La nuit, la batterie se vide et les chauffages s'éteignent"
+          ],
+          "reponse": [
+            "La nuit, la batterie se vide et les chauffages s'éteignent",
+            "Au lever du Soleil, le panneau solaire recharge la batterie",
+            "L'horloge d'Ingenuity n'est plus synchronisée avec celle du rover",
+            "Les communications avec le rover sont perdues"
+          ],
+          "indice": "Tout commence par la nuit.",
+          "explication": "La panne d'énergie nocturne a conduit, après le lever du Soleil, à un décalage d'horloge entre l'hélicoptère et le rover, puis à la perte de communications.",
+          "media_url": null
+        },
+        {
+          "id": "hel-n3-q14",
+          "type": "association",
+          "theme": "Ingénierie",
+          "question": "Associe chaque élément à son rôle.",
+          "colonne_gauche": [
+            "Panneau solaire sur les rotors",
+            "Perseverance",
+            "Caméra de navigation",
+            "Chauffages"
+          ],
+          "colonne_droite": [
+            "Relais de communication avec la Terre",
+            "Recharger la batterie",
+            "Maintenir l'électronique à bonne température",
+            "Suivre le sol pendant le vol"
+          ],
+          "reponse": [
+            { "gauche": "Panneau solaire sur les rotors", "droite": "Recharger la batterie" },
+            { "gauche": "Perseverance", "droite": "Relais de communication avec la Terre" },
+            { "gauche": "Caméra de navigation", "droite": "Suivre le sol pendant le vol" },
+            { "gauche": "Chauffages", "droite": "Maintenir l'électronique à bonne température" }
+          ],
+          "indice": "Chaque élément a un rôle précis dans la chaîne énergie, communication et navigation.",
+          "explication": "Le panneau solaire rechargeait la batterie, Perseverance relayait les communications, la caméra de navigation suivait le sol et les chauffages protégeaient l'électronique du froid.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/detail_files/2/5/25525_PIA23968-1200.jpg"
+        },
+        {
+          "id": "hel-n3-q15",
+          "type": "saisie_numerique",
+          "theme": "Records",
+          "question": "Calcule la durée moyenne d'un vol, en secondes, à partir de 72 vols et d'environ 128,8 minutes de vol au total.",
+          "reponse": 107.3,
+          "unite": "secondes",
+          "tolerance": 2,
+          "indice": "Convertis d'abord 128,8 minutes en secondes, puis divise par 72.",
+          "explication": "128,8 × 60 / 72 ≈ 107 s, soit environ 1 min 47 s par vol en moyenne.",
+          "media_url": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,841 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "helicoptere-ingenuity",
+    "titre": "Hélicoptère Ingenuity (Mars Helicopter)",
+    "categorie": "mars",
+    "sous_categorie": "exploration-robotique",
+    "lieu": "Cratère Jezero, Mars",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec 4 options et une seule bonne réponse.",
+      "qcm_multiple": "Question à choix multiples avec 5 options et 2 à 4 bonnes réponses.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Liste d'éléments mélangés à remettre dans l'ordre chronologique ou logique.",
+      "association": "Paires d'éléments à relier entre une colonne de gauche et une colonne de droite.",
+      "saisie_numerique": "Question appelant une valeur numérique précise avec unité et tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "ing-n1-q01",
+          "type": "qcm",
+          "theme": "Planète",
+          "question": "Sur quelle planète l'hélicoptère Ingenuity a-t-il volé ?",
+          "choix": [
+            "Vénus",
+            "Mars",
+            "Jupiter",
+            "Mercure"
+          ],
+          "reponse": "Mars",
+          "indice": "On l'appelle aussi la planète rouge.",
+          "explication": "Ingenuity a exploré le ciel de Mars, la quatrième planète du Système solaire.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q02",
+          "type": "vrai_faux",
+          "theme": "Histoire",
+          "question": "Vrai ou faux : Ingenuity est le tout premier engin à avoir volé avec un moteur sur une autre planète.",
+          "reponse": true,
+          "indice": "Avant lui, aucun avion ni hélicoptère n'avait décollé ailleurs que sur Terre.",
+          "explication": "Le 19 avril 2021, Ingenuity a réussi le premier vol motorisé et contrôlé sur une autre planète.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q03",
+          "type": "qcm",
+          "theme": "Compagnon",
+          "question": "Quel grand rover a transporté Ingenuity jusqu'à Mars sous son ventre ?",
+          "choix": [
+            "Sojourner",
+            "Curiosity",
+            "Perseverance",
+            "Spirit"
+          ],
+          "reponse": "Perseverance",
+          "indice": "Son nom signifie « persévérance » en anglais.",
+          "explication": "Ingenuity a voyagé fixé sous le châssis du rover Perseverance jusqu'à son atterrissage en février 2021.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q04",
+          "type": "saisie_numerique",
+          "theme": "Masse",
+          "question": "Sur Terre, combien pèse Ingenuity (un peu moins qu'un gros dictionnaire ou deux bouteilles d'eau) ?",
+          "reponse": 1.8,
+          "unite": "kg",
+          "tolerance": 0.1,
+          "indice": "C'est un nombre décimal compris entre 1 et 2.",
+          "explication": "Ingenuity a une masse de 1,8 kg sur Terre, ce qui le rend très léger pour pouvoir décoller dans l'air fin de Mars.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q05",
+          "type": "qcm",
+          "theme": "Énergie",
+          "question": "Comment Ingenuity recharge-t-il ses batteries sur Mars ?",
+          "choix": [
+            "Avec un panneau solaire placé tout en haut",
+            "Avec une petite éolienne",
+            "En se branchant sur une prise du rover",
+            "Avec des piles jetables"
+          ],
+          "reponse": "Avec un panneau solaire placé tout en haut",
+          "indice": "Il utilise la lumière du Soleil.",
+          "explication": "Un panneau solaire fixé au-dessus de ses pales capte la lumière du Soleil pour recharger ses batteries.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q06",
+          "type": "qcm_multiple",
+          "theme": "Anatomie",
+          "question": "De quelles parties principales l'hélicoptère Ingenuity est-il composé ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Deux grands rotors qui tournent en sens inverse",
+            "Quatre pattes d'atterrissage fines",
+            "Un panneau solaire au sommet",
+            "Une grande voile en tissu",
+            "Des roues pour rouler sur les cailloux"
+          ],
+          "reponses": [
+            "Deux grands rotors qui tournent en sens inverse",
+            "Quatre pattes d'atterrissage fines",
+            "Un panneau solaire au sommet"
+          ],
+          "indice": "Il vole et se pose sur des pieds, mais il ne roule pas.",
+          "explication": "Ingenuity possède un panneau solaire, deux rotors superposés, un petit corps cubique et quatre pieds d'atterrissage.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q07",
+          "type": "qcm",
+          "theme": "Rotors",
+          "question": "Combien de rotors (hélices) Ingenuity possède-t-il l'un au-dessus de l'autre ?",
+          "choix": [
+            "1 rotor",
+            "2 rotors",
+            "4 rotors",
+            "6 rotors"
+          ],
+          "reponse": "2 rotors",
+          "indice": "Il y en a un en haut et un juste en dessous.",
+          "explication": "Ingenuity est équipé de deux rotors superposés qui tournent en sens opposé pour rester bien stable.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q08",
+          "type": "ordre",
+          "theme": "Déroulement",
+          "question": "Remets dans l'ordre les étapes d'un vol d'Ingenuity.",
+          "elements": [
+            "Ingenuity se pose doucement sur ses quatre pieds",
+            "Le panneau solaire recharge les batteries",
+            "Ingenuity grimpe dans le ciel martien",
+            "Les pales se mettent à tourner très vite"
+          ],
+          "reponse": [
+            "Le panneau solaire recharge les batteries",
+            "Les pales se mettent à tourner très vite",
+            "Ingenuity grimpe dans le ciel martien",
+            "Ingenuity se pose doucement sur ses quatre pieds"
+          ],
+          "indice": "Il faut d'abord faire le plein d'énergie avant de faire tourner les hélices.",
+          "explication": "Chaque vol commence par la recharge des batteries, suivie de la mise en rotation des pales, du décollage, puis de l'atterrissage.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q09",
+          "type": "qcm",
+          "theme": "Taille",
+          "question": "À quel objet du quotidien ressemble la taille du boîtier central d'Ingenuity ?",
+          "choix": [
+            "Une boîte de mouchoirs",
+            "Une voiture",
+            "Un réfrigérateur",
+            "Un autobus"
+          ],
+          "reponse": "Une boîte de mouchoirs",
+          "indice": "Son corps est tout petit et contient son cerveau électronique et ses batteries.",
+          "explication": "Le fuselage central d'Ingenuity mesure environ 14 cm sur 19,5 cm, soit la taille d'une boîte de mouchoirs.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q10",
+          "type": "vrai_faux",
+          "theme": "Pilotage",
+          "question": "Vrai ou faux : Un pilote sur Terre dirige Ingenuity en direct avec une manette pendant qu'il vole.",
+          "reponse": false,
+          "indice": "Mars est beaucoup trop loin pour que les signaux arrivent instantanément.",
+          "explication": "Les signaux mettent plusieurs minutes à voyager entre la Terre et Mars ; Ingenuity vole donc tout seul grâce à son ordinateur.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q11",
+          "type": "qcm_multiple",
+          "theme": "Mission",
+          "question": "À quoi a servi Ingenuity pendant sa mission sur Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Prouver qu'il est possible de voler dans l'air de Mars",
+            "Prendre des photos du sol depuis le ciel",
+            "Repérer le chemin devant le rover Perseverance",
+            "Transporter des astronautes sur Mars",
+            "Creuser des tunnels profonds sous terre"
+          ],
+          "reponses": [
+            "Prouver qu'il est possible de voler dans l'air de Mars",
+            "Prendre des photos du sol depuis le ciel",
+            "Repérer le chemin devant le rover Perseverance"
+          ],
+          "indice": "C'était un éclaireur aérien équipé de caméras.",
+          "explication": "Ingenuity a démontré le vol sur Mars et a ensuite servi d'éclaireur aérien en photographiant le terrain pour Perseverance.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q12",
+          "type": "association",
+          "theme": "Rôles",
+          "question": "Associe chaque élément de la mission à son rôle.",
+          "colonne_gauche": [
+            "Ingenuity",
+            "Perseverance",
+            "Cratère Jezero"
+          ],
+          "colonne_droite": [
+            "Le lieu sur Mars où ils ont atterri",
+            "Le petit hélicoptère éclaireur",
+            "Le grand rover à six roues"
+          ],
+          "reponse": [
+            {
+              "gauche": "Ingenuity",
+              "droite": "Le petit hélicoptère éclaireur"
+            },
+            {
+              "gauche": "Perseverance",
+              "droite": "Le grand rover à six roues"
+            },
+            {
+              "gauche": "Cratère Jezero",
+              "droite": "Le lieu sur Mars où ils ont atterri"
+            }
+          ],
+          "indice": "L'un vole, l'autre roule et le troisième est un endroit.",
+          "explication": "Ingenuity et Perseverance ont tous deux atterri dans le cratère Jezero sur Mars.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q13",
+          "type": "qcm",
+          "theme": "Hommage",
+          "question": "Quel petit souvenir historique était caché sous le panneau solaire d'Ingenuity ?",
+          "choix": [
+            "Un morceau de tissu du premier avion des frères Wright",
+            "Une pièce de monnaie en or",
+            "Une plume d'aigle",
+            "Un grain de sable de la Lune"
+          ],
+          "reponse": "Un morceau de tissu du premier avion des frères Wright",
+          "indice": "Cet avion a effectué le premier vol motorisé sur Terre en 1903.",
+          "explication": "Un minuscule fragment de tissu provenant de l'aile du Wright Flyer de 1903 a voyagé sur Mars avec Ingenuity.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q14",
+          "type": "qcm_multiple",
+          "theme": "Climat",
+          "question": "Quels défis Ingenuity devait-il affronter sur Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Des nuits glaciales où il faut se réchauffer",
+            "Un air très fin et léger",
+            "De la poussière qui peut se poser sur son panneau solaire",
+            "De fortes pluies d'orage",
+            "Des vagues géantes dans l'océan"
+          ],
+          "reponses": [
+            "Des nuits glaciales où il faut se réchauffer",
+            "Un air très fin et léger",
+            "De la poussière qui peut se poser sur son panneau solaire"
+          ],
+          "indice": "Il n'y a ni pluie ni océan liquide sur Mars aujourd'hui.",
+          "explication": "Sur Mars, Ingenuity devait survivre au froid intense de la nuit, à la poussière et à une atmosphère très ténue.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n1-q15",
+          "type": "qcm",
+          "theme": "Longévité",
+          "question": "Combien de vols étaient prévus au départ pour Ingenuity avant qu'il ne dépasse tous les records ?",
+          "choix": [
+            "1 vol",
+            "5 vols",
+            "50 vols",
+            "100 vols"
+          ],
+          "reponse": "5 vols",
+          "indice": "C'est le nombre de doigts d'une main.",
+          "explication": "Prévu pour seulement 5 vols d'essai sur 30 jours, Ingenuity en a finalement accompli 72 !",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "ing-n2-q01",
+          "type": "qcm",
+          "theme": "Date clé",
+          "question": "À quelle date exacte Ingenuity a-t-il réalisé son premier vol historique sur Mars ?",
+          "choix": [
+            "18 février 2021",
+            "19 avril 2021",
+            "20 juillet 2020",
+            "25 janvier 2024"
+          ],
+          "reponse": "19 avril 2021",
+          "indice": "Deux mois après l'atterrissage de Perseverance en février 2021.",
+          "explication": "Le 19 avril 2021, Ingenuity s'est élevé à 3 mètres d'altitude pendant 39,1 secondes lors de son premier vol.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Bilan",
+          "question": "Combien de vols Ingenuity a-t-il effectués au total sur Mars entre avril 2021 et janvier 2024 ?",
+          "reponse": 72,
+          "unite": "vols",
+          "tolerance": 0,
+          "indice": "C'est plus de quatorze fois les 5 vols prévus initialement.",
+          "explication": "Ingenuity a accompli 72 vols avant qu'une pale endommagée lors du dernier atterrissage ne mette fin à sa mission.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q03",
+          "type": "qcm",
+          "theme": "Atmosphère",
+          "question": "Quelle est approximativement la densité de l'atmosphère martienne par rapport à celle de la Terre ?",
+          "choix": [
+            "Environ 1 % de la densité terrestre",
+            "Environ 25 % de la densité terrestre",
+            "Environ 50 % de la densité terrestre",
+            "Deux fois plus dense que sur Terre"
+          ],
+          "reponse": "Environ 1 % de la densité terrestre",
+          "indice": "Voler sur Mars équivaut à voler à environ 30 km d'altitude sur Terre.",
+          "explication": "L'atmosphère de Mars ne représente qu'environ 1 % de la densité de l'atmosphère terrestre au niveau de la mer.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q04",
+          "type": "qcm_multiple",
+          "theme": "Conception",
+          "question": "Quelles solutions techniques ont permis à Ingenuity de voler dans l'atmosphère très ténue de Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une masse très faible de 1,8 kg",
+            "Des pales de 1,2 mètre d'envergure en fibre de carbone",
+            "Une vitesse de rotation très élevée d'environ 2 400 à 2 500 tours par minute",
+            "Des ailes fixes comme un planeur",
+            "Un moteur-fusée à carburant liquide"
+          ],
+          "reponses": [
+            "Une masse très faible de 1,8 kg",
+            "Des pales de 1,2 mètre d'envergure en fibre de carbone",
+            "Une vitesse de rotation très élevée d'environ 2 400 à 2 500 tours par minute"
+          ],
+          "indice": "Il faut être très léger et brasser un grand volume d'air très rapidement.",
+          "explication": "Ingenuity combine une masse plume de 1,8 kg, de grands rotors de 1,2 m et une rotation d'environ 2 400 à 2 500 tr/min.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q05",
+          "type": "vrai_faux",
+          "theme": "Navigation",
+          "question": "Vrai ou faux : Ingenuity utilisait le système GPS en orbite autour de Mars pour se repérer en vol.",
+          "reponse": false,
+          "indice": "Il n'existe pas de réseau de satellites GPS autour de Mars.",
+          "explication": "Sans GPS sur Mars, Ingenuity utilisait une caméra de navigation pointée vers le sol, un altimètre laser et des capteurs inertiels.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q06",
+          "type": "qcm",
+          "theme": "Records",
+          "question": "Quelle altitude maximale Ingenuity a-t-il atteinte au cours de sa mission ?",
+          "choix": [
+            "3 mètres",
+            "10 mètres",
+            "24 mètres",
+            "120 mètres"
+          ],
+          "reponse": "24 mètres",
+          "indice": "C'est l'équivalent d'un immeuble d'environ 8 étages.",
+          "explication": "Lors du vol 61, Ingenuity a établi son record d'altitude à 24 mètres au-dessus de la surface martienne.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q07",
+          "type": "ordre",
+          "theme": "Chronologie",
+          "question": "Classe ces événements de la mission Mars 2020 / Ingenuity dans l'ordre chronologique.",
+          "elements": [
+            "Premier vol motorisé d'Ingenuity sur Mars",
+            "Lancement de la mission Mars 2020 depuis Cap Canaveral",
+            "Annonce officielle de la fin de mission d'Ingenuity",
+            "Atterrissage de Perseverance dans le cratère Jezero"
+          ],
+          "reponse": [
+            "Lancement de la mission Mars 2020 depuis Cap Canaveral",
+            "Atterrissage de Perseverance dans le cratère Jezero",
+            "Premier vol motorisé d'Ingenuity sur Mars",
+            "Annonce officielle de la fin de mission d'Ingenuity"
+          ],
+          "indice": "La mission a décollé en juillet 2020 et s'est achevée en janvier 2024.",
+          "explication": "Lancement en juillet 2020, atterrissage en février 2021, premier vol en avril 2021 et fin de mission en janvier 2024.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q08",
+          "type": "qcm",
+          "theme": "Capteurs",
+          "question": "Combien de caméras étaient embarquées à bord d'Ingenuity ?",
+          "choix": [
+            "Une seule caméra",
+            "Deux caméras",
+            "Cinq caméras",
+            "Aucune caméra"
+          ],
+          "reponse": "Deux caméras",
+          "indice": "L'une servait à la navigation en noir et blanc, l'autre prenait des photos couleur de l'horizon.",
+          "explication": "Ingenuity possédait deux caméras : une caméra de navigation noir et blanc orientée vers le bas et une caméra couleur orientée vers l'horizon.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q09",
+          "type": "qcm_multiple",
+          "theme": "Records",
+          "question": "Parmi ces performances, lesquelles font partie des records établis par Ingenuity sur Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une distance totale parcourue d'environ 17 kilomètres",
+            "Une vitesse horizontale maximale de 10 m/s (36 km/h)",
+            "Un temps de vol cumulé de plus de 128 minutes",
+            "Un vol jusqu'au sommet d'Olympus Mons",
+            "Une altitude maximale de 5 000 mètres"
+          ],
+          "reponses": [
+            "Une distance totale parcourue d'environ 17 kilomètres",
+            "Une vitesse horizontale maximale de 10 m/s (36 km/h)",
+            "Un temps de vol cumulé de plus de 128 minutes"
+          ],
+          "indice": "Ingenuity est resté dans le cratère Jezero à quelques dizaines de mètres du sol.",
+          "explication": "Au fil de ses 72 vols, Ingenuity a parcouru environ 17 km, cumulé plus de 128 minutes de vol et atteint 10 m/s.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q10",
+          "type": "association",
+          "theme": "Instruments",
+          "question": "Associe chaque composant d'Ingenuity à sa fonction.",
+          "colonne_gauche": [
+            "Altimètre laser",
+            "Batteries lithium-ion",
+            "Rotors coaxiaux contrarotatifs",
+            "Caméra RTE"
+          ],
+          "colonne_droite": [
+            "Prendre des photographies couleur haute résolution",
+            "Mesurer la hauteur précise par rapport au sol",
+            "Stocker l'énergie pour le vol et le chauffage nocturne",
+            "Générer la portance tout en annulant le couple"
+          ],
+          "reponse": [
+            {
+              "gauche": "Altimètre laser",
+              "droite": "Mesurer la hauteur précise par rapport au sol"
+            },
+            {
+              "gauche": "Batteries lithium-ion",
+              "droite": "Stocker l'énergie pour le vol et le chauffage nocturne"
+            },
+            {
+              "gauche": "Rotors coaxiaux contrarotatifs",
+              "droite": "Générer la portance tout en annulant le couple"
+            },
+            {
+              "gauche": "Caméra RTE",
+              "droite": "Prendre des photographies couleur haute résolution"
+            }
+          ],
+          "indice": "RTE signifie « Return-to-Earth » (retour vers la Terre).",
+          "explication": "Chaque sous-système assure une tâche vitale : portance, énergie, altimétrie ou imagerie.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q11",
+          "type": "qcm",
+          "theme": "Communication",
+          "question": "Par quel intermédiaire Ingenuity envoyait-il ses données et ses photos vers la Terre ?",
+          "choix": [
+            "Il passait par le rover Perseverance qui servait de relais radio",
+            "Il pointait une grande antenne directement vers la Terre",
+            "Il déposait des cartes mémoire sur le sol",
+            "Il utilisait un câble optique déroulant"
+          ],
+          "reponse": "Il passait par le rover Perseverance qui servait de relais radio",
+          "indice": "Ingenuity communiquait via une liaison radio Zigbee de faible puissance avec sa station de base.",
+          "explication": "Ingenuity transmettait ses données par radio au rover Perseverance, qui les relayait ensuite vers les orbiteurs martiens puis la Terre.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q12",
+          "type": "vrai_faux",
+          "theme": "Thermique",
+          "question": "Vrai ou faux : La majeure partie de l'énergie des batteries d'Ingenuity servait à alimenter les moteurs pendant les vols plutôt qu'à le chauffer la nuit.",
+          "reponse": false,
+          "indice": "Les nuits dans le cratère Jezero peuvent descendre jusqu'à -90 °C.",
+          "explication": "Environ deux tiers de l'énergie des batteries étaient consommés la nuit pour maintenir l'électronique au chaud face à des températures atteignant -90 °C.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q13",
+          "type": "qcm",
+          "theme": "Lieu",
+          "question": "Comment la NASA a-t-elle nommé le tout premier site de décollage et d'atterrissage d'Ingenuity dans le cratère Jezero ?",
+          "choix": [
+            "Wright Brothers Field",
+            "Carl Sagan Station",
+            "Tranquility Base",
+            "Bradbury Landing"
+          ],
+          "reponse": "Wright Brothers Field",
+          "indice": "Un hommage aux pionniers de l'aviation à Kitty Hawk.",
+          "explication": "La première piste martienne a été baptisée Wright Brothers Field en hommage aux frères Orville et Wilbur Wright.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q14",
+          "type": "qcm_multiple",
+          "theme": "Fin de mission",
+          "question": "Que s'est-il passé lors du 72e et dernier vol d'Ingenuity le 18 janvier 2024 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Le vol était un court saut vertical de vérification après un atterrissage d'urgence lors du vol 71",
+            "Une ou plusieurs pales en fibre de carbone ont été endommagées au contact du sol",
+            "Ingenuity a perdu temporairement le contact avec Perseverance avant de le rétablir",
+            "Ingenuity a décollé pour revenir vers l'orbite terrestre",
+            "Le rover Perseverance a percuté l'hélicoptère"
+          ],
+          "reponses": [
+            "Le vol était un court saut vertical de vérification après un atterrissage d'urgence lors du vol 71",
+            "Une ou plusieurs pales en fibre de carbone ont été endommagées au contact du sol",
+            "Ingenuity a perdu temporairement le contact avec Perseverance avant de le rétablir"
+          ],
+          "indice": "Des photos prises ensuite ont montré l'ombre d'une pale cassée sur le sable.",
+          "explication": "Lors du vol 72, Ingenuity a endommagé ses pales en touchant le sol sur un terrain pauvre en repères visuels, rendant tout nouveau vol impossible.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n2-q15",
+          "type": "qcm",
+          "theme": "Architecture",
+          "question": "Pourquoi Ingenuity n'avait-il pas besoin de rotor de queue comme un hélicoptère classique ?",
+          "choix": [
+            "Parce que ses deux rotors superposés tournent en sens opposé",
+            "Parce qu'il n'y a pas de gravité sur Mars",
+            "Parce que ses pattes servent de gouvernail dans l'air",
+            "Parce qu'il utilise des jets d'air comprimé à l'arrière"
+          ],
+          "reponse": "Parce que ses deux rotors superposés tournent en sens opposé",
+          "indice": "C'est le principe des rotors coaxiaux contrarotatifs.",
+          "explication": "La rotation en sens inverse des deux rotors coaxiaux annule naturellement le couple de réaction, supprimant le besoin d'un rotor anticouple.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "ing-n3-q01",
+          "type": "qcm",
+          "theme": "Aérodynamique",
+          "question": "Quelle contrainte aérodynamique majeure limite la vitesse maximale en bout de pale d'Ingenuity sur Mars ?",
+          "choix": [
+            "L'approche du nombre de Mach local en raison d'une vitesse du son plus faible dans le CO2 froid",
+            "La fusion thermique des pales par frottement atmosphérique",
+            "La cavitation magnétique induite par le noyau martien",
+            "Le décrochage supersonique dû à la pression élevée au sol"
+          ],
+          "reponse": "L'approche du nombre de Mach local en raison d'une vitesse du son plus faible dans le CO2 froid",
+          "indice": "Sur Mars, la vitesse du son est d'environ 240 m/s contre 340 m/s sur Terre.",
+          "explication": "La faible température et la composition riche en CO2 abaissent la vitesse du son à ~240 m/s ; les pales doivent rester sous Mach ~0,7-0,8 pour éviter les ondes de choc transsoniques.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Physique",
+          "question": "Sachant que la pesanteur martienne vaut environ 3,72 m/s² et que la masse d'Ingenuity est de 1,8 kg, quel est le poids (force gravitationnelle) d'Ingenuity sur Mars, arrondi au dixième ?",
+          "reponse": 6.7,
+          "unite": "N",
+          "tolerance": 0.1,
+          "indice": "Utilise la relation P = m × g.",
+          "explication": "P = 1,8 kg × 3,72 m/s² = 6,696 N, soit environ 6,7 N (contre environ 17,7 N sur Terre).",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q03",
+          "type": "qcm",
+          "theme": "Avionique",
+          "question": "Quel processeur principal, issu de l'électronique grand public (smartphones) mais qualifié par le JPL, pilotait la navigation autonome d'Ingenuity ?",
+          "choix": [
+            "Qualcomm Snapdragon 801",
+            "BAE RAD750",
+            "Intel Pentium III",
+            "ARM Cortex-M0"
+          ],
+          "reponse": "Qualcomm Snapdragon 801",
+          "indice": "Le rover Perseverance utilisait un RAD750, mais l'hélicoptère avait besoin d'une puissance de calcul bien supérieure pour le traitement d'images.",
+          "explication": "Ingenuity embarquait un processeur Qualcomm Snapdragon 801 sous Linux pour exécuter les algorithmes de vision par ordinateur à 30 Hz, supervisé par des microcontrôleurs redondants.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q04",
+          "type": "qcm_multiple",
+          "theme": "Anomalie Vol 6",
+          "question": "Quelles ont été les causes et manifestations de l'anomalie survenue lors du 6e vol d'Ingenuity le 22 mai 2021 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La perte d'une image dans le pipeline de traitement de la caméra de navigation",
+            "Un décalage d'horodatage (timestamp) entre les images et les données de la centrale inertielle (IMU)",
+            "Des oscillations importantes en roulis et tangage allant jusqu'à environ 20 degrés",
+            "La rupture d'un moteur électrique en plein vol",
+            "Une interférence radio provenant d'un satellite chinois"
+          ],
+          "reponses": [
+            "La perte d'une image dans le pipeline de traitement de la caméra de navigation",
+            "Un décalage d'horodatage (timestamp) entre les images et les données de la centrale inertielle (IMU)",
+            "Des oscillations importantes en roulis et tangage allant jusqu'à environ 20 degrés"
+          ],
+          "indice": "Le filtre de navigation recevait des images associées à un mauvais instant.",
+          "explication": "Une image perdue a décalé l'horodatage des clichés suivants, perturbant l'estimation d'attitude ; Ingenuity a néanmoins réussi à atterrir à ~5 m de sa cible grâce à ses marges de stabilité.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q05",
+          "type": "vrai_faux",
+          "theme": "Navigation",
+          "question": "Vrai ou faux : L'algorithme de navigation visuelle d'Ingenuity supposait par défaut que le terrain survolé était plat pour estimer sa vitesse horizontale à partir du flux optique.",
+          "reponse": true,
+          "indice": "Cette hypothèse a posé problème lorsque l'hélicoptère a survolé des dunes et des reliefs escarpés.",
+          "explication": "Le filtre de navigation supposait un sol plat ; le survol de pentes raides ou de cratères introduisait des erreurs d'estimation de vitesse que les ingénieurs ont dû corriger par mise à jour logicielle.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q06",
+          "type": "qcm",
+          "theme": "Commande de vol",
+          "question": "Comment Ingenuity contrôlait-il son tangage, son roulis et sa poussée verticale ?",
+          "choix": [
+            "Par des plateaux cycliques (swashplates) permettant le pas collectif et cyclique sur les deux rotors",
+            "En faisant varier indépendamment la vitesse de rotation de quatre moteurs",
+            "En déplaçant une masselotte interne sur des rails",
+            "Par des gouvernes aérodynamiques situées sur les pieds d'atterrissage"
+          ],
+          "reponse": "Par des plateaux cycliques (swashplates) permettant le pas collectif et cyclique sur les deux rotors",
+          "indice": "C'est le mécanisme classique d'un hélicoptère articulé, miniaturisé à l'extrême.",
+          "explication": "Chacun des deux rotors coaxiaux dispose d'un plateau cyclique actionné par trois servomoteurs pour ajuster le pas collectif et cyclique des pales.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q07",
+          "type": "ordre",
+          "theme": "Déploiement",
+          "question": "Remets dans l'ordre la séquence de déploiement d'Ingenuity depuis le ventre de Perseverance en mars-avril 2021.",
+          "elements": [
+            "Largage d'Ingenuity sur le sol martien depuis une hauteur d'environ 13 cm",
+            "Éjection du bouclier de protection contre les débris d'atterrissage",
+            "Rotation de l'hélicoptère de la position horizontale à la position verticale",
+            "Déploiement des quatre jambes d'atterrissage"
+          ],
+          "reponse": [
+            "Éjection du bouclier de protection contre les débris d'atterrissage",
+            "Rotation de l'hélicoptère de la position horizontale à la position verticale",
+            "Déploiement des quatre jambes d'atterrissage",
+            "Largage d'Ingenuity sur le sol martien depuis une hauteur d'environ 13 cm"
+          ],
+          "indice": "Il fallait d'abord retirer le carénage protecteur, puis déplier l'appareil avant de couper le dernier boulon pyrotechnique.",
+          "explication": "Le déploiement a duré plusieurs sols : retrait du bouclier, basculement vertical, verrouillage des pieds, puis largage final de ~13 cm sur le sol.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q08",
+          "type": "qcm",
+          "theme": "Enquête Vol 72",
+          "question": "Selon l'enquête du JPL sur le vol 72, quelle est la cause première de l'accident final d'Ingenuity ?",
+          "choix": [
+            "Le manque de textures visuelles sur des ondulations de sable uniforme empêchant le suivi des repères au sol",
+            "L'explosion d'une cellule lithium-ion due à une surcharge solaire",
+            "Une rafale de vent dépassant 150 km/h",
+            "Le blocage mécanique du plateau cyclique supérieur"
+          ],
+          "reponse": "Le manque de textures visuelles sur des ondulations de sable uniforme empêchant le suivi des repères au sol",
+          "indice": "La caméra de navigation n'a pas trouvé assez de cailloux ou de motifs contrastés pour calculer la dérive horizontale.",
+          "explication": "Sur une zone de dunes sableuses lisses et sans repères, le système de navigation n'a pas pu mesurer la vitesse horizontale, provoquant un contact latéral dur au sol.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q09",
+          "type": "qcm_multiple",
+          "theme": "Gestion de crise",
+          "question": "Quelles adaptations majeures l'équipe du JPL a-t-elle dû mettre en œuvre durant l'hiver martien et la mission prolongée ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Laisser Ingenuity s'éteindre et geler chaque nuit faute d'énergie solaire suffisante pour le chauffage continu",
+            "Réinitialiser l'horloge interne et la séquence de démarrage chaque matin au lever du Soleil",
+            "Augmenter le régime rotor jusqu'à environ 2 700-2 800 tr/min lors des saisons où la densité atmosphérique était la plus basse",
+            "Remplacer les batteries usées à l'aide du bras robotique de Perseverance",
+            "Faire hiberner l'hélicoptère sous le rover Perseverance pendant tout l'hiver"
+          ],
+          "reponses": [
+            "Laisser Ingenuity s'éteindre et geler chaque nuit faute d'énergie solaire suffisante pour le chauffage continu",
+            "Réinitialiser l'horloge interne et la séquence de démarrage chaque matin au lever du Soleil",
+            "Augmenter le régime rotor jusqu'à environ 2 700-2 800 tr/min lors des saisons où la densité atmosphérique était la plus basse"
+          ],
+          "indice": "Ingenuity ne pouvait plus revenir sous le rover une fois largué.",
+          "explication": "En hiver, la poussière et la baisse d'ensoleillement ont obligé Ingenuity à subir des cycles quotidiens de gel nocturne et de redémarrage matinal, tout en adaptant son régime rotor aux variations saisonnières de pression.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q10",
+          "type": "association",
+          "theme": "Architecture",
+          "question": "Associe chaque sous-système d'Ingenuity à sa caractéristique technique.",
+          "colonne_gauche": [
+            "Liaison radio",
+            "Chauffage nocturne",
+            "Caméra de navigation",
+            "Structure des pales"
+          ],
+          "colonne_droite": [
+            "Composites en fibre de carbone à noyau en mousse pour une rigidité maximale",
+            "Protocole Zigbee à 900 MHz sur une portée maximale d'environ 1 000 m",
+            "Capteur VGA monochrome (640 × 480 pixels) pointé au nadir",
+            "Résistances chauffantes alimentées par 6 cellules lithium-ion Sony"
+          ],
+          "reponse": [
+            {
+              "gauche": "Liaison radio",
+              "droite": "Protocole Zigbee à 900 MHz sur une portée maximale d'environ 1 000 m"
+            },
+            {
+              "gauche": "Chauffage nocturne",
+              "droite": "Résistances chauffantes alimentées par 6 cellules lithium-ion Sony"
+            },
+            {
+              "gauche": "Caméra de navigation",
+              "droite": "Capteur VGA monochrome (640 × 480 pixels) pointé au nadir"
+            },
+            {
+              "gauche": "Structure des pales",
+              "droite": "Composites en fibre de carbone à noyau en mousse pour une rigidité maximale"
+            }
+          ],
+          "indice": "Le nadir désigne la direction verticale pointant directement sous l'appareil.",
+          "explication": "L'architecture d'Ingenuity repose sur des composants légers et éprouvés : radio 900 MHz, 6 cellules Li-ion, caméra VGA au nadir et pales carbone.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q11",
+          "type": "qcm",
+          "theme": "Panne capteur",
+          "question": "Quel capteur d'Ingenuity est tombé en panne en mai 2022, obligeant les ingénieurs à modifier le logiciel de vol avant le décollage ?",
+          "choix": [
+            "L'inclinomètre",
+            "L'altimètre laser",
+            "Le panneau solaire",
+            "La caméra couleur"
+          ],
+          "reponse": "L'inclinomètre",
+          "indice": "Ce capteur servait uniquement avant le décollage à mesurer l'inclinaison initiale de l'appareil au sol.",
+          "explication": "Après la panne de l'inclinomètre en mai 2022, les ingénieurs ont patché le logiciel pour estimer l'assiette initiale au sol à l'aide des accéléromètres de la centrale inertielle.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q12",
+          "type": "vrai_faux",
+          "theme": "Essais terrestres",
+          "question": "Vrai ou faux : Lors des essais dans la chambre à vide de 7,6 mètres du JPL sur Terre, il a fallu alléger l'hélicoptère ou le suspendre partiellement par un câble pour simuler la gravité martienne.",
+          "reponse": true,
+          "indice": "La chambre à vide recrée la pression et le CO2 de Mars, mais pas sa pesanteur de 0,38 g.",
+          "explication": "La pesanteur terrestre étant 2,6 fois plus forte que sur Mars, les essais au JPL utilisaient un système de délestage par câble pour compenser le surplus de poids.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q13",
+          "type": "qcm",
+          "theme": "Héritage",
+          "question": "Quelle fut la première mission future directement influencée par le succès d'Ingenuity pour intégrer des hélicoptères de récupération d'échantillons ?",
+          "choix": [
+            "Mars Sample Return (Sample Recovery Helicopters)",
+            "Dragonfly vers Titan",
+            "Europa Clipper",
+            "Artemis III"
+          ],
+          "reponse": "Mars Sample Return (Sample Recovery Helicopters)",
+          "indice": "Dragonfly avait été sélectionné dès 2019, avant le vol d'Ingenuity.",
+          "explication": "La NASA a intégré deux hélicoptères inspirés d'Ingenuity dans l'architecture Mars Sample Return pour récupérer les tubes d'échantillons en cas d'indisponibilité de Perseverance.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q14",
+          "type": "qcm_multiple",
+          "theme": "Aérodynamique",
+          "question": "Pourquoi les pales d'Ingenuity ont-elles une corde (largeur) proportionnellement beaucoup plus grande que celle des hélicoptères terrestres ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Pour compenser la très faible densité de l'air martien (faible nombre de Reynolds)",
+            "Pour augmenter la surface portante sans dépasser la vitesse limite en bout de pale",
+            "Pour offrir une rigidité structurelle suffisante face aux efforts centrifuges",
+            "Pour servir de panneaux solaires secondaires",
+            "Pour stocker du carburant liquide à l'intérieur des pales"
+          ],
+          "reponses": [
+            "Pour compenser la très faible densité de l'air martien (faible nombre de Reynolds)",
+            "Pour augmenter la surface portante sans dépasser la vitesse limite en bout de pale",
+            "Pour offrir une rigidité structurelle suffisante face aux efforts centrifuges"
+          ],
+          "indice": "À faible nombre de Reynolds, un profil large améliore la portance générée.",
+          "explication": "Des pales larges et très rigides permettent de générer assez de portance à bas nombre de Reynolds sans atteindre des vitesses transsoniques en bout de pale.",
+          "media_url": null
+        },
+        {
+          "id": "ing-n3-q15",
+          "type": "qcm",
+          "theme": "Épilogue",
+          "question": "Quel rôle Ingenuity continue-t-il de jouer sur Mars après l'arrêt définitif de ses vols en janvier 2024 ?",
+          "choix": [
+            "Station fixe collectant quotidiennement des données météorologiques et environnementales",
+            "Relais de communication principal entre la Terre et tous les rovers martiens",
+            "Balise lumineuse laser visible à l'œil nu depuis la Terre",
+            "Aucun, sa batterie a explosé lors du dernier atterrissage"
+          ],
+          "reponse": "Station fixe collectant quotidiennement des données météorologiques et environnementales",
+          "indice": "Son ordinateur de bord et son panneau solaire fonctionnent toujours.",
+          "explication": "Bien qu'incapable de voler, Ingenuity reste opérationnel au sol comme station fixe enregistrant des mesures thermiques et environnementales.",
+          "media_url": null
+        }
+      ]
+    }
+  }
+}

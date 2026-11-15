@@ -1,0 +1,795 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "vaisseau-spatial-dawn",
+    "titre": "Vaisseau spatial Dawn",
+    "categorie": "mars",
+    "sous_categorie": "exploration-robotique",
+    "lieu": "Cérès / Vesta (Ceinture principale d'astéroïdes)",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec 4 options et une seule bonne réponse.",
+      "qcm_multiple": "Question à choix multiples avec 5 options et 2 à 4 bonnes réponses.",
+      "vrai_faux": "Affirmation à valider par vrai (true) ou faux (false).",
+      "ordre": "Remise en ordre chronologique ou logique d'une liste d'éléments.",
+      "association": "Mise en correspondance de paires entre deux colonnes.",
+      "saisie_numerique": "Réponse chiffrée exacte avec une marge de tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "daw-n1-q01",
+          "type": "qcm",
+          "theme": "Destinations",
+          "question": "Quels sont les deux mondes rocheux que la sonde spatiale Dawn a visités ?",
+          "choix": [
+            "Vesta et Cérès",
+            "La Terre et la Lune",
+            "Saturne et Uranus",
+            "Mercure et Vénus"
+          ],
+          "reponse": "Vesta et Cérès",
+          "indice": "Ce sont les deux plus gros objets situés entre Mars et Jupiter.",
+          "explication": "Dawn a exploré l'astéroïde géant Vesta puis la planète naine Cérès[cite: 28].",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2023/06/dawn-logo.png"
+        },
+        {
+          "id": "daw-n1-q02",
+          "type": "vrai_faux",
+          "theme": "Orbite",
+          "question": "Vrai ou faux : La sonde Dawn s'est posée sur Cérès et a roulé sur ses cratères.",
+          "reponse": false,
+          "indice": "Dawn est un vaisseau qui tourne autour des astres depuis l'espace.",
+          "explication": "Faux, Dawn est restée en orbite autour de Vesta et de Cérès sans jamais atterrir[cite: 28].",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2025/05/e2-pia14317-vesta-dawn.jpg"
+        },
+        {
+          "id": "daw-n1-q03",
+          "type": "qcm",
+          "theme": "Comparaison taille",
+          "question": "Avec ses grands panneaux solaires déployés, à quoi ressemble la longueur de la sonde Dawn ?",
+          "choix": [
+            "Un camion semi-remorque",
+            "Un ballon de football",
+            "Un crayon à papier",
+            "Une petite chaise"
+          ],
+          "reponse": "Un camion semi-remorque",
+          "indice": "D'un bout à l'autre, elle mesure presque 20 mètres de long.",
+          "explication": "Avec ses grands panneaux solaires ouverts sur 19,7 mètres, Dawn est aussi longue qu'un camion semi-remorque[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3250/Dawn_Spacecraft_Diagram.jpeg"
+        },
+        {
+          "id": "daw-n1-q04",
+          "type": "qcm_multiple",
+          "theme": "Équipements",
+          "question": "De quoi le vaisseau spatial Dawn était-il équipé ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Deux grands panneaux solaires",
+            "Un moteur ionique",
+            "Une antenne pour communiquer avec la Terre",
+            "Des roues de vélo",
+            "Des ailes d'avion en tissu"
+          ],
+          "reponses": [
+            "Deux grands panneaux solaires",
+            "Un moteur ionique",
+            "Une antenne pour communiquer avec la Terre"
+          ],
+          "indice": "Il capturait la lumière du Soleil et envoyait ses images vers la Terre.",
+          "explication": "Dawn était doté de grands panneaux solaires, d'un moteur ionique et d'une antenne principale pour communiquer avec la Terre[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n1-q05",
+          "type": "saisie_numerique",
+          "theme": "Envergure",
+          "question": "Combien de mètres mesurait la sonde Dawn d'un bout à l'autre de ses panneaux solaires (arrondi au nombre entier le plus proche) ?",
+          "reponse": 20,
+          "unite": "mètres",
+          "tolerance": 0.5,
+          "indice": "Sa longueur exacte est 19,7 mètres, soit 65 pieds.",
+          "explication": "D'un bout à l'autre de ses panneaux solaires, Dawn mesurait 19,7 mètres (soit environ 20 mètres)[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n1-q06",
+          "type": "qcm",
+          "theme": "Découverte Cérès",
+          "question": "Qu'a-t-on observé d'étonnant à l'intérieur du cratère Occator sur Cérès ?",
+          "choix": [
+            "Des régions très brillantes",
+            "Une forêt de sapins",
+            "Un océan de lave rouge",
+            "Des nuages de pluie"
+          ],
+          "reponse": "Des régions très brillantes",
+          "indice": "Ces taches très claires brillent sur le sol gris de la planète naine.",
+          "explication": "Dawn a photographié de célèbres régions très brillantes à l'intérieur du cratère Occator sur Cérès[cite: 28].",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2018/11/dawn-pia22485-16.jpg"
+        },
+        {
+          "id": "daw-n1-q07",
+          "type": "vrai_faux",
+          "theme": "Fin de mission",
+          "question": "Vrai ou faux : À court de carburant, Dawn tourne toujours autour de Cérès sans alimentation électrique.",
+          "reponse": true,
+          "indice": "Elle est devenue un monument silencieux en orbite autour de Cérès.",
+          "explication": "Vrai, une fois à court de carburant, Dawn demeure en orbite perpétuelle et sans alimentation électrique autour de Cérès[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n1-q08",
+          "type": "ordre",
+          "theme": "Étapes du voyage",
+          "question": "Remets les étapes du voyage de Dawn dans le bon ordre :",
+          "elements": [
+            "Arrivée autour de Cérès",
+            "Décollage depuis la Terre",
+            "Arrivée autour de Vesta",
+            "Passage près de Mars"
+          ],
+          "reponse": [
+            "Décollage depuis la Terre",
+            "Passage près de Mars",
+            "Arrivée autour de Vesta",
+            "Arrivée autour de Cérès"
+          ],
+          "indice": "Dawn est passée près de Mars avant de rejoindre Vesta, puis Cérès.",
+          "explication": "Lancée en 2007, Dawn a survolé Mars en 2009, atteint Vesta en 2011 et rejoint Cérès en 2015[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n1-q09",
+          "type": "qcm",
+          "theme": "Planète naine",
+          "question": "Quel type d'astre est Cérès, le deuxième monde exploré par Dawn ?",
+          "choix": [
+            "Une planète naine",
+            "Une étoile brillante",
+            "Une lune de Saturne",
+            "Une planète géante gazeuse"
+          ],
+          "reponse": "Une planète naine",
+          "indice": "C'est un petit monde rond et couvert de cratères.",
+          "explication": "Cérès est une planète naine que Dawn a cartographiée en détail[cite: 28].",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2018/10/pia21906-ceres-full-globe-1280x900-1.jpg"
+        },
+        {
+          "id": "daw-n1-q10",
+          "type": "qcm_multiple",
+          "theme": "Reliefs découverts",
+          "question": "Quelles découvertes Dawn a-t-elle observées sur Vesta et Cérès ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "D'immenses bassins d'impact sur Vesta",
+            "Une montagne remarquable appelée Ahuna Mons sur Cérès",
+            "Des zones brillantes dans le cratère Occator",
+            "Des rivières d'eau douce",
+            "Des volcans de lave bleue en éruption"
+          ],
+          "reponses": [
+            "D'immenses bassins d'impact sur Vesta",
+            "Une montagne remarquable appelée Ahuna Mons sur Cérès",
+            "Des zones brillantes dans le cratère Occator"
+          ],
+          "indice": "Dawn a cartographié les cratères de Vesta ainsi qu'Occator et Ahuna Mons sur Cérès.",
+          "explication": "Dawn a découvert deux immenses bassins sur Vesta ainsi que les taches brillantes d'Occator et Ahuna Mons sur Cérès[cite: 28].",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2018/11/dawn-pia22769-16.jpg"
+        },
+        {
+          "id": "daw-n1-q11",
+          "type": "association",
+          "theme": "Fonctionnement",
+          "question": "Associe chaque élément de la sonde Dawn à son utilité :",
+          "colonne_gauche": [
+            "Panneaux solaires",
+            "Gaz xénon",
+            "Caméras",
+            "Antenne"
+          ],
+          "colonne_droite": [
+            "Communiquer avec la Terre",
+            "Cartographier Vesta et Cérès",
+            "Servir de carburant au moteur ionique",
+            "Capter la lumière du Soleil pour faire de l'électricité"
+          ],
+          "reponse": [
+            {
+              "gauche": "Panneaux solaires",
+              "droite": "Capter la lumière du Soleil pour faire de l'électricité"
+            },
+            {
+              "gauche": "Gaz xénon",
+              "droite": "Servir de carburant au moteur ionique"
+            },
+            {
+              "gauche": "Caméras",
+              "droite": "Cartographier Vesta et Cérès"
+            },
+            {
+              "gauche": "Antenne",
+              "droite": "Communiquer avec la Terre"
+            }
+          ],
+          "indice": "Pense à l'électricité, au carburant du moteur, aux photos et aux messages vers la Terre.",
+          "explication": "Chaque composant permettait à Dawn de s'alimenter en énergie, de se propulser, d'observer et de communiquer[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n1-q12",
+          "type": "qcm",
+          "theme": "Couleur",
+          "question": "De quelle couleur principale apparaît Cérès sur les photographies prises par Dawn ?",
+          "choix": [
+            "Grise et couverte de cratères",
+            "Rouge vif",
+            "Verte comme l'herbe",
+            "Bleue comme le ciel"
+          ],
+          "reponse": "Grise et couverte de cratères",
+          "indice": "Sur les clichés en croissant, elle ressemble à une sphère grise parsemée de cratères.",
+          "explication": "Sur les images de Dawn, Cérès apparaît comme un monde gris couvert de cratères[cite: 28].",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2025/03/pia21407-fig1.jpg"
+        },
+        {
+          "id": "daw-n1-q13",
+          "type": "qcm",
+          "theme": "Vesta",
+          "question": "Quel type d'objet céleste est Vesta, le premier monde visité par Dawn ?",
+          "choix": [
+            "Un astéroïde géant",
+            "Une comète glacée",
+            "Une étoile",
+            "Une planète gazeuse"
+          ],
+          "reponse": "Un astéroïde géant",
+          "indice": "La NASA le désigne sous le nom de « Giant Asteroid Vesta ».",
+          "explication": "Vesta est un astéroïde géant exploré en détail par la sonde Dawn[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/p/i/a/PIA17480_hires.jpg"
+        },
+        {
+          "id": "daw-n1-q14",
+          "type": "qcm_multiple",
+          "theme": "Vesta",
+          "question": "Quelles affirmations sont vraies concernant Vesta ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "C'est un astéroïde géant",
+            "Dawn l'a visité avant Cérès",
+            "Il possède deux énormes bassins d'impact au sud",
+            "Il est plus chaud que le Soleil",
+            "Il est entouré de quatre anneaux"
+          ],
+          "reponses": [
+            "C'est un astéroïde géant",
+            "Dawn l'a visité avant Cérès",
+            "Il possède deux énormes bassins d'impact au sud"
+          ],
+          "indice": "Vesta a été la première destination explorée par Dawn.",
+          "explication": "Vesta est un astéroïde géant marqué par deux colossaux bassins d'impact dans son hémisphère sud[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/d/dawn-vesta-1600.jpg"
+        },
+        {
+          "id": "daw-n1-q15",
+          "type": "qcm",
+          "theme": "Agence spatiale",
+          "question": "Quelle agence spatiale a dirigé la mission Dawn ?",
+          "choix": [
+            "La NASA",
+            "L'agence spatiale russe (Roscosmos)",
+            "L'agence spatiale japonaise (JAXA)",
+            "L'agence spatiale canadienne (ASC)"
+          ],
+          "reponse": "La NASA",
+          "indice": "C'est l'agence spatiale américaine.",
+          "explication": "Dawn est une mission scientifique de la NASA[cite: 28].",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2018/10/marc-rayman-mission-control.jpg"
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "daw-n2-q01",
+          "type": "qcm",
+          "theme": "Lancement",
+          "question": "À quelle date exacte le vaisseau spatial Dawn a-t-il été lancé ?",
+          "choix": [
+            "27 septembre 2007",
+            "17 février 2009",
+            "16 juillet 2011",
+            "5 mars 2015"
+          ],
+          "reponse": "27 septembre 2007",
+          "indice": "Le décollage a eu lieu en septembre 2007 à 11h34 UTC.",
+          "explication": "Dawn a été lancée le 27 septembre 2007 à 11h34 UTC[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q02",
+          "type": "qcm",
+          "theme": "Système propulsif",
+          "question": "Quel système de propulsion a permis à Dawn de voyager entre Vesta et Cérès ?",
+          "choix": [
+            "La propulsion ionique au xénon",
+            "La propulsion chimique à poudre",
+            "La propulsion nucléaire thermique",
+            "Des propulseurs à vapeur d'eau"
+          ],
+          "reponse": "La propulsion ionique au xénon",
+          "indice": "Ce système utilise un gaz noble appelé xénon.",
+          "explication": "Dawn était équipée d'un système de propulsion ionique fonctionnant au xénon[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3250/Dawn_Spacecraft_Diagram.jpeg"
+        },
+        {
+          "id": "daw-n2-q03",
+          "type": "saisie_numerique",
+          "theme": "Propergol",
+          "question": "Quelle masse de xénon (en kilogrammes) Dawn emportait-elle au lancement pour son système de propulsion ionique ?",
+          "reponse": 425,
+          "unite": "kg",
+          "tolerance": 0,
+          "indice": "Cela correspond à 937 livres.",
+          "explication": "Dawn emportait 425 kg (937 livres) de propergol xénon au lancement[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q04",
+          "type": "vrai_faux",
+          "theme": "Assistance gravitationnelle",
+          "question": "Vrai ou faux : Dawn a effectué un survol d'assistance gravitationnelle de Mars le 17 février 2009 avant d'atteindre Vesta.",
+          "reponse": true,
+          "indice": "Ce survol a eu lieu en février 2009.",
+          "explication": "Vrai, Dawn a réalisé une assistance gravitationnelle auprès de Mars le 17 février 2009[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q05",
+          "type": "qcm",
+          "theme": "Bassins de Vesta",
+          "question": "Quels sont les noms des deux colossaux bassins d'impact découverts par Dawn dans l'hémisphère sud de Vesta ?",
+          "choix": [
+            "Rheasilvia et Veneneia",
+            "Occator et Ahuna Mons",
+            "Elysium et Amazonis",
+            "Tycho et Copernic"
+          ],
+          "reponse": "Rheasilvia et Veneneia",
+          "indice": "Ils mesurent respectivement 500 km et 400 km de large.",
+          "explication": "Dawn a découvert sur Vesta le bassin Rheasilvia (500 km de large) et le cratère plus ancien Veneneia (400 km de large)[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/d/dawn-vesta-1600.jpg"
+        },
+        {
+          "id": "daw-n2-q06",
+          "type": "qcm_multiple",
+          "theme": "Spécifications",
+          "question": "Quelles caractéristiques techniques correspondent au vaisseau spatial Dawn ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une masse du vaisseau de 747,1 kg (1 647,1 livres)",
+            "Une envergure des panneaux solaires de 19,7 mètres (65 pieds)",
+            "Une arrivée autour de Vesta le 16 juillet 2011",
+            "Une masse de propergol xénon de 10 tonnes",
+            "Une mise en orbite autour de Saturne en 2017"
+          ],
+          "reponses": [
+            "Une masse du vaisseau de 747,1 kg (1 647,1 livres)",
+            "Une envergure des panneaux solaires de 19,7 mètres (65 pieds)",
+            "Une arrivée autour de Vesta le 16 juillet 2011"
+          ],
+          "indice": "Dawn pesait 747,1 kg et a atteint Vesta en juillet 2011.",
+          "explication": "Dawn pesait 747,1 kg, déployait 19,7 m de panneaux solaires et est arrivée autour de Vesta le 16 juillet 2011[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q07",
+          "type": "ordre",
+          "theme": "Chronologie",
+          "question": "Ordonne chronologiquement ces dates clés de la mission Dawn :",
+          "elements": [
+            "Arrivée autour de Cérès (5 mars 2015)",
+            "Lancement de Dawn (27 septembre 2007)",
+            "Fin de la mission primaire (juin 2016)",
+            "Arrivée autour de Vesta (16 juillet 2011)"
+          ],
+          "reponse": [
+            "Lancement de Dawn (27 septembre 2007)",
+            "Arrivée autour de Vesta (16 juillet 2011)",
+            "Arrivée autour de Cérès (5 mars 2015)",
+            "Fin de la mission primaire (juin 2016)"
+          ],
+          "indice": "Vesta a été atteinte en 2011, Cérès en 2015 et la mission primaire s'est achevée en juin 2016.",
+          "explication": "Dawn a décollé en 2007, atteint Vesta en 2011, rejoint Cérès en 2015 et terminé sa mission primaire en juin 2016[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q08",
+          "type": "qcm",
+          "theme": "Fin de vie",
+          "question": "L'épuisement de quel carburant a privé Dawn de son contrôle d'orientation à la fin de sa mission ?",
+          "choix": [
+            "L'hydrazine",
+            "Le xénon",
+            "L'hydrogène liquide",
+            "L'hélium"
+          ],
+          "reponse": "L'hydrazine",
+          "indice": "Il lui restait encore environ 14 kg de xénon, mais ce carburant d'orientation s'est épuisé.",
+          "explication": "Sans hydrazine, Dawn ne pouvait plus contrôler son orientation pour pointer ses panneaux solaires vers le Soleil ni son antenne vers la Terre[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q09",
+          "type": "vrai_faux",
+          "theme": "Dimensions châssis",
+          "question": "Vrai ou faux : Le corps central de Dawn mesurait 1,64 m de long, 1,27 m de large et 1,77 m de haut.",
+          "reponse": true,
+          "indice": "Ces dimensions correspondent à 5,4 pieds × 4,2 pieds × 5,8 pieds.",
+          "explication": "Vrai, les dimensions du corps central de Dawn étaient de 1,64 m × 1,27 m × 1,77 m[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3250/Dawn_Spacecraft_Diagram.jpeg"
+        },
+        {
+          "id": "daw-n2-q10",
+          "type": "association",
+          "theme": "Dates et événements",
+          "question": "Associe chaque date à l'événement de la mission Dawn correspondant :",
+          "colonne_gauche": [
+            "27 septembre 2007",
+            "17 février 2009",
+            "16 juillet 2011",
+            "5 mars 2015"
+          ],
+          "colonne_droite": [
+            "Arrivée autour de Cérès",
+            "Assistance gravitationnelle de Mars",
+            "Lancement de la sonde",
+            "Arrivée autour de Vesta"
+          ],
+          "reponse": [
+            {
+              "gauche": "27 septembre 2007",
+              "droite": "Lancement de la sonde"
+            },
+            {
+              "gauche": "17 février 2009",
+              "droite": "Assistance gravitationnelle de Mars"
+            },
+            {
+              "gauche": "16 juillet 2011",
+              "droite": "Arrivée autour de Vesta"
+            },
+            {
+              "gauche": "5 mars 2015",
+              "droite": "Arrivée autour de Cérès"
+            }
+          ],
+          "indice": "Suis l'ordre chronologique de 2007 à 2015.",
+          "explication": "Ces quatre dates retracent le lancement, le survol de Mars et l'arrivée autour de Vesta puis de Cérès[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q11",
+          "type": "qcm",
+          "theme": "Relief Cérès",
+          "question": "Quel relief montagneux remarquable de Cérès a été étudié par Dawn ?",
+          "choix": [
+            "Ahuna Mons",
+            "Rheasilvia",
+            "Veneneia",
+            "Elysium Mons"
+          ],
+          "reponse": "Ahuna Mons",
+          "indice": "C'est l'un des repères majeurs de Cérès avec le cratère Occator.",
+          "explication": "Dawn a photographié et étudié Ahuna Mons sur la planète naine Cérès[cite: 28].",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2018/11/dawn-pia22769-16.jpg"
+        },
+        {
+          "id": "daw-n2-q12",
+          "type": "qcm_multiple",
+          "theme": "Perte de contrôle",
+          "question": "Que s'est-il passé lorsque Dawn a épuisé ses réserves d'hydrazine ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La sonde n'a plus pu maintenir ses antennes pointées vers la Terre pour communiquer",
+            "La sonde n'a plus pu orienter ses panneaux solaires vers le Soleil pour se recharger",
+            "Le vaisseau est resté en orbite inerte autour de Cérès",
+            "La sonde a déclenché un retour automatique vers la Terre",
+            "Les moteurs ioniques ont propulsé la sonde hors du Système solaire"
+          ],
+          "reponses": [
+            "La sonde n'a plus pu maintenir ses antennes pointées vers la Terre pour communiquer",
+            "La sonde n'a plus pu orienter ses panneaux solaires vers le Soleil pour se recharger",
+            "Le vaisseau est resté en orbite inerte autour de Cérès"
+          ],
+          "indice": "Sans contrôle d'orientation, la communication et la recharge électrique sont devenues impossibles.",
+          "explication": "Privée d'hydrazine, Dawn ne pouvait plus orienter ni ses antennes ni ses panneaux solaires et demeure en orbite inerte autour de Cérès[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q13",
+          "type": "qcm",
+          "theme": "Dimensions Vesta",
+          "question": "Quelle est la largeur du bassin d'impact Rheasilvia sur Vesta ?",
+          "choix": [
+            "500 km (310 miles)",
+            "400 km (250 miles)",
+            "19,7 km",
+            "1 647 km"
+          ],
+          "reponse": "500 km (310 miles)",
+          "indice": "Il est plus large que le cratère Veneneia (400 km).",
+          "explication": "Rheasilvia mesure 500 km (310 miles) de large dans l'hémisphère sud de Vesta[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/d/dawn-vesta-1600.jpg"
+        },
+        {
+          "id": "daw-n2-q14",
+          "type": "qcm",
+          "theme": "Extensions de mission",
+          "question": "Quand ont débuté les deux missions étendues de Dawn après la fin de sa mission primaire en juin 2016 ?",
+          "choix": [
+            "Juillet 2016 et octobre 2017",
+            "Septembre 2007 et février 2009",
+            "Juillet 2011 et mars 2015",
+            "Mai 2018 et décembre 2022"
+          ],
+          "reponse": "Juillet 2016 et octobre 2017",
+          "indice": "La première extension a débuté dès le mois suivant juin 2016.",
+          "explication": "La première mission étendue a commencé en juillet 2016 et la seconde en octobre 2017[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n2-q15",
+          "type": "qcm_multiple",
+          "theme": "Cartographie",
+          "question": "Quelles données et images Dawn a-t-elle produites lors de son exploration de Vesta et Cérès ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une carte thermique de Vesta",
+            "Des images globales de la planète naine Cérès",
+            "Des données radiométriques",
+            "Des sismogrammes enregistrés à la surface de Vesta",
+            "Des échantillons de roches ramenés sur Terre"
+          ],
+          "reponses": [
+            "Une carte thermique de Vesta",
+            "Des images globales de la planète naine Cérès",
+            "Des données radiométriques"
+          ],
+          "indice": "Dawn a réalisé ces observations depuis l'orbite.",
+          "explication": "Dawn a produit une carte thermique de Vesta, des images globales de Cérès ainsi que des données radiométriques[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/2947/Vesta_heat_map.jpeg"
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "daw-n3-q01",
+          "type": "saisie_numerique",
+          "theme": "Performances ioniques",
+          "question": "À poussée maximale, le moteur ionique de Dawn consomme environ 0,25 kg de xénon par jour pour modifier sa vitesse de 10 m/s. Combien de kilogrammes de xénon faut-il pour obtenir un changement de vitesse de 1 000 m/s ?",
+          "reponse": 25,
+          "unite": "kg",
+          "tolerance": 0,
+          "indice": "Un changement de vitesse de 1 000 m/s prend 100 jours à raison de 0,25 kg par jour.",
+          "explication": "Pour atteindre 1 000 m/s de changement de vitesse en 100 jours, le moteur ionique ne requiert que 25 kg de xénon[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q02",
+          "type": "qcm",
+          "theme": "Compromis propulsif",
+          "question": "Quel compromis physique caractérise le moteur ionique de Dawn selon les données de la mission ?",
+          "choix": [
+            "Une énorme économie de masse de propergol (25 kg de xénon pour 1 000 m/s) au prix d'une accélération lente s'étalant sur 100 jours",
+            "Une poussée instantanée très élevée permettant de changer d'orbite en quelques secondes",
+            "Un fonctionnement indépendant de toute alimentation électrique solaire",
+            "Une consommation de plusieurs tonnes de propergol par jour de poussée"
+          ],
+          "reponse": "Une énorme économie de masse de propergol (25 kg de xénon pour 1 000 m/s) au prix d'une accélération lente s'étalant sur 100 jours",
+          "indice": "Seulement 25 kg de xénon sont nécessaires pour 1 000 m/s, mais il faut 100 jours de poussée.",
+          "explication": "Le moteur ionique permet une économie considérable de masse au lancement (25 kg pour 1 000 m/s) mais demande 100 jours pour atteindre cette variation de vitesse[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q03",
+          "type": "qcm",
+          "theme": "Anomalie mécanique",
+          "question": "Quelle défaillance matérielle a contraint Dawn à confier le contrôle de son orientation à ses propulseurs à hydrazine ?",
+          "choix": [
+            "L'arrêt successif de ses roues de réaction",
+            "La rupture mécanique de l'articulation de ses deux panneaux solaires",
+            "La fuite complète de ses réservoirs de xénon avant l'arrivée à Vesta",
+            "La perte de son ordinateur de bord principal lors du survol de Mars"
+          ],
+          "reponse": "L'arrêt successif de ses roues de réaction",
+          "indice": "Une roue de réaction s'est arrêtée le 23 avril, puis une troisième roue a cessé de fonctionner.",
+          "explication": "Après l'arrêt d'une roue de réaction le 23 avril puis d'une troisième, Dawn a basculé en mode de sauvegarde et assigné le contrôle d'orientation à ses propulseurs à hydrazine[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q04",
+          "type": "vrai_faux",
+          "theme": "Bilan propergol final",
+          "question": "Vrai ou faux : Lorsque Dawn a épuisé ses réserves d'hydrazine et cessé ses opérations, il lui restait encore environ 14 kg (31 livres) de xénon dans ses réservoirs.",
+          "reponse": true,
+          "indice": "La réserve restante estimée de xénon était de 31 livres.",
+          "explication": "Vrai, la réserve restante estimée de xénon était de 14 kg (31 livres) alors que l'épuisement de l'hydrazine a mis fin au contrôle d'orientation[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q05",
+          "type": "qcm_multiple",
+          "theme": "Bilan massique",
+          "question": "Quelles données exactes décrivent la masse et les ergols du vaisseau spatial Dawn ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Masse du vaisseau (spacecraft weight) : 747,1 kg (1 647,1 livres)",
+            "Xénon embarqué au lancement : 425 kg (937 livres)",
+            "Débit maximal du moteur ionique : environ 0,25 kg de xénon par jour",
+            "Masse de xénon restante estimée : 14 kg (31 livres)",
+            "Masse de xénon nécessaire pour un changement de vitesse de 1 000 m/s : 425 kg"
+          ],
+          "reponses": [
+            "Masse du vaisseau (spacecraft weight) : 747,1 kg (1 647,1 livres)",
+            "Xénon embarqué au lancement : 425 kg (937 livres)",
+            "Débit maximal du moteur ionique : environ 0,25 kg de xénon par jour",
+            "Masse de xénon restante estimée : 14 kg (31 livres)"
+          ],
+          "indice": "Pour 1 000 m/s, 25 kg de xénon suffisent, et non 425 kg.",
+          "explication": "Dawn pesait 747,1 kg, emportait 425 kg de xénon, consommait au maximum 0,25 kg/jour et conservait environ 14 kg de xénon[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q06",
+          "type": "qcm",
+          "theme": "Gestion de crise",
+          "question": "Comment la sonde Dawn a-t-elle réagi automatiquement lorsqu'une troisième roue de réaction a cessé de fonctionner ?",
+          "choix": [
+            "Elle est entrée dans l'un de ses modes de sauvegarde (safe modes) et a assigné le contrôle de son orientation aux propulseurs à hydrazine",
+            "Elle a immédiatement coupé ses panneaux solaires et éteint son émetteur radio définitivement",
+            "Elle a allumé son moteur ionique à pleine puissance pendant six mois sans interruption",
+            "Elle a largué ses roues de réaction défectueuses dans l'espace"
+          ],
+          "reponse": "Elle est entrée dans l'un de ses modes de sauvegarde (safe modes) et a assigné le contrôle de son orientation aux propulseurs à hydrazine",
+          "indice": "Le vaisseau a correctement basculé vers un mode de sauvegarde.",
+          "explication": "Lorsqu'une troisième roue de réaction s'est arrêtée, Dawn est entrée dans l'un de ses modes de sauvegarde et a assigné le contrôle d'orientation à ses propulseurs à hydrazine[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q07",
+          "type": "association",
+          "theme": "Métrologie Dawn",
+          "question": "Associe chaque grandeur physique de Dawn à sa valeur exacte :",
+          "colonne_gauche": [
+            "Envergure totale des panneaux solaires",
+            "Dimensions du corps central",
+            "Masse du vaisseau",
+            "Variation de vitesse journalière à poussée maximale"
+          ],
+          "colonne_droite": [
+            "10 m/s par jour",
+            "1,64 m × 1,27 m × 1,77 m",
+            "747,1 kg (1 647,1 livres)",
+            "19,7 mètres (65 pieds)"
+          ],
+          "reponse": [
+            {
+              "gauche": "Envergure totale des panneaux solaires",
+              "droite": "19,7 mètres (65 pieds)"
+            },
+            {
+              "gauche": "Dimensions du corps central",
+              "droite": "1,64 m × 1,27 m × 1,77 m"
+            },
+            {
+              "gauche": "Masse du vaisseau",
+              "droite": "747,1 kg (1 647,1 livres)"
+            },
+            {
+              "gauche": "Variation de vitesse journalière à poussée maximale",
+              "droite": "10 m/s par jour"
+            }
+          ],
+          "indice": "Relie chaque paramètre géométrique, massique ou cinématique à sa valeur.",
+          "explication": "Ces quatre valeurs résument les spécifications techniques du vaisseau Dawn[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q08",
+          "type": "ordre",
+          "theme": "Chronologie de mission",
+          "question": "Ordonne chronologiquement ces jalons de la mission Dawn :",
+          "elements": [
+            "Début de la seconde mission étendue (octobre 2017)",
+            "Fin de la mission primaire (juin 2016)",
+            "Arrivée autour de Cérès (5 mars 2015)",
+            "Début de la première mission étendue (juillet 2016)"
+          ],
+          "reponse": [
+            "Arrivée autour de Cérès (5 mars 2015)",
+            "Fin de la mission primaire (juin 2016)",
+            "Début de la première mission étendue (juillet 2016)",
+            "Début de la seconde mission étendue (octobre 2017)"
+          ],
+          "indice": "Dawn est arrivée à Cérès en mars 2015 et a achevé sa mission primaire en juin 2016 avant deux extensions.",
+          "explication": "Cette séquence retrace les phases de Dawn autour de Cérès entre mars 2015 et octobre 2017[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q09",
+          "type": "qcm",
+          "theme": "Stratigraphie Vesta",
+          "question": "Quelle relation d'ancienneté Dawn a-t-elle révélée entre les deux bassins méridionaux de Vesta, Rheasilvia et Veneneia ?",
+          "choix": [
+            "Veneneia (400 km) est un cratère d'impact plus ancien que le bassin Rheasilvia (500 km)",
+            "Rheasilvia (400 km) s'est formé avant Veneneia (500 km)",
+            "Les deux bassins sont situés aux pôles nord et sud",
+            "Les deux structures se sont formées simultanément"
+          ],
+          "reponse": "Veneneia (400 km) est un cratère d'impact plus ancien que le bassin Rheasilvia (500 km)",
+          "indice": "Rheasilvia mesure 500 km de large et le cratère Veneneia de 400 km est plus ancien.",
+          "explication": "Dawn a découvert dans l'hémisphère sud de Vesta le bassin Rheasilvia (500 km de large) et le cratère plus ancien Veneneia (400 km de large)[cite: 28].",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/d/dawn-vesta-1600.jpg"
+        },
+        {
+          "id": "daw-n3-q10",
+          "type": "vrai_faux",
+          "theme": "Statut orbital",
+          "question": "Vrai ou faux : Après l'épuisement de son hydrazine, Dawn demeure pour au moins les prochaines décennies un monument céleste inerte en orbite autour de Cérès.",
+          "reponse": true,
+          "indice": "La NASA décrit Dawn comme un « inert celestial monument » en orbite autour de Cérès.",
+          "explication": "Vrai, Dawn demeure pour au moins les prochaines décennies — et probablement bien plus longtemps — un monument céleste inerte en orbite autour de Cérès[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q11",
+          "type": "qcm",
+          "theme": "Opérations de vol",
+          "question": "Pourquoi Dawn devait-elle interrompre sa poussée ionique lors des séquences de communication avec la Terre ?",
+          "choix": [
+            "Pour pivoter et pointer son antenne principale vers la Terre afin de recevoir les mises à jour depuis le sol",
+            "Parce que les ondes radio faisaient exploser le gaz xénon",
+            "Parce que le moteur ionique ne fonctionnait que dans l'ombre de Cérès",
+            "Pour éviter d'interférer avec les radars terrestres"
+          ],
+          "reponse": "Pour pivoter et pointer son antenne principale vers la Terre afin de recevoir les mises à jour depuis le sol",
+          "indice": "Le journal de bord du 18 novembre indique qu'elle a stoppé sa poussée ionique pour pointer son antenne principale vers la Terre.",
+          "explication": "Dawn arrêtait sa poussée ionique selon le calendrier prévu et pivotait pour pointer son antenne principale vers la Terre afin de recevoir les mises à jour[cite: 28].",
+          "media_url": null
+        },
+        {
+          "id": "daw-n3-q12",
+          "type": "qcm_multiple",
+          "theme": "Observations Cérès",
+          "question": "Quels aspects de Cérès sont documentés par les ressources visuelles et scientifiques de Dawn ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Les régions brillantes du cratère Occator",
+            "Le relief remarquable Ahuna Mons",
+            "La structure interne de la planète naine Cérès",
+            "Des océans liquides de méthane couvrant l'hémisphère nord",
+            "Une atmosphère épaisse d'oxygène respirable"
+          ],
+          "reponses": [
+            "Les régions brillantes du cratère Occator",
+            "Le relief remarquable Ahuna Mons",
+            "La structure interne de la planète naine Cérès"
+          ],
+          "indice": "Occator, Ahuna Mons et l'intérieur de Cérès font partie des illustrations et images phares de la mission.",
+          "explication": "Les ressources de la mission Dawn mettent en évidence les régions brillantes d'Occator, Ahuna Mons et l'intérieur de Cérès[cite: 28].",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2025/08/e1-pia26570-ceres-illustration.png"
+        }
+      ]
+    }
+  }
+}

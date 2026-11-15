@@ -1,0 +1,841 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "vehicules-lunaires-mobiles-lrv",
+    "titre": "Quiz : Les véhicules lunaires mobiles (LRV) et Apollo 15",
+    "categorie": "lune",
+    "sous_categorie": "exploration-habitee",
+    "lieu": "Mare Imbrium (Hadley-Apennine), Lune",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec une seule bonne réponse parmi 4 propositions.",
+      "qcm_multiple": "Question à choix multiples avec 2 à 4 bonnes réponses parmi 5 propositions.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Éléments à remettre dans le bon ordre chronologique ou logique.",
+      "association": "Éléments de deux colonnes à relier par paires.",
+      "saisie_numerique": "Valeur numérique précise à saisir avec une unité et une marge de tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "lrv-n1-q01",
+          "type": "qcm",
+          "theme": "Surnom",
+          "question": "Quel surnom amusant donne-t-on aux véhicules lunaires mobiles (LRV) pilotés par les astronautes ?",
+          "indice": "Cela ressemble au nom d'une petite voiture des sables.",
+          "choix": [
+            "Les buggies lunaires",
+            "Les sous-marins lunaires",
+            "Les fusées à roulettes",
+            "Les traîneaux de l'espace"
+          ],
+          "reponse": "Les buggies lunaires",
+          "explication": "Les trois véhicules lunaires mobiles électriques sont surnommés des « buggies lunaires » et sont restés stationnés sur la Lune.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/as15_88_11901.jpg"
+        },
+        {
+          "id": "lrv-n1-q02",
+          "type": "saisie_numerique",
+          "theme": "Quantité",
+          "question": "Combien de véhicules lunaires mobiles (LRV) ont été envoyés et laissés sur la Lune ?",
+          "indice": "Ils ont été utilisés lors des missions Apollo 15, 16 et 17.",
+          "reponse": 3,
+          "unite": "véhicules",
+          "tolerance": 0,
+          "explication": "Trois buggies lunaires électriques ont été utilisés sur la Lune (missions Apollo 15, 16 et 17) et y sont restés.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q03",
+          "type": "qcm",
+          "theme": "Énergie",
+          "question": "Avec quelle énergie fonctionnaient les véhicules lunaires mobiles ?",
+          "indice": "Ils n'utilisaient pas d'essence comme les voitures ordinaires.",
+          "choix": [
+            "À l'électricité",
+            "À l'essence",
+            "Au charbon",
+            "À la vapeur d'eau"
+          ],
+          "reponse": "À l'électricité",
+          "explication": "Les LRV étaient des véhicules électriques pilotés directement par les astronautes sur la Lune.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q04",
+          "type": "vrai_faux",
+          "theme": "Stationnement",
+          "question": "Vrai ou faux : Les astronautes ont ramené les buggies lunaires sur Terre après leur mission.",
+          "indice": "Lis bien la description : ils sont stationnés en permanence sur la Lune.",
+          "reponse": false,
+          "explication": "Faux, les trois véhicules lunaires mobiles sont restés stationnés en permanence sur la surface de la Lune.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/as17_146_22367.jpg"
+        },
+        {
+          "id": "lrv-n1-q05",
+          "type": "qcm",
+          "theme": "Première mission",
+          "question": "Quelle mission Apollo a utilisé pour la toute première fois un véhicule lunaire mobile ?",
+          "indice": "Son module lunaire s'appelait Falcon et a atterri en juillet 1971.",
+          "choix": [
+            "Apollo 15",
+            "Apollo 11",
+            "Apollo 8",
+            "Apollo 13"
+          ],
+          "reponse": "Apollo 15",
+          "explication": "Apollo 15 (juillet 1971) a été la première mission à utiliser un véhicule lunaire mobile sur la Lune.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_15_lm.jpg"
+        },
+        {
+          "id": "lrv-n1-q06",
+          "type": "qcm_multiple",
+          "theme": "Utilité du LRV",
+          "question": "À quoi servait le véhicule lunaire mobile pendant la mission Apollo 15 ? (Plusieurs bonnes réponses)",
+          "indice": "Il aidait les astronautes à se déplacer et à rapporter des trésors scientifiques.",
+          "choix": [
+            "À transporter les astronautes plus loin de leur vaisseau",
+            "À explorer des montagnes et des cratères",
+            "À rapporter des roches et du sol lunaires",
+            "À voler jusqu'à la Terre",
+            "À nager dans les mers lunaires"
+          ],
+          "reponses": [
+            "À transporter les astronautes plus loin de leur vaisseau",
+            "À explorer des montagnes et des cratères",
+            "À rapporter des roches et du sol lunaires"
+          ],
+          "explication": "Grâce au LRV, les astronautes ont parcouru 27,9 km et collecté 77,31 kg d'échantillons de roches et de sol.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q07",
+          "type": "qcm",
+          "theme": "Expérience célèbre",
+          "question": "À la fin d'Apollo 15, quels deux objets l'astronaute David Scott a-t-il lâchés en même temps devant la caméra ?",
+          "indice": "Un outil lourd de bricolage et quelque chose de très léger qui vient d'un oiseau.",
+          "choix": [
+            "Un marteau et une plume",
+            "Une pomme et une pierre",
+            "Un ballon et une clé",
+            "Un livre et une pièce"
+          ],
+          "reponse": "Un marteau et une plume",
+          "explication": "Sur la Lune où il n'y a pas d'air, le marteau et la plume sont tombés exactement à la même vitesse !",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q08",
+          "type": "vrai_faux",
+          "theme": "Chute libre",
+          "question": "Vrai ou faux : Sur la Lune, le marteau et la plume ont touché le sol en même temps.",
+          "indice": "Il n'y a pas d'air sur la Lune pour freiner la plume.",
+          "reponse": true,
+          "explication": "Vrai ! En l'absence d'atmosphère sur la Lune, la résistance de l'air n'existe pas : le marteau et la plume tombent à la même vitesse.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q09",
+          "type": "qcm",
+          "theme": "Fusée",
+          "question": "Quelle géante fusée a lancé la mission Apollo 15 vers la Lune ?",
+          "indice": "Elle porte le nom d'une planète entourée d'anneaux et le chiffre 5.",
+          "choix": [
+            "Saturn 5",
+            "Ariane 5",
+            "Falcon 9",
+            "Soyouz"
+          ],
+          "reponse": "Saturn 5",
+          "explication": "Comme les autres missions lunaires Apollo, Apollo 15 a décollé grâce à la puissante fusée Saturn 5.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q10",
+          "type": "ordre",
+          "theme": "Sorties sur la Lune",
+          "question": "Remets dans l'ordre les distances parcourues par les astronautes lors des trois sorties (EVA) d'Apollo 15.",
+          "indice": "La première sortie faisait 10,3 km, la deuxième était la plus longue (12,5 km) et la troisième la plus courte (5,1 km).",
+          "elements": [
+            "Sortie 3 : 5,1 km",
+            "Sortie 1 : 10,3 km",
+            "Sortie 2 : 12,5 km"
+          ],
+          "reponse": [
+            "Sortie 1 : 10,3 km",
+            "Sortie 2 : 12,5 km",
+            "Sortie 3 : 5,1 km"
+          ],
+          "explication": "Les astronautes ont parcouru 10,3 km lors de la 1re sortie, 12,5 km lors de la 2e et 5,1 km lors de la 3e, soit 27,9 km au total.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q11",
+          "type": "qcm",
+          "theme": "Transport",
+          "question": "Où était rangé le véhicule lunaire pendant le voyage entre la Terre et la Lune ?",
+          "indice": "Il était plié à l'intérieur de l'étage inférieur du module qui se pose sur la Lune.",
+          "choix": [
+            "Dans l'étage de descente du module lunaire",
+            "Accroché au nez de la fusée à l'air libre",
+            "Dans une remorque tirée derrière le vaisseau",
+            "Sur le toit de la cabine des astronautes"
+          ],
+          "reponse": "Dans l'étage de descente du module lunaire",
+          "explication": "L'étage de descente du module lunaire disposait d'un espace de rangement spécial pour transporter le rover sur Apollo 15, 16 et 17.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q12",
+          "type": "qcm_multiple",
+          "theme": "Missions avec LRV",
+          "question": "Quelles missions Apollo ont emporté un véhicule lunaire mobile ? (Plusieurs bonnes réponses)",
+          "indice": "Ce sont les trois dernières missions du programme Apollo.",
+          "choix": [
+            "Apollo 15",
+            "Apollo 16",
+            "Apollo 17",
+            "Apollo 11",
+            "Apollo 12"
+          ],
+          "reponses": [
+            "Apollo 15",
+            "Apollo 16",
+            "Apollo 17"
+          ],
+          "explication": "Les trois dernières missions lunaires — Apollo 15, Apollo 16 et Apollo 17 — ont chacune emporté un LRV.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/as17_146_22367.jpg"
+        },
+        {
+          "id": "lrv-n1-q13",
+          "type": "association",
+          "theme": "Équipage Apollo 15",
+          "question": "Associe chaque astronaute d'Apollo 15 à son rôle dans la mission.",
+          "indice": "Deux sont descendus sur la Lune avec Falcon et un est resté en orbite.",
+          "colonne_gauche": [
+            "David R. Scott",
+            "James B. Irwin",
+            "Alfred M. Worden"
+          ],
+          "colonne_droite": [
+            "Pilote du module de commande resté en orbite",
+            "Pilote du module lunaire",
+            "Commandant de la mission et pilote du LRV"
+          ],
+          "reponse": [
+            {
+              "gauche": "David R. Scott",
+              "droite": "Commandant de la mission et pilote du LRV"
+            },
+            {
+              "gauche": "James B. Irwin",
+              "droite": "Pilote du module lunaire"
+            },
+            {
+              "gauche": "Alfred M. Worden",
+              "droite": "Pilote du module de commande resté en orbite"
+            }
+          ],
+          "explication": "David Scott (commandant) et James Irwin (pilote du LM) ont exploré la Lune tandis qu'Alfred Worden pilotait le module de commande en orbite.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q14",
+          "type": "qcm",
+          "theme": "Roches lunaires",
+          "question": "Quel poids total de roches et de sol lunaires les astronautes d'Apollo 15 ont-ils rapporté ?",
+          "indice": "C'est un peu plus de 77 kilogrammes, soit le poids d'un adulte.",
+          "choix": [
+            "77,31 kg",
+            "5 kg",
+            "500 kg",
+            "1 000 kg"
+          ],
+          "reponse": "77,31 kg",
+          "explication": "Grâce à leurs déplacements en LRV, Scott et Irwin ont collecté 77,31 kg d'échantillons lunaires.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n1-q15",
+          "type": "qcm_multiple",
+          "theme": "Hommage sur la Lune",
+          "question": "Qu'ont laissé les astronautes d'Apollo 15 sur la Lune en hommage aux explorateurs de l'espace décédés ? (Plusieurs bonnes réponses)",
+          "indice": "Ils ont déposé deux petits objets commémoratifs sur le sol lunaire.",
+          "choix": [
+            "Une plaque commémorative",
+            "Une petite figurine",
+            "Un véhicule LRV fonctionnel pour le retour",
+            "Un drapeau géant en pierre",
+            "Un téléviseur couleur"
+          ],
+          "reponses": [
+            "Une plaque commémorative",
+            "Une petite figurine"
+          ],
+          "explication": "Les astronautes ont déposé une plaque et une petite figurine en mémoire des quatorze explorateurs spatiaux américains et soviétiques décédés.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "lrv-n2-q01",
+          "type": "qcm",
+          "theme": "Lancement et alunissage",
+          "question": "À quelles dates la mission Apollo 15 a-t-elle été lancée puis s'est-elle posée sur la Lune ?",
+          "indice": "Lancement fin juillet 1971, alunissage quatre jours plus tard.",
+          "choix": [
+            "Lancement le 26 juillet 1971 et alunissage le 30 juillet 1971",
+            "Lancement le 16 juillet 1969 et alunissage le 20 juillet 1969",
+            "Lancement le 14 novembre 1969 et alunissage le 19 novembre 1969",
+            "Lancement le 17 avril 1967 et alunissage le 20 avril 1967"
+          ],
+          "reponse": "Lancement le 26 juillet 1971 et alunissage le 30 juillet 1971",
+          "explication": "Apollo 15 a décollé de Cap Canaveral le 26 juillet 1971 et le module Falcon a atterri sur la Lune le 30 juillet 1971.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q02",
+          "type": "qcm",
+          "theme": "Site d'exploration",
+          "question": "Dans quelle région lunaire le module Falcon d'Apollo 15 s'est-il posé ?",
+          "indice": "Au pied d'une chaîne de montagnes portant le nom d'un massif italien.",
+          "choix": [
+            "Mare Imbrium, au pied des monts Apennins",
+            "Mare Tranquillitatis",
+            "Oceanus Procellarum",
+            "Le cratère Tycho"
+          ],
+          "reponse": "Mare Imbrium, au pied des monts Apennins",
+          "explication": "Apollo 15 a atterri dans la région de Mare Imbrium, au pied de la chaîne des monts Apennins, près du sillon Hadley.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_15_lm.jpg"
+        },
+        {
+          "id": "lrv-n2-q03",
+          "type": "saisie_numerique",
+          "theme": "Distance parcourue",
+          "question": "Quelle distance totale (en kilomètres) les astronautes d'Apollo 15 ont-ils parcourue sur la Lune lors de leurs trois sorties ?",
+          "indice": "Additionne 10,3 km + 12,5 km + 5,1 km.",
+          "reponse": 27.9,
+          "unite": "km",
+          "tolerance": 0.1,
+          "explication": "Au cours de leurs trois sorties extravéhiculaires, Scott et Irwin ont parcouru un total de 27,9 km.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/as15_88_11901.jpg"
+        },
+        {
+          "id": "lrv-n2-q04",
+          "type": "vrai_faux",
+          "theme": "Rayon d'action",
+          "question": "Vrai ou faux : Le LRV d'Apollo 15 a permis d'explorer des zones situées jusqu'à 50 km du module lunaire.",
+          "indice": "Le rayon d'éloignement maximal autour du LM était dix fois plus petit.",
+          "reponse": false,
+          "explication": "Faux, le LRV a été utilisé pour explorer des régions situées dans un rayon de 5 km autour du site d'atterrissage du LM.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q05",
+          "type": "qcm",
+          "theme": "Durée des sorties",
+          "question": "Quelle a été la durée cumulée des trois sorties extravéhiculaires (EVA) de Scott et Irwin sur la Lune ?",
+          "indice": "Un peu plus de 18 heures et demie.",
+          "choix": [
+            "18 heures et 35 minutes",
+            "7 heures et 45 minutes",
+            "2 heures et 31 minutes",
+            "66 heures et 55 minutes"
+          ],
+          "reponse": "18 heures et 35 minutes",
+          "explication": "Les trois sorties lunaires de Scott et Irwin ont totalisé 18 heures et 35 minutes (sur un séjour total en surface de 66 h 55 min).",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q06",
+          "type": "qcm_multiple",
+          "theme": "Cratères explorés",
+          "question": "Quels cratères ou formations géologiques ont été visités grâce au LRV lors des trois sorties d'Apollo 15 ? (Plusieurs bonnes réponses)",
+          "indice": "Retrouve les noms cités dans le profil des trois sorties (EVA 1, 2 et 3).",
+          "choix": [
+            "Hadley Rille (sillon Hadley)",
+            "Elbow Crater",
+            "Spur Crater",
+            "Scarp Crater",
+            "Olympus Mons"
+          ],
+          "reponses": [
+            "Hadley Rille (sillon Hadley)",
+            "Elbow Crater",
+            "Spur Crater",
+            "Scarp Crater"
+          ],
+          "explication": "Lors des trois sorties en LRV, les astronautes ont exploré Hadley Rille ainsi que plusieurs cratères dont Elbow, St. George, Index, Arbeit, Crescent, Dune, Spur et Scarp.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q07",
+          "type": "qcm",
+          "theme": "Carottage",
+          "question": "À quelle profondeur sous la surface lunaire les astronautes d'Apollo 15 ont-ils prélevé un échantillon par carottage près du LM ?",
+          "indice": "Cette profondeur correspond à la hauteur d'un étage d'immeuble.",
+          "choix": [
+            "3 mètres",
+            "30 centimètres",
+            "15 mètres",
+            "50 mètres"
+          ],
+          "reponse": "3 mètres",
+          "explication": "À la fin de la première sortie, un échantillon carotté a été prélevé à 3 mètres sous la surface lunaire près du LM.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q08",
+          "type": "ordre",
+          "theme": "Chronologie de mission",
+          "question": "Ordonne chronologiquement ces étapes de la mission Apollo 15.",
+          "indice": "Suis le déroulement du 30 juillet au 2 août 1971.",
+          "elements": [
+            "Décollage du module lunaire Falcon (2 août)",
+            "Sortie debout de 33 minutes par l'écoutille supérieure (30 juillet)",
+            "Déchargement et première conduite du LRV sur 10,3 km (31 juillet)",
+            "Plus longue traversée en LRV de 12,5 km vers les monts Apennins (1er août)"
+          ],
+          "reponse": [
+            "Sortie debout de 33 minutes par l'écoutille supérieure (30 juillet)",
+            "Déchargement et première conduite du LRV sur 10,3 km (31 juillet)",
+            "Plus longue traversée en LRV de 12,5 km vers les monts Apennins (1er août)",
+            "Décollage du module lunaire Falcon (2 août)"
+          ],
+          "explication": "Après l'observation debout du 30 juillet, le LRV a été déployé le 31 juillet (10,3 km), conduit sur 12,5 km le 1er août, puis le LM a redécollé le 2 août.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q09",
+          "type": "qcm",
+          "theme": "Démonstration scientifique",
+          "question": "Quelle loi physique David Scott a-t-il illustrée devant la caméra de télévision à la fin d'Apollo 15 ?",
+          "indice": "Dans le vide, l'accélération de la pesanteur est identique pour tous les corps.",
+          "choix": [
+            "Un marteau et une plume tombent à la même vitesse dans le vide lunaire",
+            "L'eau bout instantanément à basse pression",
+            "Une boussole pointe toujours vers le pôle Nord lunaire",
+            "Le son se propage plus vite dans la poussière lunaire"
+          ],
+          "reponse": "Un marteau et une plume tombent à la même vitesse dans le vide lunaire",
+          "explication": "En lâchant simultanément un marteau et une plume dans le vide lunaire, David Scott a démontré que tous les objets subissent la même accélération gravitationnelle en l'absence de frottement de l'air.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q10",
+          "type": "vrai_faux",
+          "theme": "Première sortie EVA",
+          "question": "Vrai ou faux : Deux heures après l'alunissage d'Apollo 15, David Scott a effectué une sortie debout (standup EVA) de 33 minutes depuis l'écoutille supérieure du LM.",
+          "indice": "Cette sortie lui a permis de décrire et photographier le paysage environnant.",
+          "reponse": true,
+          "explication": "Vrai, deux heures après l'atterrissage, la cabine a été dépressurisée pour que Scott réalise une sortie debout de 33 minutes.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q11",
+          "type": "qcm_multiple",
+          "theme": "Activités scientifiques",
+          "question": "Quelles expériences scientifiques ont été menées sur la Lune lors d'Apollo 15 en plus du déploiement de l'ALSEP ? (Plusieurs bonnes réponses)",
+          "indice": "Elles concernaient la géologie, la photographie, la mécanique des sols et le Soleil.",
+          "choix": [
+            "Collecte d'échantillons géologiques",
+            "Mécanique des sols pour étudier les propriétés du régolithe",
+            "Expérience sur la composition du vent solaire",
+            "Culture de plantes sous serre pressurisée",
+            "Forage pétrolier profond"
+          ],
+          "reponses": [
+            "Collecte d'échantillons géologiques",
+            "Mécanique des sols pour étudier les propriétés du régolithe",
+            "Expérience sur la composition du vent solaire"
+          ],
+          "explication": "Outre l'ALSEP, Apollo 15 a mené la collecte géologique, la photographie de surface, l'étude mécanique du régolithe et la collecte de particules du vent solaire.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q12",
+          "type": "association",
+          "theme": "Chiffres clés Apollo 15",
+          "question": "Associe chaque chiffre de la mission Apollo 15 à sa signification.",
+          "indice": "Relie la masse du vaisseau, le séjour sur la Lune, la distance LRV et la masse des roches.",
+          "colonne_gauche": [
+            "16 430 kg",
+            "66 h 55 min",
+            "27,9 km",
+            "77,31 kg"
+          ],
+          "colonne_droite": [
+            "Masse totale de roches et de sol rapportés",
+            "Distance totale parcourue lors des trois sorties",
+            "Durée totale passée par le module lunaire sur la surface",
+            "Masse totale au lancement du module lunaire Falcon"
+          ],
+          "reponse": [
+            {
+              "gauche": "16 430 kg",
+              "droite": "Masse totale au lancement du module lunaire Falcon"
+            },
+            {
+              "gauche": "66 h 55 min",
+              "droite": "Durée totale passée par le module lunaire sur la surface"
+            },
+            {
+              "gauche": "27,9 km",
+              "droite": "Distance totale parcourue lors des trois sorties"
+            },
+            {
+              "gauche": "77,31 kg",
+              "droite": "Masse totale de roches et de sol rapportés"
+            }
+          ],
+          "explication": "Falcon pesait 16 430 kg au total, est resté 66 h 55 min sur la Lune, et l'équipage a parcouru 27,9 km pour récolter 77,31 kg d'échantillons.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q13",
+          "type": "qcm",
+          "theme": "Identifiant NSSDCA",
+          "question": "Quel est l'identifiant NSSDCA du module lunaire d'Apollo 15 ayant transporté le premier LRV ?",
+          "indice": "Il commence par l'année 1971 suivi de -063C.",
+          "choix": [
+            "1971-063C",
+            "1969-059C",
+            "1969-099C",
+            "1967-035A"
+          ],
+          "reponse": "1971-063C",
+          "explication": "L'identifiant international NSSDCA du module lunaire Apollo 15 est 1971-063C (1971-063A étant le module de commande).",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q14",
+          "type": "qcm",
+          "theme": "Station scientifique",
+          "question": "Jusqu'à quelle date la station scientifique ALSEP déployée lors d'Apollo 15 a-t-elle fonctionné sur la Lune ?",
+          "indice": "Elle a fonctionné plus de six ans après la mission, jusqu'en septembre 1977.",
+          "choix": [
+            "30 septembre 1977",
+            "2 août 1971",
+            "31 décembre 1972",
+            "20 juillet 1979"
+          ],
+          "reponse": "30 septembre 1977",
+          "explication": "Allumée le 31 juillet 1971, la station centrale ALSEP d'Apollo 15 a fonctionné jusqu'au 30 septembre 1977.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n2-q15",
+          "type": "qcm_multiple",
+          "theme": "Mémorial lunaire",
+          "question": "Qui la plaque et la petite figurine laissées par les astronautes d'Apollo 15 honoraient-elles ? (Plusieurs bonnes réponses)",
+          "indice": "L'hommage dépassait les frontières de la guerre froide en incluant les deux grandes puissances spatiales.",
+          "choix": [
+            "Les explorateurs spatiaux américains décédés",
+            "Les explorateurs spatiaux soviétiques décédés",
+            "Un total de quatorze astronautes et cosmonautes",
+            "Uniquement les ingénieurs de Cap Canaveral",
+            "Les premiers pilotes d'avions supersoniques"
+          ],
+          "reponses": [
+            "Les explorateurs spatiaux américains décédés",
+            "Les explorateurs spatiaux soviétiques décédés",
+            "Un total de quatorze astronautes et cosmonautes"
+          ],
+          "explication": "La plaque et la figurine honoraient les quatorze explorateurs spatiaux américains et soviétiques ayant perdu la vie dans le cadre des programmes spatiaux des deux nations.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "lrv-n3-q01",
+          "type": "qcm",
+          "theme": "Architecture du LM",
+          "question": "Quel a été l'impact de l'emport du LRV et d'équipements accrus sur la masse totale du module lunaire d'Apollo 15 par rapport à Apollo 11 ?",
+          "indice": "Apollo 11 pesait 15 103 kg contre 16 430 kg pour Apollo 15.",
+          "choix": [
+            "La masse totale est passée de 15 103 kg à 16 430 kg (+1 327 kg), principalement via l'étage de descente et ses ergols",
+            "La masse totale a diminué de 2 000 kg grâce à l'aluminium",
+            "La masse de l'étage de remontée a doublé",
+            "Aucun changement de masse n'a été nécessaire"
+          ],
+          "reponse": "La masse totale est passée de 15 103 kg à 16 430 kg (+1 327 kg), principalement via l'étage de descente et ses ergols",
+          "explication": "Pour emporter le LRV et l'équipement étendu, l'étage de descente d'Apollo 15 atteignait 2 797 kg à sec et 8 873 kg d'ergols, portant le LM à 16 430 kg.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Bilan de masse",
+          "question": "Calcule la masse totale à sec (en kg) du module lunaire Apollo 15 en additionnant la masse sèche de l'étage de remontée (2 385 kg) et celle de l'étage de descente (2 797 kg).",
+          "indice": "Effectue l'opération : 2385 + 2797.",
+          "reponse": 5182,
+          "unite": "kg",
+          "tolerance": 0,
+          "explication": "2 385 kg (remontée à sec) + 2 797 kg (descente à sec avec équipement stocké) = 5 182 kg (le reste des 16 430 kg étant constitué de 11 248 kg d'ergols).",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q03",
+          "type": "qcm",
+          "theme": "Propulsion du LM",
+          "question": "Quelle est la principale différence fonctionnelle entre le moteur de descente et le moteur de remontée du module lunaire transportant le LRV ?",
+          "indice": "L'un permet de moduler la poussée pour alunir en douceur, l'autre a une poussée fixe.",
+          "choix": [
+            "Le moteur de descente est à poussée modulable (jusqu'à ~45 000 N) sur cardan, tandis que le moteur de remontée est à poussée fixe (~15 000 N)",
+            "Le moteur de descente fonctionne à poudre et celui de remontée à l'hydrogène liquide",
+            "Les deux moteurs ont une poussée identique de 45 000 N",
+            "Le moteur de remontée sert également au freinage lors de l'atterrissage"
+          ],
+          "reponse": "Le moteur de descente est à poussée modulable (jusqu'à ~45 000 N) sur cardan, tandis que le moteur de remontée est à poussée fixe (~15 000 N)",
+          "explication": "Le moteur de descente ablatif est modulable (deep-throttling) sur cardan jusqu'à ~45 000 N, alors que le moteur de remontée délivre une poussée constante de ~15 000 N.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/static/history/diagrams/ad018.gif"
+        },
+        {
+          "id": "lrv-n3-q04",
+          "type": "vrai_faux",
+          "theme": "Coordonnées sélénographiques",
+          "question": "Vrai ou faux : Le site d'atterrissage d'Apollo 15 dans Mare Imbrium se situe dans l'hémisphère sud de la Lune.",
+          "indice": "Vérifie la latitude : 26,13239° N.",
+          "reponse": false,
+          "explication": "Faux, le site se trouve dans l'hémisphère nord lunaire, aux coordonnées 26,13239° N de latitude et 3,63330° E de longitude.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q05",
+          "type": "qcm",
+          "theme": "Générateur SNAP-27",
+          "question": "Par quel principe physique le générateur RTG SNAP-27 alimentait-il la station ALSEP déployée lors d'Apollo 15 ?",
+          "indice": "La chaleur d'un isotope radioactif est convertie directement en électricité par effet thermoélectrique.",
+          "choix": [
+            "La décroissance du plutonium-238 chauffe 442 thermocouples en tellurure de plomb qui génèrent ~70 W CC à 16 V",
+            "Des cellules photovoltaïques au silicium alimentent des batteries au lithium",
+            "Une micro-turbine à vapeur de mercure entraîne un alternateur",
+            "Des piles à combustible hydrogène-oxygène récupérées sur le LM"
+          ],
+          "reponse": "La décroissance du plutonium-238 chauffe 442 thermocouples en tellurure de plomb qui génèrent ~70 W CC à 16 V",
+          "explication": "Une capsule de plutonium-238 (demi-vie de 89,6 ans) chauffe 442 couples thermoélectriques en tellurure de plomb, produisant environ 70 W en courant continu sous 16 V.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q06",
+          "type": "qcm_multiple",
+          "theme": "Dimensions du LM",
+          "question": "Quelles caractéristiques géométriques exactes définissent le module lunaire ayant acheminé le LRV ? (Plusieurs bonnes réponses)",
+          "indice": "Vérifie l'envergure entre les pieds, la garde au sol et le volume de la cabine.",
+          "choix": [
+            "Distance de 9,4 m entre les patins d'atterrissage opposés",
+            "Garde au sol de 1,5 m sous l'étage de descente",
+            "Volume pressurisé de 6,65 m³ pour le compartiment équipage",
+            "Étage de descente octogonal de 4,2 m de large sur 1,7 m d'épaisseur",
+            "Hauteur totale de 35 mètres"
+          ],
+          "reponses": [
+            "Distance de 9,4 m entre les patins d'atterrissage opposés",
+            "Garde au sol de 1,5 m sous l'étage de descente",
+            "Volume pressurisé de 6,65 m³ pour le compartiment équipage",
+            "Étage de descente octogonal de 4,2 m de large sur 1,7 m d'épaisseur"
+          ],
+          "explication": "L'étage de descente octogonal (4,2 m × 1,7 m) reposait sur 4 jambes écartées de 9,4 m offrant une garde au sol de 1,5 m, tandis que la cabine pressurisée mesurait 6,65 m³.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/static/history/diagrams/ad014.gif"
+        },
+        {
+          "id": "lrv-n3-q07",
+          "type": "qcm",
+          "theme": "Télécommunications ALSEP",
+          "question": "Quelles fréquences radio étaient utilisées pour la liaison montante (commande) et descendante (télémétrie) de l'ALSEP d'Apollo 15 ?",
+          "indice": "La liaison montante était commune à tous les ALSEP (2119 MHz).",
+          "choix": [
+            "2119 MHz en liaison montante et 2278,0 MHz en liaison descendante",
+            "1420 MHz en liaison montante et 1600 MHz en liaison descendante",
+            "2400 MHz en liaison montante et 5000 MHz en liaison descendante",
+            "108 MHz en liaison montante et 433 MHz en liaison descendante"
+          ],
+          "reponse": "2119 MHz en liaison montante et 2278,0 MHz en liaison descendante",
+          "explication": "La fréquence montante de tous les ALSEP était de 2119 MHz, et la fréquence descendante spécifique à l'ALSEP d'Apollo 15 était de 2278,0 MHz.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q08",
+          "type": "ordre",
+          "theme": "Séquence de fin de mission",
+          "question": "Ordonne chronologiquement la fin de la mission lunaire d'Apollo 15 en temps universel (UT).",
+          "indice": "Du décollage de la Lune le 2 août jusqu'à l'impact de l'étage de remontée le 3 août 1971.",
+          "elements": [
+            "Impact volontaire de l'étage de remontée sur la Lune à 26,36° N, 0,25° E (3 août, 03:03:37 UT)",
+            "Décollage du module lunaire Falcon depuis la surface lunaire (2 août, 17:11:22 UT)",
+            "Largage de l'étage de remontée du LM (3 août, 01:04:14 UT)",
+            "Amarrage au module de commande piloté par Alfred Worden (2 août, 19:09:47 UT)"
+          ],
+          "reponse": [
+            "Décollage du module lunaire Falcon depuis la surface lunaire (2 août, 17:11:22 UT)",
+            "Amarrage au module de commande piloté par Alfred Worden (2 août, 19:09:47 UT)",
+            "Largage de l'étage de remontée du LM (3 août, 01:04:14 UT)",
+            "Impact volontaire de l'étage de remontée sur la Lune à 26,36° N, 0,25° E (3 août, 03:03:37 UT)"
+          ],
+          "explication": "Falcon a décollé le 2 août à 17:11:22 UT, s'est amarré à 19:09:47 UT, a été largué le 3 août à 01:04:14 UT et a percuté la Lune deux heures plus tard à 03:03:37 UT.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q09",
+          "type": "qcm",
+          "theme": "Ergols du LM",
+          "question": "Quel couple d'ergols hypergoliques alimentait les réservoirs de l'étage de descente du module lunaire ?",
+          "indice": "Un mélange d'hydrazine comme carburant et un oxyde d'azote comme comburant.",
+          "choix": [
+            "Aérozine 50 (carburant) et peroxyde d'azote (comburant)",
+            "Kérosène RP-1 et oxygène liquide",
+            "Hydrogène liquide et fluor liquide",
+            "Méthane liquide et peroxyde d'hydrogène"
+          ],
+          "reponse": "Aérozine 50 (carburant) et peroxyde d'azote (comburant)",
+          "explication": "L'étage de descente contenait deux réservoirs d'aérozine 50 (carburant) et deux réservoirs de peroxyde d'azote (nitrogen tetroxide, comburant).",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q10",
+          "type": "vrai_faux",
+          "theme": "Contrainte opérationnelle LRV",
+          "question": "Vrai ou faux : Le rayon maximal d'éloignement du LRV (5 km autour du LM) était limité par la capacité des astronautes à revenir à pied en cas de panne du véhicule.",
+          "indice": "Bien que le véhicule ait parcouru 27,9 km au total, il restait dans un rayon de 5 km autour du LM.",
+          "reponse": true,
+          "explication": "Vrai, bien que les trois traversées aient totalisé 27,9 km, le LRV n'a exploré que des régions situées à moins de 5 km du site d'atterrissage du LM.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/as15_88_11901.jpg"
+        },
+        {
+          "id": "lrv-n3-q11",
+          "type": "qcm_multiple",
+          "theme": "Instruments ALSEP Apollo 15",
+          "question": "Quels instruments faisaient partie de la suite scientifique ALSEP déployée lors d'Apollo 15 ? (Plusieurs bonnes réponses)",
+          "indice": "Cette station mesurait les séismes, le champ magnétique et les particules solaires.",
+          "choix": [
+            "Un sismomètre passif",
+            "Un magnétomètre de surface lunaire (LSM)",
+            "Un spectromètre de vent solaire",
+            "Un détecteur de poussière (Dust Detector)",
+            "Un interféromètre optique géant"
+          ],
+          "reponses": [
+            "Un sismomètre passif",
+            "Un magnétomètre de surface lunaire (LSM)",
+            "Un spectromètre de vent solaire",
+            "Un détecteur de poussière (Dust Detector)"
+          ],
+          "explication": "L'ALSEP d'Apollo 15 comprenait notamment un sismomètre passif, un magnétomètre de surface (LSM), un spectromètre de vent solaire et un détecteur de poussière.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q12",
+          "type": "association",
+          "theme": "Spécifications techniques",
+          "question": "Associe chaque sous-système d'Apollo 15 à sa spécification technique précise.",
+          "indice": "Relie l'antenne ALSEP, le RTG SNAP-27, le contrôle d'attitude RCS et la station centrale à leurs données.",
+          "colonne_gauche": [
+            "Antenne hélicoïdale ALSEP",
+            "Générateur RTG SNAP-27",
+            "Propulseurs de contrôle d'attitude (RCS)",
+            "Station centrale ALSEP"
+          ],
+          "colonne_droite": [
+            "Masse de 25 kg et volume rangé de 34 800 cm³",
+            "Longueur de 58 cm et diamètre de 3,8 cm",
+            "Quatre modules délivrant environ 450 N de poussée",
+            "Masse de 17 kg avec 8 ailettes rayonnantes (40 cm d'envergure)"
+          ],
+          "reponse": [
+            {
+              "gauche": "Antenne hélicoïdale ALSEP",
+              "droite": "Longueur de 58 cm et diamètre de 3,8 cm"
+            },
+            {
+              "gauche": "Générateur RTG SNAP-27",
+              "droite": "Masse de 17 kg avec 8 ailettes rayonnantes (40 cm d'envergure)"
+            },
+            {
+              "gauche": "Propulseurs de contrôle d'attitude (RCS)",
+              "droite": "Quatre modules délivrant environ 450 N de poussée"
+            },
+            {
+              "gauche": "Station centrale ALSEP",
+              "droite": "Masse de 25 kg et volume rangé de 34 800 cm³"
+            }
+          ],
+          "explication": "Ces données proviennent directement de la fiche technique NSSDCA 1971-063C du module lunaire et de l'ALSEP d'Apollo 15.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q13",
+          "type": "qcm",
+          "theme": "Puissance RTG",
+          "question": "Quelle puissance électrique le générateur SNAP-27 produisait-il au bout d'un an de fonctionnement sur la Lune ?",
+          "indice": "Elle passait d'environ 70 W au départ à un peu plus de 63 W après un an.",
+          "choix": [
+            "63,5 W",
+            "16 W",
+            "442 W",
+            "10 W"
+          ],
+          "reponse": "63,5 W",
+          "explication": "Le RTG produisait initialement environ 70 W CC sous 16 V, puis 63,5 W après un an en raison de la décroissance radioactive du plutonium-238.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q14",
+          "type": "qcm",
+          "theme": "Impact sismique",
+          "question": "Quel était l'objectif scientifique de l'impact volontaire de l'étage de remontée du LM sur la Lune le 3 août 1971 ?",
+          "indice": "Les sismomètres déjà installés sur la Lune pouvaient enregistrer l'onde de choc.",
+          "choix": [
+            "Générer un signal sismique calibré pour sonder la structure interne de la Lune",
+            "Creuser un cratère pour exposer de la glace d'eau",
+            "Détruire les déchets biologiques restés à bord",
+            "Tester la résistance mécanique des patins d'atterrissage"
+          ],
+          "reponse": "Générer un signal sismique calibré pour sonder la structure interne de la Lune",
+          "explication": "Largué après le transfert de l'équipage, l'étage de remontée a percuté la Lune à 26,36° N, 0,25° E afin de générer des ondes sismiques enregistrées par les stations ALSEP.",
+          "media_url": null
+        },
+        {
+          "id": "lrv-n3-q15",
+          "type": "qcm_multiple",
+          "theme": "Chronologie des EVA Apollo 15",
+          "question": "Quelles affirmations sur les trois sorties extravéhiculaires (EVA) d'Apollo 15 sont exactes ? (Plusieurs bonnes réponses)",
+          "indice": "Compare les durées et les distances des trois sorties en temps universel (UT).",
+          "choix": [
+            "L'EVA 1 (31 juillet) a duré plus de 6 h 32 min et a permis de parcourir 10,3 km",
+            "L'EVA 2 (1er août) a duré plus de 7 h 12 min et a couvert la plus grande distance (12,5 km)",
+            "L'EVA 3 (2 août) a duré environ 4 h 50 min sur une distance de 5,1 km",
+            "Le LRV n'a été utilisé que lors de la première sortie",
+            "Toutes les sorties ont eu lieu de nuit sans éclairage solaire"
+          ],
+          "reponses": [
+            "L'EVA 1 (31 juillet) a duré plus de 6 h 32 min et a permis de parcourir 10,3 km",
+            "L'EVA 2 (1er août) a duré plus de 7 h 12 min et a couvert la plus grande distance (12,5 km)",
+            "L'EVA 3 (2 août) a duré environ 4 h 50 min sur une distance de 5,1 km"
+          ],
+          "explication": "EVA 1 (13:13:10 à 19:45:59 UT, 10,3 km), EVA 2 (11:48:48 à 19:01:02 UT, 12,5 km) et EVA 3 (08:52:14 à 13:42:04 UT, 5,1 km) ont toutes utilisé le LRV.",
+          "media_url": null
+        }
+      ]
+    }
+  }
+}

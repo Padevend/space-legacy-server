@@ -614,6 +614,64 @@
       }
     }
 
+    // Load Quizzes and Badges List
+    async function loadQuizzes() {
+      try {
+        const [quizRes, badgeRes] = await Promise.all([
+          apiFetch('/api/v1/quizzes'),
+          apiFetch('/api/v1/badges').catch(() => ({ badges: [] }))
+        ]);
+
+        const quizzesContainer = document.getElementById('quizzesListContainer');
+        const quizzes = quizRes.quizzes || [];
+
+        if (quizzes.length === 0) {
+          quizzesContainer.innerHTML = '<p class="text-xs text-slate-500">No active quizzes found.</p>';
+        } else {
+          quizzesContainer.innerHTML = quizzes.map(q => `
+            <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-between hover:border-slate-700 transition">
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-medium text-slate-200 text-xs">${q.title}</span>
+                  <span class="badge-pill ${q.level === 'EXPERT' ? 'bg-purple-500/20 text-purple-300' : 'bg-sky-500/20 text-sky-300'} text-[10px] font-mono">${q.level}</span>
+                </div>
+                <div class="flex items-center gap-3 text-[11px] text-slate-400">
+                  <span>${q.questionCount} questions</span>
+                  ${q.body ? `<span>&bull;</span><span>${q.body.name}</span>` : ''}
+                  ${q.machine ? `<span>&bull;</span><span class="text-slate-300">${q.machine.name}</span>` : ''}
+                </div>
+              </div>
+              <span class="badge-pill bg-emerald-500/10 text-emerald-400 text-[10px]">PUBLISHED</span>
+            </div>
+          `).join('');
+        }
+
+        const badgesContainer = document.getElementById('badgesListContainer');
+        const badges = badgeRes.badges || [];
+
+        if (badges.length === 0) {
+          badgesContainer.innerHTML = '<p class="text-xs text-slate-500">No badges configured.</p>';
+        } else {
+          badgesContainer.innerHTML = badges.map(b => `
+            <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-between hover:border-slate-700 transition">
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-medium text-slate-200 text-xs">${b.name}</span>
+                  <span class="badge-pill bg-amber-500/20 text-amber-300 text-[10px] font-mono">${b.rule}</span>
+                </div>
+                <p class="text-[11px] text-slate-400">${b.description}</p>
+              </div>
+              <span class="text-xs font-mono text-slate-500">Threshold: ${b.threshold}</span>
+            </div>
+          `).join('');
+        }
+
+        lucide.createIcons();
+      } catch (e) {
+        console.error('Failed to load quizzes and badges', e);
+      }
+    }
+
     // Load Machines List
     async function loadMachines() {
       try {

@@ -1,0 +1,841 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "atterrisseurs-robotises",
+    "titre": "Quiz : Les atterrisseurs robotisés et Surveyor 3",
+    "categorie": "lune",
+    "sous_categorie": "exploration-robotique",
+    "lieu": "Surface de la Lune (Océan des Tempêtes)",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec une seule bonne réponse parmi 4 propositions.",
+      "qcm_multiple": "Question à choix multiples avec 2 à 4 bonnes réponses parmi 5 propositions.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Éléments à remettre dans le bon ordre chronologique ou logique.",
+      "association": "Éléments de deux colonnes à relier par paires.",
+      "saisie_numerique": "Valeur numérique précise à saisir avec une unité et une marge de tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "att-n1-q01",
+          "type": "qcm",
+          "theme": "Mission",
+          "question": "Sur quel astre l'atterrisseur robotisé Surveyor 3 s'est-il posé ?",
+          "indice": "C'est le satellite naturel qui brille dans notre ciel la nuit.",
+          "choix": [
+            "La Lune",
+            "Mars",
+            "Vénus",
+            "Mercure"
+          ],
+          "reponse": "La Lune",
+          "explication": "Surveyor 3 est une sonde robotisée envoyée sur la Lune dans les années 1960 pour tester les atterrissages en douceur.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/07/as12-48-7134_1280.jpg"
+        },
+        {
+          "id": "att-n1-q02",
+          "type": "vrai_faux",
+          "theme": "Équipage",
+          "question": "Vrai ou faux : Surveyor 3 transportait des astronautes à son bord lors de son atterrissage.",
+          "indice": "Regarde le nom de la fiche : il s'agit d'un appareil robotisé.",
+          "reponse": false,
+          "explication": "Faux, Surveyor 3 était une sonde entièrement robotisée sans équipage, envoyée avant les missions habitées Apollo.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q03",
+          "type": "qcm",
+          "theme": "Outils",
+          "question": "Quel outil spécial Surveyor 3 possédait-il pour la première fois afin d'étudier le sol lunaire ?",
+          "indice": "Cet instrument permettait de creuser la poussière comme une petite pelle.",
+          "choix": [
+            "Un laser géant",
+            "Un bras pour creuser et prélever le sol",
+            "Une foreuse nucléaire",
+            "Des roues tout-terrain"
+          ],
+          "reponse": "Un bras pour creuser et prélever le sol",
+          "explication": "Surveyor 3 transportait pour la première fois un instrument d'échantillonnage capable de creuser le sol lunaire.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q04",
+          "type": "qcm_multiple",
+          "theme": "Découverte",
+          "question": "Quelles affirmations sont vraies à propos de Surveyor 3 ? (Plusieurs bonnes réponses)",
+          "indice": "Pense à l'époque de son lancement et à son rôle pour les futurs astronautes.",
+          "choix": [
+            "Il a été envoyé dans les années 1960",
+            "Il devait prouver qu'on pouvait atterrir en douceur",
+            "Il est revenu sur Terre par ses propres moyens",
+            "Des astronautes d'Apollo 12 lui ont rendu visite",
+            "Il a exploré les anneaux de Saturne"
+          ],
+          "reponses": [
+            "Il a été envoyé dans les années 1960",
+            "Il devait prouver qu'on pouvait atterrir en douceur",
+            "Des astronautes d'Apollo 12 lui ont rendu visite"
+          ],
+          "explication": "Lancé en 1967 pour valider les atterrissages lunaires en douceur, Surveyor 3 a reçu la visite des astronautes d'Apollo 12 en 1969.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/cds/apod/apod/2026/november/KF-ApAn48-7133-4.jpg"
+        },
+        {
+          "id": "att-n1-q05",
+          "type": "qcm",
+          "theme": "Atterrissage",
+          "question": "Que s'est-il passé d'étonnant juste avant que Surveyor 3 ne s'immobilise sur la Lune ?",
+          "indice": "Comme un ballon qui touche le sol, la sonde a fait des bonds.",
+          "choix": [
+            "Il a rebondi deux fois sur le sol",
+            "Il s'est envolé vers Mars",
+            "Il a roulé sur 10 kilomètres",
+            "Il a plongé dans un lac"
+          ],
+          "reponse": "Il a rebondi deux fois sur le sol",
+          "explication": "Son moteur principal ne s'étant pas coupé à temps, Surveyor 3 a rebondi deux fois sur la surface lunaire avant de se poser.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q06",
+          "type": "saisie_numerique",
+          "theme": "Rebonds",
+          "question": "Combien de fois Surveyor 3 a-t-il rebondi sur la Lune lors de son atterrissage ?",
+          "indice": "C'est un chiffre plus grand que 1 et plus petit que 3.",
+          "reponse": 2,
+          "unite": "rebonds",
+          "tolerance": 0,
+          "explication": "Surveyor 3 a rebondi exactement 2 fois sur la surface lunaire (d'abord à 10 mètres, puis à 3 mètres de haut).",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q07",
+          "type": "qcm",
+          "theme": "Hauteur",
+          "question": "Lors de son premier rebond, Surveyor 3 est monté à 10 mètres de haut. À quoi cela correspond-il ?",
+          "indice": "Imagine un immeuble d'habitation de taille moyenne.",
+          "choix": [
+            "La hauteur d'un immeuble de 3 étages",
+            "La hauteur d'une petite chaise",
+            "La hauteur de la tour Eiffel",
+            "La longueur d'un crayon"
+          ],
+          "reponse": "La hauteur d'un immeuble de 3 étages",
+          "explication": "Un rebond de 10 mètres correspond environ à la hauteur d'un immeuble de 3 étages.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q08",
+          "type": "vrai_faux",
+          "theme": "Taille de la Lune",
+          "question": "Vrai ou faux : La Lune est environ 4 fois plus petite en diamètre que la Terre.",
+          "indice": "Regarde le schéma comparant la taille de la Terre et de la Lune.",
+          "reponse": true,
+          "explication": "Vrai, le diamètre de la Lune représente environ un quart (1/4) de celui de la Terre.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/earths-moon/lunar-science/moon-earth-composition-comparison.png"
+        },
+        {
+          "id": "att-n1-q09",
+          "type": "qcm",
+          "theme": "Visite",
+          "question": "Quelle mission habitée s'est posée tout près de Surveyor 3 en 1969 ?",
+          "indice": "C'est la mission qui a suivi Apollo 11.",
+          "choix": [
+            "Apollo 11",
+            "Apollo 12",
+            "Apollo 15",
+            "Apollo 17"
+          ],
+          "reponse": "Apollo 12",
+          "explication": "En novembre 1969, les astronautes d'Apollo 12 ont posé leur module lunaire Intrepid tout près de Surveyor 3.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/45_54_GPN-2000-001316.jpg"
+        },
+        {
+          "id": "att-n1-q10",
+          "type": "ordre",
+          "theme": "Chronologie",
+          "question": "Remets ces événements de l'histoire de Surveyor 3 dans l'ordre chronologique.",
+          "indice": "On décolle d'abord de la Terre, puis on atterrit, puis on reçoit de la visite.",
+          "elements": [
+            "Visite des astronautes d'Apollo 12",
+            "Lancement de Surveyor 3 depuis la Terre",
+            "Atterrissage avec deux rebonds sur la Lune"
+          ],
+          "reponse": [
+            "Lancement de Surveyor 3 depuis la Terre",
+            "Atterrissage avec deux rebonds sur la Lune",
+            "Visite des astronautes d'Apollo 12"
+          ],
+          "explication": "Surveyor 3 a été lancé le 17 avril 1967, a atterri le 20 avril 1967 et a été visité par Apollo 12 en novembre 1969.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q11",
+          "type": "qcm_multiple",
+          "theme": "Paysage lunaire",
+          "question": "Que voit-on sur les photos prises à la surface de la Lune par les missions Apollo et Surveyor ? (Plusieurs bonnes réponses)",
+          "indice": "Le ciel lunaire n'a pas d'atmosphère bleue comme sur Terre.",
+          "choix": [
+            "Un ciel tout noir",
+            "Des roches et une fine poussière grise",
+            "Des cratères",
+            "Des forêts et des rivières",
+            "Des nuages de pluie"
+          ],
+          "reponses": [
+            "Un ciel tout noir",
+            "Des roches et une fine poussière grise",
+            "Des cratères"
+          ],
+          "explication": "Sans atmosphère ni eau liquide, la Lune présente un paysage gris fait de poussière, de roches et de cratères sous un ciel noir.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/lunar-science/internal_resources/568/Apollo_15_astronaut_bootprints.jpeg"
+        },
+        {
+          "id": "att-n1-q12",
+          "type": "qcm",
+          "theme": "Bras robotique",
+          "question": "Jusqu'à quelle distance le bras de Surveyor 3 pouvait-il s'étendre pour toucher le sol ?",
+          "indice": "C'est à peu près la longueur d'un grand lit ou d'un adulte allongé (1,5 mètre).",
+          "choix": [
+            "15 centimètres",
+            "1,5 mètre",
+            "50 mètres",
+            "1 kilomètre"
+          ],
+          "reponse": "1,5 mètre",
+          "explication": "L'instrument d'échantillonnage de surface pouvait s'étendre jusqu'à 1,5 mètre (5 pieds) de l'atterrisseur.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q13",
+          "type": "association",
+          "theme": "Appareils",
+          "question": "Associe chaque élément spatial à son rôle.",
+          "indice": "Distingue la sonde robotique, le vaisseau des astronautes et l'astre exploré.",
+          "colonne_gauche": [
+            "Surveyor 3",
+            "Intrepid",
+            "La Lune"
+          ],
+          "colonne_droite": [
+            "Le module lunaire des astronautes d'Apollo 12",
+            "L'astre rocheux où les sondes se posent",
+            "La sonde robotisée qui a rebondi deux fois"
+          ],
+          "reponse": [
+            {
+              "gauche": "Surveyor 3",
+              "droite": "La sonde robotisée qui a rebondi deux fois"
+            },
+            {
+              "gauche": "Intrepid",
+              "droite": "Le module lunaire des astronautes d'Apollo 12"
+            },
+            {
+              "gauche": "La Lune",
+              "droite": "L'astre rocheux où les sondes se posent"
+            }
+          ],
+          "explication": "Surveyor 3 était l'atterrisseur robotisé, Intrepid le module lunaire d'Apollo 12, et la Lune leur destination.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q14",
+          "type": "qcm",
+          "theme": "Nuit lunaire",
+          "question": "Pourquoi le dernier contact avec Surveyor 3 a-t-il eu lieu peu après le début de la nuit lunaire ?",
+          "indice": "La nuit sur la Lune est très froide et il n'y a plus de Soleil pour les panneaux solaires.",
+          "choix": [
+            "Parce que la sonde manquait d'énergie solaire et subissait le froid",
+            "Parce que des extraterrestres l'ont éteinte",
+            "Parce qu'elle est rentrée sur Terre",
+            "Parce qu'il s'est mis à pleuvoir"
+          ],
+          "reponse": "Parce que la sonde manquait d'énergie solaire et subissait le froid",
+          "explication": "Le dernier signal de Surveyor 3 a été reçu le 4 mai 1967, deux jours après le début de la glaciale nuit lunaire.",
+          "media_url": null
+        },
+        {
+          "id": "att-n1-q15",
+          "type": "qcm_multiple",
+          "theme": "Exploration internationale",
+          "question": "Quels pays avaient réussi à poser un engin sur la Lune en janvier 2024 selon les données de la NASA ? (Plusieurs bonnes réponses)",
+          "indice": "Il y a quatre pays au total : deux pionniers de la guerre froide et deux grands pays d'Asie.",
+          "choix": [
+            "États-Unis",
+            "URSS",
+            "Chine",
+            "Inde",
+            "Brésil"
+          ],
+          "reponses": [
+            "États-Unis",
+            "URSS",
+            "Chine",
+            "Inde"
+          ],
+          "explication": "En janvier 2024, quatre nations avaient réussi un atterrissage sur la Lune : l'URSS, les États-Unis, l'Inde et la Chine.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "att-n2-q01",
+          "type": "qcm",
+          "theme": "Dates clés",
+          "question": "À quelle date exacte Surveyor 3 s'est-il posé sur la Lune ?",
+          "indice": "C'était trois jours après son lancement du 17 avril 1967.",
+          "choix": [
+            "20 avril 1967",
+            "17 avril 1967",
+            "4 mai 1967",
+            "18 novembre 1969"
+          ],
+          "reponse": "20 avril 1967",
+          "explication": "Lancé le 17 avril 1967, Surveyor 3 a atterri sur la Lune le 20 avril 1967.",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q02",
+          "type": "qcm",
+          "theme": "Anomalie radar",
+          "question": "Quelle est la cause directe des deux rebonds de Surveyor 3 lors de sa descente ?",
+          "indice": "Les roches lunaires ont perturbé le capteur d'altitude de la sonde.",
+          "choix": [
+            "Des roches très réfléchissantes ont perturbé le radar de descente",
+            "Une panne totale des ordinateurs de bord",
+            "Un vent violent dans un cratère",
+            "Une collision avec un satellite en orbite"
+          ],
+          "reponse": "Des roches très réfléchissantes ont perturbé le radar de descente",
+          "explication": "Des roches très réfléchissantes ont trompé le radar de descente, empêchant l'extinction du moteur principal à l'altitude prévue.",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q03",
+          "type": "saisie_numerique",
+          "theme": "Altitude critique",
+          "question": "À quelle altitude (en mètres) le moteur principal de Surveyor 3 aurait-il dû s'éteindre avant qu'il ne rebondisse ?",
+          "indice": "Cette altitude correspond à environ 14 pieds.",
+          "reponse": 4.3,
+          "unite": "mètres",
+          "tolerance": 0.2,
+          "explication": "Le moteur principal aurait dû se couper à environ 4,3 mètres (14 pieds) d'altitude.",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q04",
+          "type": "vrai_faux",
+          "theme": "Hauteur des rebonds",
+          "question": "Vrai ou faux : Le second rebond de Surveyor 3 (3 mètres) était plus haut que le premier (10 mètres).",
+          "indice": "Compare les deux valeurs : 3 mètres et 10 mètres.",
+          "reponse": false,
+          "explication": "Faux, le premier rebond a atteint 10 mètres (33 pieds) et le second seulement 3 mètres (10 pieds).",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q05",
+          "type": "qcm",
+          "theme": "Rendez-vous historique",
+          "question": "À quelle distance de Surveyor 3 le module lunaire Intrepid d'Apollo 12 a-t-il atterri en novembre 1969 ?",
+          "indice": "C'était une distance facile à parcourir à pied sur la Lune (environ 197 yards).",
+          "choix": [
+            "Environ 180 mètres",
+            "Environ 18 kilomètres",
+            "Environ 2 mètres",
+            "Environ 150 kilomètres"
+          ],
+          "reponse": "Environ 180 mètres",
+          "explication": "Charles Conrad et Alan Bean ont posé Intrepid à environ 180 mètres (197 yards, soit moins de 200 mètres) de Surveyor 3.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/as12-48-7134_1280.jpg"
+        },
+        {
+          "id": "att-n2-q06",
+          "type": "qcm_multiple",
+          "theme": "Équipage Apollo 12",
+          "question": "Quels astronautes d'Apollo 12 ont marché jusqu'à Surveyor 3 en novembre 1969 ? (Plusieurs bonnes réponses)",
+          "indice": "Ils étaient deux à descendre sur la surface lunaire avec le module Intrepid.",
+          "choix": [
+            "Charles Conrad, Jr.",
+            "Alan L. Bean",
+            "Neil A. Armstrong",
+            "Edwin E. Aldrin",
+            "David R. Scott"
+          ],
+          "reponses": [
+            "Charles Conrad, Jr.",
+            "Alan L. Bean"
+          ],
+          "explication": "Le 18 novembre 1969, Charles Conrad, Jr. et Alan L. Bean ont atterri près de Surveyor 3 et sont allés l'inspecter.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/cds/apod/apod/2026/november/KF-ApAn48-7133-4.jpg"
+        },
+        {
+          "id": "att-n2-q07",
+          "type": "qcm",
+          "theme": "Programme Surveyor",
+          "question": "Quel était le rang de Surveyor 3 parmi les vols d'ingénierie de la série Surveyor ?",
+          "indice": "Son numéro est dans son nom !",
+          "choix": [
+            "Le troisième vol d'ingénierie",
+            "Le premier vol d'ingénierie",
+            "Le septième vol d'ingénierie",
+            "Le dixième vol d'ingénierie"
+          ],
+          "reponse": "Le troisième vol d'ingénierie",
+          "explication": "Surveyor 3 était le troisième vol d'ingénierie de la série Surveyor.",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q08",
+          "type": "ordre",
+          "theme": "Chronologie de mission",
+          "question": "Classe ces quatre événements dans l'ordre chronologique exact.",
+          "indice": "Suis les dates d'avril 1967, mai 1967 et novembre 1969.",
+          "elements": [
+            "Dernier contact radio avec Surveyor 3 (4 mai 1967)",
+            "Atterrissage d'Apollo 12 à 180 m de la sonde (18 novembre 1969)",
+            "Lancement de Surveyor 3 (17 avril 1967)",
+            "Atterrissage de Surveyor 3 sur la Lune (20 avril 1967)"
+          ],
+          "reponse": [
+            "Lancement de Surveyor 3 (17 avril 1967)",
+            "Atterrissage de Surveyor 3 sur la Lune (20 avril 1967)",
+            "Dernier contact radio avec Surveyor 3 (4 mai 1967)",
+            "Atterrissage d'Apollo 12 à 180 m de la sonde (18 novembre 1969)"
+          ],
+          "explication": "Lancé le 17 avril 1967, Surveyor 3 a atterri le 20 avril, émis jusqu'au 4 mai 1967, puis a été visité par Apollo 12 le 18 novembre 1969.",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q09",
+          "type": "qcm",
+          "theme": "Durée de vie",
+          "question": "Combien de temps s'est écoulé entre l'atterrissage de Surveyor 3 (20 avril 1967) et le dernier contact (4 mai 1967) ?",
+          "indice": "Avril compte 30 jours.",
+          "choix": [
+            "14 jours",
+            "2 jours",
+            "30 jours",
+            "1 an"
+          ],
+          "reponse": "14 jours",
+          "explication": "Du 20 avril au 4 mai 1967, la sonde a maintenu le contact pendant 14 jours terrestres, s'arrêtant deux jours après le début de la nuit lunaire.",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q10",
+          "type": "vrai_faux",
+          "theme": "Distance Terre-Lune",
+          "question": "Vrai ou faux : La distance moyenne entre la Terre et la Lune est d'environ 384 400 km.",
+          "indice": "Vérifie les données orbitales comparées de la Terre et de la Lune dans la fiche.",
+          "reponse": true,
+          "explication": "Vrai, la distance orbitale moyenne de la Lune autour de la Terre est de 384 400 km.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2017/11/moon-facts-orbit.jpg"
+        },
+        {
+          "id": "att-n2-q11",
+          "type": "qcm_multiple",
+          "theme": "Structure interne",
+          "question": "Quelles sont les quatre couches internes qui composent la Lune comme la Terre ? (Plusieurs bonnes réponses)",
+          "indice": "De l'extérieur vers le centre : une enveloppe solide, une couche intermédiaire et un cœur en deux parties.",
+          "choix": [
+            "Croûte",
+            "Manteau",
+            "Noyau externe",
+            "Noyau interne",
+            "Atmosphère dense"
+          ],
+          "reponses": [
+            "Croûte",
+            "Manteau",
+            "Noyau externe",
+            "Noyau interne"
+          ],
+          "explication": "La Lune et la Terre sont toutes deux structurées en quatre couches : croûte, manteau, noyau externe et noyau interne.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/earths-moon/lunar-science/moon-earth-composition-comparison.png"
+        },
+        {
+          "id": "att-n2-q12",
+          "type": "association",
+          "theme": "Mesures et distances",
+          "question": "Associe chaque mesure chiffrée de la mission Surveyor 3 à ce qu'elle représente.",
+          "indice": "Relie la portée du bras, l'altitude de coupure moteur, les rebonds et la distance avec Apollo 12.",
+          "colonne_gauche": [
+            "1,5 mètre",
+            "4,3 mètres",
+            "10 mètres",
+            "180 mètres"
+          ],
+          "colonne_droite": [
+            "Distance d'atterrissage d'Apollo 12 par rapport à Surveyor 3",
+            "Hauteur du premier rebond de Surveyor 3",
+            "Portée maximale de l'instrument d'échantillonnage du sol",
+            "Altitude prévue pour l'arrêt du moteur principal"
+          ],
+          "reponse": [
+            {
+              "gauche": "1,5 mètre",
+              "droite": "Portée maximale de l'instrument d'échantillonnage du sol"
+            },
+            {
+              "gauche": "4,3 mètres",
+              "droite": "Altitude prévue pour l'arrêt du moteur principal"
+            },
+            {
+              "gauche": "10 mètres",
+              "droite": "Hauteur du premier rebond de Surveyor 3"
+            },
+            {
+              "gauche": "180 mètres",
+              "droite": "Distance d'atterrissage d'Apollo 12 par rapport à Surveyor 3"
+            }
+          ],
+          "explication": "Ces quatre valeurs caractérisent respectivement le bras échantillonneur (1,5 m), l'arrêt radar (4,3 m), le 1er rebond (10 m) et la distance d'Intrepid (180 m).",
+          "media_url": null
+        },
+        {
+          "id": "att-n2-q13",
+          "type": "qcm",
+          "theme": "Géologie lunaire",
+          "question": "Quel diamètre atteint le grand cratère lunaire Copernic visible sur les images d'exploration lunaire ?",
+          "indice": "C'est un nombre proche de 100 kilomètres.",
+          "choix": [
+            "93 kilomètres",
+            "14 kilomètres",
+            "384 kilomètres",
+            "1,5 kilomètre"
+          ],
+          "reponse": "93 kilomètres",
+          "explication": "Le cratère Copernic mesure 93 kilomètres de diamètre.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/lunar-science/2023/08/Copernicus.jpg"
+        },
+        {
+          "id": "att-n2-q14",
+          "type": "qcm",
+          "theme": "Formation de la Lune",
+          "question": "Il y a combien de temps la Lune s'est-elle formée selon les théories présentées par la NASA ?",
+          "indice": "Cela remonte à la formation du Système solaire.",
+          "choix": [
+            "Environ 4,5 milliards d'années",
+            "Environ 65 millions d'années",
+            "Environ 10 000 ans",
+            "Environ 13,8 milliards d'années"
+          ],
+          "reponse": "Environ 4,5 milliards d'années",
+          "explication": "La Lune s'est formée il y a environ 4,5 milliards d'années lors d'une collision géante avec la jeune Terre.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/lunar-science/internal_resources/585/Moon_formation_illustration.jpeg"
+        },
+        {
+          "id": "att-n2-q15",
+          "type": "qcm_multiple",
+          "theme": "Missions sismiques",
+          "question": "Sur quels sites Apollo des sismomètres avancés ont-ils été déployés et ont transmis des données jusqu'en septembre 1977 ? (Plusieurs bonnes réponses)",
+          "indice": "Il y a quatre missions numérotées entre 12 et 16.",
+          "choix": [
+            "Apollo 12",
+            "Apollo 14",
+            "Apollo 15",
+            "Apollo 16",
+            "Apollo 8"
+          ],
+          "reponses": [
+            "Apollo 12",
+            "Apollo 14",
+            "Apollo 15",
+            "Apollo 16"
+          ],
+          "explication": "Les sismomètres déployés sur les sites d'Apollo 12, 14, 15 et 16 ont fonctionné et envoyé des données jusqu'en septembre 1977.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "att-n3-q01",
+          "type": "qcm",
+          "theme": "Analyse d'anomalie",
+          "question": "Lors de l'approche finale de Surveyor 3, quel phénomène physique a provoqué le maintien intempestif de la poussée du moteur principal sous 4,3 m d'altitude ?",
+          "indice": "Un problème de réflexion optique/électromagnétique du terrain.",
+          "choix": [
+            "La forte réflectivité des roches lunaires qui a saturé ou trompé le radar de descente",
+            "L'accumulation de poussière électrostatique sur les tuyères",
+            "La perte de verrouillage gyroscopique due à une éruption solaire",
+            "Le gel des conduites d'ergols durant la descente"
+          ],
+          "reponse": "La forte réflectivité des roches lunaires qui a saturé ou trompé le radar de descente",
+          "explication": "Des roches hautement réfléchissantes ont perturbé le radar de descente, empêchant l'envoi de l'ordre d'extinction du moteur principal à 4,3 m (14 pieds).",
+          "media_url": null
+        },
+        {
+          "id": "att-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Cinématique de rebond",
+          "question": "Si l'on additionne les altitudes maximales atteintes lors des deux rebonds successifs de Surveyor 3 (en pieds), quelle hauteur cumulée obtient-on ?",
+          "indice": "Le premier rebond a atteint 33 pieds (10 m) et le second 10 pieds (3 m).",
+          "reponse": 43,
+          "unite": "pieds",
+          "tolerance": 0,
+          "explication": "Le premier rebond a culminé à 33 pieds (10 m) et le second à 10 pieds (3 m), soit une hauteur cumulée de 43 pieds.",
+          "media_url": null
+        },
+        {
+          "id": "att-n3-q03",
+          "type": "qcm",
+          "theme": "Proportion du noyau",
+          "question": "Quelle proportion du rayon lunaire (du centre vers la surface) le noyau de la Lune occupe-t-il selon les schémas comparatifs de la NASA ?",
+          "indice": "Il occupe un pourcentage nettement plus faible que celui de la Terre.",
+          "choix": [
+            "Environ 20 %",
+            "Environ 55 %",
+            "Environ 5 %",
+            "Environ 75 %"
+          ],
+          "reponse": "Environ 20 %",
+          "explication": "Le noyau lunaire occupe une fraction plus faible de l'intérieur de l'astre que sur Terre, ne s'étendant que sur environ 20 % de la distance entre le centre et la surface.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/earths-moon/lunar-science/moon-earth-composition-comparison.png"
+        },
+        {
+          "id": "att-n3-q04",
+          "type": "vrai_faux",
+          "theme": "Télémétrie post-atterrissage",
+          "question": "Vrai ou faux : Surveyor 3 a cessé toute communication exactement au moment du coucher du Soleil sur son site d'atterrissage.",
+          "indice": "Vérifie le délai entre le début de la nuit lunaire et le 4 mai 1967.",
+          "reponse": false,
+          "explication": "Faux, le dernier contact avec Surveyor 3 a eu lieu le 4 mai 1967, soit deux jours après le début de la nuit lunaire.",
+          "media_url": null
+        },
+        {
+          "id": "att-n3-q05",
+          "type": "qcm",
+          "theme": "Navigation de précision",
+          "question": "Quel jalon opérationnel le posé d'Apollo 12 à moins de 200 mètres de Surveyor 3 a-t-il démontré ?",
+          "indice": "Pense à la capacité d'atteindre une cible précise sur un autre corps céleste.",
+          "choix": [
+            "La maîtrise de l'atterrissage habité de précision à proximité immédiate d'un repère au sol",
+            "Le ravitaillement automatique d'un module lunaire en ergols",
+            "Le redécollage d'une sonde robotisée après trois ans d'inactivité",
+            "L'utilisation d'un rover pressurisé sur plus de 20 km"
+          ],
+          "reponse": "La maîtrise de l'atterrissage habité de précision à proximité immédiate d'un repère au sol",
+          "explication": "En posant Intrepid à environ 180 m (197 yards) de Surveyor 3, visible au-delà du rempart du cratère, Apollo 12 a démontré un atterrissage de haute précision à distance de marche.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/as12-48-7134_1280.jpg"
+        },
+        {
+          "id": "att-n3-q06",
+          "type": "qcm_multiple",
+          "theme": "Géologie volcanique",
+          "question": "Quelles caractéristiques géologiques expliquent la formation des dômes de Gruithuisen sur la Lune ? (Plusieurs bonnes réponses)",
+          "indice": "Il s'agit d'éruptions de laves particulières très visqueuses.",
+          "choix": [
+            "Des éruptions de laves siliciques",
+            "Une lave qui ne s'écoulait pas facilement vers l'extérieur",
+            "La formation de collines volcaniques cratérisées en dôme",
+            "L'érosion par d'anciens glaciers polaires",
+            "L'impact d'une comète de glace pure"
+          ],
+          "reponses": [
+            "Des éruptions de laves siliciques",
+            "Une lave qui ne s'écoulait pas facilement vers l'extérieur",
+            "La formation de collines volcaniques cratérisées en dôme"
+          ],
+          "explication": "Les dômes de Gruithuisen sont des collines volcaniques cratérisées formées par des laves siliciques visqueuses qui peinaient à s'étaler.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/lunar-science/2023/08/Gruithuisen_Domes.png"
+        },
+        {
+          "id": "att-n3-q07",
+          "type": "qcm",
+          "theme": "Mécanique orbitale",
+          "question": "Comment la rotation synchrone de la Lune s'est-elle stabilisée au cours de son histoire ?",
+          "indice": "Cela concerne le bourrelet de marée et la dissipation d'énergie.",
+          "choix": [
+            "Lorsque le bourrelet lunaire a cessé de se déplacer par rapport à la Terre, arrêtant la dissipation d'énergie",
+            "Par le freinage atmosphérique des couches hautes de la Terre",
+            "Grâce au champ magnétique dipolaire permanent du noyau lunaire",
+            "Par l'impact tardif du bassin Orientale"
+          ],
+          "reponse": "Lorsque le bourrelet lunaire a cessé de se déplacer par rapport à la Terre, arrêtant la dissipation d'énergie",
+          "explication": "Une fois le bourrelet de marée aligné et immobile par rapport à la Terre, aucune énergie n'était plus dissipée par ce mécanisme et la vitesse de rotation s'est stabilisée.",
+          "media_url": null
+        },
+        {
+          "id": "att-n3-q08",
+          "type": "ordre",
+          "theme": "Séquence d'atterrissage",
+          "question": "Ordonne chronologiquement les phases critiques de l'arrivée de Surveyor 3 sur la Lune le 20 avril 1967.",
+          "indice": "De la perturbation radar jusqu'à l'immobilisation définitive après les rebonds.",
+          "elements": [
+            "Second rebond culminant à 3 mètres (10 pieds)",
+            "Perturbation du radar de descente par des roches réfléchissantes",
+            "Maintien de la poussée du moteur principal sous 4,3 mètres d'altitude",
+            "Premier rebond culminant à 10 mètres (33 pieds)"
+          ],
+          "reponse": [
+            "Perturbation du radar de descente par des roches réfléchissantes",
+            "Maintien de la poussée du moteur principal sous 4,3 mètres d'altitude",
+            "Premier rebond culminant à 10 mètres (33 pieds)",
+            "Second rebond culminant à 3 mètres (10 pieds)"
+          ],
+          "explication": "La réflexion des roches a trompé le radar, empêchant la coupure moteur à 4,3 m et entraînant un rebond à 10 m suivi d'un second à 3 m.",
+          "media_url": null
+        },
+        {
+          "id": "att-n3-q09",
+          "type": "qcm",
+          "theme": "Gravimétrie lunaire",
+          "question": "Quelle technique de mesure les deux sondes Ebb et Flow de la mission GRAIL (mars-mai 2012) ont-elles utilisée pour cartographier le champ de gravité lunaire ?",
+          "indice": "Elles mesuraient avec précision la distance entre elles grâce à des ondes radio haute fréquence.",
+          "choix": [
+            "Des mesures micro-ondes très précises entre les deux engins spatiaux",
+            "Des tirs laser depuis l'observatoire de Mauna Kea",
+            "Des magnétomètres à protons en surface",
+            "La spectroscopie gamma des roches basaltiques"
+          ],
+          "reponse": "Des mesures micro-ondes très précises entre les deux engins spatiaux",
+          "explication": "La mission GRAIL (Ebb et Flow) a utilisé des mesures micro-ondes de haute précision entre les deux sondes pour cartographier les variations gravitationnelles lunaires.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/lunar-science/2023/08/711377main_grail20121205_4x3_full.jpg"
+        },
+        {
+          "id": "att-n3-q10",
+          "type": "vrai_faux",
+          "theme": "Éclipses et orbiteurs",
+          "question": "Vrai ou faux : Durant une éclipse lunaire, la NASA éteint tous les instruments de l'orbiteur LRO sans exception, y compris le radiomètre Diviner.",
+          "indice": "Un instrument reste actif pour observer le refroidissement rapide de la surface.",
+          "reponse": false,
+          "explication": "Faux, la NASA laisse actif l'instrument Diviner pour observer comment la surface lunaire réagit au refroidissement rapide durant l'éclipse.",
+          "media_url": null
+        },
+        {
+          "id": "att-n3-q11",
+          "type": "qcm_multiple",
+          "theme": "Instrumentation et contexte",
+          "question": "Quelles informations techniques sur le système Terre-Lune figurent dans les fiches de référence NASA associées ? (Plusieurs bonnes réponses)",
+          "indice": "Vérifie le rapport de taille, la masse de la Lune et le contenu du matériel laissé sur place.",
+          "choix": [
+            "Le diamètre de la Terre est 3,7 fois plus grand que celui de la Lune",
+            "La masse de la Lune est d'environ 7,348 × 10^22 kg",
+            "L'orbite moyenne de la Lune se situe à 384 400 km",
+            "L'atmosphère lunaire a une pression de 1,5 bar",
+            "Surveyor 3 a rapporté lui-même des échantillons sur Terre"
+          ],
+          "reponses": [
+            "Le diamètre de la Terre est 3,7 fois plus grand que celui de la Lune",
+            "La masse de la Lune est d'environ 7,348 × 10^22 kg",
+            "L'orbite moyenne de la Lune se situe à 384 400 km"
+          ],
+          "explication": "Les tableaux de référence indiquent que la Lune est 3,7 fois plus petite que la Terre, pèse environ 7,348 × 10^22 kg et orbite à 384 400 km en moyenne.",
+          "media_url": null
+        },
+        {
+          "id": "att-n3-q12",
+          "type": "association",
+          "theme": "Instruments et missions",
+          "question": "Associe chaque instrument ou mission lunaire à sa fonction scientifique décrite dans la documentation NASA.",
+          "indice": "Relie l'instrument de Surveyor 3, Diviner, GRAIL et CCGE à leur rôle respectif.",
+          "colonne_gauche": [
+            "Échantillonneur de surface (Surveyor 3)",
+            "Diviner (LRO)",
+            "Ebb et Flow (GRAIL)",
+            "Cold Cathode Gage Experiment (CCGE)"
+          ],
+          "colonne_droite": [
+            "Cartographie haute résolution du champ de gravité lunaire",
+            "Mesure de la réponse thermique de la surface lors des éclipses",
+            "Excavation du régolithe jusqu'à 1,5 m de distance de l'atterrisseur",
+            "Instrument déployé sur la surface dans le cadre des expériences Apollo"
+          ],
+          "reponse": [
+            {
+              "gauche": "Échantillonneur de surface (Surveyor 3)",
+              "droite": "Excavation du régolithe jusqu'à 1,5 m de distance de l'atterrisseur"
+            },
+            {
+              "gauche": "Diviner (LRO)",
+              "droite": "Mesure de la réponse thermique de la surface lors des éclipses"
+            },
+            {
+              "gauche": "Ebb et Flow (GRAIL)",
+              "droite": "Cartographie haute résolution du champ de gravité lunaire"
+            },
+            {
+              "gauche": "Cold Cathode Gage Experiment (CCGE)",
+              "droite": "Instrument déployé sur la surface dans le cadre des expériences Apollo"
+            }
+          ],
+          "explication": "Chaque instrument remplit une mission dédiée : mécanique des sols pour Surveyor 3, thermométrie pour Diviner, gravimétrie pour GRAIL et étude de l'exosphère pour le CCGE.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/earths-moon/lunar-science/alsep_cold_cathode.jpg"
+        },
+        {
+          "id": "att-n3-q13",
+          "type": "qcm",
+          "theme": "Géochimie lunaire",
+          "question": "Selon l'hypothèse de l'impact géant décrite par la NASA, pourquoi les éléments légers sont-ils moins abondants sur la Lune que sur Terre ?",
+          "indice": "L'énergie thermique de l'impact a provoqué un changement d'état des matériaux volatils.",
+          "choix": [
+            "L'énergie de l'impact a vaporisé les matériaux légers et les a dispersés dans l'espace",
+            "Le champ magnétique lunaire a repoussé les atomes légers",
+            "La Lune s'est formée dans la ceinture de Kuiper",
+            "Les éléments légers ont tous coulé au centre du noyau lunaire"
+          ],
+          "reponse": "L'énergie de l'impact a vaporisé les matériaux légers et les a dispersés dans l'espace",
+          "explication": "La chaleur dégagée par la collision avec la jeune Terre a vaporisé les matériaux les plus légers qui se sont échappés dans l'espace, tandis que les éléments lourds comme le fer sont restés.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/lunar-science/internal_resources/569/Schematic_cross_section_illustration_of_early_Moon.jpeg"
+        },
+        {
+          "id": "att-n3-q14",
+          "type": "qcm",
+          "theme": "Archives et patrimoine",
+          "question": "Quelle distance approximative séparait le site d'atterrissage du module lunaire Intrepid d'Apollo 12 et l'épave de Surveyor 3 selon les deux mesures citées par la NASA ?",
+          "indice": "Deux valeurs cohérentes en mètres et yards sont mentionnées dans les résumés NASA.",
+          "choix": [
+            "Environ 180 mètres (197 yards), soit moins de 200 mètres (650 pieds)",
+            "Exactement 1 800 mètres",
+            "Moins de 15 mètres",
+            "Plus de 5 kilomètres"
+          ],
+          "reponse": "Environ 180 mètres (197 yards), soit moins de 200 mètres (650 pieds)",
+          "explication": "Les sources NASA précisent une distance d'environ 180 mètres (197 yards), soit moins de 200 mètres (650 pieds) au-delà du rempart du cratère.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/06/45_54_GPN-2000-001316.jpg"
+        },
+        {
+          "id": "att-n3-q15",
+          "type": "qcm_multiple",
+          "theme": "Chronologie de Surveyor 3",
+          "question": "Quelles assertions concernant le calendrier opérationnel de Surveyor 3 sont exactes ? (Plusieurs bonnes réponses)",
+          "indice": "Vérifie le mois du lancement, la durée du transit Terre-Lune et la date du dernier signal.",
+          "choix": [
+            "Le transit entre le lancement et l'atterrissage a duré 3 jours (17 au 20 avril 1967)",
+            "La sonde a cessé de communiquer le 4 mai 1967",
+            "Le dernier contact a eu lieu 48 heures après le début de la nuit lunaire",
+            "La sonde a fonctionné sans interruption jusqu'en novembre 1969",
+            "Surveyor 3 a été lancé en juillet 1969 avec Apollo 11"
+          ],
+          "reponses": [
+            "Le transit entre le lancement et l'atterrissage a duré 3 jours (17 au 20 avril 1967)",
+            "La sonde a cessé de communiquer le 4 mai 1967",
+            "Le dernier contact a eu lieu 48 heures après le début de la nuit lunaire"
+          ],
+          "explication": "Lancé le 17 avril 1967, Surveyor 3 a atterri le 20 avril et a transmis jusqu'au 4 mai 1967, soit deux jours après le début de la nuit lunaire.",
+          "media_url": null
+        }
+      ]
+    }
+  }
+}

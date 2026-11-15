@@ -1,0 +1,844 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "modules-lunaires-apollo",
+    "titre": "Quiz : Les modules lunaires Apollo et l'Eagle d'Apollo 11",
+    "categorie": "lune",
+    "sous_categorie": "exploration-habitee",
+    "lieu": "Mare Tranquillitatis (Mer de la Tranquillité), Lune",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec une seule bonne réponse parmi 4 propositions.",
+      "qcm_multiple": "Question à choix multiples avec 2 à 4 bonnes réponses parmi 5 propositions.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Éléments à remettre dans le bon ordre chronologique ou logique.",
+      "association": "Éléments de deux colonnes à relier par paires.",
+      "saisie_numerique": "Valeur numérique précise à saisir avec une unité et une marge de tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "mla-n1-q01",
+          "type": "qcm",
+          "theme": "Nom du vaisseau",
+          "question": "Comment s'appelait le module lunaire d'Apollo 11 qui s'est posé le premier sur la Lune ?",
+          "indice": "C'est le nom anglais de l'aigle.",
+          "choix": [
+            "Eagle",
+            "Falcon",
+            "Intrepid",
+            "Columbia"
+          ],
+          "reponse": "Eagle",
+          "explication": "Le module lunaire d'Apollo 11 s'appelait Eagle (« l'Aigle ») et fut le premier véhicule habité à se poser sur la Lune.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/ap11_lm_as11_40_5927.jpg"
+        },
+        {
+          "id": "mla-n1-q02",
+          "type": "qcm_multiple",
+          "theme": "Premiers marcheurs",
+          "question": "Quels deux astronautes sont descendus sur la Lune à bord du module Eagle ? (Plusieurs bonnes réponses)",
+          "indice": "Le troisième astronaute, Michael Collins, est resté en orbite autour de la Lune.",
+          "choix": [
+            "Neil A. Armstrong",
+            "Edwin E. « Buzz » Aldrin",
+            "Michael Collins",
+            "Charles Conrad",
+            "David Scott"
+          ],
+          "reponses": [
+            "Neil A. Armstrong",
+            "Edwin E. « Buzz » Aldrin"
+          ],
+          "explication": "Neil Armstrong et Buzz Aldrin ont été les deux premiers humains à marcher sur la Lune en juillet 1969.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/images/astflag.jpg"
+        },
+        {
+          "id": "mla-n1-q03",
+          "type": "vrai_faux",
+          "theme": "Rampe de lancement",
+          "question": "Vrai ou faux : L'étage inférieur du module lunaire est resté sur la Lune pour servir de rampe de lancement.",
+          "indice": "Seule la cabine du haut (l'étage de remontée) repartait vers l'espace.",
+          "reponse": true,
+          "explication": "Vrai ! L'étage de descente servait de plateforme de lancement pour l'étage de remontée et est resté sur la Lune.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_lm_diagram.gif"
+        },
+        {
+          "id": "mla-n1-q04",
+          "type": "qcm",
+          "theme": "Lieu d'alunissage",
+          "question": "Dans quelle région de la Lune le module Eagle a-t-il atterri ?",
+          "indice": "Son nom évoque un océan calme : la Mer de la Tranquillité.",
+          "choix": [
+            "La Mer de la Tranquillité",
+            "La Mer des Tempêtes",
+            "Le Cratère Tycho",
+            "Le Pôle Sud lunaire"
+          ],
+          "reponse": "La Mer de la Tranquillité",
+          "explication": "Eagle s'est posé dans Mare Tranquillitatis, la Mer de la Tranquillité.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n1-q05",
+          "type": "saisie_numerique",
+          "theme": "Pattes d'atterrissage",
+          "question": "Combien de jambes d'atterrissage équipées de patins ronds soutenaient le module lunaire sur le sol ?",
+          "indice": "C'est le même nombre que les pattes d'une table ou d'un chien.",
+          "reponse": 4,
+          "unite": "jambes",
+          "tolerance": 0,
+          "explication": "Le module lunaire possédait 4 jambes d'atterrissage munies de larges patins ronds, dont une portait l'échelle des astronautes.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_lm_diagram.gif"
+        },
+        {
+          "id": "mla-n1-q06",
+          "type": "qcm",
+          "theme": "Phrase célèbre",
+          "question": "Quelle phrase célèbre Neil Armstrong a-t-il prononcée en posant le pied sur la Lune ?",
+          "indice": "Elle oppose un petit pas pour un homme à un bond géant pour tous les humains.",
+          "choix": [
+            "« C'est un petit pas pour l'homme, un bond de géant pour l'humanité »",
+            "« Houston, nous avons un problème »",
+            "« Vers l'infini et au-delà »",
+            "« La Terre est bleue comme une orange »"
+          ],
+          "reponse": "« C'est un petit pas pour l'homme, un bond de géant pour l'humanité »",
+          "explication": "En posant le pied sur la Lune le 21 juillet 1969, Armstrong a déclaré : « That's one small step for man, one giant leap for mankind ».",
+          "media_url": null
+        },
+        {
+          "id": "mla-n1-q07",
+          "type": "vrai_faux",
+          "theme": "Empreintes",
+          "question": "Vrai ou faux : Les empreintes de pas laissées par les astronautes d'Apollo 11 sur la Lune peuvent durer des millions d'années.",
+          "indice": "Sur la Lune, il n'y a ni vent ni pluie pour les effacer.",
+          "reponse": true,
+          "explication": "Vrai ! Sans vent ni eau sur la Lune, sauf chute d'une météorite au même endroit, ces empreintes resteront intactes pendant des millions d'années.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/a11foot.gif"
+        },
+        {
+          "id": "mla-n1-q08",
+          "type": "qcm_multiple",
+          "theme": "Objets laissés",
+          "question": "Qu'ont installé ou laissé les astronautes d'Apollo 11 sur la Lune ? (Plusieurs bonnes réponses)",
+          "indice": "Ils ont laissé un symbole de leur pays, un message de paix et des instruments.",
+          "choix": [
+            "Un drapeau américain",
+            "Une plaque portant un message de paix pour toute l'humanité",
+            "Des instruments scientifiques (EASEP)",
+            "Un buggy lunaire électrique",
+            "Une station spatiale habitée"
+          ],
+          "reponses": [
+            "Un drapeau américain",
+            "Une plaque portant un message de paix pour toute l'humanité",
+            "Des instruments scientifiques (EASEP)"
+          ],
+          "explication": "Les astronautes d'Apollo 11 ont planté un drapeau américain, dévoilé une plaque commémorative et installé l'ensemble scientifique EASEP.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/images/astflag.jpg"
+        },
+        {
+          "id": "mla-n1-q09",
+          "type": "qcm",
+          "theme": "Durée de la sortie",
+          "question": "Combien de temps environ Buzz Aldrin a-t-il passé dehors sur la surface lunaire lors d'Apollo 11 ?",
+          "indice": "Un peu moins de deux heures (1 heure et 41 minutes).",
+          "choix": [
+            "1 heure et 41 minutes",
+            "12 heures",
+            "10 minutes",
+            "3 jours"
+          ],
+          "reponse": "1 heure et 41 minutes",
+          "explication": "Buzz Aldrin est resté 1 heure et 41 minutes sur le sol lunaire avant de remonter dans l'Eagle, suivi 12 minutes plus tard par Neil Armstrong.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n1-q10",
+          "type": "ordre",
+          "theme": "Déroulement Apollo 11",
+          "question": "Remets dans l'ordre les grandes étapes de la mission Apollo 11.",
+          "indice": "Du décollage de Floride jusqu'à l'amerrissage dans l'océan.",
+          "elements": [
+            "Premiers pas de Neil Armstrong sur la Lune",
+            "Décollage de la fusée Saturn 5 depuis Cap Canaveral",
+            "Alunissage du module Eagle dans la Mer de la Tranquillité",
+            "Retour sur Terre et amerrissage des astronautes"
+          ],
+          "reponse": [
+            "Décollage de la fusée Saturn 5 depuis Cap Canaveral",
+            "Alunissage du module Eagle dans la Mer de la Tranquillité",
+            "Premiers pas de Neil Armstrong sur la Lune",
+            "Retour sur Terre et amerrissage des astronautes"
+          ],
+          "explication": "Apollo 11 a décollé le 16 juillet 1969, s'est posé le 20 juillet, Armstrong a marché sur la Lune le 21 juillet, puis l'équipage est revenu amerrir sur Terre.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n1-q11",
+          "type": "qcm",
+          "theme": "Description du paysage",
+          "question": "Comment Buzz Aldrin a-t-il décrit le paysage lunaire en posant le pied sur la Lune ?",
+          "indice": "Deux mots contrastés : un paysage superbe mais complètement désert.",
+          "choix": [
+            "« Magnifique désolation »",
+            "« Jungle luxuriante »",
+            "« Océan scintillant »",
+            "« Ville de cristal »"
+          ],
+          "reponse": "« Magnifique désolation »",
+          "explication": "Buzz Aldrin, qui a suivi Armstrong 19 minutes plus tard, a qualifié la surface lunaire de « Magnificent desolation » (« Magnifique désolation »).",
+          "media_url": null
+        },
+        {
+          "id": "mla-n1-q12",
+          "type": "qcm",
+          "theme": "Parties du vaisseau",
+          "question": "De combien d'étages principaux le module lunaire Apollo était-il composé ?",
+          "indice": "Un étage pour descendre et se poser, et un étage pour remonter.",
+          "choix": [
+            "2 étages",
+            "1 seul bloc",
+            "5 étages",
+            "10 étages"
+          ],
+          "reponse": "2 étages",
+          "explication": "Le module lunaire était un véhicule à deux étages : l'étage de descente (qui reste sur la Lune) et l'étage de remontée (qui ramène l'équipage en orbite).",
+          "media_url": "https://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_lm_diagram.gif"
+        },
+        {
+          "id": "mla-n1-q13",
+          "type": "association",
+          "theme": "Équipage Apollo 11",
+          "question": "Associe chaque astronaute d'Apollo 11 à sa fonction.",
+          "indice": "Deux ont marché sur la Lune et le troisième pilotait le vaisseau en orbite.",
+          "colonne_gauche": [
+            "Neil A. Armstrong",
+            "Edwin E. « Buzz » Aldrin",
+            "Michael Collins"
+          ],
+          "colonne_droite": [
+            "Pilote du module de commande resté en orbite lunaire",
+            "Pilote du module lunaire et deuxième homme sur la Lune",
+            "Commandant d'Apollo 11 et premier homme sur la Lune"
+          ],
+          "reponse": [
+            {
+              "gauche": "Neil A. Armstrong",
+              "droite": "Commandant d'Apollo 11 et premier homme sur la Lune"
+            },
+            {
+              "gauche": "Edwin E. « Buzz » Aldrin",
+              "droite": "Pilote du module lunaire et deuxième homme sur la Lune"
+            },
+            {
+              "gauche": "Michael Collins",
+              "droite": "Pilote du module de commande resté en orbite lunaire"
+            }
+          ],
+          "explication": "Neil Armstrong commandait la mission, Buzz Aldrin pilotait le module lunaire Eagle, et Michael Collins pilotait le module de commande Columbia.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n1-q14",
+          "type": "qcm",
+          "theme": "Échantillons",
+          "question": "Quelle quantité de roches et de poussière lunaires les astronautes d'Apollo 11 ont-ils rapportée sur Terre ?",
+          "indice": "C'est environ le poids d'une grosse valise de voyage (21,55 kg).",
+          "choix": [
+            "21,55 kg",
+            "100 grammes",
+            "500 kg",
+            "2 tonnes"
+          ],
+          "reponse": "21,55 kg",
+          "explication": "Armstrong et Aldrin ont collecté et rapporté 21,55 kg de roches et de sol lunaires dans leurs boîtes à échantillons.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n1-q15",
+          "type": "qcm_multiple",
+          "theme": "Déplacements",
+          "question": "Comment les astronautes d'Apollo 11 se sont-ils déplacés sur la Lune ? (Plusieurs bonnes réponses)",
+          "indice": "Ils n'avaient pas encore de véhicule à roues lors de cette première mission.",
+          "choix": [
+            "À pied en marchant et en sautillant",
+            "En restant à moins de 100 mètres du module Eagle",
+            "En parcourant environ 250 mètres au total",
+            "Au volant d'un buggy lunaire",
+            "À bord d'un petit hélicoptère"
+          ],
+          "reponses": [
+            "À pied en marchant et en sautillant",
+            "En restant à moins de 100 mètres du module Eagle",
+            "En parcourant environ 250 mètres au total"
+          ],
+          "explication": "Lors d'Apollo 11, les astronautes se sont déplacés uniquement à pied, parcourant environ 250 mètres au total sans s'éloigner à plus de 100 mètres du module.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "mla-n2-q01",
+          "type": "qcm",
+          "theme": "Dates historiques",
+          "question": "À quelle date et quelle heure (UT) le module lunaire Eagle s'est-il posé sur la Lune ?",
+          "indice": "Le 20 juillet 1969 en soirée (temps universel).",
+          "choix": [
+            "20 juillet 1969 à 20:17:40 UT",
+            "21 juillet 1969 à 02:56:15 UT",
+            "16 juillet 1969 à 09:32:00 UT",
+            "19 novembre 1969 à 06:54:35 UT"
+          ],
+          "reponse": "20 juillet 1969 à 20:17:40 UT",
+          "explication": "Eagle a atterri le 20 juillet 1969 à 20:17:40 UT dans Mare Tranquillitatis, et Armstrong a posé le pied sur le sol le 21 juillet à 02:56:15 UT.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/planetary/image/ap11_lm_as11_40_5927.jpg"
+        },
+        {
+          "id": "mla-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Durée de descente",
+          "question": "Pendant combien de secondes le moteur de descente d'Eagle a-t-il fonctionné lors de la phase finale d'alunissage débutée à 20:05 UT ?",
+          "indice": "Un peu plus de 12 minutes et demie (756,3 secondes).",
+          "reponse": 756.3,
+          "unite": "secondes",
+          "tolerance": 0.5,
+          "explication": "À 20:05 UT, le moteur de descente a été allumé pendant 756,3 secondes pour freiner le vaisseau jusqu'au contact avec le sol lunaire.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q03",
+          "type": "qcm",
+          "theme": "Séjour lunaire",
+          "question": "Combien de temps le module lunaire Eagle est-il resté posé sur la surface de la Lune ?",
+          "indice": "Un peu moins d'une journée terrestre (21 heures et 36 minutes).",
+          "choix": [
+            "21 heures et 36 minutes",
+            "66 heures et 55 minutes",
+            "31 heures et 31 minutes",
+            "2 heures et 31 minutes"
+          ],
+          "reponse": "21 heures et 36 minutes",
+          "explication": "Eagle a redécollé de la Lune le 21 juillet 1969 à 17:54:01 UT après un séjour de 21 heures et 36 minutes sur la surface.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q04",
+          "type": "vrai_faux",
+          "theme": "Alimentation de l'EASEP",
+          "question": "Vrai ou faux : L'ensemble scientifique EASEP d'Apollo 11 était alimenté par un générateur nucléaire au plutonium-238.",
+          "indice": "L'EASEP possédait deux panneaux solaires et ne pouvait fonctionner que le jour lunaire.",
+          "reponse": false,
+          "explication": "Faux, contrairement aux stations ALSEP ultérieures équipées d'un RTG SNAP-27, l'EASEP d'Apollo 11 était alimenté par deux panneaux solaires.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q05",
+          "type": "qcm",
+          "theme": "Rétroréflecteur laser",
+          "question": "Quelle particularité distinguait le rétroréflecteur laser (LRRR) des autres instruments de l'EASEP d'Apollo 11 ?",
+          "indice": "C'est un dispositif purement optique composé de miroirs en coin de cube.",
+          "choix": [
+            "Il n'était pas relié à la station centrale et ne nécessitait aucune alimentation électrique",
+            "Il devait être rechargé toutes les heures par les astronautes",
+            "Il a été ramené sur Terre à la fin de la sortie",
+            "Il fonctionnait grâce à une batterie chimique de 500 kg"
+          ],
+          "reponse": "Il n'était pas relié à la station centrale et ne nécessitait aucune alimentation électrique",
+          "explication": "Déployé à environ 5 mètres au nord-nord-ouest de l'EASEP, le rétroréflecteur laser (LRRR) était un instrument passif ne nécessitant aucune énergie.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q06",
+          "type": "qcm_multiple",
+          "theme": "Instruments EASEP",
+          "question": "Quels instruments faisaient partie de l'ensemble EASEP déployé par Apollo 11 ? (Plusieurs bonnes réponses)",
+          "indice": "Il s'agissait d'un ensemble simplifié précurseur de l'ALSEP.",
+          "choix": [
+            "Un sismomètre passif",
+            "Un détecteur de poussière lunaire",
+            "Un rétroréflecteur laser (LRRR)",
+            "Un véhicule lunaire mobile (LRV)",
+            "Un télescope à rayons X"
+          ],
+          "reponses": [
+            "Un sismomètre passif",
+            "Un détecteur de poussière lunaire",
+            "Un rétroréflecteur laser (LRRR)"
+          ],
+          "explication": "L'EASEP comprenait un sismomètre passif, un détecteur de poussière lunaire ainsi que le rétroréflecteur laser (LRRR) placé à 5 m.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q07",
+          "type": "qcm",
+          "theme": "Masse du vaisseau",
+          "question": "Quelle était la masse totale au lancement du module lunaire Eagle d'Apollo 11 (ergols inclus) ?",
+          "indice": "Un peu plus de 15 tonnes (15 103 kg).",
+          "choix": [
+            "15 103 kg",
+            "16 430 kg",
+            "2 445 kg",
+            "8 248 kg"
+          ],
+          "reponse": "15 103 kg",
+          "explication": "La masse totale de l'Eagle (étages de remontée et de descente avec leurs ergols) s'élevait à 15 103 kg.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q08",
+          "type": "ordre",
+          "theme": "Chronologie de l'alunissage",
+          "question": "Classe dans l'ordre chronologique les manœuvres d'Eagle le 20 juillet 1969 (en heures UT).",
+          "indice": "De la séparation d'avec Columbia jusqu'au contact avec le sol lunaire.",
+          "elements": [
+            "Contact avec le sol lunaire dans Mare Tranquillitatis (20:17:40 UT)",
+            "Séparation d'Eagle et du module de commande/service (17:44:00 UT)",
+            "Allumage de freinage final de 756,3 secondes (20:05 UT)",
+            "Allumage de 30 secondes plaçant l'orbite à 14,5 km d'altitude minimale (19:08 UT)"
+          ],
+          "reponse": [
+            "Séparation d'Eagle et du module de commande/service (17:44:00 UT)",
+            "Allumage de 30 secondes plaçant l'orbite à 14,5 km d'altitude minimale (19:08 UT)",
+            "Allumage de freinage final de 756,3 secondes (20:05 UT)",
+            "Contact avec le sol lunaire dans Mare Tranquillitatis (20:17:40 UT)"
+          ],
+          "explication": "Eagle s'est séparé à 17:44:00 UT, a abaissé son orbite à 14,5 km à 19:08 UT, a entamé la descente finale à 20:05 UT et s'est posé à 20:17:40 UT.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q09",
+          "type": "qcm",
+          "theme": "Plaque commémorative",
+          "question": "Où était fixée la plaque commémorative dévoilée par Armstrong et Aldrin sur la Lune ?",
+          "indice": "Les astronautes l'ont lue juste après être descendus sur le sol.",
+          "choix": [
+            "Sur une entretoise de la jambe d'atterrissage derrière l'échelle",
+            "Au sommet de l'antenne du module de commande",
+            "Sur le panneau solaire de l'EASEP",
+            "Sous l'un des patins ronds enfoui dans le sol"
+          ],
+          "reponse": "Sur une entretoise de la jambe d'atterrissage derrière l'échelle",
+          "explication": "La plaque était montée sur une entretoise derrière l'échelle de l'étage de descente, qui est resté sur la Lune.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q10",
+          "type": "vrai_faux",
+          "theme": "Fin de l'EASEP",
+          "question": "Vrai ou faux : L'EASEP d'Apollo 11 a cessé d'accepter des commandes depuis la Terre le 27 août 1969, au cours de son deuxième jour lunaire.",
+          "indice": "Il avait été rallumé au début de ce deuxième jour lunaire après avoir survécu à la nuit.",
+          "reponse": true,
+          "explication": "Vrai, rallumé lors du deuxième jour lunaire, l'EASEP a cessé de répondre aux commandes le 27 août 1969, mettant fin à l'expérience.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q11",
+          "type": "qcm_multiple",
+          "theme": "Équipements scientifiques",
+          "question": "Quels éléments scientifiques ou d'échantillonnage ont été manipulés par Armstrong et Aldrin lors de leur sortie ? (Plusieurs bonnes réponses)",
+          "indice": "Ils ont prélevé des carottes de sol et exposé une feuille métallique au Soleil.",
+          "choix": [
+            "Deux tubes de carottage du sol lunaire",
+            "L'expérience sur la composition du vent solaire",
+            "Un échantillon d'urgence prélevé dès les premiers instants par Armstrong",
+            "Un sismographe à encre sur rouleau de papier",
+            "Un ballon-sonde atmosphérique"
+          ],
+          "reponses": [
+            "Deux tubes de carottage du sol lunaire",
+            "L'expérience sur la composition du vent solaire",
+            "Un échantillon d'urgence prélevé dès les premiers instants par Armstrong"
+          ],
+          "explication": "Armstrong a prélevé un échantillon d'urgence dès sa descente, puis les astronautes ont prélevé deux carottes de sol et récupéré le collecteur de vent solaire.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q12",
+          "type": "association",
+          "theme": "Dimensions et distances",
+          "question": "Associe chaque mesure d'Apollo 11 à sa description.",
+          "indice": "Relie l'orbite de descente, la position de l'EASEP, celle du LRRR et la masse de l'EASEP.",
+          "colonne_gauche": [
+            "14,5 km",
+            "17 mètres",
+            "5 mètres",
+            "48 kg"
+          ],
+          "colonne_droite": [
+            "Masse totale de l'ensemble scientifique EASEP",
+            "Distance du rétroréflecteur laser (LRRR) au NNO de l'EASEP",
+            "Distance de déploiement de l'EASEP au sud du module Eagle",
+            "Altitude minimale de l'orbite de descente avant l'alunissage"
+          ],
+          "reponse": [
+            {
+              "gauche": "14,5 km",
+              "droite": "Altitude minimale de l'orbite de descente avant l'alunissage"
+            },
+            {
+              "gauche": "17 mètres",
+              "droite": "Distance de déploiement de l'EASEP au sud du module Eagle"
+            },
+            {
+              "gauche": "5 mètres",
+              "droite": "Distance du rétroréflecteur laser (LRRR) au NNO de l'EASEP"
+            },
+            {
+              "gauche": "48 kg",
+              "droite": "Masse totale de l'ensemble scientifique EASEP"
+            }
+          ],
+          "explication": "L'orbite descendait à 14,5 km, l'EASEP (48 kg) fut posé à 17 m au sud du LM, et le LRRR à 5 m au NNO de l'EASEP.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q13",
+          "type": "qcm",
+          "theme": "Sort de l'étage de remontée",
+          "question": "Qu'est-il advenu de l'étage de remontée d'Eagle après le retour des astronautes dans le module de commande Columbia ?",
+          "indice": "Il a été largué en orbite lunaire le 22 juillet 1969 à 00:01:01 UT.",
+          "choix": [
+            "Il a été largué en orbite lunaire et s'est probablement écrasé sur la Lune 1 à 4 mois plus tard",
+            "Il a été ramené sur Terre et exposé dans un musée",
+            "Il a été envoyé en orbite autour du Soleil",
+            "Il est resté amarré à Columbia jusqu'à la rentrée atmosphérique"
+          ],
+          "reponse": "Il a été largué en orbite lunaire et s'est probablement écrasé sur la Lune 1 à 4 mois plus tard",
+          "explication": "Largué en orbite lunaire le 22 juillet 1969, son sort exact est inconnu mais on estime qu'il s'est écrasé sur la Lune dans les 1 à 4 mois suivants.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q14",
+          "type": "qcm",
+          "theme": "Identifiant NSSDCA",
+          "question": "Quel est l'identifiant NSSDCA du module lunaire Eagle d'Apollo 11 ?",
+          "indice": "Il commence par 1969-059C.",
+          "choix": [
+            "1969-059C",
+            "1969-059A",
+            "1969-099C",
+            "1971-063C"
+          ],
+          "reponse": "1969-059C",
+          "explication": "L'identifiant NSSDCA du module lunaire d'Apollo 11 est 1969-059C (1969-059A étant le module de commande Columbia).",
+          "media_url": null
+        },
+        {
+          "id": "mla-n2-q15",
+          "type": "qcm_multiple",
+          "theme": "Chronologie de la sortie EVA",
+          "question": "Quelles assertions concernant la sortie extravéhiculaire d'Apollo 11 sont exactes ? (Plusieurs bonnes réponses)",
+          "indice": "Vérifie l'ordre de sortie et de rentrée des deux astronautes.",
+          "choix": [
+            "Armstrong est sorti le premier à 02:56:15 UT le 21 juillet 1969",
+            "Aldrin a rejoint Armstrong 19 minutes plus tard",
+            "Aldrin est remonté le premier dans le module lunaire",
+            "L'écoutille a été refermée à 05:11:13 UT, marquant la fin de l'EVA",
+            "Collins est descendu 10 minutes pour prendre une photo"
+          ],
+          "reponses": [
+            "Armstrong est sorti le premier à 02:56:15 UT le 21 juillet 1969",
+            "Aldrin a rejoint Armstrong 19 minutes plus tard",
+            "Aldrin est remonté le premier dans le module lunaire",
+            "L'écoutille a été refermée à 05:11:13 UT, marquant la fin de l'EVA"
+          ],
+          "explication": "Armstrong est sorti en premier et rentré en second (après avoir hissé les boîtes d'échantillons à Aldrin), l'EVA s'achevant à 05:11:13 UT.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "mla-n3-q01",
+          "type": "qcm",
+          "theme": "Devis de masse Apollo 11",
+          "question": "Quelle était la répartition exacte entre la masse sèche et la masse d'ergols de l'étage de descente d'Eagle ?",
+          "indice": "La somme des deux vaut 10 282 kg sur les 15 103 kg totaux du module lunaire.",
+          "choix": [
+            "2 034 kg à sec et 8 248 kg d'ergols",
+            "2 445 kg à sec et 2 376 kg d'ergols",
+            "2 797 kg à sec et 8 873 kg d'ergols",
+            "2 118 kg à sec et 8 359 kg d'ergols"
+          ],
+          "reponse": "2 034 kg à sec et 8 248 kg d'ergols",
+          "explication": "L'étage de descente d'Apollo 11 avait une masse sèche de 2 034 kg (équipement stocké inclus) et emportait 8 248 kg d'ergols (contre 2 445 kg à sec et 2 376 kg d'ergols pour l'étage de remontée).",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Fraction d'ergols",
+          "question": "Calcule la masse totale d'ergols (en kg) embarquée au départ à bord des deux étages du module lunaire Eagle (8 248 kg + 2 376 kg).",
+          "indice": "Additionne les ergols de descente (8 248 kg) et de remontée (2 376 kg).",
+          "reponse": 10624,
+          "unite": "kg",
+          "tolerance": 0,
+          "explication": "Eagle emportait 8 248 kg + 2 376 kg = 10 624 kg d'ergols, soit plus de 70 % de sa masse totale de 15 103 kg.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q03",
+          "type": "qcm",
+          "theme": "Anomalie thermique EASEP",
+          "question": "Quelle anomalie thermique l'ensemble scientifique EASEP a-t-il subie tout en continuant de fonctionner normalement ?",
+          "indice": "La température de fonctionnement a dépassé la limite maximale prévue.",
+          "choix": [
+            "Des températures de fonctionnement dépassant de 30 °C le maximum prévu",
+            "Un refroidissement brutal de -150 °C en plein midi lunaire",
+            "La fusion des panneaux solaires sous l'effet des gaz d'échappement",
+            "Une panne du chauffage isotopique dès la première heure"
+          ],
+          "reponse": "Des températures de fonctionnement dépassant de 30 °C le maximum prévu",
+          "explication": "Malgré des températures de fonctionnement supérieures de 30 °C au maximum nominal prévu, l'EASEP a fonctionné normalement.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q04",
+          "type": "vrai_faux",
+          "theme": "Coordonnées LRO",
+          "question": "Vrai ou faux : D'après les images du Lunar Reconnaissance Orbiter (LRO, référentiel DE 421), le site d'alunissage d'Eagle se trouve à 0,67416° N de latitude et 23,47314° E de longitude.",
+          "indice": "Le site est tout près de l'équateur lunaire dans l'hémisphère est.",
+          "reponse": true,
+          "explication": "Vrai, les mesures LRO (DE 421) fixent la position précise d'Eagle à 0,67416° N et 23,47314° E.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q05",
+          "type": "qcm",
+          "theme": "Conception de l'EASEP",
+          "question": "Comment les deux panneaux solaires de l'EASEP étaient-ils orientés lors de leur déploiement sur la Lune ?",
+          "indice": "Ils étaient inclinés de part et d'autre de la base carrée pour capter le Soleil tout au long du jour lunaire.",
+          "choix": [
+            "Inclinés sur deux supports opposés et orientés vers l'est et l'ouest",
+            "Posés à plat sur le sol et orientés vers le nord et le sud",
+            "Montés sur un moteur de poursuite solaire à deux axes",
+            "Suspendus à l'échelle du module lunaire"
+          ],
+          "reponse": "Inclinés sur deux supports opposés et orientés vers l'est et l'ouest",
+          "explication": "Deux supports fixés sur les côtés opposés de la base carrée maintenaient les panneaux solaires rectangulaires inclinés vers l'est et l'ouest.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q06",
+          "type": "qcm_multiple",
+          "theme": "Architecture du LM",
+          "question": "Quels sous-systèmes étaient logés dans l'étage de descente du module lunaire Apollo ? (Plusieurs bonnes réponses)",
+          "indice": "Cet étage abritait la propulsion d'alunissage, les fluides vitaux et le matériel de surface.",
+          "choix": [
+            "Le moteur-fusée d'alunissage et sa jupe conique de 1 mètre",
+            "Deux réservoirs d'aérozine 50 et deux réservoirs de peroxyde d'azote",
+            "Des réservoirs d'eau, d'oxygène et d'hélium",
+            "Les compartiments de stockage pour l'équipement lunaire",
+            "Les deux couchettes principales de l'équipage"
+          ],
+          "reponses": [
+            "Le moteur-fusée d'alunissage et sa jupe conique de 1 mètre",
+            "Deux réservoirs d'aérozine 50 et deux réservoirs de peroxyde d'azote",
+            "Des réservoirs d'eau, d'oxygène et d'hélium",
+            "Les compartiments de stockage pour l'équipement lunaire"
+          ],
+          "explication": "L'étage de descente contenait le moteur de descente (avec sa jupe conique de 1 m), les 4 réservoirs d'ergols, les réservoirs d'eau/oxygène/hélium et les baies d'équipement.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/static/history/diagrams/ad018.gif"
+        },
+        {
+          "id": "mla-n3-q07",
+          "type": "qcm",
+          "theme": "Télécommunications EASEP",
+          "question": "Quelle était la fréquence de liaison descendante (télémétrie vers la Terre) utilisée par l'EASEP d'Apollo 11 ?",
+          "indice": "Elle est légèrement inférieure à celle de l'ALSEP d'Apollo 15 (2278,0 MHz).",
+          "choix": [
+            "2276,5 MHz",
+            "2119,0 MHz",
+            "2278,5 MHz",
+            "1420,4 MHz"
+          ],
+          "reponse": "2276,5 MHz",
+          "explication": "L'EASEP recevait ses commandes sur 2119 MHz et transmettait sa télémétrie vers la Terre sur 2276,5 MHz.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q08",
+          "type": "ordre",
+          "theme": "Séquence opérationnelle EASEP",
+          "question": "Ordonne chronologiquement les événements liés à l'ensemble scientifique EASEP d'Apollo 11.",
+          "indice": "De son activation le 21 juillet jusqu'à l'arrêt définitif fin août 1969.",
+          "elements": [
+            "Arrêt définitif suite à l'absence de réponse aux commandes (27 août 1969)",
+            "Activation par commande depuis la Terre pendant l'EVA (21 juillet 1969 à 04:40:39 UT)",
+            "Réactivation au début du deuxième jour lunaire",
+            "Arrêt de transmission 5 heures avant le coucher du Soleil local (3 août 1969 à 10:58:46 UT)"
+          ],
+          "reponse": [
+            "Activation par commande depuis la Terre pendant l'EVA (21 juillet 1969 à 04:40:39 UT)",
+            "Arrêt de transmission 5 heures avant le coucher du Soleil local (3 août 1969 à 10:58:46 UT)",
+            "Réactivation au début du deuxième jour lunaire",
+            "Arrêt définitif suite à l'absence de réponse aux commandes (27 août 1969)"
+          ],
+          "explication": "Activé le 21 juillet à 04:40:39 UT, l'EASEP a été coupé avant le coucher du Soleil le 3 août à 10:58:46 UT, rallumé au jour lunaire suivant et arrêté le 27 août 1969.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q09",
+          "type": "qcm",
+          "theme": "Dimensions de l'étage de remontée",
+          "question": "Quelles étaient les dimensions extérieures approximatives de l'étage de remontée du module lunaire Apollo ?",
+          "indice": "Une forme irrégulière d'environ 2,8 m de haut pour 4,0 m sur 4,3 m de large.",
+          "choix": [
+            "Environ 2,8 m de haut sur 4,0 m par 4,3 m de large",
+            "Exactement 9,4 m de haut sur 4,2 m de large",
+            "Environ 1,5 m de haut sur 1,7 m de large",
+            "Environ 10 m de haut sur 6,65 m de large"
+          ],
+          "reponse": "Environ 2,8 m de haut sur 4,0 m par 4,3 m de large",
+          "explication": "L'étage de remontée mesurait environ 2,8 m de haut et 4,0 par 4,3 mètres de large, offrant un volume pressurisé de 6,65 m³.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/static/history/diagrams/ad015.gif"
+        },
+        {
+          "id": "mla-n3-q10",
+          "type": "vrai_faux",
+          "theme": "Écoutilles du LM",
+          "question": "Vrai ou faux : L'étage de remontée du module lunaire comportait deux écoutilles distinctes : une sur le côté pour les sorties lunaires et une au sommet pour l'amarrage au module de commande.",
+          "indice": "L'une servait à descendre sur l'échelle, l'autre à rejoindre le CSM en orbite.",
+          "reponse": true,
+          "explication": "Vrai, il disposait d'une écoutille latérale d'entrée/sortie (ingress-egress) pour la surface et d'une écoutille supérieure d'amarrage (docking) avec le CSM.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/static/history/diagrams/ad016.gif"
+        },
+        {
+          "id": "mla-n3-q11",
+          "type": "qcm_multiple",
+          "theme": "Composants de l'EASEP",
+          "question": "Quels éléments étaient directement montés sur la base carrée de l'EASEP d'Apollo 11 ? (Plusieurs bonnes réponses)",
+          "indice": "N'inclus pas le rétroréflecteur laser qui était posé séparément à 5 mètres.",
+          "choix": [
+            "Le sismomètre passif",
+            "Le détecteur de poussière lunaire",
+            "Un dispositif de chauffage isotopique",
+            "Un mât d'antenne cylindrique avec mécanisme de pointage",
+            "Le rétroréflecteur laser LRRR"
+          ],
+          "reponses": [
+            "Le sismomètre passif",
+            "Le détecteur de poussière lunaire",
+            "Un dispositif de chauffage isotopique",
+            "Un mât d'antenne cylindrique avec mécanisme de pointage"
+          ],
+          "explication": "La base carrée portait le sismomètre, le détecteur de poussière, un réchauffeur isotopique et le mât d'antenne ; le LRRR était déployé séparément à 5 m.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q12",
+          "type": "association",
+          "theme": "Horaires critiques Apollo 11",
+          "question": "Associe chaque horodatage (en UT) de la mission Apollo 11 à l'événement correspondant.",
+          "indice": "Relie l'alunissage du 20 juillet, les premiers pas, le décollage lunaire et le largage d'Eagle.",
+          "colonne_gauche": [
+            "20 juillet 1969, 20:17:40 UT",
+            "21 juillet 1969, 02:56:15 UT",
+            "21 juillet 1969, 17:54:01 UT",
+            "22 juillet 1969, 00:01:01 UT"
+          ],
+          "colonne_droite": [
+            "Largage de l'étage de remontée d'Eagle en orbite lunaire",
+            "Premier pas de Neil Armstrong sur la surface lunaire",
+            "Alunissage d'Eagle dans la Mer de la Tranquillité",
+            "Décollage d'Eagle depuis la surface lunaire"
+          ],
+          "reponse": [
+            {
+              "gauche": "20 juillet 1969, 20:17:40 UT",
+              "droite": "Alunissage d'Eagle dans la Mer de la Tranquillité"
+            },
+            {
+              "gauche": "21 juillet 1969, 02:56:15 UT",
+              "droite": "Premier pas de Neil Armstrong sur la surface lunaire"
+            },
+            {
+              "gauche": "21 juillet 1969, 17:54:01 UT",
+              "droite": "Décollage d'Eagle depuis la surface lunaire"
+            },
+            {
+              "gauche": "22 juillet 1969, 00:01:01 UT",
+              "droite": "Largage de l'étage de remontée d'Eagle en orbite lunaire"
+            }
+          ],
+          "explication": "Ces quatre jalons marquent respectivement l'alunissage, la sortie EVA, le décollage lunaire et l'abandon de l'étage de remontée.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q13",
+          "type": "qcm",
+          "theme": "Protection thermique",
+          "question": "Quel matériau ou procédé caractérisait le moteur de descente du module lunaire Apollo ?",
+          "indice": "La chambre et la tuyère étaient protégées par un revêtement qui s'érode en absorbant la chaleur.",
+          "choix": [
+            "Une chambre de combustion ablative avec poussée fortement modulable",
+            "Un refroidissement régénératif à l'hydrogène liquide",
+            "Une tuyère en graphite non refroidie à poussée fixe",
+            "Un réacteur nucléaire thermique à cœur solide"
+          ],
+          "reponse": "Une chambre de combustion ablative avec poussée fortement modulable",
+          "explication": "La fiche NSSDCA décrit le moteur de descente comme une fusée ablative à forte modulation de poussée (deep-throttling ablative rocket) montée sur cardan.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q14",
+          "type": "qcm",
+          "theme": "Coordonnées de l'EASEP",
+          "question": "À quelle position relative par rapport au module lunaire Eagle l'ensemble EASEP a-t-il été installé ?",
+          "indice": "À moins de vingt mètres au sud du module lunaire.",
+          "choix": [
+            "Environ 17 mètres au sud du LM (0,6735° N, 23,4730° E)",
+            "Environ 180 mètres à l'ouest du LM",
+            "Directement sous la tuyère du moteur de descente",
+            "À 1,3 km au nord-est du LM"
+          ],
+          "reponse": "Environ 17 mètres au sud du LM (0,6735° N, 23,4730° E)",
+          "explication": "L'EASEP a été déployé à environ 17 m au sud du LM (0,6735° N, 23,4730° E) afin de limiter les perturbations liées au redécollage.",
+          "media_url": null
+        },
+        {
+          "id": "mla-n3-q15",
+          "type": "qcm_multiple",
+          "theme": "Rendez-vous en orbite",
+          "question": "Quelles assertions concernant le retour d'Eagle vers le module de commande Columbia sont exactes ? (Plusieurs bonnes réponses)",
+          "indice": "Vérifie le nom du pilote resté en orbite et l'heure d'amarrage du 21 juillet 1969.",
+          "choix": [
+            "Michael Collins pilotait le module de commande et de service (CSM)",
+            "L'amarrage entre l'étage de remontée d'Eagle et le CSM a eu lieu le 21 juillet à 21:34:00 UT",
+            "Seul l'étage de remontée a rejoint l'orbite lunaire",
+            "L'étage de descente est resté sur la Lune comme plateforme de lancement",
+            "Eagle est revenu entier jusqu'à l'amerrissage dans le Pacifique"
+          ],
+          "reponses": [
+            "Michael Collins pilotait le module de commande et de service (CSM)",
+            "L'amarrage entre l'étage de remontée d'Eagle et le CSM a eu lieu le 21 juillet à 21:34:00 UT",
+            "Seul l'étage de remontée a rejoint l'orbite lunaire",
+            "L'étage de descente est resté sur la Lune comme plateforme de lancement"
+          ],
+          "explication": "L'étage de remontée a décollé depuis l'étage de descente resté au sol et s'est amarré au CSM piloté par Michael Collins à 21:34:00 UT le 21 juillet 1969.",
+          "media_url": "https://nssdc.gsfc.nasa.gov/image/spacecraft/apollo_csm_diagram.gif"
+        }
+      ]
+    }
+  }
+}

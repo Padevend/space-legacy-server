@@ -1,0 +1,842 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "rover-sojourner",
+    "titre": "Rover Sojourner (Mars Pathfinder)",
+    "categorie": "mars",
+    "sous_categorie": "exploration-robotique",
+    "lieu": "Ares Vallis, Mars",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec 4 options et une seule bonne réponse.",
+      "qcm_multiple": "Question à choix multiples avec 5 options et 2 à 4 bonnes réponses.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Liste d'éléments mélangés à remettre dans l'ordre chronologique ou logique.",
+      "association": "Paires d'éléments à relier entre une colonne de gauche et une colonne de droite.",
+      "saisie_numerique": "Question appelant une valeur numérique précise avec unité et tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "soj-n1-q01",
+          "type": "qcm",
+          "theme": "Histoire",
+          "question": "Quel record historique le petit robot Sojourner a-t-il établi en 1997 ?",
+          "choix": [
+            "Le premier robot à rouler sur Mars",
+            "Le premier robot à se poser sur la Lune",
+            "Le premier satellite autour de Jupiter",
+            "La première fusée réutilisable"
+          ],
+          "reponse": "Le premier robot à rouler sur Mars",
+          "indice": "Avant lui, les sondes Viking restaient immobiles là où elles atterrissaient.",
+          "explication": "Sojourner est devenu en juillet 1997 le tout premier rover à rouler sur une autre planète que la Terre.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q02",
+          "type": "qcm",
+          "theme": "Taille",
+          "question": "À quel appareil de cuisine la taille du rover Sojourner ressemblait-elle ?",
+          "choix": [
+            "Un four à micro-ondes",
+            "Un grand réfrigérateur américain",
+            "Une machine à laver",
+            "Une cuisinière industrielle"
+          ],
+          "reponse": "Un four à micro-ondes",
+          "indice": "Il mesurait environ 65 cm de long et ne pesait que 10,6 kg.",
+          "explication": "Avec ses 65 cm de long, 48 cm de large et 30 cm de haut, Sojourner avait la taille d'un four à micro-ondes.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q03",
+          "type": "saisie_numerique",
+          "theme": "Roues",
+          "question": "Combien de roues possédait le rover Sojourner pour rouler sur les rochers martiens ?",
+          "reponse": 6,
+          "unite": "roues",
+          "tolerance": 0,
+          "indice": "Trois roues à gauche et trois roues à droite.",
+          "explication": "Sojourner était équipé de 6 roues motrices indépendantes qui lui permettaient d'enjamber de petits obstacles.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q04",
+          "type": "vrai_faux",
+          "theme": "Origine du nom",
+          "question": "Vrai ou faux : Le nom « Sojourner » a été choisi par une jeune fille de 12 ans lors d'un concours d'écriture.",
+          "reponse": true,
+          "indice": "Elle s'appelait Valerie Ambroise et a rendu hommage à Sojourner Truth.",
+          "explication": "Valerie Ambroise, âgée de 12 ans, a remporté le concours de la NASA en proposant le nom de l'abolitionniste Sojourner Truth.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q05",
+          "type": "qcm",
+          "theme": "Atterrissage",
+          "question": "Comment la sonde Mars Pathfinder qui transportait Sojourner a-t-elle amorti son choc à l'arrivée sur Mars ?",
+          "choix": [
+            "En rebondissant dans d'énormes airbags",
+            "En déployant des ailes d'avion",
+            "En amerrissant dans un lac",
+            "En s'accrochant à un ballon dirigeable"
+          ],
+          "reponse": "En rebondissant dans d'énormes airbags",
+          "indice": "Elle était entourée de gros coussins gonflables comme un ballon de plage géant.",
+          "explication": "Entourée de grands airbags, la sonde a rebondi une quinzaine de fois sur le sol martien avant de s'immobiliser.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q06",
+          "type": "qcm_multiple",
+          "theme": "Équipement",
+          "question": "De quoi était équipé le rover Sojourner sur Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un panneau solaire plat sur le dessus",
+            "Six roues en aluminium avec des crampons",
+            "Des caméras pour voir devant et derrière lui",
+            "Un grand bras pelleteuse de 5 mètres",
+            "Deux hélices d'hélicoptère"
+          ],
+          "reponses": [
+            "Un panneau solaire plat sur le dessus",
+            "Six roues en aluminium avec des crampons",
+            "Des caméras pour voir devant et derrière lui"
+          ],
+          "indice": "Il roulait grâce à l'énergie du Soleil et regardait où il allait avec ses caméras.",
+          "explication": "Sojourner disposait d'un panneau solaire dorsal, de 6 roues crantées et de caméras à l'avant et à l'arrière.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q07",
+          "type": "qcm",
+          "theme": "Surnoms",
+          "question": "Comment les scientifiques ont-ils surnommé les rochers martiens étudiés par Sojourner ?",
+          "choix": [
+            "Avec des noms amusants de dessins animés comme « Barnacle Bill » ou « Yogi »",
+            "Uniquement avec des numéros de téléphone",
+            "Avec des noms de villes françaises",
+            "Avec des noms de poissons rouges"
+          ],
+          "reponse": "Avec des noms amusants de dessins animés comme « Barnacle Bill » ou « Yogi »",
+          "indice": "L'un d'eux portait le nom d'un célèbre ours de dessin animé.",
+          "explication": "Pour s'y retrouver facilement, l'équipe a donné aux rochers des surnoms comme « Barnacle Bill », « Yogi » ou « Scooby-Doo ».",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q08",
+          "type": "ordre",
+          "theme": "Sortie",
+          "question": "Remets dans l'ordre les étapes de l'arrivée de Sojourner sur Mars.",
+          "elements": [
+            "Sojourner descend doucement le long d'une petite rampe",
+            "Les grands airbags se dégonflent après les rebonds",
+            "Les pétales de l'atterrisseur s'ouvrent comme une fleur",
+            "Les six roues de Sojourner touchent enfin le sable de Mars"
+          ],
+          "reponse": [
+            "Les grands airbags se dégonflent après les rebonds",
+            "Les pétales de l'atterrisseur s'ouvrent comme une fleur",
+            "Sojourner descend doucement le long d'une petite rampe",
+            "Les six roues de Sojourner touchent enfin le sable de Mars"
+          ],
+          "indice": "Il faut d'abord ouvrir la coque de l'atterrisseur avant de dérouler la rampe.",
+          "explication": "Après le dégonflage des airbags, l'atterrisseur a ouvert ses pétales puis déployé la rampe permettant à Sojourner de descendre sur le sol.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q09",
+          "type": "qcm",
+          "theme": "Vitesse",
+          "question": "À quelle vitesse maximale avançait Sojourner sur Mars ?",
+          "choix": [
+            "Très lentement, environ 1 centimètre par seconde",
+            "Aussi vite qu'un guépard",
+            "Aussi vite qu'une voiture sur l'autoroute",
+            "Aussi vite qu'un vélo de course"
+          ],
+          "reponse": "Très lentement, environ 1 centimètre par seconde",
+          "indice": "Il prenait tout son temps pour éviter les cailloux et ne pas tomber.",
+          "explication": "Sojourner se déplaçait à une vitesse maximale d'environ 1 cm par seconde, soit 36 mètres en une heure !",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q10",
+          "type": "vrai_faux",
+          "theme": "Communication",
+          "question": "Vrai ou faux : Sojourner restait toujours à quelques mètres de sa station d'atterrissage pour pouvoir lui parler par radio.",
+          "reponse": true,
+          "indice": "Il n'avait pas d'antenne assez puissante pour parler directement à la Terre.",
+          "explication": "Sojourner transmettait ses messages à l'atterrisseur Mars Pathfinder, qui les envoyait ensuite vers la Terre.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q11",
+          "type": "qcm_multiple",
+          "theme": "Travaux",
+          "question": "Que faisait Sojourner lorsqu'il s'approchait d'un rocher sur Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Il prenait des photos du rocher de très près",
+            "Il collait son capteur contre la roche pour connaître sa composition",
+            "Il testait l'adhérence de ses roues dans la poussière",
+            "Il cassait le rocher à coups de marteau",
+            "Il ramenait le rocher jusqu'à la Terre"
+          ],
+          "reponses": [
+            "Il prenait des photos du rocher de très près",
+            "Il collait son capteur contre la roche pour connaître sa composition",
+            "Il testait l'adhérence de ses roues dans la poussière"
+          ],
+          "indice": "C'était un robot géologue qui observait et analysait les roches sans les détruire.",
+          "explication": "Sojourner photographiait les roches, analysait leur chimie par contact avec son spectromètre et étudiait le sol martien.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q12",
+          "type": "association",
+          "theme": "Acteurs",
+          "question": "Associe chaque élément de la mission Mars Pathfinder à sa description.",
+          "colonne_gauche": [
+            "Sojourner",
+            "Mars Pathfinder",
+            "Ares Vallis"
+          ],
+          "colonne_droite": [
+            "La plaine rocheuse de Mars où la mission s'est posée",
+            "Le petit rover à six roues",
+            "La station fixe qui a transporté le rover"
+          ],
+          "reponse": [
+            {
+              "gauche": "Sojourner",
+              "droite": "Le petit rover à six roues"
+            },
+            {
+              "gauche": "Mars Pathfinder",
+              "droite": "La station fixe qui a transporté le rover"
+            },
+            {
+              "gauche": "Ares Vallis",
+              "droite": "La plaine rocheuse de Mars où la mission s'est posée"
+            }
+          ],
+          "indice": "L'un est le robot mobile, l'autre est sa base fixe et le troisième est le paysage.",
+          "explication": "Mars Pathfinder s'est posé dans Ares Vallis et a libéré le rover Sojourner.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q13",
+          "type": "qcm",
+          "theme": "Énergie",
+          "question": "D'où venait l'électricité qui faisait avancer les roues de Sojourner en journée ?",
+          "choix": [
+            "De la lumière du Soleil captée par son panneau solaire",
+            "D'une rallonge électrique déroulée depuis l'atterrisseur",
+            "Du vent martien",
+            "D'un moteur à essence"
+          ],
+          "reponse": "De la lumière du Soleil captée par son panneau solaire",
+          "indice": "Son toit plat était recouvert de cellules solaires.",
+          "explication": "Son panneau solaire alimentait directement ses moteurs et son ordinateur pendant la journée martienne.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q14",
+          "type": "qcm_multiple",
+          "theme": "Paysage",
+          "question": "À quoi ressemblait le paysage d'Ares Vallis exploré par Sojourner ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un sol couvert de poussière rougeâtre et de sable",
+            "De nombreux rochers et cailloux de toutes tailles",
+            "Deux petites collines à l'horizon appelées Twin Peaks",
+            "Des forêts d'arbres verts",
+            "Des rivières d'eau bleue qui coulent"
+          ],
+          "reponses": [
+            "Un sol couvert de poussière rougeâtre et de sable",
+            "De nombreux rochers et cailloux de toutes tailles",
+            "Deux petites collines à l'horizon appelées Twin Peaks"
+          ],
+          "indice": "C'est une ancienne plaine d'inondation aujourd'hui sèche et rocheuse.",
+          "explication": "Ares Vallis est un désert rougeâtre parsemé de rochers charriés par d'anciennes crues, dominé au loin par les collines Twin Peaks.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n1-q15",
+          "type": "qcm",
+          "theme": "Durée",
+          "question": "Combien de jours martiens (sols) la mission de Sojourner devait-elle durer au minimum ?",
+          "choix": [
+            "7 jours martiens",
+            "100 jours martiens",
+            "1 000 jours martiens",
+            "10 ans"
+          ],
+          "reponse": "7 jours martiens",
+          "indice": "Une semaine martienne, même s'il a tenu presque douze fois plus longtemps !",
+          "explication": "La mission primaire de Sojourner n'était prévue que pour 7 sols, mais il a finalement fonctionné pendant 83 sols.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "soj-n2-q01",
+          "type": "qcm",
+          "theme": "Date clé",
+          "question": "À quelle date exacte Mars Pathfinder et Sojourner ont-ils atterri sur Mars ?",
+          "choix": [
+            "4 juillet 1997",
+            "20 juillet 1976",
+            "4 janvier 2004",
+            "6 août 2012"
+          ],
+          "reponse": "4 juillet 1997",
+          "indice": "Le jour de la fête nationale américaine en 1997.",
+          "explication": "Mars Pathfinder s'est posé sur Mars le 4 juillet 1997 après un voyage de sept mois depuis la Terre.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Masse",
+          "question": "Quelle était la masse exacte du rover Sojourner sur Terre ?",
+          "reponse": 10.6,
+          "unite": "kg",
+          "tolerance": 0.2,
+          "indice": "Un peu plus de 10 kilogrammes.",
+          "explication": "Sojourner avait une masse de 10,6 kg sur Terre (11,5 kg en incluant le matériel de fixation sur l'atterrisseur).",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q03",
+          "type": "qcm",
+          "theme": "Suspension",
+          "question": "Quel système de suspension articulée innovant, inauguré par Sojourner, équipe encore les rovers Curiosity et Perseverance ?",
+          "choix": [
+            "La suspension rocker-bogie",
+            "La suspension hydropneumatique",
+            "Les chenilles articulées",
+            "Les ressorts hélicoïdaux simples"
+          ],
+          "reponse": "La suspension rocker-bogie",
+          "indice": "Ce mécanisme sans ressorts permet aux six roues de rester en contact avec le sol.",
+          "explication": "La suspension rocker-bogie maintient les six roues au sol et permet au rover de franchir des obstacles atteignant 1,5 fois le diamètre de ses roues.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q04",
+          "type": "qcm_multiple",
+          "theme": "Instruments",
+          "question": "Quels équipements scientifiques et techniques étaient embarqués sur le rover Sojourner ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un spectromètre alpha-proton-rayons X (APXS)",
+            "Deux caméras monochromes stéréo à l'avant",
+            "Une caméra couleur à l'arrière",
+            "Un laser de vaporisation des roches à 7 mètres",
+            "Un sismomètre enterré dans le sol"
+          ],
+          "reponses": [
+            "Un spectromètre alpha-proton-rayons X (APXS)",
+            "Deux caméras monochromes stéréo à l'avant",
+            "Une caméra couleur à l'arrière"
+          ],
+          "indice": "Sojourner devait toucher les roches avec son spectromètre placé à l'arrière.",
+          "explication": "Sojourner possédait trois caméras (deux stéréo noir et blanc à l'avant, une couleur à l'arrière) et un spectromètre APXS pour analyser la chimie des roches.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q05",
+          "type": "vrai_faux",
+          "theme": "Batteries",
+          "question": "Vrai ou faux : Sojourner utilisait des batteries rechargeables pour rouler la nuit sur Mars.",
+          "reponse": false,
+          "indice": "Ses batteries au lithium-chlorure de thionyle n'étaient pas rechargeables et ne servaient qu'en secours.",
+          "explication": "Sojourner roulait uniquement le jour grâce à son panneau solaire ; ses piles non rechargeables alimentaient l'électronique de survie et la mémoire.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q06",
+          "type": "qcm",
+          "theme": "Distance",
+          "question": "Quelle distance totale Sojourner a-t-il parcourue sur Mars durant ses 83 sols d'activité ?",
+          "choix": [
+            "Environ 100 mètres",
+            "Environ 5 kilomètres",
+            "Environ 45 kilomètres",
+            "Environ 100 kilomètres"
+          ],
+          "reponse": "Environ 100 mètres",
+          "indice": "C'est l'équivalent d'un terrain de football, sans jamais s'éloigner de plus de 12 mètres de sa base.",
+          "explication": "Sojourner a parcouru un peu plus de 100 mètres au total tout en restant à proximité immédiate de l'atterrisseur Mars Pathfinder.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q07",
+          "type": "ordre",
+          "theme": "Chronologie",
+          "question": "Classe ces étapes de la mission Mars Pathfinder / Sojourner dans l'ordre chronologique.",
+          "elements": [
+            "Descente de Sojourner sur le sol martien le 6 juillet 1997",
+            "Lancement de la sonde Mars Pathfinder le 4 décembre 1996",
+            "Dernière transmission reçue de Mars Pathfinder le 27 septembre 1997",
+            "Atterrissage par airbags dans Ares Vallis le 4 juillet 1997"
+          ],
+          "reponse": [
+            "Lancement de la sonde Mars Pathfinder le 4 décembre 1996",
+            "Atterrissage par airbags dans Ares Vallis le 4 juillet 1997",
+            "Descente de Sojourner sur le sol martien le 6 juillet 1997",
+            "Dernière transmission reçue de Mars Pathfinder le 27 septembre 1997"
+          ],
+          "indice": "Le déploiement de la rampe a pris deux jours après l'atterrissage.",
+          "explication": "Lancée en décembre 1996, la mission a atterri le 4 juillet 1997, libéré Sojourner le 6 juillet et fonctionné jusqu'au 27 septembre 1997.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q08",
+          "type": "qcm",
+          "theme": "Hommage",
+          "question": "Comment l'atterrisseur Mars Pathfinder a-t-il été rebaptisé par la NASA juste après son atterrissage réussi ?",
+          "choix": [
+            "Carl Sagan Memorial Station",
+            "Viking 3 Lander",
+            "Octavia E. Butler Landing",
+            "Bradbury Station"
+          ],
+          "reponse": "Carl Sagan Memorial Station",
+          "indice": "En hommage au célèbre astronome et vulgarisateur scientifique décédé en décembre 1996.",
+          "explication": "La station d'atterrissage a été nommée Carl Sagan Memorial Station en mémoire de l'astronome Carl Sagan.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q09",
+          "type": "qcm_multiple",
+          "theme": "Découvertes",
+          "question": "Quelles découvertes scientifiques majeures ont été permises par Mars Pathfinder et Sojourner dans Ares Vallis ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La présence de roches riches en silice ressemblant à l'andésite terrestre",
+            "Des indices géologiques confirmant d'anciennes inondations massives d'eau liquide",
+            "La mesure directe des propriétés magnétiques et adhésives de la poussière martienne",
+            "La découverte de fossiles de poissons dans le sable",
+            "La détection d'une atmosphère composée principalement d'oxygène respirable"
+          ],
+          "reponses": [
+            "La présence de roches riches en silice ressemblant à l'andésite terrestre",
+            "Des indices géologiques confirmant d'anciennes inondations massives d'eau liquide",
+            "La mesure directe des propriétés magnétiques et adhésives de la poussière martienne"
+          ],
+          "indice": "L'APXS a révélé que certaines roches étaient plus riches en silice que les météorites martiennes connues.",
+          "explication": "L'analyse des roches comme Barnacle Bill a montré une composition proche de l'andésite, et le site a confirmé le passé fluvial d'Ares Vallis.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q10",
+          "type": "association",
+          "theme": "Sous-systèmes",
+          "question": "Associe chaque élément technique de Sojourner à sa caractéristique.",
+          "colonne_gauche": [
+            "Panneau solaire",
+            "Spectromètre APXS",
+            "Évitement d'obstacles",
+            "Isolation thermique"
+          ],
+          "colonne_droite": [
+            "Aérogel de silice très léger protégeant l'électronique",
+            "Cellules à l'arséniure de gallium (GaAs) fournissant jusqu'à 16 W",
+            "Cinq faisceaux laser projetés devant le rover et lus par les caméras",
+            "Capteur placé à l'arrière bombardant la roche de particules alpha"
+          ],
+          "reponse": [
+            {
+              "gauche": "Panneau solaire",
+              "droite": "Cellules à l'arséniure de gallium (GaAs) fournissant jusqu'à 16 W"
+            },
+            {
+              "gauche": "Spectromètre APXS",
+              "droite": "Capteur placé à l'arrière bombardant la roche de particules alpha"
+            },
+            {
+              "gauche": "Évitement d'obstacles",
+              "droite": "Cinq faisceaux laser projetés devant le rover et lus par les caméras"
+            },
+            {
+              "gauche": "Isolation thermique",
+              "droite": "Aérogel de silice très léger protégeant l'électronique"
+            }
+          ],
+          "indice": "L'aérogel est surnommé « fumée gelée » en raison de sa très faible densité.",
+          "explication": "Sojourner utilisait des cellules GaAs, un APXS à l'arrière, un système laser-caméra d'évitement et de l'aérogel de silice.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q11",
+          "type": "qcm",
+          "theme": "Philosophie mission",
+          "question": "De quel programme de la NASA lancé dans les années 1990 Mars Pathfinder / Sojourner était-il l'un des premiers démonstrateurs ?",
+          "choix": [
+            "Le programme Discovery (« Faster, Better, Cheaper »)",
+            "Le programme Apollo",
+            "Le programme Artemis",
+            "Le programme Voyager"
+          ],
+          "reponse": "Le programme Discovery (« Faster, Better, Cheaper »)",
+          "indice": "Ce programme visait des missions planétaires plus rapides et moins coûteuses.",
+          "explication": "Mars Pathfinder était la deuxième mission du programme Discovery, illustrant l'approche « plus rapide, meilleur, moins cher ».",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q12",
+          "type": "vrai_faux",
+          "theme": "Fin de mission",
+          "question": "Vrai ou faux : La mission s'est arrêtée parce que les roues de Sojourner se sont cassées sur un rocher.",
+          "reponse": false,
+          "indice": "C'est le relais radio principal qui a cessé d'émettre après avoir épuisé sa batterie.",
+          "explication": "La communication a cessé en septembre 1997 lorsque la batterie de l'atterrisseur Mars Pathfinder a cessé de fonctionner à cause du froid.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q13",
+          "type": "qcm",
+          "theme": "Géologie",
+          "question": "Pourquoi les scientifiques avaient-ils choisi la région d'Ares Vallis comme site d'atterrissage ?",
+          "choix": [
+            "Parce que d'anciennes inondations y avaient rassemblé une grande variété de roches",
+            "Parce que c'était le sommet du plus haut volcan de Mars",
+            "Parce qu'il y avait une base humaine déjà installée",
+            "Parce que le sol y était parfaitement lisse sans aucun caillou"
+          ],
+          "reponse": "Parce que d'anciennes inondations y avaient rassemblé une grande variété de roches",
+          "indice": "Les eaux avaient charrié des roches provenant des hautes terres vers cette plaine.",
+          "explication": "Ares Vallis constituait un « musée géologique » naturel regroupant des roches variées apportées par d'anciens torrents.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q14",
+          "type": "qcm_multiple",
+          "theme": "Chauffage",
+          "question": "Comment Sojourner maintenait-il sa « boîte chaude » électronique (WEB) à température acceptable pendant les nuits glaciales de Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Grâce à trois petites unités de chauffage radio-isotopiques (RHU) au plutonium-238",
+            "Grâce à une isolation en aérogel de silice très performante",
+            "En éteignant la majorité de ses systèmes la nuit",
+            "En brûlant du gaz naturel embarqué",
+            "En se réfugiant à l'intérieur de l'atterrisseur chaque soir"
+          ],
+          "reponses": [
+            "Grâce à trois petites unités de chauffage radio-isotopiques (RHU) au plutonium-238",
+            "Grâce à une isolation en aérogel de silice très performante",
+            "En éteignant la majorité de ses systèmes la nuit"
+          ],
+          "indice": "Chaque RHU dégage environ 1 watt de chaleur passive en permanence.",
+          "explication": "Trois pastilles RHU dégagent chacune ~1 W de chaleur passive, piégée dans la Warm Electronics Box isolée par de l'aérogel.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n2-q15",
+          "type": "qcm",
+          "theme": "Rocher célèbre",
+          "question": "Quel fut le tout premier rocher martien analysé par le spectromètre APXS de Sojourner dès le sol 3 ?",
+          "choix": [
+            "Barnacle Bill",
+            "Yogi",
+            "Chimp",
+            "Shark"
+          ],
+          "reponse": "Barnacle Bill",
+          "indice": "Ce rocher anguleux se trouvait juste à côté de la rampe de descente.",
+          "explication": "Dès le sol 3, Sojourner a appuyé son spectromètre APXS contre le rocher surnommé « Barnacle Bill ».",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "soj-n3-q01",
+          "type": "qcm",
+          "theme": "Informatique embarquée",
+          "question": "Quel microprocesseur 8 bits cadencé à environ 2 MHz équipait l'ordinateur de bord du rover Sojourner ?",
+          "choix": [
+            "Intel 80C85",
+            "BAE RAD6000",
+            "Motorola 68000",
+            "Qualcomm Snapdragon 801"
+          ],
+          "reponse": "Intel 80C85",
+          "indice": "L'atterrisseur Mars Pathfinder utilisait un RAD6000 sous VxWorks, mais le petit rover avait une architecture 8 bits beaucoup plus simple.",
+          "explication": "Sojourner était piloté par un microprocesseur Intel 80C85 (version CMOS du 8085) avec environ 512 Ko de RAM, exécutant une boucle de contrôle cyclique.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Cinématique",
+          "question": "À sa vitesse nominale maximale de 1 cm/s, combien de minutes faut-il à Sojourner pour parcourir une distance linéaire de 15 mètres sans arrêt ?",
+          "reponse": 25,
+          "unite": "minutes",
+          "tolerance": 0,
+          "indice": "Convertis 15 mètres en centimètres, puis divise par 60 secondes.",
+          "explication": "15 m = 1 500 cm ; à 1 cm/s, le trajet prend 1 500 secondes, soit 1 500 / 60 = 25 minutes.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q03",
+          "type": "qcm",
+          "theme": "Anomalie logicielle",
+          "question": "Quel bug logiciel célèbre a provoqué des redémarrages répétés de l'atterrisseur Mars Pathfinder peu après l'atterrissage, avant d'être corrigé depuis la Terre ?",
+          "choix": [
+            "Une inversion de priorité (priority inversion) sur un mutex du bus de données sous VxWorks",
+            "Un dépassement d'entier lié au passage à l'an 2000",
+            "Une division par zéro dans le calcul de la trajectoire solaire",
+            "La saturation complète de la mémoire flash par les images couleur"
+          ],
+          "reponse": "Une inversion de priorité (priority inversion) sur un mutex du bus de données sous VxWorks",
+          "indice": "Une tâche de haute priorité (gestion du bus) était bloquée par une tâche de basse priorité préemptée par une tâche de priorité moyenne.",
+          "explication": "Ce cas d'école d'inversion de priorité sous VxWorks a été résolu en activant à distance l'héritage de priorité (priority inheritance) sur le sémaphore concerné.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q04",
+          "type": "qcm_multiple",
+          "theme": "EDL (Entrée-Descente-Atterrissage)",
+          "question": "Quels éléments composaient la séquence innovante d'entrée, descente et atterrissage (EDL) de Mars Pathfinder ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un bouclier thermique inspiré des sondes Viking effectuant une entrée directe sans mise en orbite préalable",
+            "Un parachute supersonique de 11,5 mètres de diamètre",
+            "Trois rétrofusées à poudre (RAD) allumées à environ 100 mètres d'altitude pour annuler la vitesse verticale",
+            "Un grutage par câble (Sky Crane) descendant le rover directement sur ses roues",
+            "Une grappe de quatre airbags tétraédriques gonflés juste avant l'impact"
+          ],
+          "reponses": [
+            "Un bouclier thermique inspiré des sondes Viking effectuant une entrée directe sans mise en orbite préalable",
+            "Un parachute supersonique de 11,5 mètres de diamètre",
+            "Trois rétrofusées à poudre (RAD) allumées à environ 100 mètres d'altitude pour annuler la vitesse verticale",
+            "Une grappe de quatre airbags tétraédriques gonflés juste avant l'impact"
+          ],
+          "indice": "Le Sky Crane n'a été inventé que plus tard pour Curiosity et Perseverance.",
+          "explication": "Mars Pathfinder a inauguré l'entrée directe combinant bouclier thermique, parachute, rétrofusées RAD, câble de suspension et grappe d'airbags.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q05",
+          "type": "vrai_faux",
+          "theme": "Physique APXS",
+          "question": "Vrai ou faux : Le spectromètre APXS de Sojourner utilisait des sources radioactives de curium-244 pour émettre des particules alpha vers la roche analysée.",
+          "reponse": true,
+          "indice": "L'interaction des particules alpha avec les noyaux de la roche permettait d'identifier les éléments légers comme le carbone et l'oxygène, ainsi que les éléments plus lourds par fluorescence X.",
+          "explication": "L'APXS embarquait neuf sources de curium-244 et mesurait les particules alpha rétrodiffusées, les protons émis et les rayons X caractéristiques.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q06",
+          "type": "qcm",
+          "theme": "Incident déploiement",
+          "question": "Quel incident mécanique a retardé la descente de Sojourner lors du sol 1, obligeant les ingénieurs à effectuer une manœuvre corrective ?",
+          "choix": [
+            "Un airbag mal rétracté gênait l'extrémité de la rampe de déploiement avant",
+            "Le panneau solaire de Sojourner était resté bloqué en position repliée",
+            "L'une des six roues était coincée contre le mât caméra de l'atterrisseur",
+            "Les boulons pyrotechniques de la rampe arrière n'avaient pas explosé"
+          ],
+          "reponse": "Un airbag mal rétracté gênait l'extrémité de la rampe de déploiement avant",
+          "indice": "L'équipe a dû relever puis redescendre un pétale de l'atterrisseur pour enrouler davantage le coussin.",
+          "explication": "Un pli d'airbag formait un bourrelet devant la rampe ; les ingénieurs ont actionné le moteur du pétale pour rétracter l'airbag et libérer le passage.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q07",
+          "type": "ordre",
+          "theme": "Architecture EDL",
+          "question": "Remets dans l'ordre chronologique les phases finales de l'atterrissage de Mars Pathfinder le 4 juillet 1997.",
+          "elements": [
+            "Allumage des trois rétrofusées à poudre (RAD) à ~98 m du sol",
+            "Déploiement du parachute supersonique à environ 9,4 km d'altitude",
+            "Sectionnement du câble de liaison (bridle) à environ 21 m du sol",
+            "Gonflage des airbags quelques secondes avant l'allumage des rétrofusées"
+          ],
+          "reponse": [
+            "Déploiement du parachute supersonique à environ 9,4 km d'altitude",
+            "Gonflage des airbags quelques secondes avant l'allumage des rétrofusées",
+            "Allumage des trois rétrofusées à poudre (RAD) à ~98 m du sol",
+            "Sectionnement du câble de liaison (bridle) à environ 21 m du sol"
+          ],
+          "indice": "L'atterrisseur est d'abord descendu le long d'une longe de 20 mètres sous le bouclier arrière avant le gonflage des airbags et la mise à feu des fusées.",
+          "explication": "Après le parachute, l'atterrisseur est descendu le long de sa longe, a gonflé ses airbags, allumé les rétrofusées RAD puis coupé le câble à ~21 m avant la chute libre finale.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q08",
+          "type": "qcm",
+          "theme": "Navigation autonome",
+          "question": "Comment Sojourner détectait-il la hauteur des rochers et la profondeur des trous devant lui sans radar ni lidar 3D ?",
+          "choix": [
+            "Par triangulation optique en projetant 5 lignes laser infrarouges observées par ses caméras stéréo",
+            "Par écholocalisation ultrasonore dans l'atmosphère martienne",
+            "En mesurant la résistance électrique du sol avec ses roues avant",
+            "Par interférométrie radio avec l'orbiteur Mars Global Surveyor"
+          ],
+          "reponse": "Par triangulation optique en projetant 5 lignes laser infrarouges observées par ses caméras stéréo",
+          "indice": "La déformation géométrique des faisceaux laser sur l'image permettait de reconstruire le profil d'élévation du terrain.",
+          "explication": "Cinq diodes laser projetaient des motifs sur le sol devant le rover ; la déformation de ces lignes sur les capteurs CCD permettait de détecter obstacles et pentes.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q09",
+          "type": "qcm_multiple",
+          "theme": "Fin de mission",
+          "question": "Quelles sont les causes techniques identifiées de la perte de contact avec Mars Pathfinder le 27 septembre 1997 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La dégradation de la batterie rechargeable argent-zinc de l'atterrisseur après de nombreux cycles thermiques",
+            "La chute de température de l'électronique de l'atterrisseur entraînant une dérive de la fréquence de son oscillateur radio",
+            "La perte de la horloge maître de l'atterrisseur empêchant l'ordonnancement des fenêtres d'émission",
+            "L'impact d'une météorite détruisant simultanément le rover et l'atterrisseur",
+            "L'ordre volontaire envoyé par la NASA de saborder le rover dans un ravin"
+          ],
+          "reponses": [
+            "La dégradation de la batterie rechargeable argent-zinc de l'atterrisseur après de nombreux cycles thermiques",
+            "La chute de température de l'électronique de l'atterrisseur entraînant une dérive de la fréquence de son oscillateur radio",
+            "La perte de la horloge maître de l'atterrisseur empêchant l'ordonnancement des fenêtres d'émission"
+          ],
+          "indice": "La batterie de l'atterrisseur était conçue pour une durée de vie nominale d'un mois, largement dépassée.",
+          "explication": "L'épuisement de la batterie argent-zinc de l'atterrisseur a laissé refroidir son électronique, déréglant l'horloge et l'oscillateur de transmission.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q10",
+          "type": "association",
+          "theme": "Architecture",
+          "question": "Associe chaque sous-système de Sojourner à sa spécification technique.",
+          "colonne_gauche": [
+            "Moteurs de roue et direction",
+            "Liaison radio UHF",
+            "Mémoire embarquée",
+            "Dimensions du châssis"
+          ],
+          "colonne_droite": [
+            "Modem UHF à 9 600 bit/s reliant le rover à l'atterrisseur",
+            "65 cm de longueur × 48 cm de largeur × 30 cm de hauteur",
+            "10 moteurs à courant continu (6 pour la traction, 4 pour la direction des roues d'angle)",
+            "512 Ko de RAM, 176 Ko de mémoire flash et 16 Ko de PROM"
+          ],
+          "reponse": [
+            {
+              "gauche": "Moteurs de roue et direction",
+              "droite": "10 moteurs à courant continu (6 pour la traction, 4 pour la direction des roues d'angle)"
+            },
+            {
+              "gauche": "Liaison radio UHF",
+              "droite": "Modem UHF à 9 600 bit/s reliant le rover à l'atterrisseur"
+            },
+            {
+              "gauche": "Mémoire embarquée",
+              "droite": "512 Ko de RAM, 176 Ko de mémoire flash et 16 Ko de PROM"
+            },
+            {
+              "gauche": "Dimensions du châssis",
+              "droite": "65 cm de longueur × 48 cm de largeur × 30 cm de hauteur"
+            }
+          ],
+          "indice": "Seules les roues avant et arrière (4 sur 6) étaient directrices.",
+          "explication": "Sojourner disposait de 10 moteurs CC, d'un modem UHF à 9 600 bit/s et de moins d'un mégaoctet de mémoire totale.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q11",
+          "type": "qcm",
+          "theme": "Mécanique des sols",
+          "question": "Comment Sojourner mesurait-il la cohésion, l'angle de frottement interne et la portance du sol martien ?",
+          "choix": [
+            "En bloquant cinq roues et en faisant patiner la sixième tout en mesurant le courant moteur et l'enfoncement",
+            "En tirant un harpon pyrotechnique dans le régolithe",
+            "En envoyant des ondes sismiques depuis l'atterrisseur",
+            "En pesant des échantillons de sable dans un godet interne"
+          ],
+          "reponse": "En bloquant cinq roues et en faisant patiner la sixième tout en mesurant le courant moteur et l'enfoncement",
+          "indice": "Cette expérience de mécanique des sols était appelée « Wheel Abrasion / Soil Mechanics Experiment ».",
+          "explication": "En faisant creuser une seule roue à la fois tout en enregistrant l'intensité électrique absorbée, les ingénieurs déduisaient les propriétés géotechniques du régolithe.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q12",
+          "type": "vrai_faux",
+          "theme": "Autonomie",
+          "question": "Vrai ou faux : Lorsque la liaison radio entre Sojourner et l'atterrisseur était interrompue pendant plusieurs jours, le rover était programmé pour revenir automatiquement vers l'atterrisseur.",
+          "reponse": true,
+          "indice": "Ce comportement de sécurité s'est effectivement déclenché vers la fin de la mission lorsque l'atterrisseur a cessé de répondre.",
+          "explication": "En cas de silence radio prolongé de la station de base, le logiciel de sauvegarde commandait à Sojourner de se rapprocher de l'atterrisseur pour tenter de rétablir le contact.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q13",
+          "type": "qcm",
+          "theme": "Correction chimique",
+          "question": "Pourquoi les premières analyses APXS des roches martiennes semblaient-elles anormalement riches en soufre avant correction ?",
+          "choix": [
+            "En raison de la fine couche de poussière martienne riche en sulfates recouvrant la surface des roches",
+            "Parce que le capteur était contaminé par les gaz des rétrofusées",
+            "Parce que le plutonium des RHU faussait le spectre",
+            "Parce que les roches martiennes sont composées de soufre pur"
+          ],
+          "reponse": "En raison de la fine couche de poussière martienne riche en sulfates recouvrant la surface des roches",
+          "indice": "Sojourner ne disposait pas d'outil d'abrasion (RAT) pour brosser ou meuler la roche.",
+          "explication": "Dépourvu de brosse ou de meuleuse (introduites plus tard sur Spirit et Opportunity), l'APXS mesurait un mélange de roche sous-jacente et de poussière superficielle riche en soufre.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q14",
+          "type": "qcm_multiple",
+          "theme": "Poussière",
+          "question": "Quelles expériences embarquées sur Mars Pathfinder et Sojourner ont permis d'étudier l'accumulation de poussière sur les panneaux solaires ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "La cellule solaire de référence (MAE - Materials Adherence Experiment) équipée d'un cache amovible et d'une microbalance à quartz",
+            "Le suivi quotidien de la baisse de courant produit par les panneaux solaires (environ 0,28 % par sol)",
+            "L'observation des dépôts de poussière sur les aimants fixés sur l'atterrisseur",
+            "Un essuie-glace mécanique nettoyant le panneau de Sojourner chaque matin",
+            "Un souffleur d'air comprimé haute pression"
+          ],
+          "reponses": [
+            "La cellule solaire de référence (MAE - Materials Adherence Experiment) équipée d'un cache amovible et d'une microbalance à quartz",
+            "Le suivi quotidien de la baisse de courant produit par les panneaux solaires (environ 0,28 % par sol)",
+            "L'observation des dépôts de poussière sur les aimants fixés sur l'atterrisseur"
+          ],
+          "indice": "Aucun système de nettoyage mécanique n'était embarqué.",
+          "explication": "L'expérience MAE et le suivi électrique ont mesuré une perte de puissance due à la poussière d'environ 0,28 % par sol, donnée cruciale pour dimensionner Spirit et Opportunity.",
+          "media_url": null
+        },
+        {
+          "id": "soj-n3-q15",
+          "type": "qcm",
+          "theme": "Géométrie de roue",
+          "question": "Quel était le diamètre approximatif des six roues en aluminium de Sojourner ?",
+          "choix": [
+            "13 cm",
+            "30 cm",
+            "52 cm",
+            "85 cm"
+          ],
+          "reponse": "13 cm",
+          "indice": "Chaque roue mesurait environ 13 cm de diamètre pour 7,9 cm de large.",
+          "explication": "Les roues de Sojourner mesuraient 13 cm de diamètre, ce qui lui permettait de franchir des obstacles allant jusqu'à environ 20 cm de hauteur.",
+          "media_url": null
+        }
+      ]
+    }
+  }
+}

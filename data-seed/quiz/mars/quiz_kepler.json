@@ -1,0 +1,841 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "telescope-spatial-kepler",
+    "titre": "Télescope spatial Kepler",
+    "categorie": "astronomie",
+    "sous_categorie": "exoplanetes",
+    "lieu": "Orbite héliocentrique",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiples avec 4 options et une seule bonne réponse.",
+      "qcm_multiple": "Question à choix multiples avec 5 options et 2 à 4 bonnes réponses.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Liste d'éléments mélangés à remettre dans l'ordre chronologique ou logique.",
+      "association": "Paires d'éléments à relier entre une colonne de gauche et une colonne de droite.",
+      "saisie_numerique": "Question appelant une valeur numérique précise avec unité et tolérance."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "kep-n1-q01",
+          "type": "qcm",
+          "theme": "Mission",
+          "question": "Que cherchait le télescope spatial Kepler dans l'espace ?",
+          "choix": [
+            "Des planètes tournant autour d'autres étoiles (des exoplanètes)",
+            "Des petits hommes verts sur la Lune",
+            "Des trésors cachés au fond des océans",
+            "Des nuages de pluie au-dessus de la Terre"
+          ],
+          "reponse": "Des planètes tournant autour d'autres étoiles (des exoplanètes)",
+          "indice": "Il regardait très loin vers les étoiles pour trouver d'autres mondes comme la Terre.",
+          "explication": "Kepler était un chasseur d'exoplanètes : il cherchait des planètes en orbite autour d'étoiles situées en dehors de notre Système solaire.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q02",
+          "type": "vrai_faux",
+          "theme": "Méthode",
+          "question": "Vrai ou faux : Kepler repérait les planètes en observant la petite baisse de lumière d'une étoile quand une planète passe devant elle.",
+          "reponse": true,
+          "indice": "C'est comme lorsqu'un moucheron passe devant une lampe et cache un tout petit peu sa lumière.",
+          "explication": "Lorsqu'une planète passe devant son étoile, elle bloque une minuscule fraction de sa lumière : c'est la méthode des transits.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q03",
+          "type": "qcm",
+          "theme": "Astronome",
+          "question": "De quel grand savant du passé le télescope Kepler porte-t-il le nom ?",
+          "choix": [
+            "Johannes Kepler, un célèbre astronome",
+            "Christophe Colomb, un navigateur",
+            "Léonard de Vinci, un peintre",
+            "Jules Verne, un écrivain"
+          ],
+          "reponse": "Johannes Kepler, un célèbre astronome",
+          "indice": "Il a découvert comment les planètes tournent autour du Soleil il y a plus de 400 ans.",
+          "explication": "Le télescope rend hommage à l'astronome allemand Johannes Kepler (1571-1630), qui a découvert les lois du mouvement des planètes.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q04",
+          "type": "saisie_numerique",
+          "theme": "Durée",
+          "question": "Pendant combien d'années le télescope spatial Kepler a-t-il fonctionné dans l'espace entre 2009 et 2018 ?",
+          "reponse": 9,
+          "unite": "ans",
+          "tolerance": 1,
+          "indice": "Fais la soustraction 2018 - 2009.",
+          "explication": "Lancé en mars 2009 et arrêté en octobre 2018, Kepler a travaillé pendant plus de 9 ans dans l'espace.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q05",
+          "type": "qcm",
+          "theme": "Orbite",
+          "question": "Où le télescope Kepler se trouvait-il pour observer les étoiles ?",
+          "choix": [
+            "Dans l'espace, en train de tourner autour du Soleil derrière la Terre",
+            "Posé sur une haute montagne au Chili",
+            "Sur la surface de la Lune",
+            "Au fond d'un cratère sur Mars"
+          ],
+          "reponse": "Dans l'espace, en train de tourner autour du Soleil derrière la Terre",
+          "indice": "C'est un télescope spatial qui suit la Terre sur son chemin autour du Soleil.",
+          "explication": "Kepler voyageait dans l'espace sur une orbite autour du Soleil, loin de la lumière gênante de la Terre.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q06",
+          "type": "qcm_multiple",
+          "theme": "Découvertes",
+          "question": "Quelles sortes de planètes incroyables Kepler a-t-il découvertes autour d'autres étoiles ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Des planètes rocheuses de la taille de la Terre",
+            "Des planètes qui tournent autour de deux soleils à la fois",
+            "Des planètes géantes très chaudes toutes proches de leur étoile",
+            "Des planètes faites uniquement en chocolat",
+            "Des planètes habitées par des dinosaures géants visibles au télescope"
+          ],
+          "reponses": [
+            "Des planètes rocheuses de la taille de la Terre",
+            "Des planètes qui tournent autour de deux soleils à la fois",
+            "Des planètes géantes très chaudes toutes proches de leur étoile"
+          ],
+          "indice": "Kepler a découvert des milliers de vrais mondes très variés.",
+          "explication": "Kepler a révélé une immense diversité d'exoplanètes : des planètes semblables à la Terre, des géantes brûlantes et même des planètes autour d'étoiles doubles.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q07",
+          "type": "qcm",
+          "theme": "Énergie",
+          "question": "Comment Kepler produisait-il son électricité dans l'espace ?",
+          "choix": [
+            "Grâce à des panneaux solaires",
+            "Grâce à des éoliennes",
+            "Grâce à un câble relié à la Terre",
+            "Grâce à une roue à eau"
+          ],
+          "reponse": "Grâce à des panneaux solaires",
+          "indice": "Il transformait la lumière du Soleil en électricité.",
+          "explication": "Les panneaux solaires fixés sur Kepler alimentaient sa grande caméra et ses ordinateurs.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q08",
+          "type": "ordre",
+          "theme": "Transit",
+          "question": "Remets dans l'ordre ce qui se passe quand Kepler détecte une exoplanète.",
+          "elements": [
+            "L'étoile redevient aussi brillante qu'avant",
+            "Kepler mesure la lumière normale de l'étoile",
+            "Les scientifiques confirment qu'une planète tourne autour de l'étoile",
+            "Une planète passe devant l'étoile et cache un tout petit peu sa lumière"
+          ],
+          "reponse": [
+            "Kepler mesure la lumière normale de l'étoile",
+            "Une planète passe devant l'étoile et cache un tout petit peu sa lumière",
+            "L'étoile redevient aussi brillante qu'avant",
+            "Les scientifiques confirment qu'une planète tourne autour de l'étoile"
+          ],
+          "indice": "La baisse de lumière est temporaire, le temps que la planète traverse devant l'étoile.",
+          "explication": "Kepler enregistre la luminosité avant, pendant et après le passage de la planète devant son étoile.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q09",
+          "type": "qcm",
+          "theme": "Zone habitable",
+          "question": "Qu'appelle-t-on la « zone habitable » autour d'une étoile ?",
+          "choix": [
+            "La bonne distance où il ne fait ni trop chaud ni trop froid pour qu'il y ait de l'eau liquide",
+            "Une zone où les étoiles sont toutes bleues",
+            "Un garage dans l'espace pour réparer les fusées",
+            "La partie la plus brûlante juste contre l'étoile"
+          ],
+          "reponse": "La bonne distance où il ne fait ni trop chaud ni trop froid pour qu'il y ait de l'eau liquide",
+          "indice": "On l'appelle parfois la zone « Boucle d'or » : ni trop chaud, ni trop froid !",
+          "explication": "Dans la zone habitable, la température permet à l'eau de rester liquide à la surface d'une planète rocheuse.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q10",
+          "type": "vrai_faux",
+          "theme": "Statistiques",
+          "question": "Vrai ou faux : Grâce à Kepler, les astronomes ont compris qu'il existe des milliards de planètes dans notre galaxie.",
+          "reponse": true,
+          "indice": "Kepler a montré qu'il y a en moyenne au moins une planète par étoile dans la Voie lactée.",
+          "explication": "Les observations de Kepler ont démontré que les planètes sont extrêmement nombreuses dans notre galaxie, la Voie lactée.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q11",
+          "type": "qcm_multiple",
+          "theme": "Anatomie",
+          "question": "De quelles parties importantes le télescope Kepler était-il composé ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un pare-soleil pour protéger l'ouverture de la lumière éblouissante",
+            "Un grand miroir pour concentrer la lumière des étoiles",
+            "Une caméra géante très sensible à la lumière",
+            "Six roues pour rouler sur les astéroïdes",
+            "Deux hélices pour voler dans les nuages"
+          ],
+          "reponses": [
+            "Un pare-soleil pour protéger l'ouverture de la lumière éblouissante",
+            "Un grand miroir pour concentrer la lumière des étoiles",
+            "Une caméra géante très sensible à la lumière"
+          ],
+          "indice": "C'est un observatoire spatial conçu pour capturer la lumière très faible d'étoiles lointaines.",
+          "explication": "Kepler possédait un pare-soleil incliné, un miroir primaire de 1,4 mètre et un photomètre très sensible.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q12",
+          "type": "association",
+          "theme": "Vocabulaire",
+          "question": "Associe chaque mot de la mission Kepler à sa définition simple.",
+          "colonne_gauche": [
+            "Exoplanète",
+            "Transit",
+            "Voie lactée"
+          ],
+          "colonne_droite": [
+            "Notre immense galaxie remplie de milliards d'étoiles",
+            "Planète qui tourne autour d'une autre étoile que le Soleil",
+            "Passage d'une planète juste devant son étoile"
+          ],
+          "reponse": [
+            {
+              "gauche": "Exoplanète",
+              "droite": "Planète qui tourne autour d'une autre étoile que le Soleil"
+            },
+            {
+              "gauche": "Transit",
+              "droite": "Passage d'une planète juste devant son étoile"
+            },
+            {
+              "gauche": "Voie lactée",
+              "droite": "Notre immense galaxie remplie de milliards d'étoiles"
+            }
+          ],
+          "indice": "Le préfixe « exo » signifie « en dehors ».",
+          "explication": "Kepler observait des transits d'exoplanètes au sein de notre galaxie, la Voie lactée.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q13",
+          "type": "qcm",
+          "theme": "Fin de mission",
+          "question": "Pourquoi le télescope Kepler a-t-il pris sa retraite en 2018 ?",
+          "choix": [
+            "Il n'avait plus de carburant pour orienter son télescope",
+            "Il s'est écrasé sur la Lune",
+            "Des astronautes sont venus le démonter",
+            "Il a été vendu à un musée sur Terre"
+          ],
+          "reponse": "Il n'avait plus de carburant pour orienter son télescope",
+          "indice": "Son réservoir était complètement vide après plus de 9 ans dans l'espace.",
+          "explication": "En octobre 2018, Kepler a épuisé tout son carburant et la NASA l'a mis hors service sur une orbite sûre.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q14",
+          "type": "qcm_multiple",
+          "theme": "Observation",
+          "question": "Que regardait Kepler pendant les quatre premières années de sa mission ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Toujours la même région du ciel",
+            "Plus de 150 000 étoiles en même temps",
+            "Une zone située entre les constellations du Cygne et de la Lyre",
+            "Uniquement la planète Mars",
+            "Le centre de la Terre"
+          ],
+          "reponses": [
+            "Toujours la même région du ciel",
+            "Plus de 150 000 étoiles en même temps",
+            "Une zone située entre les constellations du Cygne et de la Lyre"
+          ],
+          "indice": "Il fixait sans arrêt un grand champ d'étoiles pour ne rater aucun passage de planète.",
+          "explication": "Durant sa mission primaire, Kepler a surveillé en continu plus de 150 000 étoiles dans une même portion du ciel.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n1-q15",
+          "type": "qcm",
+          "theme": "Bilan",
+          "question": "Combien d'exoplanètes confirmées Kepler a-t-il permis de découvrir ?",
+          "choix": [
+            "Plus de 2 600 exoplanètes",
+            "Seulement 3 exoplanètes",
+            "Exactement 10 exoplanètes",
+            "Aucune exoplanète"
+          ],
+          "reponse": "Plus de 2 600 exoplanètes",
+          "indice": "C'est plus de la moitié de toutes les exoplanètes connues à la fin de sa mission !",
+          "explication": "Kepler a permis de confirmer plus de 2 600 exoplanètes, révolutionnant notre connaissance de l'Univers.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "kep-n2-q01",
+          "type": "qcm",
+          "theme": "Lancement",
+          "question": "À quelle date exacte le télescope spatial Kepler a-t-il été lancé depuis Cap Canaveral ?",
+          "choix": [
+            "7 mars 2009",
+            "24 avril 1990",
+            "18 avril 2018",
+            "25 décembre 2021"
+          ],
+          "reponse": "7 mars 2009",
+          "indice": "En mars 2009 à bord d'une fusée Delta II.",
+          "explication": "Kepler a décollé le 7 mars 2009 (6 mars au soir heure locale de Floride, 7 mars UTC) à bord d'une fusée Delta II.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Optique",
+          "question": "Quel était le diamètre du miroir primaire du télescope Kepler (en mètres) ?",
+          "reponse": 1.4,
+          "unite": "m",
+          "tolerance": 0.05,
+          "indice": "Le miroir primaire mesurait 1,4 mètre (pour une ouverture d'entrée de 0,95 m).",
+          "explication": "Kepler utilisait un télescope de type Schmidt doté d'un miroir primaire de 1,4 mètre et d'une lame correctrice de 0,95 mètre.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q03",
+          "type": "qcm",
+          "theme": "Mission K2",
+          "question": "Quelle panne technique survenue en mai 2013 a mis fin à la mission primaire de Kepler et donné naissance à la mission prolongée « K2 » ?",
+          "choix": [
+            "La défaillance d'une deuxième roue de réaction sur les quatre servant à pointer le télescope",
+            "La perte totale de ses panneaux solaires",
+            "La panne de son émetteur radio principal",
+            "La fissure de son miroir primaire par une micrométéorite"
+          ],
+          "reponse": "La défaillance d'une deuxième roue de réaction sur les quatre servant à pointer le télescope",
+          "indice": "Il faut au moins trois roues de réaction fonctionnelles pour stabiliser un engin sur trois axes.",
+          "explication": "Après la perte de deux roues de réaction (en 2012 et 2013), les ingénieurs ont inventé la mission K2 en équilibrant le télescope grâce à la pression du vent solaire.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q04",
+          "type": "qcm_multiple",
+          "theme": "Découvertes célèbres",
+          "question": "Parmi ces exoplanètes célèbres, lesquelles ont été découvertes par le télescope Kepler ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Kepler-186f, première planète de taille terrestre dans la zone habitable d'une autre étoile",
+            "Kepler-16b, une planète circumbinaire tournant autour de deux étoiles",
+            "Kepler-22b, première planète découverte par Kepler dans la zone habitable d'une étoile de type solaire",
+            "51 Pegasi b, première exoplanète découverte autour d'une étoile semblable au Soleil en 1995",
+            "Proxima Centauri b, découverte par vitesses radiales depuis le Chili"
+          ],
+          "reponses": [
+            "Kepler-186f, première planète de taille terrestre dans la zone habitable d'une autre étoile",
+            "Kepler-16b, une planète circumbinaire tournant autour de deux étoiles",
+            "Kepler-22b, première planète découverte par Kepler dans la zone habitable d'une étoile de type solaire"
+          ],
+          "indice": "Les planètes découvertes par Kepler portent généralement le préfixe « Kepler- » suivi d'un numéro.",
+          "explication": "Kepler-186f, Kepler-16b et Kepler-22b comptent parmi les découvertes emblématiques de la mission.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q05",
+          "type": "vrai_faux",
+          "theme": "Orbite",
+          "question": "Vrai ou faux : Kepler tournait en orbite basse autour de la Terre à environ 550 km d'altitude, comme le télescope Hubble.",
+          "reponse": false,
+          "indice": "En orbite terrestre basse, la Terre bloque régulièrement le champ de vision et provoque des variations thermiques.",
+          "explication": "Kepler était placé sur une orbite héliocentrique dite « Earth-trailing » (suivant la Terre autour du Soleil) avec une période de 372,5 jours.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q06",
+          "type": "qcm",
+          "theme": "Capteur",
+          "question": "Quelle était la résolution totale de l'ensemble de capteurs CCD du photomètre de Kepler ?",
+          "choix": [
+            "95 mégapixels",
+            "2 mégapixels",
+            "12 mégapixels",
+            "1 000 mégapixels"
+          ],
+          "reponse": "95 mégapixels",
+          "indice": "C'était la plus grande caméra jamais envoyée dans l'espace lors de son lancement en 2009.",
+          "explication": "Le plan focal de Kepler regroupait 42 capteurs CCD totalisant 95 mégapixels afin de mesurer simultanément la luminosité de plus de 150 000 étoiles.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q07",
+          "type": "ordre",
+          "theme": "Chronologie",
+          "question": "Classe ces événements majeurs de la vie du télescope Kepler dans l'ordre chronologique.",
+          "elements": [
+            "Début de la mission prolongée K2 utilisant la pression solaire",
+            "Lancement du télescope spatial Kepler depuis Cap Canaveral",
+            "Mise hors service définitive après épuisement du carburant",
+            "Annonce de la découverte de Kepler-186f"
+          ],
+          "reponse": [
+            "Lancement du télescope spatial Kepler depuis Cap Canaveral",
+            "Annonce de la découverte de Kepler-186f",
+            "Début de la mission prolongée K2 utilisant la pression solaire",
+            "Mise hors service définitive après épuisement du carburant"
+          ],
+          "indice": "Kepler-186f a été annoncée en avril 2014 et K2 a débuté officiellement en mai-juin 2014.",
+          "explication": "Lancement en mars 2009, découverte de Kepler-186f en avril 2014, démarrage de K2 au printemps 2014 et retraite en octobre 2018.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q08",
+          "type": "qcm",
+          "theme": "Précision",
+          "question": "De combien environ la luminosité d'une étoile semblable au Soleil diminue-t-elle lors du transit d'une planète de la taille de la Terre ?",
+          "choix": [
+            "D'environ 0,01 % (100 parties par million)",
+            "D'environ 10 %",
+            "D'environ 50 %",
+            "D'environ 90 %"
+          ],
+          "reponse": "D'environ 0,01 % (100 parties par million)",
+          "indice": "Le rayon de la Terre est environ 100 fois plus petit que celui du Soleil, et la surface est proportionnelle au carré du rayon.",
+          "explication": "Le rapport des surfaces vaut (1/109)² ≈ 0,000084, soit une baisse de luminosité d'environ 0,01 % (84 ppm).",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q09",
+          "type": "qcm_multiple",
+          "theme": "Conditions transit",
+          "question": "Pourquoi Kepler ne pouvait-il pas détecter toutes les exoplanètes existant autour des étoiles qu'il observait ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "L'orbite de la planète doit être alignée presque parfaitement avec notre ligne de visée",
+            "Il faut observer au moins trois transits successifs pour confirmer la périodicité",
+            "Les très petites planètes autour d'étoiles agitées produisent un signal très faible",
+            "Les planètes situées en dehors de notre Système solaire n'émettent jamais d'ombre",
+            "Kepler ne pouvait fonctionner que 10 minutes par an"
+          ],
+          "reponses": [
+            "L'orbite de la planète doit être alignée presque parfaitement avec notre ligne de visée",
+            "Il faut observer au moins trois transits successifs pour confirmer la périodicité",
+            "Les très petites planètes autour d'étoiles agitées produisent un signal très faible"
+          ],
+          "indice": "Pour une orbite semblable à celle de la Terre, la probabilité géométrique d'un transit n'est que d'environ 0,5 %.",
+          "explication": "La détection par transit exige un alignement géométrique rare et plusieurs passages répétés pour écarter les faux positifs.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q10",
+          "type": "association",
+          "theme": "Types de planètes",
+          "question": "Associe chaque catégorie d'exoplanète étudiée grâce à Kepler à sa description.",
+          "colonne_gauche": [
+            "Super-Terre",
+            "Jupiter chaud",
+            "Planète circumbinaire",
+            "Mini-Neptune"
+          ],
+          "colonne_droite": [
+            "Planète gazeuse géante orbitant très près de son étoile en quelques jours",
+            "Planète rocheuse plus grande que la Terre mais plus petite que Neptune",
+            "Planète en orbite autour de deux étoiles à la fois",
+            "Planète dotée d'une épaisse enveloppe d'hydrogène et d'hélium, de rayon intermédiaire"
+          ],
+          "reponse": [
+            {
+              "gauche": "Super-Terre",
+              "droite": "Planète rocheuse plus grande que la Terre mais plus petite que Neptune"
+            },
+            {
+              "gauche": "Jupiter chaud",
+              "droite": "Planète gazeuse géante orbitant très près de son étoile en quelques jours"
+            },
+            {
+              "gauche": "Planète circumbinaire",
+              "droite": "Planète en orbite autour de deux étoiles à la fois"
+            },
+            {
+              "gauche": "Mini-Neptune",
+              "droite": "Planète dotée d'une épaisse enveloppe d'hydrogène et d'hélium, de rayon intermédiaire"
+            }
+          ],
+          "indice": "Kepler a montré que les Super-Terres et Mini-Neptunes sont très fréquentes dans la galaxie.",
+          "explication": "La statistique de Kepler a révélé l'abondance des Super-Terres et Mini-Neptunes, absentes de notre propre Système solaire.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q11",
+          "type": "qcm",
+          "theme": "Successeur",
+          "question": "Quel télescope spatial de la NASA lancé en avril 2018 a pris le relais de Kepler pour chercher des exoplanètes par transit sur presque tout le ciel ?",
+          "choix": [
+            "TESS",
+            "Spitzer",
+            "Chandra",
+            "Voyager 1"
+          ],
+          "reponse": "TESS",
+          "indice": "Son acronyme signifie « Transiting Exoplanet Survey Satellite ».",
+          "explication": "TESS a succédé à Kepler en observant les étoiles les plus proches et les plus brillantes sur l'ensemble de la voûte céleste.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q12",
+          "type": "vrai_faux",
+          "theme": "Observations K2",
+          "question": "Vrai ou faux : Durant la mission K2, Kepler n'observait plus un seul champ fixe pendant des années, mais changeait de région du ciel environ tous les 80 jours.",
+          "reponse": true,
+          "indice": "Pour garder l'équilibre face à la pression solaire, le télescope devait rester orienté le long du plan de l'écliptique.",
+          "explication": "Durant K2, Kepler observait successivement des campagnes d'environ 80 jours le long du plan de l'écliptique.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q13",
+          "type": "qcm",
+          "theme": "Constellations",
+          "question": "Dans quelles constellations se situait le champ d'observation principal de Kepler pendant sa mission primaire ?",
+          "choix": [
+            "Le Cygne, la Lyre et le Dragon",
+            "Orion et le Grand Chien",
+            "La Croix du Sud et le Centaure",
+            "Le Scorpion et le Sagittaire"
+          ],
+          "reponse": "Le Cygne, la Lyre et le Dragon",
+          "indice": "Cette région se situe juste au-dessus du plan de la Voie lactée dans l'hémisphère céleste nord.",
+          "explication": "Le champ primaire de Kepler couvrait environ 115 degrés carrés à cheval sur le Cygne, la Lyre et le Dragon.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q14",
+          "type": "qcm_multiple",
+          "theme": "Science complémentaire",
+          "question": "En plus des exoplanètes, quels autres objets astrophysiques Kepler a-t-il permis d'étudier ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Les oscillations internes des étoiles (astérosismologie)",
+            "Les explosions d'étoiles (supernovae) dès leurs premiers instants",
+            "Les étoiles binaires à éclipses et les taches stellaires",
+            "La composition chimique du noyau terrestre par forage",
+            "Les tempêtes de sable sur Mars"
+          ],
+          "reponses": [
+            "Les oscillations internes des étoiles (astérosismologie)",
+            "Les explosions d'étoiles (supernovae) dès leurs premiers instants",
+            "Les étoiles binaires à éclipses et les taches stellaires"
+          ],
+          "indice": "La photométrie ultra-précise de Kepler mesurait toute variation de lumière des objets observés.",
+          "explication": "Kepler a aussi révolutionné l'astérosismologie stellaire et capturé les toutes premières ondes de choc de supernovae.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n2-q15",
+          "type": "qcm",
+          "theme": "Système multiplanétaire",
+          "question": "Quel système découvert par Kepler en 2017 avec l'aide de l'intelligence artificielle compte 8 planètes, égalant le record de notre Système solaire ?",
+          "choix": [
+            "Kepler-90",
+            "Kepler-10",
+            "Kepler-452",
+            "Kepler-11"
+          ],
+          "reponse": "Kepler-90",
+          "indice": "La huitième planète découverte dans ce système s'appelle Kepler-90i.",
+          "explication": "La découverte de Kepler-90i en 2017 a porté à 8 le nombre de planètes connues autour de l'étoile Kepler-90.",
+          "media_url": null
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "kep-n3-q01",
+          "type": "qcm",
+          "theme": "Optique",
+          "question": "Pourquoi Kepler utilisait-il une configuration optique de télescope de Schmidt plutôt qu'un Ritchey-Chrétien classique comme Hubble ?",
+          "choix": [
+            "Pour obtenir un très grand champ de vision (~115 degrés carrés) tout en éliminant la coma et l'astigmatisme",
+            "Pour atteindre la résolution angulaire la plus fine possible sur une seule étoile à la fois",
+            "Pour observer directement dans le domaine des rayons gamma",
+            "Pour éviter d'avoir à refroidir les détecteurs"
+          ],
+          "reponse": "Pour obtenir un très grand champ de vision (~115 degrés carrés) tout en éliminant la coma et l'astigmatisme",
+          "indice": "Kepler n'avait pas besoin d'images ultra-nettes, mais d'une photométrie stable sur des centaines de milliers d'étoiles simultanément.",
+          "explication": "La chambre de Schmidt combine une lame correctrice de 0,95 m et un miroir sphérique de 1,4 m pour couvrir un champ de ~115 deg² avec une PSF volontairement étalée sur plusieurs pixels.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Photométrie",
+          "question": "Lors du transit d'une exoplanète de rayon Rp = 2 rayons terrestres devant une étoile de rayon R* = 1 rayon solaire (1 R☉ ≈ 109 R⊕), quelle est la profondeur du transit ΔF/F exprimée en parties par million (ppm), arrondie à l'entier ?",
+          "reponse": 337,
+          "unite": "ppm",
+          "tolerance": 5,
+          "indice": "Utilise la relation ΔF/F = (Rp / R*)² × 10⁶.",
+          "explication": "ΔF/F = (2 / 109)² × 10⁶ = (4 / 11 881) × 10⁶ ≈ 336,67 ppm, soit environ 337 ppm.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q03",
+          "type": "qcm",
+          "theme": "Stabilisation K2",
+          "question": "Comment les ingénieurs ont-ils résolu le problème de pointage sur le troisième axe (roulis) durant la mission K2 avec seulement deux roues de réaction valides ?",
+          "choix": [
+            "En orientant le vaisseau dans le plan de l'écliptique afin que la pression de radiation solaire équilibre symétriquement le couple autour de l'axe de roulis",
+            "En utilisant des magnéto-coupleurs interagissant avec le champ magnétique terrestre",
+            "En déployant un voile solaire de 500 mètres d'envergure",
+            "En faisant tourner continuellement le télescope sur lui-même comme un gyroscope"
+          ],
+          "reponse": "En orientant le vaisseau dans le plan de l'écliptique afin que la pression de radiation solaire équilibre symétriquement le couple autour de l'axe de roulis",
+          "indice": "Le Soleil exerce une force photonique constante sur les panneaux solaires inclinés du télescope.",
+          "explication": "En pointant dans le plan de l'écliptique, le télescope se comportait comme un « kayak sur une crête » : la pression photonique solaire compensait le roulis, assistée par de brèves impulsions des propulseurs toutes les 6 heures.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q04",
+          "type": "qcm_multiple",
+          "theme": "Faux positifs",
+          "question": "Quelles configurations astrophysiques peuvent imiter le signal photométrique d'un transit planétaire (faux positifs) dans les données de Kepler ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une binaire à éclipses en arrière-plan (background eclipsing binary) mélangée dans la même ouverture photométrique",
+            "Une étoile naine rouge ou naine brune orbitant une étoile de type solaire (éclipse rasante)",
+            "Une étoile triple hiérarchique dont deux composantes s'éclipsent",
+            "La réflexion des ondes radar terrestres sur la surface de l'exoplanète",
+            "Le passage de la Station spatiale internationale devant le miroir de Kepler"
+          ],
+          "reponses": [
+            "Une binaire à éclipses en arrière-plan (background eclipsing binary) mélangée dans la même ouverture photométrique",
+            "Une étoile naine rouge ou naine brune orbitant une étoile de type solaire (éclipse rasante)",
+            "Une étoile triple hiérarchique dont deux composantes s'éclipsent"
+          ],
+          "indice": "Les pixels de Kepler mesurant environ 3,98 secondes d'arc, plusieurs étoiles peuvent se superposer dans le même masque photométrique.",
+          "explication": "Les binaires à éclipses diluées en arrière-plan et les compagnons stellaires de faible masse produisent des baisses de flux semblables à des transits planétaires.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q05",
+          "type": "vrai_faux",
+          "theme": "Instrument",
+          "question": "Vrai ou faux : Le plan focal de Kepler était volontairement légèrement défocalisé afin d'étaler la lumière de chaque étoile sur plusieurs pixels et d'éviter la saturation des puits de potentiel CCD.",
+          "reponse": true,
+          "indice": "Cette technique améliore aussi la précision photométrique face aux infimes mouvements de pointage.",
+          "explication": "La défocalisation contrôlée étalait l'image d'une étoile sur plusieurs pixels (~4 secondes d'arc par pixel), augmentant la capacité de collecte de photons et réduisant la sensibilité aux variations intra-pixel.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q06",
+          "type": "qcm",
+          "theme": "Vallée des rayons",
+          "question": "Quel phénomène statistique majeur concernant la distribution des tailles des exoplanètes a été mis en évidence grâce aux données de Kepler (écart de Fulton) ?",
+          "choix": [
+            "Une bimodalité avec un déficit marqué de planètes ayant un rayon compris entre ~1,5 et 2,0 rayons terrestres",
+            "L'absence totale de planètes plus grandes que Jupiter dans toute la galaxie",
+            "Une distribution parfaitement uniforme de tous les rayons entre 0,1 et 20 rayons terrestres",
+            "La disparition complète des planètes autour des étoiles riches en métaux"
+          ],
+          "reponse": "Une bimodalité avec un déficit marqué de planètes ayant un rayon compris entre ~1,5 et 2,0 rayons terrestres",
+          "indice": "Cette « vallée » sépare les Super-Terres rocheuses des Mini-Neptunes dotées d'une enveloppe gazeuse.",
+          "explication": "L'écart de Fulton (~1,5–2,0 R⊕) s'explique par la photo-évaporation ou la perte de masse induite par le noyau qui dépouille les petites planètes de leur atmosphère primordiale.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q07",
+          "type": "ordre",
+          "theme": "Traitement de données",
+          "question": "Remets dans l'ordre logique les étapes du pipeline de découverte d'une exoplanète dans les données de Kepler.",
+          "elements": [
+            "Recherche périodique de baisses de flux (algorithme Box Least Squares / TPS)",
+            "Calibration des pixels bruts et extraction de la courbe de lumière (PDC-SAP)",
+            "Validation statistique ou suivi spectroscopique par vitesses radiales depuis le sol",
+            "Rejet des faux positifs (test d'éclipse secondaire, décalage du photocentre)"
+          ],
+          "reponse": [
+            "Calibration des pixels bruts et extraction de la courbe de lumière (PDC-SAP)",
+            "Recherche périodique de baisses de flux (algorithme Box Least Squares / TPS)",
+            "Rejet des faux positifs (test d'éclipse secondaire, décalage du photocentre)",
+            "Validation statistique ou suivi spectroscopique par vitesses radiales depuis le sol"
+          ],
+          "indice": "On nettoie d'abord la courbe de lumière instrumentale avant de chercher des signaux périodiques, puis on élimine les artefacts.",
+          "explication": "Le pipeline extrait et corrige la photométrie, détecte les événements périodiques (TCE), teste les faux positifs puis confirme l'exoplanète.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q08",
+          "type": "qcm",
+          "theme": "Anomalie 2016",
+          "question": "Quel incident critique a frappé Kepler en avril 2016 juste avant le début de la Campagne 9 de K2 ?",
+          "choix": [
+            "Le passage inopiné en mode de secours (Emergency Mode), le niveau d'alerte le plus critique et le plus gourmand en carburant",
+            "La perte du troisième panneau solaire",
+            "Une collision avec un astéroïde géocroiseur",
+            "L'effacement définitif de toute la mémoire de bord"
+          ],
+          "reponse": "Le passage inopiné en mode de secours (Emergency Mode), le niveau d'alerte le plus critique et le plus gourmand en carburant",
+          "indice": "À environ 120 millions de kilomètres de la Terre, le temps d'aller-retour du signal dépassait 13 minutes.",
+          "explication": "En avril 2016, Kepler est entré en Emergency Mode ; les ingénieurs ont réussi à le récupérer rapidement pour préserver ses réserves limitées d'hydrazine.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q09",
+          "type": "qcm_multiple",
+          "theme": "Mécanique céleste",
+          "question": "Comment la méthode des variations de chronométrage des transits (TTV - Transit Timing Variations) a-t-elle permis à Kepler de caractériser des systèmes multiplanétaires ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "En mesurant les avances ou retards des instants de transit causés par les perturbations gravitationnelles entre planètes",
+            "En permettant de déduire les masses des planètes sans recourir aux vitesses radiales",
+            "En détectant parfois des planètes supplémentaires non transitantes dans le même système",
+            "En mesurant le décalage vers le rouge cosmologique des galaxies lointaines",
+            "En pesant directement le télescope Kepler grâce aux marées lunaires"
+          ],
+          "reponses": [
+            "En mesurant les avances ou retards des instants de transit causés par les perturbations gravitationnelles entre planètes",
+            "En permettant de déduire les masses des planètes sans recourir aux vitesses radiales",
+            "En détectant parfois des planètes supplémentaires non transitantes dans le même système"
+          ],
+          "indice": "Dans un système compact, l'attraction mutuelle entre planètes rend l'intervalle entre deux transits légèrement non périodique.",
+          "explication": "Les TTV exploitent les interactions gravitationnelles mutuelles (notamment près des résonances orbitales) pour déterminer les masses planétaires.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q10",
+          "type": "association",
+          "theme": "Architecture",
+          "question": "Associe chaque paramètre technique de Kepler à sa valeur ou description.",
+          "colonne_gauche": [
+            "Cadence longue (Long Cadence)",
+            "Cadence courte (Short Cadence)",
+            "Précision photométrique cible",
+            "Bande spectrale"
+          ],
+          "colonne_droite": [
+            "20 parties par million (ppm) sur 6,5 heures pour une étoile de magnitude 12",
+            "Intégration toutes les 29,4 minutes pour la majorité des ~150 000 cibles",
+            "Lumière visible large bande (420 à 900 nm) sans filtre",
+            "Intégration toutes les 58,85 secondes pour l'astérosismologie et les transits fins"
+          ],
+          "reponse": [
+            {
+              "gauche": "Cadence longue (Long Cadence)",
+              "droite": "Intégration toutes les 29,4 minutes pour la majorité des ~150 000 cibles"
+            },
+            {
+              "gauche": "Cadence courte (Short Cadence)",
+              "droite": "Intégration toutes les 58,85 secondes pour l'astérosismologie et les transits fins"
+            },
+            {
+              "gauche": "Précision photométrique cible",
+              "droite": "20 parties par million (ppm) sur 6,5 heures pour une étoile de magnitude 12"
+            },
+            {
+              "gauche": "Bande spectrale",
+              "droite": "Lumière visible large bande (420 à 900 nm) sans filtre"
+            }
+          ],
+          "indice": "Le seuil de 20 ppm sur 6,5 h correspond à la moitié de la durée d'un transit terrestre pour atteindre un rapport signal/bruit de 4.",
+          "explication": "Kepler combinait une large bande passante (420–900 nm) et deux cadences d'intégration (29,4 min et 58,85 s).",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q11",
+          "type": "qcm",
+          "theme": "Électronique CCD",
+          "question": "Quel artefact électronique sur plusieurs modules CCD de Kepler créait un motif d'interférence périodique variable avec la température ?",
+          "choix": [
+            "Le bruit de moiré (rolling band) dans l'électronique de lecture des CCD",
+            "La congélation du liquide de refroidissement cryogénique à l'hélium",
+            "La perte de la moitié des 42 capteurs dès la première semaine",
+            "L'éblouissement permanent par la lumière de Jupiter"
+          ],
+          "reponse": "Le bruit de moiré (rolling band) dans l'électronique de lecture des CCD",
+          "indice": "De plus, deux des 21 modules (Module 3 en 2010 et Module 7 en 2014) sont tombés en panne au cours de la mission.",
+          "explication": "Un bruit haute fréquence dans les amplificateurs de lecture produisait des bandes mobiles (rolling band) que les pipelines ont dû modéliser.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q12",
+          "type": "vrai_faux",
+          "theme": "Orbite",
+          "question": "Vrai ou faux : L'orbite héliocentrique de Kepler ayant une période d'environ 372,5 jours (légèrement supérieure à 1 an), le télescope s'éloignait progressivement de la Terre au fil des années.",
+          "reponse": true,
+          "indice": "Selon la troisième loi de Kepler, une période légèrement plus longue correspond à un demi-grand axe légèrement supérieur à 1 UA.",
+          "explication": "Avec une période de 372,5 jours, Kepler prenait environ une semaine de retard par an sur la Terre, atteignant plus de 150 millions de km en 2018.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q13",
+          "type": "qcm",
+          "theme": "Fin de mission",
+          "question": "Quelle commande finale a été envoyée à Kepler le 15 novembre 2018 (date anniversaire de la mort de Johannes Kepler) pour clore définitivement la mission ?",
+          "choix": [
+            "La commande « Goodnight » désactivant les modes de sécurité et coupant définitivement les émetteurs radio",
+            "L'allumage des moteurs pour précipiter le télescope dans le Soleil",
+            "La séparation du miroir primaire et du bus électronique",
+            "Le retour automatique vers la Station spatiale internationale"
+          ],
+          "reponse": "La commande « Goodnight » désactivant les modes de sécurité et coupant définitivement les émetteurs radio",
+          "indice": "Cette séquence empêche tout redémarrage intempestif et libère les fréquences du Deep Space Network.",
+          "explication": "Le 15 novembre 2018, l'équipe a transmis les commandes finales (« Goodnight ») pour mettre en sommeil permanent le télescope sur son orbite héliocentrique.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q14",
+          "type": "qcm_multiple",
+          "theme": "Statistique exoplanètes",
+          "question": "Quelles conclusions majeures sur la démographie des exoplanètes dans la Voie lactée découlent de l'analyse statistique de Kepler ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Les planètes de taille comprise entre la Terre et Neptune (1 à 4 R⊕) sont beaucoup plus fréquentes que les géantes gazeuses",
+            "Une fraction significative des étoiles de type solaire et des naines M abrite des planètes rocheuses dans leur zone habitable",
+            "Les systèmes multiplanétaires compacts présentent généralement une faible inclinaison mutuelle (coplanarité élevée)",
+            "Moins de 0,01 % des étoiles de la galaxie possèdent des planètes",
+            "Toutes les exoplanètes orbitent dans le sens rétrograde par rapport à la rotation de leur étoile"
+          ],
+          "reponses": [
+            "Les planètes de taille comprise entre la Terre et Neptune (1 à 4 R⊕) sont beaucoup plus fréquentes que les géantes gazeuses",
+            "Une fraction significative des étoiles de type solaire et des naines M abrite des planètes rocheuses dans leur zone habitable",
+            "Les systèmes multiplanétaires compacts présentent généralement une faible inclinaison mutuelle (coplanarité élevée)"
+          ],
+          "indice": "La coplanarité explique pourquoi Kepler a pu observer jusqu'à 6 à 8 planètes transitant devant une même étoile.",
+          "explication": "Kepler a démontré que les petites planètes (1–4 R⊕) dominent la population galactique et que les systèmes multiplanétaires sont généralement plats.",
+          "media_url": null
+        },
+        {
+          "id": "kep-n3-q15",
+          "type": "qcm",
+          "theme": "Bilan chiffré",
+          "question": "Combien d'étoiles environ Kepler a-t-il observées au total en additionnant sa mission primaire et les 19 campagnes de la mission K2 ?",
+          "choix": [
+            "Plus de 530 000 étoiles",
+            "Environ 15 000 étoiles",
+            "Environ 50 000 étoiles",
+            "Plus de 100 millions d'étoiles"
+          ],
+          "reponse": "Plus de 530 000 étoiles",
+          "indice": "Environ 150 000–200 000 lors de la mission primaire, plus près de 350 000–400 000 durant K2.",
+          "explication": "Au total, Kepler a observé plus de 530 506 étoiles, détecté 2 662 planètes confirmées (à la fin de la mission) et documenté 61 supernovae.",
+          "media_url": null
+        }
+      ]
+    }
+  }
+}

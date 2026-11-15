@@ -1,0 +1,838 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "id_fiche": "atterrisseurs-viking-1-et-2",
+    "titre": "Atterrisseurs Viking 1 et 2",
+    "categorie": "mars",
+    "sous_categorie": "exploration-robotique",
+    "lieu": "Chryse Planitia et Utopia Planitia, Mars",
+    "version_schema": "2.0.0",
+    "total_questions": 45,
+    "types_questions": {
+      "qcm": "Question à choix multiple avec 4 propositions et une seule bonne réponse.",
+      "qcm_multiple": "Question à choix multiple avec 5 propositions et 2 à 4 bonnes réponses.",
+      "vrai_faux": "Affirmation à évaluer par vrai ou faux.",
+      "ordre": "Liste d'éléments mélangés à remettre dans l'ordre chronologique ou logique.",
+      "association": "Paires d'éléments à relier entre une colonne de gauche et une colonne de droite.",
+      "saisie_numerique": "Réponse numérique exacte ou comprise dans une tolérance définie."
+    }
+  },
+  "niveaux": {
+    "niveau_1_enfants": {
+      "code": "N1",
+      "label": "Enfants (6-11 ans)",
+      "description": "Découverte ludique, chiffres simples et comparaisons visuelles.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "vik-n1-q01",
+          "type": "qcm",
+          "theme": "Premier atterrissage",
+          "question": "Quel exploit les atterrisseurs américains Viking 1 et 2 ont-ils réalisé sur Mars en 1976 ?",
+          "choix": [
+            "Ils ont été les premiers à se poser et fonctionner avec succès sur Mars",
+            "Ils ont roulé sur toute la planète Mars",
+            "Ils ont ramené des roches martiennes sur Terre",
+            "Ils ont fait voler un petit hélicoptère"
+          ],
+          "reponse": "Ils ont été les premiers à se poser et fonctionner avec succès sur Mars",
+          "indice": "Ils sont restés exactement à l'endroit où ils ont touché le sol.",
+          "explication": "En 1976, Viking 1 et 2 sont devenus les premiers atterrisseurs américains à fonctionner avec succès sur Mars.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/detail_files/2/2305_Mars-Viking1-Lander-1st-Image-PIA00381-full2.jpg"
+        },
+        {
+          "id": "vik-n1-q02",
+          "type": "vrai_faux",
+          "theme": "Mobilité",
+          "question": "Vrai ou faux : Les atterrisseurs Viking 1 et 2 avaient des roues pour se promener sur Mars.",
+          "reponse": false,
+          "indice": "Ce sont des atterrisseurs fixes, pas des rovers.",
+          "explication": "Viking 1 et 2 n'avaient pas de roues : ils sont restés exactement à l'endroit où ils ont atterri.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3514/Viking_Lander_Line_Drawing-1.jpeg"
+        },
+        {
+          "id": "vik-n1-q03",
+          "type": "qcm",
+          "theme": "Drapeau américain",
+          "question": "Quel symbole patriotique est peint sur l'écran pare-vent de l'atterrisseur Viking 1 ?",
+          "choix": [
+            "Le drapeau des États-Unis",
+            "Un dessin de la planète Terre",
+            "Une carte de la Lune",
+            "Le portrait d'un astronaute"
+          ],
+          "reponse": "Le drapeau des États-Unis",
+          "indice": "On le voit sur une photo couleur prise le 26 juillet 1976 avec le sol rocheux derrière.",
+          "explication": "Le drapeau des États-Unis ainsi que le logo du bicentenaire américain figurent sur l'écran pare-vent de Viking Lander 1.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n1-q04",
+          "type": "qcm_multiple",
+          "theme": "Paysage martien",
+          "question": "Que voit-on sur les premières photos prises par Viking 1 sur Mars ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un désert rocheux rouge-brun",
+            "Une colline à environ 200 mètres",
+            "Le drapeau américain sur l'atterrisseur",
+            "Des forêts d'arbres verts",
+            "Des rivières d'eau liquide"
+          ],
+          "reponses": [
+            "Un désert rocheux rouge-brun",
+            "Une colline à environ 200 mètres",
+            "Le drapeau américain sur l'atterrisseur"
+          ],
+          "indice": "Mars est une planète rocheuse et sèche sans végétation.",
+          "explication": "Les clichés de Viking 1 montrent une plaine parsemée de roches, une crête de colline à 200 m et des éléments de l'atterrisseur.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/chryse-planitia-panorama2.jpg"
+        },
+        {
+          "id": "vik-n1-q05",
+          "type": "qcm",
+          "theme": "Symbole Viking",
+          "question": "Quel dessin représente le symbole officiel de la mission Viking ?",
+          "choix": [
+            "Un ancien navire viking",
+            "Une fusée décollant vers les étoiles",
+            "Un casque d'astronaute",
+            "Un aigle aux ailes déployées"
+          ],
+          "reponse": "Un ancien navire viking",
+          "indice": "Il rappelle les célèbres explorateurs marins venus du Nord.",
+          "explication": "Le symbole de la mission montre un ancien navire viking, dessiné par le lycéen Peter Purol.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n1-q06",
+          "type": "association",
+          "theme": "Distances sur la photo",
+          "question": "Relie chaque élément visible derrière Viking 1 à sa distance par rapport à l'atterrisseur.",
+          "colonne_gauche": [
+            "La crête de la colline sombre",
+            "L'horizon lointain éclairé",
+            "Le drapeau des États-Unis"
+          ],
+          "colonne_droite": [
+            "À environ 200 mètres",
+            "À environ 3 kilomètres",
+            "Sur l'atterrisseur lui-même"
+          ],
+          "reponse": [
+            {
+              "gauche": "La crête de la colline sombre",
+              "droite": "À environ 200 mètres"
+            },
+            {
+              "gauche": "L'horizon lointain éclairé",
+              "droite": "À environ 3 kilomètres"
+            },
+            {
+              "gauche": "Le drapeau des États-Unis",
+              "droite": "Sur l'atterrisseur lui-même"
+            }
+          ],
+          "indice": "La colline est beaucoup plus proche que l'horizon.",
+          "explication": "Sur la photo prise vers l'ouest, la colline se situe à 200 m et l'horizon lumineux à environ 3 km.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n1-q07",
+          "type": "qcm",
+          "theme": "Date historique",
+          "question": "Quel jour précis l'atterrisseur Viking 1 s'est-il posé en toute sécurité sur Mars ?",
+          "choix": [
+            "Le 20 juillet 1976",
+            "Le 14 juillet 1789",
+            "Le 25 décembre 2000",
+            "Le 1er janvier 1980"
+          ],
+          "reponse": "Le 20 juillet 1976",
+          "indice": "C'était en plein été 1976, exactement sept ans après les premiers pas sur la Lune.",
+          "explication": "Viking 1 a atterri sans encombre sur Mars le 20 juillet 1976 et a aussitôt transmis les premières images depuis la surface.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/missions/viking/viking-%E2%80%94-50-years-on-mars-poster/Viking%2050%20Poster_Front_Digital.jpg"
+        },
+        {
+          "id": "vik-n1-q08",
+          "type": "saisie_numerique",
+          "theme": "Anniversaire",
+          "question": "Combien d'années d'exploration de la surface de Mars fête-t-on en juillet 2026 depuis l'atterrissage de Viking 1 en 1976 ?",
+          "reponse": 50,
+          "unite": "ans",
+          "tolerance": 0,
+          "indice": "Calcule la différence entre 2026 et 1976.",
+          "explication": "Entre juillet 1976 et juillet 2026, il s'est écoulé 50 ans d'exploration de la surface martienne.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/missions/viking/viking-%E2%80%94-50-years-on-mars-poster/Viking_50_Desktop_Background_1024x768.jpg"
+        },
+        {
+          "id": "vik-n1-q09",
+          "type": "qcm_multiple",
+          "theme": "Architecture mission",
+          "question": "De quelles deux parties chaque mission Viking était-elle composée ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Un orbiteur qui tourne autour de Mars",
+            "Un atterrisseur qui se pose sur le sol",
+            "Un sous-marin pour les océans",
+            "Un ballon dirigeable",
+            "Une station spatiale habitée"
+          ],
+          "reponses": [
+            "Un orbiteur qui tourne autour de Mars",
+            "Un atterrisseur qui se pose sur le sol"
+          ],
+          "indice": "L'une restait dans le ciel martien pendant que l'autre descendait sur la planète.",
+          "explication": "Chaque mission Viking comprenait un orbiteur pour cartographier Mars d'en haut et un atterrisseur pour étudier le sol.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3513/Line_drawing_of_Viking_Orbiter-1.jpeg"
+        },
+        {
+          "id": "vik-n1-q10",
+          "type": "qcm",
+          "theme": "Lieu d'atterrissage",
+          "question": "Comment s'appelle la grande plaine martienne où s'est posé Viking 1 ?",
+          "choix": [
+            "Chryse Planitia",
+            "La mer de la Tranquillité",
+            "Le mont Blanc",
+            "Le cratère Gale"
+          ],
+          "reponse": "Chryse Planitia",
+          "indice": "Le premier panorama de Viking 1 montre cette plaine dès le 23 juillet 1976.",
+          "explication": "Viking 1 a atterri dans la plaine de Chryse Planitia et en a pris le premier panorama trois jours plus tard.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/cds/general/images/2024/03/chryse-planitia-panorama.jpg"
+        },
+        {
+          "id": "vik-n1-q11",
+          "type": "ordre",
+          "theme": "Premiers jours",
+          "question": "Remets dans l'ordre chronologique ces événements de Viking 1 en juillet 1976.",
+          "elements": [
+            "Prise de la photo couleur avec le drapeau américain (26 juillet)",
+            "Atterrissage de Viking 1 sur Mars (20 juillet)",
+            "Prise de la première image panoramique de Chryse Planitia (23 juillet)"
+          ],
+          "reponse": [
+            "Atterrissage de Viking 1 sur Mars (20 juillet)",
+            "Prise de la première image panoramique de Chryse Planitia (23 juillet)",
+            "Prise de la photo couleur avec le drapeau américain (26 juillet)"
+          ],
+          "indice": "Suis les dates du calendrier : 20, 23 puis 26 juillet.",
+          "explication": "Viking 1 a atterri le 20 juillet 1976, pris son premier panorama le 23 juillet, puis photographié le drapeau américain le 26 juillet.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n1-q12",
+          "type": "vrai_faux",
+          "theme": "Paysage Viking 2",
+          "question": "Vrai ou faux : Les photos prises par Viking 2 montrent un terrain rempli de nombreux rochers sur Mars.",
+          "reponse": true,
+          "indice": "On y voit une partie de l'atterrisseur devant un champ de pierres.",
+          "explication": "Les clichés de Viking 2 montrent effectivement une étendue martienne jonchée de gros rochers.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/07/PIA01522.jpg"
+        },
+        {
+          "id": "vik-n1-q13",
+          "type": "qcm",
+          "theme": "Créateur du logo",
+          "question": "Qui a dessiné le logo du navire viking placé sur l'atterrisseur Viking 1 ?",
+          "choix": [
+            "Un lycéen nommé Peter Purol",
+            "Le président des États-Unis",
+            "Un robot dessinateur",
+            "Le pilote de la fusée"
+          ],
+          "reponse": "Un lycéen nommé Peter Purol",
+          "indice": "Il a gagné un concours ouvert aux élèves de lycée.",
+          "explication": "Peter Purol, de Baltimore, a remporté le concours de création du logo Viking destiné aux lycéens.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n1-q14",
+          "type": "qcm_multiple",
+          "theme": "Instruments de l'orbiteur",
+          "question": "Quels instruments faisaient partie du système d'imagerie de l'orbiteur Viking ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Deux caméras de télévision (TV A et TV B)",
+            "Un détecteur d'eau atmosphérique",
+            "Un cartographe thermique infrarouge",
+            "Un radar de sous-marin",
+            "Un télescope à rayons gamma"
+          ],
+          "reponses": [
+            "Deux caméras de télévision (TV A et TV B)",
+            "Un détecteur d'eau atmosphérique",
+            "Un cartographe thermique infrarouge"
+          ],
+          "indice": "Ces instruments observaient les images, la chaleur et la vapeur d'eau de Mars.",
+          "explication": "Le système d'imagerie de l'orbiteur Viking associait les caméras TV A et TV B, un cartographe thermique infrarouge et un détecteur d'eau atmosphérique.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-vis.jpg"
+        },
+        {
+          "id": "vik-n1-q15",
+          "type": "qcm",
+          "theme": "Canyon géant",
+          "question": "Quel immense canyon martien appartenant au système de Valles Marineris a été photographié par les orbiteurs Viking 1 et 2 ?",
+          "choix": [
+            "Candor Chasma",
+            "Le Grand Canyon du Colorado",
+            "La fosse des Mariannes",
+            "Le cratère Tycho"
+          ],
+          "reponse": "Candor Chasma",
+          "indice": "Ce gouffre mesure environ 800 km de large sur Mars.",
+          "explication": "Une mosaïque couleur des orbiteurs Viking 1 et 2 révèle Candor Chasma, large de 800 km dans Valles Marineris.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-candor-chasma.jpg"
+        }
+      ]
+    },
+    "niveau_2_adolescents": {
+      "code": "N2",
+      "label": "Adolescents (12-17 ans)",
+      "description": "Records chiffrés, défis technologiques et fonctionnement.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "vik-n2-q01",
+          "type": "qcm",
+          "theme": "Chronologie panoramique",
+          "question": "Combien de jours après l'atterrissage de Viking 1 la caméra 1 a-t-elle pris le premier panorama de Chryse Planitia ?",
+          "choix": [
+            "3 jours après (le 23 juillet 1976)",
+            "Le jour même de l'atterrissage",
+            "30 jours après",
+            "1 an après"
+          ],
+          "reponse": "3 jours après (le 23 juillet 1976)",
+          "indice": "Viking 1 s'est posé le 20 juillet 1976.",
+          "explication": "La première image panoramique de Chryse Planitia a été capturée par la caméra 1 le 23 juillet 1976, soit trois jours après l'atterrissage.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/chryse-planitia-panorama2.jpg"
+        },
+        {
+          "id": "vik-n2-q02",
+          "type": "saisie_numerique",
+          "theme": "Distances topographiques",
+          "question": "À quelle distance approximative, en mètres, se trouvait la crête de colline sombre visible devant l'horizon sur la photo couleur prise par Viking 1 le 26 juillet 1976 ?",
+          "reponse": 200,
+          "unite": "mètres",
+          "tolerance": 10,
+          "indice": "Cela correspond à environ 650 pieds, bien plus près que l'horizon situé à 3 km.",
+          "explication": "La ligne sombre sous l'horizon correspond à une crête située à environ 200 mètres (650 pieds) de l'atterrisseur.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n2-q03",
+          "type": "qcm_multiple",
+          "theme": "Éléments visibles",
+          "question": "Quels éléments techniques ou symboliques sont visibles sur le cliché couleur pris au 6e jour de Viking Lander 1 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "L'écran pare-vent du générateur RTG",
+            "La mire de référence pour l'équilibrage des couleurs",
+            "Les écrans déployés de l'assemblage GCMS",
+            "Les panneaux solaires pliables du rover",
+            "Le parachute supersonique étalé au sol"
+          ],
+          "reponses": [
+            "L'écran pare-vent du générateur RTG",
+            "La mire de référence pour l'équilibrage des couleurs",
+            "Les écrans déployés de l'assemblage GCMS"
+          ],
+          "indice": "Viking 1 utilisait un générateur nucléaire RTG et un instrument d'analyse chimique GCMS.",
+          "explication": "On distingue sur cette photo le pare-vent du RTG, la mire d'étalonnage couleur et les écrans déployés du GCMS.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n2-q04",
+          "type": "qcm",
+          "theme": "Conditions de prise de vue",
+          "question": "À quelle heure locale martienne a été prise la célèbre photo couleur de Viking 1 montrant le drapeau américain et l'horizon éclairé ?",
+          "choix": [
+            "7 h 18 du matin",
+            "12 h 00 (midi)",
+            "18 h 45 au coucher du Soleil",
+            "Minuit"
+          ],
+          "reponse": "7 h 18 du matin",
+          "indice": "Le Soleil venait tout juste de se lever derrière l'atterrisseur.",
+          "explication": "Prise à 7 h 18 heure locale martienne, la photo montre un ciel encore sombre et un horizon lointain illuminé par le Soleil levant.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n2-q05",
+          "type": "vrai_faux",
+          "theme": "Candor Chasma",
+          "question": "Vrai ou faux : Candor Chasma, photographié par les orbiteurs Viking 1 et 2, fait partie du système de Valles Marineris et mesure environ 800 km de large.",
+          "reponse": true,
+          "indice": "Ses parois présentent des traces d'érosion et de glissements de terrain.",
+          "explication": "Candor Chasma est un gouffre d'environ 800 km de large intégré au vaste réseau de canyons Valles Marineris.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-candor-chasma.jpg"
+        },
+        {
+          "id": "vik-n2-q06",
+          "type": "association",
+          "theme": "Composants Viking",
+          "question": "Associe chaque composant des sondes Viking à sa fonction principale.",
+          "colonne_gauche": [
+            "RTG",
+            "Reference Test Chart",
+            "MAWD (Mars Atmospheric Water Detector)",
+            "Infrared Thermal Mapper"
+          ],
+          "colonne_droite": [
+            "Alimentation électrique par radio-isotopes",
+            "Étalonnage des couleurs des images",
+            "Mesure de la vapeur d'eau dans l'atmosphère",
+            "Cartographie des températures de surface"
+          ],
+          "reponse": [
+            {
+              "gauche": "RTG",
+              "droite": "Alimentation électrique par radio-isotopes"
+            },
+            {
+              "gauche": "Reference Test Chart",
+              "droite": "Étalonnage des couleurs des images"
+            },
+            {
+              "gauche": "MAWD (Mars Atmospheric Water Detector)",
+              "droite": "Mesure de la vapeur d'eau dans l'atmosphère"
+            },
+            {
+              "gauche": "Infrared Thermal Mapper",
+              "droite": "Cartographie des températures de surface"
+            }
+          ],
+          "indice": "Les deux derniers instruments étaient embarqués sur l'orbiteur Viking.",
+          "explication": "Le RTG fournissait l'énergie de l'atterrisseur, la mire calibrait les couleurs, et le MAWD ainsi que l'Infrared Thermal Mapper équipaient l'orbiteur.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-vis.jpg"
+        },
+        {
+          "id": "vik-n2-q07",
+          "type": "qcm",
+          "theme": "Orientation caméra",
+          "question": "Vers quel point cardinal la caméra de Viking Lander 1 regardait-elle lorsqu'elle a pris la photo couleur du 26 juillet 1976 ?",
+          "choix": [
+            "Presque plein ouest",
+            "Plein nord",
+            "Plein est",
+            "Plein sud"
+          ],
+          "reponse": "Presque plein ouest",
+          "indice": "Le Soleil se levait à l'est, juste derrière l'atterrisseur.",
+          "explication": "La scène en arrière-plan est orientée presque plein ouest, tandis que le Soleil levant illuminait l'horizon depuis l'est derrière l'atterrisseur.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n2-q08",
+          "type": "qcm",
+          "theme": "Symbolique",
+          "question": "Quel logo commémoratif accompagne le drapeau américain et le symbole Viking sur l'écran pare-vent du RTG ?",
+          "choix": [
+            "Le logo du bicentenaire des États-Unis (1776-1976)",
+            "Le logo des Jeux olympiques de 1976",
+            "Le blason d'Apollo 11",
+            "Le drapeau des Nations unies"
+          ],
+          "reponse": "Le logo du bicentenaire des États-Unis (1776-1976)",
+          "indice": "L'année 1976 marquait les 200 ans de l'indépendance américaine.",
+          "explication": "Sous le drapeau américain figurent le logo du bicentenaire des États-Unis et le symbole du navire viking.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n2-q09",
+          "type": "qcm_multiple",
+          "theme": "Géomorphologie de Candor Chasma",
+          "question": "Que révèlent les parois et le fond de Candor Chasma sur la mosaïque couleur des orbiteurs Viking ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Des preuves d'érosion",
+            "Des phénomènes de mouvements de masse (mass wasting)",
+            "Une géomorphologie complexe",
+            "Des lacs d'eau liquide actuels",
+            "Des volcans en éruption active"
+          ],
+          "reponses": [
+            "Des preuves d'érosion",
+            "Des phénomènes de mouvements de masse (mass wasting)",
+            "Une géomorphologie complexe"
+          ],
+          "indice": "Les falaises du canyon se sont effondrées et érodées au fil du temps.",
+          "explication": "L'imagerie orbitale Viking montre que les parois et le fond de Candor Chasma portent des traces d'érosion, d'effondrements gravitaires et une géomorphologie complexe.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-candor-chasma.jpg"
+        },
+        {
+          "id": "vik-n2-q10",
+          "type": "qcm",
+          "theme": "Héritage historique",
+          "question": "Comment la NASA qualifie-t-elle le rôle de Viking 1 sur son affiche commémorative des 50 ans sur Mars ?",
+          "choix": [
+            "L'atterrisseur qui a ouvert la voie à 50 ans d'exploration de la surface martienne",
+            "Le premier rover à avoir atteint le sommet d'Olympus Mons",
+            "La sonde qui a découvert des océans souterrains",
+            "Le premier engin à avoir redécollé de Mars"
+          ],
+          "reponse": "L'atterrisseur qui a ouvert la voie à 50 ans d'exploration de la surface martienne",
+          "indice": "Le sous-titre anglais indique « The lander that broke ground on 50 years of Mars surface exploration ».",
+          "explication": "Viking 1 est célébré comme le pionnier qui a inauguré un demi-siècle d'exploration robotique à la surface de Mars.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/missions/viking/viking-%E2%80%94-50-years-on-mars-poster/Viking%2050%20Poster_Front_Digital.jpg"
+        },
+        {
+          "id": "vik-n2-q11",
+          "type": "ordre",
+          "theme": "Séquence d'exploitation",
+          "question": "Ordonne les étapes suivantes du déploiement et des opérations de surface de Viking Lander 1.",
+          "elements": [
+            "Déploiement du couvercle et des écrans pare-vent du GCMS",
+            "Atterrissage dans Chryse Planitia (20 juillet 1976)",
+            "Acquisition du premier panorama par la caméra 1 (23 juillet 1976)",
+            "Prise de vue couleur incluant le drapeau américain à 7 h 18 heure locale (26 juillet 1976)"
+          ],
+          "reponse": [
+            "Atterrissage dans Chryse Planitia (20 juillet 1976)",
+            "Déploiement du couvercle et des écrans pare-vent du GCMS",
+            "Acquisition du premier panorama par la caméra 1 (23 juillet 1976)",
+            "Prise de vue couleur incluant le drapeau américain à 7 h 18 heure locale (26 juillet 1976)"
+          ],
+          "indice": "Le déploiement des protections d'instruments a lieu juste après l'atterrissage pour permettre les opérations.",
+          "explication": "Après l'atterrissage du 20 juillet et le déploiement du couvercle du GCMS, Viking 1 a pris son panorama le 23 juillet puis le cliché couleur le 26 juillet.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n2-q12",
+          "type": "vrai_faux",
+          "theme": "Phénomènes atmosphériques",
+          "question": "Vrai ou faux : Les missions Viking ont permis d'observer des tourbillons de poussière (dust devils) à la surface de Mars.",
+          "reponse": true,
+          "indice": "Une animation d'archive de la NASA montre un tourbillon de poussière capturé par Viking.",
+          "explication": "Les caméras des atterrisseurs Viking ont documenté le passage de tourbillons de poussière sur les plaines martiennes.",
+          "media_url": "https://www.nasa.gov/wp-content/uploads/2025/04/e3-viking-dd-animation-crop.gif"
+        },
+        {
+          "id": "vik-n2-q13",
+          "type": "qcm",
+          "theme": "Étalonnage",
+          "question": "À quoi servait la « Reference Test Chart » fixée sur l'atterrisseur Viking 1 ?",
+          "choix": [
+            "À calibrer et équilibrer les couleurs des photographies prises sur Mars",
+            "À mesurer la vitesse du vent martien",
+            "À capter les signaux radio venus de la Terre",
+            "À analyser la composition chimique des roches"
+          ],
+          "reponse": "À calibrer et équilibrer les couleurs des photographies prises sur Mars",
+          "indice": "Ses pastilles de couleurs connues servaient de référence aux scientifiques sur Terre.",
+          "explication": "La Reference Test Chart permettait d'étalonner fidèlement la balance des couleurs des images transmises depuis Mars.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n2-q14",
+          "type": "qcm_multiple",
+          "theme": "Postérité martienne",
+          "question": "Sur l'affiche commémorative des 50 ans de Viking, quels autres engins d'exploration martienne figurent en silhouette autour de l'atterrisseur ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Les rovers Spirit et Opportunity",
+            "Le rover Perseverance",
+            "L'atterrisseur InSight",
+            "La sonde Pioneer 10",
+            "Le télescope spatial Kepler"
+          ],
+          "reponses": [
+            "Les rovers Spirit et Opportunity",
+            "Le rover Perseverance",
+            "L'atterrisseur InSight"
+          ],
+          "indice": "L'affiche rassemble uniquement des véhicules ayant exploré Mars.",
+          "explication": "L'affiche des 50 ans de Viking représente Spirit et Opportunity à gauche, Perseverance à droite, InSight au loin et les hélicoptères du futur projet SkyFall.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/missions/viking/viking-%E2%80%94-50-years-on-mars-poster/Viking%2050%20Poster_Front_Digital.jpg"
+        },
+        {
+          "id": "vik-n2-q15",
+          "type": "qcm",
+          "theme": "Localisation Candor Chasma",
+          "question": "Autour de quelles coordonnées approximatives le gouffre Candor Chasma est-il centré sur Mars ?",
+          "choix": [
+            "6,5° Sud, 71° Ouest",
+            "45° Nord, 120° Est",
+            "0° Nord, 0° Est",
+            "85° Sud, 15° Ouest"
+          ],
+          "reponse": "6,5° Sud, 71° Ouest",
+          "indice": "Il se situe près de l'équateur martien dans l'hémisphère sud.",
+          "explication": "Selon la légende de la mosaïque Viking, Candor Chasma est centré vers 6,5° de latitude Sud et 71° de longitude Ouest.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-candor-chasma.jpg"
+        }
+      ]
+    },
+    "niveau_3_adultes": {
+      "code": "N3",
+      "label": "Adultes (18 ans et +)",
+      "description": "Ingénierie, physique, anomalies et analyse de crise.",
+      "nombre_questions": 15,
+      "questions": [
+        {
+          "id": "vik-n3-q01",
+          "type": "qcm",
+          "theme": "Vérification télémétrique visuelle",
+          "question": "Comment l'image couleur prise le 26 juillet 1976 par Viking Lander 1 a-t-elle permis de confirmer visuellement le bon déploiement du GCMS ?",
+          "choix": [
+            "Elle montrait le GCMS Processor Distribution Assembly avec ses écrans pare-vent déployés, prouvant l'éjection correcte du couvercle",
+            "Elle montrait un voyant vert allumé sur le mât météorologique",
+            "Elle montrait l'ombre du bras robotique tenant le couvercle",
+            "Elle montrait la trace du laser tiré sur le sol martien"
+          ],
+          "reponse": "Elle montrait le GCMS Processor Distribution Assembly avec ses écrans pare-vent déployés, prouvant l'éjection correcte du couvercle",
+          "indice": "Les écrans pare-vent situés au bas de l'image ne pouvaient se déployer qu'après ouverture du capot.",
+          "explication": "La visibilité des écrans pare-vent déployés sur le GCMS Processor Distribution Assembly confirmait que le couvercle de protection avait été correctement largué.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q02",
+          "type": "saisie_numerique",
+          "theme": "Géométrie de prise de vue",
+          "question": "Sur le cliché couleur du 26 juillet 1976, l'horizon lointain éclairé se situe à environ 3 km et la crête de colline sombre à 200 m. Quel est le rapport de distance entre l'horizon et cette crête ?",
+          "reponse": 15,
+          "unite": "fois plus loin",
+          "tolerance": 0,
+          "indice": "Convertis 3 km en mètres (3 000 m) puis divise par 200 m.",
+          "explication": "3 km équivalent à 3 000 mètres ; divisés par 200 mètres, l'horizon se situe 15 fois plus loin que la crête de la colline.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q03",
+          "type": "qcm_multiple",
+          "theme": "Architecture du système d'imagerie orbital",
+          "question": "Quels sous-ensembles composent le « Viking Orbiter Imaging System » sur le schéma technique de la NASA ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "TV A et TV B",
+            "Infrared Thermal Mapper (IRTM)",
+            "Mars Atmospheric Water Detector (MAWD)",
+            "Alpha Proton X-Ray Spectrometer (APXS)",
+            "Surface Stereo Imager (SSI)"
+          ],
+          "reponses": [
+            "TV A et TV B",
+            "Infrared Thermal Mapper (IRTM)",
+            "Mars Atmospheric Water Detector (MAWD)"
+          ],
+          "indice": "Ces quatre éléments étaient co-alignés sur la plateforme de balayage de l'orbiteur.",
+          "explication": "Le schéma technique du système d'imagerie de l'orbiteur Viking identifie précisément les caméras TV A et TV B, l'Infrared Thermal Mapper et le Mars Atmospheric Water Detector.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-vis.jpg"
+        },
+        {
+          "id": "vik-n3-q04",
+          "type": "qcm",
+          "theme": "Éclairage et géométrie solaire",
+          "question": "Pourquoi le ciel apparaît-il relativement sombre alors que l'horizon lointain est vivement éclairé sur la photographie prise à 7 h 18 heure locale martienne par Viking 1 ?",
+          "choix": [
+            "La caméra regarde presque plein ouest tandis que le Soleil levant, situé bas derrière l'atterrisseur à l'est, éclaire les reliefs lointains à 3 km sous un angle rasant",
+            "Une éclipse totale de Soleil par Phobos se produisait au moment exact de la prise de vue",
+            "Le capteur de la caméra était saturé par les radiations du RTG",
+            "Une tempête de poussière bloquait la lumière uniquement au-dessus de l'atterrisseur"
+          ],
+          "reponse": "La caméra regarde presque plein ouest tandis que le Soleil levant, situé bas derrière l'atterrisseur à l'est, éclaire les reliefs lointains à 3 km sous un angle rasant",
+          "indice": "L'angle d'élévation solaire très faible à 7 h 18 illumine d'abord les zones élevées ou lointaines à l'opposé du Soleil.",
+          "explication": "À 7 h 18 heure locale, le Soleil bas derrière l'atterrisseur (à l'est) projette ses rayons rasants vers l'ouest, illuminant l'horizon à 3 km alors que le ciel reste encore sombre.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q05",
+          "type": "vrai_faux",
+          "theme": "Couverture optique de la caméra 1",
+          "question": "Vrai ou faux : Le premier panorama de Chryse Planitia acquis le 23 juillet 1976 par la caméra 1 de Viking 1 est une image rectiligne à champ étroit ne couvrant qu'un seul rocher.",
+          "reponse": false,
+          "indice": "Il s'agit d'une vue panoramique grand angle balayant le paysage de Chryse Planitia.",
+          "explication": "L'image du 23 juillet 1976 est un large panorama de la plaine de Chryse Planitia et d'une partie de la structure de l'atterrisseur.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/chryse-planitia-panorama2.jpg"
+        },
+        {
+          "id": "vik-n3-q06",
+          "type": "association",
+          "theme": "Imagerie et données Viking",
+          "question": "Relie chaque document ou cliché Viking à sa caractéristique technique exacte.",
+          "colonne_gauche": [
+            "PIA00381",
+            "Mosaïque de Candor Chasma",
+            "Cliché du 26 juillet 1976 (Sol 6)",
+            "PIA01522"
+          ],
+          "colonne_droite": [
+            "Première photographie prise depuis la surface de Mars",
+            "Vue oblique depuis l'ouest d'un gouffre de 800 km de large",
+            "Vue vers l'ouest montrant le pare-vent du RTG et la mire couleur",
+            "Vue d'une partie de Viking 2 devant un champ de blocs rocheux"
+          ],
+          "reponse": [
+            {
+              "gauche": "PIA00381",
+              "droite": "Première photographie prise depuis la surface de Mars"
+            },
+            {
+              "gauche": "Mosaïque de Candor Chasma",
+              "droite": "Vue oblique depuis l'ouest d'un gouffre de 800 km de large"
+            },
+            {
+              "gauche": "Cliché du 26 juillet 1976 (Sol 6)",
+              "droite": "Vue vers l'ouest montrant le pare-vent du RTG et la mire couleur"
+            },
+            {
+              "gauche": "PIA01522",
+              "droite": "Vue d'une partie de Viking 2 devant un champ de blocs rocheux"
+            }
+          ],
+          "indice": "PIA00381 concerne Viking 1 et PIA01522 concerne Viking 2.",
+          "explication": "Ces quatre références correspondent chacune à une archive photographique majeure des atterrisseurs et orbiteurs Viking.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/detail_files/2/2305_Mars-Viking1-Lander-1st-Image-PIA00381-full2.jpg"
+        },
+        {
+          "id": "vik-n3-q07",
+          "type": "qcm",
+          "theme": "Énergie et conception",
+          "question": "Quel système fournissait l'énergie électrique aux atterrisseurs Viking 1 et 2, permettant d'y apposer le drapeau américain sur son écran pare-vent ?",
+          "choix": [
+            "Des générateurs thermoélectriques à radio-isotopes (RTG)",
+            "Des panneaux photovoltaïques orientables de 20 mètres d'envergure",
+            "Des piles à combustible hydrogène-oxygène de type Apollo",
+            "Des batteries lithium-ion rechargées par une éolienne martienne"
+          ],
+          "reponse": "Des générateurs thermoélectriques à radio-isotopes (RTG)",
+          "indice": "Ce choix garantissait une alimentation continue indépendante de l'ensoleillement et de la poussière.",
+          "explication": "Les atterrisseurs Viking étaient alimentés par des RTG (Radioisotope Thermoelectric Generators) protégés par des écrans pare-vent.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q08",
+          "type": "qcm",
+          "theme": "Étalonnage radiométrique",
+          "question": "Pourquoi la présence de la « Reference Test Chart » dans le champ de vision des caméras de Viking Lander 1 était-elle indispensable à l'interprétation géologique ?",
+          "choix": [
+            "Elle permettait de corriger les biais spectraux liés à l'éclairage solaire filtré par les poussières atmosphériques martiennes",
+            "Elle servait de réflecteur laser pour mesurer la distance Terre-Mars",
+            "Elle indiquait l'inclinaison magnétique du pôle Nord martien",
+            "Elle mesurait l'abrasion causée par les micrométéorites"
+          ],
+          "reponse": "Elle permettait de corriger les biais spectraux liés à l'éclairage solaire filtré par les poussières atmosphériques martiennes",
+          "indice": "Sans référence connue sur place, la couleur réelle du ciel et des roches martiennes était difficile à restituer.",
+          "explication": "La Reference Test Chart fournissait des étalons de réflectance et de couleur permettant de calibrer fidèlement les images couleur de la surface et du ciel.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q09",
+          "type": "qcm_multiple",
+          "theme": "Analyse géomorphologique",
+          "question": "Quelles caractéristiques géologiques sont mises en évidence par la mosaïque oblique de Candor Chasma issue des orbiteurs Viking 1 et 2 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Une largeur d'environ 800 km",
+            "Une observation oblique orientée depuis l'ouest",
+            "Des indices d'érosion et de mouvements de masse (mass wasting) sur les parois et le plancher",
+            "La présence de calottes glaciaires polaires permanentes",
+            "Un cratère d'impact récent formé en 1976"
+          ],
+          "reponses": [
+            "Une largeur d'environ 800 km",
+            "Une observation oblique orientée depuis l'ouest",
+            "Des indices d'érosion et de mouvements de masse (mass wasting) sur les parois et le plancher"
+          ],
+          "indice": "Cette mosaïque combine des images des deux orbiteurs Viking.",
+          "explication": "La mosaïque Viking de Candor Chasma montre ce gouffre de 800 km de large en vue oblique depuis l'ouest, révélant érosion, glissements de terrain et géomorphologie complexe.",
+          "media_url": "https://science.nasa.gov/wp-content/uploads/2024/03/viking-candor-chasma.jpg"
+        },
+        {
+          "id": "vik-n3-q10",
+          "type": "qcm",
+          "theme": "Stationnarité des atterrisseurs",
+          "question": "Quelle contrainte opérationnelle fondamentale distinguait les atterrisseurs Viking 1 et 2 des missions rovers ultérieures comme Sojourner ou Perseverance ?",
+          "choix": [
+            "Ils étaient totalement stationnaires et ne pouvaient étudier que l'environnement immédiat de leur point d'atterrissage",
+            "Ils devaient redécoller toutes les nuits pour éviter le gel",
+            "Ils ne pouvaient communiquer avec la Terre que durant 10 minutes par an",
+            "Ils fonctionnaient uniquement en orbite basse sans jamais toucher le sol"
+          ],
+          "reponse": "Ils étaient totalement stationnaires et ne pouvaient étudier que l'environnement immédiat de leur point d'atterrissage",
+          "indice": "La fiche de contexte précise qu'ils sont restés exactement à l'endroit où ils ont atterri.",
+          "explication": "Dépourvus de système de locomotion, Viking 1 et 2 ont mené l'ensemble de leurs observations scientifiques depuis leur site d'atterrissage fixe.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/internal_resources/3514/Viking_Lander_Line_Drawing-1.jpeg"
+        },
+        {
+          "id": "vik-n3-q11",
+          "type": "ordre",
+          "theme": "Plan de coupe visuel (Sol 6)",
+          "question": "Classe les plans visuels de la photographie couleur de Viking Lander 1 (26 juillet 1976) du plus proche au plus éloigné de la caméra.",
+          "elements": [
+            "L'horizon lointain éclairé par le Soleil levant (environ 3 km)",
+            "Le pare-vent du RTG portant le drapeau américain et la mire d'étalonnage couleur",
+            "La crête de colline sombre barrant le paysage (environ 200 m)",
+            "Le sol rocheux immédiat devant l'atterrisseur"
+          ],
+          "reponse": [
+            "Le pare-vent du RTG portant le drapeau américain et la mire d'étalonnage couleur",
+            "Le sol rocheux immédiat devant l'atterrisseur",
+            "La crête de colline sombre barrant le paysage (environ 200 m)",
+            "L'horizon lointain éclairé par le Soleil levant (environ 3 km)"
+          ],
+          "indice": "Pars des éléments fixés sur l'atterrisseur lui-même jusqu'à la ligne d'horizon.",
+          "explication": "La perspective s'étage depuis les composants de l'atterrisseur (pare-vent RTG, mire couleur), puis le champ de roches proche, la crête à 200 m et enfin l'horizon à 3 km.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q12",
+          "type": "vrai_faux",
+          "theme": "Conception du GCMS",
+          "question": "Vrai ou faux : Sur Viking Lander 1, le GCMS (Gas Chromatograph Mass Spectrometer) disposait d'un couvercle de protection et d'écrans pare-vent déployables.",
+          "reponse": true,
+          "indice": "Ce détail est explicitement décrit dans l'analyse de l'image du 26 juillet 1976.",
+          "explication": "Le GCMS Processor Distribution Assembly était protégé pendant le voyage et l'atterrissage par un couvercle dont l'éjection permettait le déploiement de ses écrans pare-vent.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q13",
+          "type": "qcm",
+          "theme": "Faisabilité de la mobilité martienne",
+          "question": "Pourquoi les concepteurs de la mission Viking avaient-ils choisi des atterrisseurs fixes plutôt que des rovers en 1976 ?",
+          "choix": [
+            "Il fallait d'abord démontrer la capacité à atterrir en toute sécurité et à opérer des instruments complexes sur Mars avant de développer la mobilité de surface (réalisée en 1997 avec Sojourner)",
+            "La gravité de Mars était jugée trop forte pour que des roues puissent tourner",
+            "Les traités internationaux interdisaient tout déplacement sur Mars avant 1995",
+            "Aucun appareil photo n'était assez petit pour tenir sur un rover"
+          ],
+          "reponse": "Il fallait d'abord démontrer la capacité à atterrir en toute sécurité et à opérer des instruments complexes sur Mars avant de développer la mobilité de surface (réalisée en 1997 avec Sojourner)",
+          "indice": "Viking 1 et 2 ont été les tout premiers atterrisseurs américains réussis sur Mars.",
+          "explication": "En 1976, réussir un atterrissage contrôlé et exploiter des laboratoires fixes sur Mars constituait déjà une première historique ; le premier rover, Sojourner, n'arrivera que 21 ans plus tard.",
+          "media_url": null
+        },
+        {
+          "id": "vik-n3-q14",
+          "type": "qcm_multiple",
+          "theme": "Analyse comparative des deux sites",
+          "question": "Quelles différences ou caractéristiques ressortent des archives visuelles entre les sites de Viking 1 et Viking 2 ? (Plusieurs bonnes réponses)",
+          "choix": [
+            "Viking 1 s'est posé dans la plaine de Chryse Planitia",
+            "Viking 2 est photographié devant un champ dense de blocs rocheux (PIA01522)",
+            "Les deux missions ont fourni des images depuis la surface dès 1976",
+            "Viking 2 s'est posé au sommet du volcan Olympus Mons",
+            "Viking 1 a atterri dans le cratère Jezero"
+          ],
+          "reponses": [
+            "Viking 1 s'est posé dans la plaine de Chryse Planitia",
+            "Viking 2 est photographié devant un champ dense de blocs rocheux (PIA01522)",
+            "Les deux missions ont fourni des images depuis la surface dès 1976"
+          ],
+          "indice": "Jezero est le site d'atterrissage de Perseverance en 2021, pas de Viking 1.",
+          "explication": "Viking 1 a exploré Chryse Planitia tandis que Viking 2 a atterri dans une plaine parsemée de gros blocs rocheux, tous deux en 1976.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/07/PIA01522.jpg"
+        },
+        {
+          "id": "vik-n3-q15",
+          "type": "qcm",
+          "theme": "Synthèse historique",
+          "question": "Quelle date commémorative est associée à l'affiche « Viking — 50 Years on Mars » publiée par NASA/JPL-Caltech ?",
+          "choix": [
+            "Le 20 juillet 2026 (50 ans après l'atterrissage du 20 juillet 1976)",
+            "Le 4 juillet 2026 (anniversaire de Mars Pathfinder)",
+            "Le 19 avril 2026 (anniversaire d'Ingenuity)",
+            "Le 26 novembre 2026 (anniversaire d'InSight)"
+          ],
+          "reponse": "Le 20 juillet 2026 (50 ans après l'atterrissage du 20 juillet 1976)",
+          "indice": "La légende de l'affiche indique « Historical Date : July 20, 2026 ».",
+          "explication": "L'affiche célèbre le cinquantenaire du 20 juillet 1976, date à laquelle Viking 1 a touché le sol martien et transmis les premières images depuis la surface.",
+          "media_url": "https://assets.science.nasa.gov/content/dam/science/missions/viking/viking-%E2%80%94-50-years-on-mars-poster/Viking%2050%20Poster_Front_Digital.jpg"
+        }
+      ]
+    }
+  }
+}
