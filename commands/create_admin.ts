@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import { prisma } from '#infrastructure/database/prisma_client';
-import { hashPassword, validatePasswordStrength } from '#infrastructure/security/password_hasher';
-import { logger } from '#infrastructure/logger/logger';
+import { hashPassword, validatePassword } from '#shared/security/password';
+import { logger } from '#shared/logger';
 
 export interface CreateAdminOptions {
   email?: string | undefined;
@@ -9,52 +9,51 @@ export interface CreateAdminOptions {
 }
 
 export async function createAdminCommand(options: CreateAdminOptions = {}): Promise<void> {
-  const email = (options.email ?? 'admin@spacelegacy.org').trim().toLowerCase();
+  const email = (options.email ?? 'admin@spacelegacy.test').trim().toLowerCase();
   let password = options.password;
   let isGenerated = false;
 
   if (!password) {
-    const raw = crypto.randomBytes(16).toString('base64url');
+    const raw = crypto.randomBytes(12).toString('base64url');
     password = `Admin!2026_${raw}`;
     isGenerated = true;
   }
 
   try {
-    validatePasswordStrength(password);
+    validatePassword(password);
   } catch (err) {
     logger.error({ err }, 'Password does not meet complexity requirements.');
     // eslint-disable-next-line no-console
-    console.error('Error: Password does not meet security requirements (min 12 chars).');
+    console.error('Error: Password does not meet security requirements (min 10 chars).');
     process.exit(1);
   }
 
   const passwordHash = await hashPassword(password);
 
-  const existing = await prisma.user.findUnique({
+  const existing = await prisma.account.findUnique({
     where: { email },
   });
 
   if (existing) {
-    await prisma.user.update({
+    await prisma.account.update({
       where: { email },
       data: {
         passwordHash,
         role: 'ADMIN',
-        isActive: true,
-        failedLoginCount: 0,
-        lockedUntil: null,
       },
     });
 
     // eslint-disable-next-line no-console
     console.log(`Successfully updated existing administrator account: ${email}`);
   } else {
-    await prisma.user.create({
+    const visitor = await prisma.visitor.create({ data: {} });
+    await prisma.account.create({
       data: {
+        visitorId: visitor.id,
         email,
+        displayName: 'Administrator',
         passwordHash,
         role: 'ADMIN',
-        isActive: true,
       },
     });
 
@@ -70,4 +69,12 @@ export async function createAdminCommand(options: CreateAdminOptions = {}): Prom
   }
 
   await prisma.$disconnect();
+}
+
+if (process.argv[1]?.endsWith('create_admin.ts')) {
+  createAdminCommand().catch((err) => {
+    // eslint-disable-next-line no-console
+    console.error('Create admin error:', err);
+    process.exit(1);
+  });
 }
