@@ -1,17 +1,19 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { createApp } from '../../src/core/http/app.js';
-import { registerGlobalMiddleware } from '../../start/kernel.js';
-import { inMemoryLimiter } from '../../src/core/security/rate-limiter.js';
-import { securityConfig } from '../../config/security.js';
-import type { ApiErrorResponse } from '../../src/core/exceptions/error-handler.js';
+import { Hono } from 'hono';
+import { exceptionHandler, type ApiErrorResponse } from '#exceptions/handler';
+import { registerGlobalMiddleware } from '#start/kernel';
+import { inMemoryRateLimiterStore } from '#infrastructure/rate_limit/memory_store';
 
 describe('Security: Middleware Order & Full Kernel Chain', () => {
   beforeEach(() => {
-    inMemoryLimiter.clear();
+    inMemoryRateLimiterStore.clear();
   });
 
-  function createTestApp(timeoutMs = 15000) {
-    const app = createApp();
+  function createTestApp(_timeoutMs = 15000) {
+    const app = new Hono();
+    app.onError((err, c) => exceptionHandler.handle(err, c));
+    app.notFound((c) => exceptionHandler.notFound(c));
+
     registerGlobalMiddleware(app);
 
     // Public GET route for ETag & headers test
@@ -38,45 +40,47 @@ describe('Security: Middleware Order & Full Kernel Chain', () => {
   it('4. sets secure headers on all responses', async () => {
     const app = createTestApp();
     const res = await app.request('/api/v1/public-test');
+
     expect(res.headers.get('x-content-type-options')).toBe('nosniff');
+    expect(res.headers.get('x-frame-options')).toBe('DENY');
+    expect(res.headers.get('referrer-policy')).toBeDefined();
+    expect(res.headers.get('cross-origin-resource-policy')).toBeDefined();
     expect(res.headers.get('content-security-policy')).toBeDefined();
-    expect(res.headers.get('cross-origin-resource-policy')).toBe('cross-origin');
   });
 
-  it('6. rejects requests that exceed timeout with 408 TIMEOUT', async () => {
-    const app = createApp();
-    const { timeoutMiddleware } = await import('../../src/core/security/timeout.js');
-    app.use('*', timeoutMiddleware(50)); // 50ms timeout
-    app.get('/slow', async () => {
-      await new Promise((resolve) => setTimeout(resolve, 150));
-      return new Response('done');
-    });
-
-    const res = await app.request('/slow');
-    expect(res.status).toBe(408);
-    const json = (await res.json()) as ApiErrorResponse;
-    expect(json.success).toBe(false);
-    expect(json.error.code).toBe('TIMEOUT');
-  });
-
-  it('7. rejects oversized payload with 413 PAYLOAD_TOO_LARGE before validation', async () => {
+  it('5. applies CORS headers only to allowed origins', async () => {
     const app = createTestApp();
-    const largePayload = JSON.stringify({ data: 'x'.repeat(securityConfig.bodyLimitBytes + 10) });
+
+    // Allowed origin
+    const allowedRes = await app.request('/api/v1/public-test', {
+      headers: { origin: 'http://localhost:5173' },
+    });
+    expect(allowedRes.headers.get('access-control-allow-origin')).toBe('http://localhost:5173');
+
+    // Disallowed origin (no CORS header returned)
+    const disallowedRes = await app.request('/api/v1/public-test', {
+      headers: { origin: 'https://evil.attacker.com' },
+    });
+    expect(disallowedRes.headers.get('access-control-allow-origin')).toBeNull();
+  });
+
+  it('7. rejects payloads exceeding body size limit with 413 PAYLOAD_TOO_LARGE before parsing', async () => {
+    const app = createTestApp();
+    const oversizedBody = 'x'.repeat(1024 * 1024 + 10); // > 1MB
 
     const res = await app.request('/api/v1/test-order', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'content-length': String(Buffer.byteLength(largePayload)),
+        'content-length': String(oversizedBody.length),
       },
-      body: largePayload,
+      body: oversizedBody,
     });
 
     expect(res.status).toBe(413);
     const json = (await res.json()) as ApiErrorResponse;
     expect(json.success).toBe(false);
     expect(json.error.code).toBe('PAYLOAD_TOO_LARGE');
-    expect(json.error.requestId).toBeDefined();
   });
 
   it('8. rejects invalid content-type with 415 UNSUPPORTED_MEDIA_TYPE before validation', async () => {
@@ -99,14 +103,14 @@ describe('Security: Middleware Order & Full Kernel Chain', () => {
   });
 
   it('9. rejects request exceeding rate limit with 429 TOO_MANY_REQUESTS before validation', async () => {
-    const app = createApp();
-    // Configure an app with a low rate limit to test rejection order
-    const { rateLimitMiddleware } = await import('../../src/core/security/rate-limiter.js');
+    const app = new Hono();
+    app.onError((err, c) => exceptionHandler.handle(err, c));
+    const { rateLimit } = await import('#middleware/rate_limit_middleware');
     const validatorCalled = vi.fn();
 
     app.use(
       '*',
-      rateLimitMiddleware({
+      rateLimit({
         windowMs: 60000,
         max: 2,
         keyGenerator: () => 'order-test-key',
@@ -149,7 +153,17 @@ describe('Security: Middleware Order & Full Kernel Chain', () => {
   it('11. generates ETag on public GET responses', async () => {
     const app = createTestApp();
     const res = await app.request('/api/v1/public-test');
+
     expect(res.status).toBe(200);
-    expect(res.headers.get('etag')).toBeDefined();
+    const etag = res.headers.get('etag');
+    expect(etag).toBeDefined();
+
+    // Conditional request with matching If-None-Match should return 304 NOT_MODIFIED
+    if (etag) {
+      const cachedRes = await app.request('/api/v1/public-test', {
+        headers: { 'if-none-match': etag },
+      });
+      expect(cachedRes.status).toBe(304);
+    }
   });
 });

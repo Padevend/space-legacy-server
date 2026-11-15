@@ -2,8 +2,8 @@
   "success": false,
   "error": {
     "code": "VALIDATION_ERROR",
-    "message": "Hierarchy cycle detected: equipment cannot be an ancestor of its parent.",
+    "message": "Cycle detected in equipment hierarchy: '68d39106-ecbd-44e4-a87a-97847496c363' already exists in parent ancestor chain.",
     "status": 422,
-    "requestId": "62221b50-3d28-4eec-bbd6-48ec97c5e4c5"
+    "requestId": "c6ade822-39a8-411f-82f6-64888ef44f9b"
   }
 }

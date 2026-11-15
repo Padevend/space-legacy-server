@@ -1,5 +1,5 @@
-import { prisma } from '../src/core/database/prisma.js';
-import { hashPassword } from '../src/core/security/password.js';
+import { prisma } from '#infrastructure/database/prisma_client';
+import { hashPassword } from '#infrastructure/security/password_hasher';
 
 export async function main() {
   // eslint-disable-next-line no-console

@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { createServer } from '../../bin/server.js';
-import { prisma } from '../../src/core/database/prisma.js';
-import { hashPassword } from '../../src/core/security/password.js';
+import { prisma } from '#infrastructure/database/prisma_client';
+import { hashPassword } from '#infrastructure/security/password_hasher';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import type { ApiErrorResponse } from '../../src/core/exceptions/error-handler.js';
+import type { ApiErrorResponse } from '#exceptions/handler';
 import type { LoginResponse, RefreshResponse, GetMeResponse } from '../../docs/entities/user/api_response.js';
 
 describe('E2E: Authentication & Session Lifecycle', () => {

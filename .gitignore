@@ -26,6 +26,9 @@ pnpm-debug.log*
 coverage/
 .nyc_output/
 
+# Agent scratch notes
+agent.md
+
 # IDE and OS
 .idea/
 .vscode/*

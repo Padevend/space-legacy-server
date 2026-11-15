@@ -4,10 +4,10 @@
     "code": "VALIDATION_ERROR",
     "message": "Request validation failed.",
     "status": 422,
-    "requestId": "2f3273d6-78ad-4b84-9509-0214e9b13805",
+    "requestId": "1715e015-a4da-40e9-b034-f51eab0ce9ae",
     "details": [
       {
-        "path": "body",
+        "path": "body.",
         "code": "unrecognized_keys",
         "message": "Unrecognized key: \"injectedField\""
       }

@@ -1,16 +1,16 @@
 [
   {
-    "storyId": "40e6d6f2-ebda-41e4-b144-2f346079020f",
+    "storyId": "3fb9bf8a-61fc-42d9-af38-967982f1040a",
     "title": "Silent Monuments of the Moon",
-    "slug": "silent-monuments-1794703464722",
+    "slug": "silent-monuments-1794735198790",
     "hook": "Left behind in tranquility.",
     "content": "Historical narrative recounting artifacts left on the lunar plains.",
     "storyType": "LEGACY_STORY",
     "durationSeconds": 240,
     "language": "en",
     "publicationStatus": "PUBLISHED",
-    "publishedAt": "2026-11-15T00:44:26.996Z",
-    "createdAt": "2026-11-15T00:44:26.742Z",
-    "updatedAt": "2026-11-15T00:44:27.000Z"
+    "publishedAt": "2026-11-15T09:33:23.077Z",
+    "createdAt": "2026-11-15T09:33:22.454Z",
+    "updatedAt": "2026-11-15T09:33:23.079Z"
   }
 ]

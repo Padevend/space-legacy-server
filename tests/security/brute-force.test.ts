@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { createServer } from '../../bin/server.js';
-import { prisma } from '../../src/core/database/prisma.js';
-import { hashPassword } from '../../src/core/security/password.js';
-import type { ApiErrorResponse } from '../../src/core/exceptions/error-handler.js';
+import { prisma } from '#infrastructure/database/prisma_client';
+import { hashPassword } from '#infrastructure/security/password_hasher';
+import type { ApiErrorResponse } from '#exceptions/handler';
 
 describe('Security: Brute-Force Protection & Timing Equivalence', () => {
   const app = createServer();

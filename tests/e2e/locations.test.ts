@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { createServer } from '../../bin/server.js';
-import { prisma } from '../../src/core/database/prisma.js';
-import { hashPassword } from '../../src/core/security/password.js';
-import { signAccessToken } from '../../src/core/security/tokens.js';
+import { prisma } from '#infrastructure/database/prisma_client';
+import { hashPassword } from '#infrastructure/security/password_hasher';
+import { signAccessToken } from '#infrastructure/security/token_service';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type {

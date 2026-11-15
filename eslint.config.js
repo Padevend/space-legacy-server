@@ -37,6 +37,6 @@ export default [
     },
   },
   {
-    ignores: ['dist/**', 'node_modules/**', 'docs/**', '.pnpm-store/**'],
+    ignores: ['build/**', 'dist/**', 'node_modules/**', 'docs/**', 'legacy/**', '.pnpm-store/**'],
   },
 ];

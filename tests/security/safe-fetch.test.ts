@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { safeFetch, isPrivateOrReservedIp } from '../../src/core/security/safe-fetch.js';
-import { AppException } from '../../src/core/exceptions/AppException.js';
+import { safeFetch, isPrivateOrReservedIp } from '../../app/infrastructure/security/safe_fetch.js';
+import { AppException } from '#exceptions/app_exception';
 
 describe('Security: safeFetch (SSRF Protection)', () => {
   describe('isPrivateOrReservedIp', () => {

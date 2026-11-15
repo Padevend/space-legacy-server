@@ -1,18 +1,29 @@
 import { serve } from '@hono/node-server';
-import { createApp } from '../src/core/http/app.js';
-import { registerGlobalMiddleware } from '../start/kernel.js';
-import { registerRoutes } from '../start/routes.js';
-import { appConfig } from '../config/app.js';
-import { logger } from '../src/core/logger/index.js';
-import { disconnectPrisma } from '../src/core/database/prisma.js';
+import { Hono } from 'hono';
+import { appProvider } from '../providers/app_provider.js';
+import { modulesProvider } from '../providers/modules_provider.js';
+import { registerGlobalMiddleware } from '#start/kernel';
+import { registerRoutes } from '#start/routes';
+import { exceptionHandler } from '#exceptions/handler';
+import { appConfig } from '#config/app';
+import { logger } from '#infrastructure/logger/logger';
+import { disconnectPrisma } from '#infrastructure/database/prisma_client';
 
-export function createServer() {
-  const app = createApp();
+export function createServer(): Hono {
+  // 1. Register providers
+  appProvider.register();
+  modulesProvider.register();
 
-  // 1. Mount global 13-stage middleware kernel
+  // 2. Initialize Hono application with centralized exception handling
+  const app = new Hono();
+
+  app.onError((err, c) => exceptionHandler.handle(err, c));
+  app.notFound((c) => exceptionHandler.notFound(c));
+
+  // 3. Mount global 13-stage middleware kernel
   registerGlobalMiddleware(app);
 
-  // 2. Mount API and health routes
+  // 4. Mount all module routes
   registerRoutes(app);
 
   return app;
@@ -34,7 +45,6 @@ export function startServer() {
     }
   );
 
-  // Graceful shutdown handling
   let isShuttingDown = false;
 
   async function gracefulShutdown(signal: string) {
@@ -42,7 +52,6 @@ export function startServer() {
     isShuttingDown = true;
     logger.info(`Received ${signal}. Starting graceful shutdown...`);
 
-    // Give in-flight requests 5 seconds to finish
     const shutdownTimer = setTimeout(() => {
       logger.error('Forced shutdown due to timeout while draining requests.');
       process.exit(1);
@@ -68,7 +77,6 @@ export function startServer() {
   return server;
 }
 
-// Direct execution
 if (process.argv[1]?.endsWith('server.ts') || process.argv[1]?.endsWith('server.js')) {
   startServer();
 }
