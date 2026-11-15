@@ -1,6 +1,15 @@
 [
   {
     "method": "GET",
+    "path": "/api/v1/bodies",
+    "module": "celestial_bodies",
+    "name": "celestial_bodies.public_list",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/bodies"
+  },
+  {
+    "method": "GET",
     "path": "/api/v1/health/live",
     "module": "health",
     "name": "health.live",
@@ -16,6 +25,24 @@
     "auth": "public",
     "rateLimitTier": "publicRead",
     "summary": "System Readiness Probe"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/machines",
+    "module": "machines",
+    "name": "machines.public_list",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/machines"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/machines/:slug",
+    "module": "machines",
+    "name": "machines.public_show",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/machines/:slug"
   },
   {
     "method": "GET",

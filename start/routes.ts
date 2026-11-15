@@ -2,6 +2,8 @@ import type { Hono } from 'hono';
 import router from '#infrastructure/http/router';
 import { HealthController } from '#modules/health/controllers/health_controller';
 import { registerHealthPublicRoutes } from '#modules/health/routes/public';
+import { registerCelestialBodiesPublicRoutes } from '#modules/celestial_bodies/routes/public';
+import { registerMachinesPublicRoutes } from '#modules/machines/routes/public';
 
 // Root health aliases for infrastructure/container orchestration probes
 const rHealth = router.forModule('health');
@@ -13,6 +15,10 @@ router.enterGroup('/api/v1', []);
 
 // Health Module
 registerHealthPublicRoutes(router);
+
+// Stage S4: Reference & Core Domain Public Routes
+registerCelestialBodiesPublicRoutes(router);
+registerMachinesPublicRoutes(router);
 
 router.leaveGroup();
 
