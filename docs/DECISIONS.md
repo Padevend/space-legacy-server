@@ -128,3 +128,15 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
 - **Pureté architecturale et isolation des modules (N4) :**
   - Le repository de génération `generation_repository.ts` manipule exclusivement la table `generation_jobs`.
   - Toute interaction avec les entités d'autres modules (vérification de l'existence ou mise à jour de contenu d'entrées de journal) est réalisée via des requêtes SQL brutes isolées (`$queryRaw`, `$executeRaw`), garantissant l'absence de couplage direct avec les délégués Prisma d'autres modules et respectant strictement `tests/unit/module_ownership.spec.ts`.
+
+### D19 : Restructuration du Dashboard d'Administration et Interface Mission Control (N1, N2, N4, N5, N12)
+- **Décision :** Implémenter l'interface web d'administration Mission Control (`dashboard/index.html`) servie directement sur `GET /admin` et consommant exclusivement la surface d'administration `/api/v1/admin/*`.
+- **Architecture de l'interface en sections autonomes (Section 10) :**
+  - **Aperçu (`/overview`) :** Compteurs d'engins (total, publiés, brouillons), corps célestes (Lune et Mars), journal de bord, quiz, statut du dernier lot d'ingestion et alertes de travaux échoués.
+  - **Machines & Onglets éditeur :** Navigation avec filtres combinés (corps, statut), table réactive et éditeur découpé en 7 onglets ciblés (Identité, Mission & Histoire, Chiffres clés, Chronologie, Sources, Images & provenance IA, Journal de bord).
+  - **Modifications ciblées par onglet (N5) :** Chaque onglet sauvegarde exclusivement ses attributs par requête `PATCH` ciblée, avec garde anti-perte de modifications non enregistrées (`isDirty`).
+  - **Quiz & Badges :** Visualisation des défis éducatifs et du catalogue de distinctions.
+  - **Ingestion ZIP :** Affichage des quotas Section 8, bouton de téléchargement du ZIP modèle officiel, zone de glisser-déposer, simulation dry-run (`/validate`) et rapport d'exécution avec codes d'erreur explicites.
+  - **Générations IA :** Supervision des tâches du microservice Python avec métriques de latence/tokens, synchronisation (`/poll`) et annulation (`/cancel`).
+- **Gestion universelle des états :** Tout écran gère les états de chargement, état vide explicite et retour d'erreur formaté selon la norme N12.
+- **Sécurité et conformité :** La page frontend est servie de façon statique sécurisée ; toutes les mutations et lectures nécessitent un jeton d'authentification Bearer au rôle `ADMIN`.
