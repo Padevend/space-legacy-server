@@ -94,8 +94,14 @@ export const listEventsQuerySchema = paginationQuerySchema
     missionId: z.string().uuid().optional().openapi({ description: 'Filter by mission UUID' }),
     equipmentId: z.string().uuid().optional().openapi({ description: 'Filter by equipment UUID' }),
     eventType: eventTypeEnum.optional().openapi({ description: 'Filter by event type' }),
-    from: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'from must be YYYY-MM-DD').optional(),
-    to: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'to must be YYYY-MM-DD').optional(),
+    from: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/, 'from must be YYYY-MM-DD')
+      .optional(),
+    to: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/, 'to must be YYYY-MM-DD')
+      .optional(),
     search: z.string().optional().openapi({ description: 'Search title and description' }),
     orderBy: z.enum(['eventDate', 'sequenceOrder', 'title', 'createdAt']).optional().default('eventDate'),
     order: z.enum(['asc', 'desc']).optional().default('asc'),
@@ -113,13 +119,10 @@ export const eventIdParamSchema = z
 
 export const getEventQuerySchema = z
   .object({
-    include: z
-      .string()
-      .optional()
-      .openapi({
-        description: 'Comma-separated relations (max 3): mission,equipment,locations,people,sources',
-        example: 'equipment,locations',
-      }),
+    include: z.string().optional().openapi({
+      description: 'Comma-separated relations (max 3): mission,equipment,locations,people,sources',
+      example: 'equipment,locations',
+    }),
   })
   .strict()
   .openapi('GetEventQuery');
@@ -154,10 +157,7 @@ export const createEventRequestSchema = z
 
 export type CreateEventRequestDto = z.infer<typeof createEventRequestSchema>;
 
-export const updateEventRequestSchema = createEventRequestSchema
-  .partial()
-  .strict()
-  .openapi('UpdateEventRequest');
+export const updateEventRequestSchema = createEventRequestSchema.partial().strict().openapi('UpdateEventRequest');
 
 export type UpdateEventRequestDto = z.infer<typeof updateEventRequestSchema>;
 

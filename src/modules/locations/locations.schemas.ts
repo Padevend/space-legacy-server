@@ -12,13 +12,7 @@ export const LocationTypeEnum = z.enum([
 
 export type LocationType = z.infer<typeof LocationTypeEnum>;
 
-export const datePrecisionEnum = z.enum([
-  'EXACT',
-  'ESTIMATED',
-  'YEAR_ONLY',
-  'MONTH_ONLY',
-  'UNKNOWN',
-]);
+export const datePrecisionEnum = z.enum(['EXACT', 'ESTIMATED', 'YEAR_ONLY', 'MONTH_ONLY', 'UNKNOWN']);
 
 export type DatePrecisionDto = z.infer<typeof datePrecisionEnum>;
 

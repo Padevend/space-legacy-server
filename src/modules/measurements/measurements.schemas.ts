@@ -22,7 +22,9 @@ export const measurementSchema = z
     equipmentId: z.string().uuid().nullable().openapi({ example: 'b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e' }),
     eventId: z.string().uuid().nullable().openapi({ example: null }),
     name: z.string().openapi({ example: 'Rover Total Mass' }),
-    value: z.string().openapi({ example: '210.00000000', description: 'Exact decimal string to prevent precision loss' }),
+    value: z
+      .string()
+      .openapi({ example: '210.00000000', description: 'Exact decimal string to prevent precision loss' }),
     unit: z.string().openapi({ example: 'kg' }),
     measurementType: measurementTypeEnum.openapi({ example: 'MASS' }),
     context: z.string().openapi({ example: 'Earth weight at launch including battery systems.' }),
@@ -88,13 +90,10 @@ export const measurementIdParamSchema = z
 
 export const getMeasurementQuerySchema = z
   .object({
-    include: z
-      .string()
-      .optional()
-      .openapi({
-        description: 'Comma-separated relations (max 3): equipment,event,sources',
-        example: 'equipment,sources',
-      }),
+    include: z.string().optional().openapi({
+      description: 'Comma-separated relations (max 3): equipment,event,sources',
+      example: 'equipment,sources',
+    }),
   })
   .strict()
   .openapi('GetMeasurementQuery');

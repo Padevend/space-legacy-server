@@ -18,13 +18,31 @@
       "name": "Moon [TEST-SEED]",
       "bodyType": "MOON",
       "description": "The natural satellite of Earth [TEST DATA - NOT A REAL RECORD]."
+    },
+    {
+      "celestialBodyId": "5e1af060-ca80-42a0-b85b-b0fa6a48b1dd",
+      "name": "Moon-Equip-1794702168602",
+      "bodyType": "MOON",
+      "description": null
+    },
+    {
+      "celestialBodyId": "2e2f899e-dc6d-427a-90cb-437dfcc7ae5a",
+      "name": "Moon-Equip-1794702274660",
+      "bodyType": "MOON",
+      "description": null
+    },
+    {
+      "celestialBodyId": "827e991a-00f3-4d5f-85a7-b187aacead76",
+      "name": "Moon-Equip-1794702301066",
+      "bodyType": "MOON",
+      "description": null
     }
   ],
   "meta": {
-    "requestId": "c6daf567-f950-48a3-aa3a-b3f83e522d3f",
+    "requestId": "6bec98ee-7e23-43ad-9dcb-5288e234a428",
     "page": 1,
     "pageSize": 10,
-    "total": 3,
+    "total": 6,
     "totalPages": 1
   }
 }

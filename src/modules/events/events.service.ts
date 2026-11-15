@@ -1,11 +1,7 @@
 import { eventsRepository, type EventsRepository } from './events.repository.js';
 import { missionsRepository, type MissionsRepository } from '../missions/missions.repository.js';
 import { AppException } from '../../core/exceptions/AppException.js';
-import type {
-  ListEventsQueryDto,
-  CreateEventRequestDto,
-  UpdateEventRequestDto,
-} from './events.schemas.js';
+import type { ListEventsQueryDto, CreateEventRequestDto, UpdateEventRequestDto } from './events.schemas.js';
 import type { Event } from '@prisma/client';
 
 const ALLOWED_INCLUDES = ['mission', 'equipment', 'locations', 'people', 'sources'];
@@ -70,7 +66,9 @@ export class EventsService {
           throw AppException.unprocessable('Nested includes deeper than one level are not supported.');
         }
         if (!ALLOWED_INCLUDES.includes(part)) {
-          throw AppException.unprocessable(`Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`);
+          throw AppException.unprocessable(
+            `Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`
+          );
         }
         if (part === 'mission') includes.mission = true;
         if (part === 'equipment') includes.equipment = true;
@@ -205,7 +203,13 @@ export class EventsService {
   }
 
   // Relations
-  async linkEquipment(eventId: string, equipmentId: string, roleInEvent?: string | null, description?: string | null, ctx: AuditContext = {}) {
+  async linkEquipment(
+    eventId: string,
+    equipmentId: string,
+    roleInEvent?: string | null,
+    description?: string | null,
+    ctx: AuditContext = {}
+  ) {
     await this.getById(eventId);
     const link = await this.repository.linkEquipment(eventId, equipmentId, roleInEvent, description);
     await this.repository.createAuditLog({
@@ -265,12 +269,7 @@ export class EventsService {
     }
   }
 
-  async linkPerson(
-    eventId: string,
-    personId: string,
-    roleInEvent = 'Participant',
-    ctx: AuditContext = {}
-  ) {
+  async linkPerson(eventId: string, personId: string, roleInEvent = 'Participant', ctx: AuditContext = {}) {
     await this.getById(eventId);
     const link = await this.repository.linkPerson(eventId, personId, roleInEvent);
     await this.repository.createAuditLog({

@@ -1,0 +1,77 @@
+{
+  "success": true,
+  "data": [
+    {
+      "equipmentId": "90271014-1725-472c-83c4-dbc31e8715c2",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794702225703",
+      "slug": "lrv-mass-1794702225703",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T00:23:45.704Z",
+      "updatedAt": "2026-11-15T00:23:45.704Z"
+    },
+    {
+      "equipmentId": "54542f84-bdd6-436b-9ddb-30826ea26c7c",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794702246262",
+      "slug": "lrv-mass-1794702246262",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T00:24:06.264Z",
+      "updatedAt": "2026-11-15T00:24:06.264Z"
+    },
+    {
+      "equipmentId": "c85655ca-f5ce-45bd-aa7d-97ad7d100e23",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794702301478",
+      "slug": "lrv-mass-1794702301478",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T00:25:01.484Z",
+      "updatedAt": "2026-11-15T00:25:01.484Z"
+    },
+    {
+      "equipmentId": "a33f5170-9fc0-4cbb-adbc-ed5e7b4bab59",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794702522909",
+      "slug": "lrv-mass-1794702522909",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T00:28:42.914Z",
+      "updatedAt": "2026-11-15T00:28:42.914Z"
+    },
+    {
+      "equipmentId": "06324308-5b27-4781-bc50-abd3a687499c",
+      "parentEquipmentId": null,
+      "name": "Lunar Roving Vehicle (LRV-3)",
+      "slug": "lrv-test-1794702520967",
+      "description": "Electric four-wheeled rover used on the lunar surface during Apollo 17.",
+      "equipmentType": "ROVER",
+      "manufacturer": "Boeing / Delco",
+      "operationalStatus": "INACTIVE",
+      "physicalStatus": "LEFT_ON_SURFACE",
+      "createdAt": "2026-11-15T00:28:42.801Z",
+      "updatedAt": "2026-11-15T00:28:42.801Z"
+    }
+  ],
+  "meta": {
+    "requestId": "aecf8705-a847-4449-b580-dd3401e31af9",
+    "page": 1,
+    "pageSize": 10,
+    "total": 5,
+    "totalPages": 1
+  }
+}

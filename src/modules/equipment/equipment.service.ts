@@ -70,7 +70,9 @@ export class EquipmentService {
           throw AppException.unprocessable('Nested includes deeper than one level are not supported.');
         }
         if (!ALLOWED_INCLUDES.includes(part)) {
-          throw AppException.unprocessable(`Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`);
+          throw AppException.unprocessable(
+            `Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`
+          );
         }
         if (part === 'parent') includes.parent = true;
         if (part === 'children') includes.children = true;
@@ -95,7 +97,10 @@ export class EquipmentService {
     return item;
   }
 
-  private async assertNoHierarchyCycle(equipmentId: string, proposedParentId: string | null | undefined): Promise<void> {
+  private async assertNoHierarchyCycle(
+    equipmentId: string,
+    proposedParentId: string | null | undefined
+  ): Promise<void> {
     if (!proposedParentId) return;
 
     if (proposedParentId === equipmentId) {
@@ -259,13 +264,7 @@ export class EquipmentService {
     const sDate = startDate ? new Date(startDate) : null;
     const eDate = endDate ? new Date(endDate) : null;
 
-    const link = await this.repository.linkLocation(
-      equipmentId,
-      locationId,
-      sDate,
-      eDate,
-      locationPrecision
-    );
+    const link = await this.repository.linkLocation(equipmentId, locationId, sDate, eDate, locationPrecision);
 
     await this.repository.createAuditLog({
       actorId: ctx.actorId,
@@ -326,12 +325,7 @@ export class EquipmentService {
     }
   }
 
-  async linkSource(
-    equipmentId: string,
-    sourceId: string,
-    claimDescription?: string | null,
-    ctx: AuditContext = {}
-  ) {
+  async linkSource(equipmentId: string, sourceId: string, claimDescription?: string | null, ctx: AuditContext = {}) {
     await this.getById(equipmentId);
 
     const link = await this.repository.linkSource(equipmentId, sourceId, claimDescription);

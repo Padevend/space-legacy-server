@@ -68,9 +68,7 @@ export class MissionsRepository {
     isUuid: boolean,
     includes: { equipment?: boolean; people?: boolean; sources?: boolean }
   ) {
-    const where: Prisma.MissionWhereUniqueInput = isUuid
-      ? { missionId: idOrSlug }
-      : { slug: idOrSlug };
+    const where: Prisma.MissionWhereUniqueInput = isUuid ? { missionId: idOrSlug } : { slug: idOrSlug };
 
     return prisma.mission.findUnique({
       where,

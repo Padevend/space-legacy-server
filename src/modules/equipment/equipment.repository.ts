@@ -109,9 +109,7 @@ export class EquipmentRepository {
       locations?: boolean;
     }
   ) {
-    const where: Prisma.EquipmentWhereUniqueInput = isUuid
-      ? { equipmentId: idOrSlug }
-      : { slug: idOrSlug };
+    const where: Prisma.EquipmentWhereUniqueInput = isUuid ? { equipmentId: idOrSlug } : { slug: idOrSlug };
 
     return prisma.equipment.findUnique({
       where,

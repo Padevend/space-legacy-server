@@ -139,13 +139,10 @@ export class MissionsController {
     const actorId = c.get('userId') || 'system';
     const requestId = c.get('requestId') || 'unknown';
 
-    await this.service.linkEquipment(
-      id,
-      equipmentId,
-      body.missionRole,
-      body.participationDescription,
-      { actorId, requestId }
-    );
+    await this.service.linkEquipment(id, equipmentId, body.missionRole, body.participationDescription, {
+      actorId,
+      requestId,
+    });
     return ok(c, { message: 'Equipment linked to mission successfully.' });
   };
 

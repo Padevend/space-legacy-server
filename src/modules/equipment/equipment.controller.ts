@@ -201,14 +201,10 @@ export class EquipmentController {
     const actorId = c.get('userId') || 'system';
     const requestId = c.get('requestId') || 'unknown';
 
-    await this.service.linkLocation(
-      id,
-      locationId,
-      body.startDate,
-      body.endDate,
-      body.locationPrecision,
-      { actorId, requestId }
-    );
+    await this.service.linkLocation(id, locationId, body.startDate, body.endDate, body.locationPrecision, {
+      actorId,
+      requestId,
+    });
     return ok(c, { message: 'Location linked to equipment successfully.' });
   };
 

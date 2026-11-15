@@ -18,3 +18,20 @@ export * as PersonResponse from './person/api_response.js';
 export * as SourceEntity from './source/model.js';
 export * as SourceRequest from './source/api_request.js';
 export * as SourceResponse from './source/api_response.js';
+
+// Core Domain (Stage 4)
+export * as MissionEntity from './mission/model.js';
+export * as MissionRequest from './mission/api_request.js';
+export * as MissionResponse from './mission/api_response.js';
+
+export * as EquipmentEntity from './equipment/model.js';
+export * as EquipmentRequest from './equipment/api_request.js';
+export * as EquipmentResponse from './equipment/api_response.js';
+
+export * as EventEntity from './event/model.js';
+export * as EventRequest from './event/api_request.js';
+export * as EventResponse from './event/api_response.js';
+
+export * as MeasurementEntity from './measurement/model.js';
+export * as MeasurementRequest from './measurement/api_request.js';
+export * as MeasurementResponse from './measurement/api_response.js';

@@ -70,4 +70,32 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
     const sourceAssignable: AssertAssignable<SourceSerializer, SourceEntity> = true;
     expect(sourceAssignable).toBe(true);
   });
+
+  it('verifies mutual type assignability for all Stage 4 core domain entities', async () => {
+    type AssertAssignable<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
+
+    // Mission
+    type MissionSerializer = import('../../src/modules/missions/missions.schemas.js').MissionDto;
+    type MissionEntity = import('../../docs/entities/mission/model.js').Mission;
+    const missionAssignable: AssertAssignable<MissionSerializer, MissionEntity> = true;
+    expect(missionAssignable).toBe(true);
+
+    // Equipment
+    type EquipmentSerializer = import('../../src/modules/equipment/equipment.schemas.js').EquipmentDto;
+    type EquipmentEntity = import('../../docs/entities/equipment/model.js').Equipment;
+    const equipAssignable: AssertAssignable<EquipmentSerializer, EquipmentEntity> = true;
+    expect(equipAssignable).toBe(true);
+
+    // Event
+    type EventSerializer = import('../../src/modules/events/events.schemas.js').EventDto;
+    type EventEntity = import('../../docs/entities/event/model.js').Event;
+    const eventAssignable: AssertAssignable<EventSerializer, EventEntity> = true;
+    expect(eventAssignable).toBe(true);
+
+    // Measurement
+    type MeasurementSerializer = import('../../src/modules/measurements/measurements.schemas.js').MeasurementDto;
+    type MeasurementEntity = import('../../docs/entities/measurement/model.js').Measurement;
+    const measurementAssignable: AssertAssignable<MeasurementSerializer, MeasurementEntity> = true;
+    expect(measurementAssignable).toBe(true);
+  });
 });

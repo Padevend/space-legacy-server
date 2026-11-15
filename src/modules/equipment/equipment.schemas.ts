@@ -16,13 +16,7 @@ export const equipmentTypeEnum = z.enum([
 ]);
 export type EquipmentTypeDto = z.infer<typeof equipmentTypeEnum>;
 
-export const operationalStatusEnum = z.enum([
-  'OPERATIONAL',
-  'INACTIVE',
-  'MISSION_ENDED',
-  'FAILED',
-  'UNKNOWN',
-]);
+export const operationalStatusEnum = z.enum(['OPERATIONAL', 'INACTIVE', 'MISSION_ENDED', 'FAILED', 'UNKNOWN']);
 export type OperationalStatusDto = z.infer<typeof operationalStatusEnum>;
 
 export const physicalStatusEnum = z.enum([
@@ -132,13 +126,10 @@ export const equipmentIdParamSchema = z
 
 export const getEquipmentQuerySchema = z
   .object({
-    include: z
-      .string()
-      .optional()
-      .openapi({
-        description: 'Comma-separated relations to include (max 3): parent,children,missions,locations',
-        example: 'parent,children',
-      }),
+    include: z.string().optional().openapi({
+      description: 'Comma-separated relations to include (max 3): parent,children,missions,locations',
+      example: 'parent,children',
+    }),
   })
   .strict()
   .openapi('GetEquipmentQuery');

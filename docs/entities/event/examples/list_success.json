@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "data": [
+    {
+      "eventId": "aa740c8b-deb9-43af-91cd-0de9f7728ef5",
+      "missionId": "c70cd95c-104d-49ef-9c6e-9236d3e677c4",
+      "title": "Apollo 11 Lunar Landing",
+      "description": "Lunar module Eagle lands at Tranquility Base.",
+      "eventType": "LANDING",
+      "eventDate": "1969-07-20",
+      "eventTime": "20:17:40",
+      "timeStandard": "UTC",
+      "datePrecision": "EXACT",
+      "isEstimated": false,
+      "sequenceOrder": 1,
+      "createdAt": "2026-11-15T00:28:37.113Z"
+    }
+  ],
+  "meta": {
+    "requestId": "b95102fa-e046-4004-95af-e6bfdb0e49d0",
+    "page": 1,
+    "pageSize": 20,
+    "total": 1,
+    "totalPages": 1
+  }
+}

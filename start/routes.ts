@@ -13,10 +13,7 @@ import { publicSourcesRouter, adminSourcesRouter } from '../src/modules/sources/
 import { publicMissionsRouter, adminMissionsRouter } from '../src/modules/missions/missions.routes.js';
 import { publicEquipmentRouter, adminEquipmentRouter } from '../src/modules/equipment/equipment.routes.js';
 import { publicEventsRouter, adminEventsRouter } from '../src/modules/events/events.routes.js';
-import {
-  publicMeasurementsRouter,
-  adminMeasurementsRouter,
-} from '../src/modules/measurements/measurements.routes.js';
+import { publicMeasurementsRouter, adminMeasurementsRouter } from '../src/modules/measurements/measurements.routes.js';
 
 export function registerRoutes(app: OpenAPIHono<AppEnv>): void {
   // Liveness and Readiness Probes

@@ -1,10 +1,6 @@
 import { missionsRepository, type MissionsRepository } from './missions.repository.js';
 import { AppException } from '../../core/exceptions/AppException.js';
-import type {
-  ListMissionsQueryDto,
-  CreateMissionRequestDto,
-  UpdateMissionRequestDto,
-} from './missions.schemas.js';
+import type { ListMissionsQueryDto, CreateMissionRequestDto, UpdateMissionRequestDto } from './missions.schemas.js';
 import type { Mission } from '@prisma/client';
 
 const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -62,7 +58,9 @@ export class MissionsService {
           throw AppException.unprocessable('Nested includes deeper than one level are not supported.');
         }
         if (!ALLOWED_INCLUDES.includes(part)) {
-          throw AppException.unprocessable(`Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`);
+          throw AppException.unprocessable(
+            `Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`
+          );
         }
         if (part === 'equipment') includes.equipment = true;
         if (part === 'people') includes.people = true;
@@ -187,12 +185,7 @@ export class MissionsService {
     }
   }
 
-  async linkSource(
-    missionId: string,
-    sourceId: string,
-    claimDescription?: string | null,
-    ctx: AuditContext = {}
-  ) {
+  async linkSource(missionId: string, sourceId: string, claimDescription?: string | null, ctx: AuditContext = {}) {
     await this.getById(missionId);
 
     const link = await this.repository.linkSource(missionId, sourceId, claimDescription);
@@ -233,12 +226,7 @@ export class MissionsService {
   ) {
     await this.getById(missionId);
 
-    const link = await this.repository.linkEquipment(
-      missionId,
-      equipmentId,
-      missionRole,
-      participationDescription
-    );
+    const link = await this.repository.linkEquipment(missionId, equipmentId, missionRole, participationDescription);
     await this.repository.createAuditLog({
       actorId: ctx.actorId,
       action: 'LINK_EQUIPMENT',

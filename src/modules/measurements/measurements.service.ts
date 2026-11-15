@@ -65,7 +65,9 @@ export class MeasurementsService {
           throw AppException.unprocessable('Nested includes deeper than one level are not supported.');
         }
         if (!ALLOWED_INCLUDES.includes(part)) {
-          throw AppException.unprocessable(`Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`);
+          throw AppException.unprocessable(
+            `Invalid include relation: '${part}'. Allowed: ${ALLOWED_INCLUDES.join(', ')}`
+          );
         }
         if (part === 'equipment') includes.equipment = true;
         if (part === 'event') includes.event = true;
@@ -188,12 +190,7 @@ export class MeasurementsService {
   }
 
   // Relations
-  async linkSource(
-    measurementId: string,
-    sourceId: string,
-    claimDescription?: string | null,
-    ctx: AuditContext = {}
-  ) {
+  async linkSource(measurementId: string, sourceId: string, claimDescription?: string | null, ctx: AuditContext = {}) {
     await this.getById(measurementId);
     const link = await this.repository.linkSource(measurementId, sourceId, claimDescription);
     await this.repository.createAuditLog({

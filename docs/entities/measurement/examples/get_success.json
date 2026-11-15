@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "data": {
+    "measurementId": "242a7e18-f5f7-491e-a139-8068af6177be",
+    "equipmentId": "a33f5170-9fc0-4cbb-adbc-ed5e7b4bab59",
+    "eventId": null,
+    "name": "Total Lunar Roving Vehicle Mass",
+    "value": "210.45678901",
+    "unit": "kg",
+    "measurementType": "MASS",
+    "context": "Earth weight including chassis, suspension, steering and battery assemblies.",
+    "measurementDate": "1972-12-07T05:33:00.000Z",
+    "isApproximate": false,
+    "uncertainty": "0.05000001",
+    "equipment": {
+      "equipmentId": "a33f5170-9fc0-4cbb-adbc-ed5e7b4bab59",
+      "name": "LRV Rover Mass Test-1794702522909",
+      "slug": "lrv-mass-1794702522909"
+    },
+    "sources": [
+      {
+        "sourceId": "9cbfbe38-567e-4072-9d16-61fefa7817ec",
+        "title": "Lunar Surface Science Report-1794702522919",
+        "url": "https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov-1794702522919.pdf",
+        "claimDescription": "Apollo 17 Mission Report table 4-2"
+      }
+    ]
+  },
+  "meta": {
+    "requestId": "c7aedde9-5de8-43d7-a0a3-51c9de0fd019"
+  }
+}

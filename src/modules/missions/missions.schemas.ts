@@ -1,14 +1,7 @@
 import { z } from '@hono/zod-openapi';
 import { paginationQuerySchema } from '../../core/http/pagination.js';
 
-export const missionStatusEnum = z.enum([
-  'PLANNED',
-  'ACTIVE',
-  'COMPLETED',
-  'PARTIALLY_COMPLETED',
-  'FAILED',
-  'UNKNOWN',
-]);
+export const missionStatusEnum = z.enum(['PLANNED', 'ACTIVE', 'COMPLETED', 'PARTIALLY_COMPLETED', 'FAILED', 'UNKNOWN']);
 export type MissionStatusDto = z.infer<typeof missionStatusEnum>;
 
 export const missionSchema = z
@@ -91,13 +84,10 @@ export const missionIdParamSchema = z
 
 export const getMissionQuerySchema = z
   .object({
-    include: z
-      .string()
-      .optional()
-      .openapi({
-        description: 'Comma-separated relations to include (max 3): equipment,people,sources',
-        example: 'equipment,people',
-      }),
+    include: z.string().optional().openapi({
+      description: 'Comma-separated relations to include (max 3): equipment,people,sources',
+      example: 'equipment,people',
+    }),
   })
   .strict()
   .openapi('GetMissionQuery');
@@ -122,10 +112,7 @@ export const createMissionRequestSchema = z
 
 export type CreateMissionRequestDto = z.infer<typeof createMissionRequestSchema>;
 
-export const updateMissionRequestSchema = createMissionRequestSchema
-  .partial()
-  .strict()
-  .openapi('UpdateMissionRequest');
+export const updateMissionRequestSchema = createMissionRequestSchema.partial().strict().openapi('UpdateMissionRequest');
 
 export type UpdateMissionRequestDto = z.infer<typeof updateMissionRequestSchema>;
 

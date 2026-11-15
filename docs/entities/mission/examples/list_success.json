@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "data": [
+    {
+      "missionId": "692ca17e-6f31-43d3-b7e1-70558665f015",
+      "name": "Apollo 11 Flight Campaign",
+      "slug": "test-mission-1794702514688",
+      "description": "First manned landing on lunar soil.",
+      "agency": "NASA",
+      "missionStatus": "COMPLETED",
+      "createdAt": "2026-11-15T00:28:37.043Z",
+      "updatedAt": "2026-11-15T00:28:37.043Z"
+    }
+  ],
+  "meta": {
+    "requestId": "3ed77ca7-8a71-44bc-9351-3a55732dfca7",
+    "page": 1,
+    "pageSize": 10,
+    "total": 1,
+    "totalPages": 1
+  }
+}
