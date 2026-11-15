@@ -115,49 +115,6 @@ export const PublicationStatus = {
 } as const;
 export type PublicationStatus = (typeof PublicationStatus)[keyof typeof PublicationStatus];
 
-export const MediaType = {
-  IMAGE: 'IMAGE',
-  VIDEO: 'VIDEO',
-  AUDIO: 'AUDIO',
-  MODEL_3D: 'MODEL_3D',
-  DOCUMENT: 'DOCUMENT',
-  ANIMATION: 'ANIMATION',
-  OTHER: 'OTHER',
-} as const;
-export type MediaType = (typeof MediaType)[keyof typeof MediaType];
-
-export const MediaProvenance = {
-  NASA_ARCHIVE: 'NASA_ARCHIVE',
-  RECONSTRUCTION_3D: 'RECONSTRUCTION_3D',
-  AI_GENERATED_ILLUSTRATION: 'AI_GENERATED_ILLUSTRATION',
-  DATA_VISUALIZATION: 'DATA_VISUALIZATION',
-  OTHER: 'OTHER',
-} as const;
-export type MediaProvenance = (typeof MediaProvenance)[keyof typeof MediaProvenance];
-
-export const DownloadStatus = {
-  AVAILABLE: 'AVAILABLE',
-  PENDING: 'PENDING',
-  FAILED: 'FAILED',
-  EXTERNAL_ONLY: 'EXTERNAL_ONLY',
-} as const;
-export type DownloadStatus = (typeof DownloadStatus)[keyof typeof DownloadStatus];
-
-export const MeasurementType = {
-  MASS: 'MASS',
-  DISTANCE: 'DISTANCE',
-  DURATION: 'DURATION',
-  TEMPERATURE: 'TEMPERATURE',
-  FREQUENCY: 'FREQUENCY',
-  SPEED: 'SPEED',
-  FORCE: 'FORCE',
-  PRESSURE: 'PRESSURE',
-  POWER: 'POWER',
-  VOLTAGE: 'VOLTAGE',
-  OTHER: 'OTHER',
-} as const;
-export type MeasurementType = (typeof MeasurementType)[keyof typeof MeasurementType];
-
 export const UserRole = {
   ADMIN: 'ADMIN',
   EDITOR: 'EDITOR',

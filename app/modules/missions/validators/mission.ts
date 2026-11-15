@@ -29,16 +29,6 @@ export const missionDetailSchema = missionSchema.extend({
       })
     )
     .optional(),
-  people: z
-    .array(
-      z.object({
-        personId: z.string().uuid(),
-        fullName: z.string().optional(),
-        roleInMission: z.string().optional(),
-        role: z.string().nullable().optional(),
-      })
-    )
-    .optional(),
   sources: z
     .array(
       z.object({
@@ -101,13 +91,3 @@ export const linkMissionEquipmentSchema = z
   .strict();
 
 export type LinkMissionEquipmentDto = z.infer<typeof linkMissionEquipmentSchema>;
-
-export const linkMissionPersonSchema = z
-  .object({
-    personId: z.string().uuid().optional(),
-    role: z.string().max(255).nullable().optional(),
-    roleInMission: z.string().max(255).optional(),
-  })
-  .strict();
-
-export type LinkMissionPersonDto = z.infer<typeof linkMissionPersonSchema>;

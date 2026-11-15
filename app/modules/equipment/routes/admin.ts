@@ -1,10 +1,6 @@
 import type { Router } from '#infrastructure/http/router';
 import { AdminEquipmentController } from '../controllers/admin_equipment_controller.js';
-import {
-  createEquipmentRequestSchema,
-  updateEquipmentRequestSchema,
-  linkEquipmentPersonSchema,
-} from '../validators/equipment.js';
+import { createEquipmentRequestSchema, updateEquipmentRequestSchema } from '../validators/equipment.js';
 import { middleware } from '#start/kernel';
 
 export function registerEquipmentAdminRoutes(router: Router): void {
@@ -48,22 +44,4 @@ export function registerEquipmentAdminRoutes(router: Router): void {
       tags: ['Equipment'],
       responses: { 200: 'Deleted equipment', 404: 'NOT_FOUND' },
     });
-
-  // Equipment person relation
-  r.post('/admin/equipment/:equipmentId/people/:personId', [AdminEquipmentController, 'linkPerson'])
-    .as('admin.equipment.linkPerson')
-    .use(middleware.ability('equipment:write'))
-    .validate({ body: linkEquipmentPersonSchema })
-    .docs({ summary: 'Link person to equipment with optional role', tags: ['Equipment'] });
-
-  r.put('/admin/equipment/:equipmentId/people/:personId', [AdminEquipmentController, 'linkPerson'])
-    .as('admin.equipment.linkPersonPut')
-    .use(middleware.ability('equipment:write'))
-    .validate({ body: linkEquipmentPersonSchema })
-    .docs({ summary: 'Link person to equipment with optional role', tags: ['Equipment'] });
-
-  r.delete('/admin/equipment/:equipmentId/people/:personId', [AdminEquipmentController, 'unlinkPerson'])
-    .as('admin.equipment.unlinkPerson')
-    .use(middleware.ability('equipment:delete'))
-    .docs({ summary: 'Unlink person from equipment', tags: ['Equipment'] });
 }

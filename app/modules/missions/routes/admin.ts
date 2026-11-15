@@ -4,7 +4,6 @@ import {
   createMissionRequestSchema,
   updateMissionRequestSchema,
   linkMissionEquipmentSchema,
-  linkMissionPersonSchema,
 } from '../validators/mission.js';
 import { middleware } from '#start/kernel';
 
@@ -76,22 +75,4 @@ export function registerMissionsAdminRoutes(router: Router): void {
     .as('admin.missions.unlinkEquipmentInverse')
     .use(middleware.ability('missions:write'))
     .docs({ summary: 'Unlink equipment from mission', tags: ['Missions'] });
-
-  // Mission person relation
-  r.post('/admin/missions/:missionId/people/:personId', [AdminMissionController, 'linkPerson'])
-    .as('admin.missions.linkPerson')
-    .use(middleware.ability('missions:write'))
-    .validate({ body: linkMissionPersonSchema })
-    .docs({ summary: 'Link personnel to mission with mission role', tags: ['Missions'] });
-
-  r.put('/admin/missions/:missionId/people/:personId', [AdminMissionController, 'linkPerson'])
-    .as('admin.missions.linkPersonPut')
-    .use(middleware.ability('missions:write'))
-    .validate({ body: linkMissionPersonSchema })
-    .docs({ summary: 'Link personnel to mission with mission role', tags: ['Missions'] });
-
-  r.delete('/admin/missions/:missionId/people/:personId', [AdminMissionController, 'unlinkPerson'])
-    .as('admin.missions.unlinkPerson')
-    .use(middleware.ability('missions:write'))
-    .docs({ summary: 'Unlink personnel from mission', tags: ['Missions'] });
 }

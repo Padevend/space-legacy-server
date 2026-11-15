@@ -15,10 +15,6 @@ describe('Enum Parity Test (Section 2.4 & 2.10)', () => {
     'SourceType',
     'StoryType',
     'PublicationStatus',
-    'MediaType',
-    'MediaProvenance',
-    'DownloadStatus',
-    'MeasurementType',
     'UserRole',
     'IngestionStatus',
   ];

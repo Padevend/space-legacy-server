@@ -2,7 +2,6 @@ import type { EventModel } from '../models/event.js';
 import type { EventDto, EventDetailDto } from '../validators/event.js';
 import type { EventEquipmentModel } from '../models/event_equipment.js';
 import type { EventLocationModel } from '../models/event_location.js';
-import type { EventPersonModel } from '../models/event_person.js';
 
 export class EventSerializer {
   private formatDate(date: Date | null): string | null {
@@ -66,14 +65,6 @@ export class EventSerializer {
           locationRole: loc.locationRole ?? null,
         })),
       }),
-      ...(event.people !== undefined && {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        people: event.people.map((p: any) => ({
-          personId: p.personId,
-          fullName: p.person?.fullName ?? '',
-          roleInEvent: p.roleInEvent ?? null,
-        })),
-      }),
       ...(event.sources !== undefined && {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         sources: event.sources.map((s: any) => ({
@@ -100,14 +91,6 @@ export class EventSerializer {
       eventId: link.eventId,
       locationId: link.locationId,
       locationRole: link.locationRole,
-    };
-  }
-
-  serializeEventPerson(link: EventPersonModel) {
-    return {
-      eventId: link.eventId,
-      personId: link.personId,
-      roleInEvent: link.roleInEvent,
     };
   }
 }

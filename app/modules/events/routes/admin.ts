@@ -5,7 +5,6 @@ import {
   updateEventRequestSchema,
   linkEventEquipmentSchema,
   linkEventLocationSchema,
-  linkEventPersonSchema,
 } from '../validators/event.js';
 import { middleware } from '#start/kernel';
 
@@ -98,26 +97,4 @@ export function registerEventsAdminRoutes(router: Router): void {
     .where('locationId', r.matchers.uuid())
     .use(middleware.ability('events:write'))
     .docs({ summary: 'Unlink location from event', tags: ['Events'] });
-
-  r.post('/admin/events/:eventId/people/:personId', [AdminEventController, 'linkPerson'])
-    .as('admin.events.linkPerson')
-    .where('eventId', r.matchers.uuid())
-    .where('personId', r.matchers.uuid())
-    .use(middleware.ability('events:write'))
-    .validate({ body: linkEventPersonSchema })
-    .docs({ summary: 'Link person to event with event role', tags: ['Events'] });
-
-  r.put('/admin/events/:eventId/people/:personId', [AdminEventController, 'linkPerson'])
-    .as('admin.events.linkPersonPut')
-    .where('eventId', r.matchers.uuid())
-    .where('personId', r.matchers.uuid())
-    .use(middleware.ability('events:write'))
-    .docs({ summary: 'Link person to event with event role', tags: ['Events'] });
-
-  r.delete('/admin/events/:eventId/people/:personId', [AdminEventController, 'unlinkPerson'])
-    .as('admin.events.unlinkPerson')
-    .where('eventId', r.matchers.uuid())
-    .where('personId', r.matchers.uuid())
-    .use(middleware.ability('events:write'))
-    .docs({ summary: 'Unlink person from event', tags: ['Events'] });
 }

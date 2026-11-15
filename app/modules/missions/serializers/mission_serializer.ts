@@ -1,7 +1,6 @@
 import type { MissionModel } from '../models/mission.js';
 import type { MissionDto, MissionDetailDto } from '../validators/mission.js';
 import type { MissionEquipmentModel } from '../models/mission_equipment.js';
-import type { MissionPersonModel } from '../models/mission_person.js';
 
 export class MissionSerializer {
   serializeMission(mission: MissionModel): MissionDto {
@@ -32,14 +31,6 @@ export class MissionSerializer {
           role: e.role,
         })),
       }),
-      ...(mission.people !== undefined && {
-        people: mission.people.map((p) => ({
-          personId: p.personId,
-          fullName: p.fullName,
-          roleInMission: p.roleInMission,
-          role: p.role,
-        })),
-      }),
       ...(mission.sources !== undefined && {
         sources: mission.sources.map((s) => ({
           sourceId: s.sourceId,
@@ -59,15 +50,6 @@ export class MissionSerializer {
       role: link.role ?? link.missionRole,
       participationDescription: link.participationDescription ?? null,
       ...(link.createdAt && { createdAt: link.createdAt.toISOString() }),
-    };
-  }
-
-  serializeMissionPerson(link: MissionPersonModel) {
-    return {
-      missionId: link.missionId,
-      personId: link.personId,
-      roleInMission: link.roleInMission,
-      role: link.role ?? link.roleInMission,
     };
   }
 }

@@ -1,6 +1,5 @@
 import { prisma } from '#infrastructure/database/prisma_client';
 import type { EquipmentModel } from '../models/equipment.js';
-import type { EquipmentPersonModel } from '../models/equipment_person.js';
 import type { EquipmentType, OperationalStatus, PhysicalStatus } from '#shared/enums';
 
 export interface EquipmentListParams {
@@ -33,11 +32,6 @@ export class EquipmentRepository {
         name: c.name,
         slug: c.slug,
         equipmentType: c.equipmentType,
-      })),
-      people: row.people?.map((p: any) => ({
-        equipmentId: p.equipmentId,
-        personId: p.personId,
-        role: p.roleInEquipment ?? p.role ?? null,
       })),
       missions: row.missions?.map((m: any) => ({
         missionId: m.missionId,
@@ -130,7 +124,7 @@ export class EquipmentRepository {
 
   async findByIdOrSlug(
     idOrSlug: string,
-    includes?: { parent?: boolean; children?: boolean; people?: boolean; missions?: boolean; locations?: boolean }
+    includes?: { parent?: boolean; children?: boolean; missions?: boolean; locations?: boolean }
   ): Promise<EquipmentModel | null> {
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(idOrSlug);
     const where = isUuid ? { equipmentId: idOrSlug } : { slug: idOrSlug };
@@ -140,7 +134,6 @@ export class EquipmentRepository {
       include: {
         ...(includes?.parent && { parent: true }),
         ...(includes?.children && { children: true }),
-        ...(includes?.people && { people: true }),
         ...(includes?.missions && {
           missions: {
             include: {
@@ -237,29 +230,6 @@ export class EquipmentRepository {
   async delete(equipmentId: string): Promise<EquipmentModel> {
     const row = await prisma.equipment.delete({ where: { equipmentId } });
     return this.mapEquipment(row);
-  }
-
-  // EquipmentPerson
-  async linkPerson(equipmentId: string, personId: string, role?: string | null): Promise<EquipmentPersonModel> {
-    const roleInEquipment = role || 'Specialist';
-    const row = await prisma.equipmentPerson.upsert({
-      where: { equipmentId_personId: { equipmentId, personId } },
-      update: { roleInEquipment },
-      create: { equipmentId, personId, roleInEquipment },
-    });
-    return {
-      equipmentId: row.equipmentId,
-      personId: row.personId,
-      role: row.roleInEquipment,
-      roleInEquipment: row.roleInEquipment,
-      createdAt: new Date(),
-    };
-  }
-
-  async unlinkPerson(equipmentId: string, personId: string): Promise<void> {
-    await prisma.equipmentPerson.delete({
-      where: { equipmentId_personId: { equipmentId, personId } },
-    });
   }
 }
 

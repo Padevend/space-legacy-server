@@ -14,7 +14,6 @@ describe('E2E: Events Core Domain Module & Date Formatting', () => {
   let missionId = '';
   let equipmentId = '';
   let locationId = '';
-  let personId = '';
   let sourceId = '';
   let createdEventId = '';
 
@@ -75,14 +74,6 @@ describe('E2E: Events Core Domain Module & Date Formatting', () => {
       },
     });
     locationId = location.locationId;
-
-    const person = await prisma.person.create({
-      data: {
-        fullName: `Neil Armstrong-${Date.now()}`,
-        affiliation: 'NASA',
-      },
-    });
-    personId = person.personId;
 
     const source = await prisma.source.create({
       data: {
@@ -152,7 +143,7 @@ describe('E2E: Events Core Domain Module & Date Formatting', () => {
     }
   });
 
-  it('manages relations (linking equipment, location, person, source) and returns populated includes', async () => {
+  it('manages relations (linking equipment, location, source) and returns populated includes', async () => {
     // 1. Link Equipment
     const linkEquipRes = await app.request(`/api/v1/admin/events/${createdEventId}/equipment/${equipmentId}`, {
       method: 'PUT',
@@ -175,18 +166,7 @@ describe('E2E: Events Core Domain Module & Date Formatting', () => {
     });
     expect(linkLocRes.status).toBe(200);
 
-    // 3. Link Person
-    const linkPersonRes = await app.request(`/api/v1/admin/events/${createdEventId}/people/${personId}`, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-        authorization: `Bearer ${editorToken}`,
-      },
-      body: JSON.stringify({ roleInEvent: 'Mission Commander' }),
-    });
-    expect(linkPersonRes.status).toBe(200);
-
-    // 4. Link Source
+    // 3. Link Source
     const linkSourceRes = await app.request(`/api/v1/admin/events/${createdEventId}/sources/${sourceId}`, {
       method: 'PUT',
       headers: {

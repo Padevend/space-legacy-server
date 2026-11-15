@@ -13,7 +13,6 @@ import { rateLimit } from '#middleware/rate_limit_middleware';
 import { csrfOriginMiddleware } from '#middleware/csrf_origin_middleware';
 import { auth } from '#middleware/auth_middleware';
 import { ability, requireRole } from '#middleware/ability_middleware';
-import { auditMiddleware } from '#middleware/audit_middleware';
 import { rateLimitConfig } from '#config/rate-limit';
 
 export function registerGlobalMiddleware(app: Hono): void {
@@ -69,5 +68,4 @@ export const middleware = router.named({
   requireRole,
   rateLimit,
   csrfOrigin: csrfOriginMiddleware,
-  audit: auditMiddleware,
 });

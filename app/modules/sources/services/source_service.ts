@@ -134,20 +134,6 @@ export class SourceService {
       throw AppException.notFound('EventSource', 'Source link not found for this event.');
     }
   }
-
-  async linkMeasurement(measurementId: string, dto: LinkSourceDto): Promise<SourceLinkModel> {
-    if (!dto.sourceId) throw AppException.badRequest('sourceId is required');
-    await this.getById(dto.sourceId);
-    return this.repo.linkMeasurement(measurementId, dto.sourceId, dto.claimDescription);
-  }
-
-  async unlinkMeasurement(measurementId: string, sourceId: string): Promise<void> {
-    try {
-      await this.repo.unlinkMeasurement(measurementId, sourceId);
-    } catch {
-      throw AppException.notFound('MeasurementSource', 'Source link not found for this measurement.');
-    }
-  }
 }
 
 export const sourceService = new SourceService();

@@ -6,7 +6,6 @@ import {
   type CreateMissionRequestDto,
   type UpdateMissionRequestDto,
   type LinkMissionEquipmentDto,
-  type LinkMissionPersonDto,
 } from '../validators/mission.js';
 
 export class AdminMissionController {
@@ -74,30 +73,6 @@ export class AdminMissionController {
     return 'response' in ctxOrC
       ? ctxOrC.response.ok(c, { message: 'Mission equipment unlinked successfully.' })
       : c.json({ success: true, data: { message: 'Mission equipment unlinked successfully.' } }, 200);
-  };
-
-  // Person links
-  linkPerson = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const missionId = (('params' in ctxOrC && ctxOrC.params['missionId']) || c.req.param('missionId')) ?? '';
-    const personId = (('params' in ctxOrC && ctxOrC.params['personId']) || c.req.param('personId')) ?? '';
-    const body = ('body' in ctxOrC && ctxOrC.body ? ctxOrC.body : await c.req.json()) as LinkMissionPersonDto;
-
-    const link = await this.service.linkPerson(missionId, personId, body);
-    const serialized = this.serializer.serializeMissionPerson(link);
-
-    return 'response' in ctxOrC ? ctxOrC.response.ok(c, serialized) : c.json({ success: true, data: serialized }, 200);
-  };
-
-  unlinkPerson = async (ctxOrC: HttpContext | Context): Promise<Response> => {
-    const c = 'c' in ctxOrC ? ctxOrC.c : ctxOrC;
-    const missionId = (('params' in ctxOrC && ctxOrC.params['missionId']) || c.req.param('missionId')) ?? '';
-    const personId = (('params' in ctxOrC && ctxOrC.params['personId']) || c.req.param('personId')) ?? '';
-
-    await this.service.unlinkPerson(missionId, personId);
-    return 'response' in ctxOrC
-      ? ctxOrC.response.ok(c, { message: 'Mission person unlinked successfully.' })
-      : c.json({ success: true, data: { message: 'Mission person unlinked successfully.' } }, 200);
   };
 }
 

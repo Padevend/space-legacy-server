@@ -3,7 +3,6 @@ import type { StoryDto, StoryDetailDto } from '../validators/story.js';
 import type { StoryMissionModel } from '../models/story_mission.js';
 import type { StoryEquipmentModel } from '../models/story_equipment.js';
 import type { StoryEventModel } from '../models/story_event.js';
-import type { StoryMediaModel } from '../models/story_media.js';
 import type { StorySourceModel } from '../models/story_source.js';
 
 export class StorySerializer {
@@ -58,19 +57,6 @@ export class StorySerializer {
           displayOrder: se.displayOrder ?? 0,
         })),
       }),
-      ...(story.media !== undefined && {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        media: story.media.map((sm: any) => ({
-          mediaId: sm.mediaId,
-          title: sm.media?.title ?? '',
-          url: sm.media?.url ?? '',
-          thumbnailUrl: sm.media?.thumbnailUrl ?? null,
-          provenanceType: sm.media?.provenanceType ?? '',
-          requiresAiLabel: sm.media?.provenanceType === 'AI_GENERATED_ILLUSTRATION',
-          displayOrder: sm.displayOrder ?? 0,
-          captionOverride: sm.captionOverride ?? null,
-        })),
-      }),
       ...(story.sources !== undefined && {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         sources: story.sources.map((ss: any) => ({
@@ -106,15 +92,6 @@ export class StorySerializer {
       storyId: link.storyId,
       eventId: link.eventId,
       displayOrder: link.displayOrder,
-    };
-  }
-
-  serializeStoryMedia(link: StoryMediaModel) {
-    return {
-      storyId: link.storyId,
-      mediaId: link.mediaId,
-      displayOrder: link.displayOrder,
-      captionOverride: link.captionOverride,
     };
   }
 

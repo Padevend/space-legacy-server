@@ -58,12 +58,6 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
     const locAssignable: AssertAssignable<LocSerializer, LocEntity> = true;
     expect(locAssignable).toBe(true);
 
-    // Person
-    type PersonSerializer = import('../../app/modules/people/validators/person.js').PersonDto;
-    type PersonEntity = import('../../docs/entities/person/model.js').Person;
-    const personAssignable: AssertAssignable<PersonSerializer, PersonEntity> = true;
-    expect(personAssignable).toBe(true);
-
     // Source
     type SourceSerializer = import('../../app/modules/sources/validators/source.js').SourceDto;
     type SourceEntity = import('../../docs/entities/source/model.js').Source;
@@ -91,22 +85,10 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
     type EventEntity = import('../../docs/entities/event/model.js').Event;
     const eventAssignable: AssertAssignable<EventSerializer, EventEntity> = true;
     expect(eventAssignable).toBe(true);
-
-    // Measurement
-    type MeasurementSerializer = import('../../app/modules/measurements/validators/measurement.js').MeasurementDto;
-    type MeasurementEntity = import('../../docs/entities/measurement/model.js').Measurement;
-    const measurementAssignable: AssertAssignable<MeasurementSerializer, MeasurementEntity> = true;
-    expect(measurementAssignable).toBe(true);
   });
 
   it('verifies mutual type assignability for all Stage 5 editorial entities', async () => {
     type AssertAssignable<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
-
-    // Media
-    type MediaSerializer = import('../../app/modules/media/validators/media.js').MediaDto;
-    type MediaEntity = import('../../docs/entities/media/model.js').Media;
-    const mediaAssignable: AssertAssignable<MediaSerializer, MediaEntity> = true;
-    expect(mediaAssignable).toBe(true);
 
     // Story
     type StorySerializer = import('../../app/modules/stories/validators/story.js').StoryDto;

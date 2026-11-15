@@ -60,14 +60,6 @@ export const equipmentDetailSchema = equipmentSchema.extend({
       })
     )
     .optional(),
-  people: z
-    .array(
-      z.object({
-        personId: z.string().uuid(),
-        role: z.string().nullable(),
-      })
-    )
-    .optional(),
   missions: z
     .array(
       z.object({
@@ -139,13 +131,3 @@ export type CreateEquipmentRequestDto = z.infer<typeof createEquipmentRequestSch
 export const updateEquipmentRequestSchema = createEquipmentRequestSchema.partial().strict();
 
 export type UpdateEquipmentRequestDto = z.infer<typeof updateEquipmentRequestSchema>;
-
-export const linkEquipmentPersonSchema = z
-  .object({
-    personId: z.string().uuid().optional(),
-    role: z.string().max(255).nullable().optional(),
-    roleInEquipment: z.string().max(255).optional(),
-  })
-  .strict();
-
-export type LinkEquipmentPersonDto = z.infer<typeof linkEquipmentPersonSchema>;
