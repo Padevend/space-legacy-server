@@ -7,6 +7,12 @@ import { registerMachinesPublicRoutes } from '#modules/machines/routes/public';
 import { registerLogbookPublicRoutes } from '#modules/logbook/routes/public';
 import { registerIdentityPublicRoutes } from '#modules/identity/routes/public';
 import { registerGamesPublicRoutes } from '#modules/games/routes/public';
+import { registerDashboardAdminRoutes } from '#modules/dashboard/routes/admin';
+import { registerCelestialBodiesAdminRoutes } from '#modules/celestial_bodies/routes/admin';
+import { registerMachinesAdminRoutes } from '#modules/machines/routes/admin';
+import { registerLogbookAdminRoutes } from '#modules/logbook/routes/admin';
+import { auth } from '#middleware/auth_middleware';
+import { requireRole } from '#middleware/ability_middleware';
 
 // Root health aliases for infrastructure/container orchestration probes
 const rHealth = router.forModule('health');
@@ -31,6 +37,14 @@ registerIdentityPublicRoutes(router);
 
 // Stage S7: Games, Quizzes & Badges Routes
 registerGamesPublicRoutes(router);
+
+// Stage S8: Administration Surface (Role ADMIN Required, Targeted PATCH)
+router.enterGroup('/admin', [auth(), requireRole('ADMIN')]);
+registerDashboardAdminRoutes(router);
+registerCelestialBodiesAdminRoutes(router);
+registerMachinesAdminRoutes(router);
+registerLogbookAdminRoutes(router);
+router.leaveGroup();
 
 router.leaveGroup();
 

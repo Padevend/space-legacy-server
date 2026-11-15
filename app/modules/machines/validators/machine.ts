@@ -109,3 +109,163 @@ export const machineDetailSchema = z.object({
 });
 
 export type MachineDetailDto = z.infer<typeof machineDetailSchema>;
+
+// Admin Validation Schemas
+export const machineIdParamSchema = z.object({
+  id: z.string().uuid(),
+});
+
+export const machineSubResourceParamSchema = z.object({
+  id: z.string().uuid(),
+  subId: z.string().uuid(),
+});
+
+export const listAdminMachinesQuerySchema = z.object({
+  bodyId: z.string().uuid().optional(),
+  kind: z.nativeEnum(MachineKind).optional(),
+  state: z.nativeEnum(MachineState).optional(),
+  isPublished: z
+    .enum(['true', 'false'])
+    .transform((v) => v === 'true')
+    .optional(),
+  q: z.string().trim().optional(),
+  page: z.coerce.number().int().positive().default(1),
+  limit: z.coerce.number().int().positive().max(50).default(20),
+});
+
+export const createMachineSchema = z.object({
+  slug: z
+    .string()
+    .min(1)
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug must be kebab-case'),
+  bodyId: z.string().uuid(),
+  name: z.string().min(1),
+  kind: z.nativeEnum(MachineKind),
+  state: z.nativeEnum(MachineState),
+  stateSince: z.string().nullable().optional(),
+  launchYear: z.number().int().nullable().optional(),
+  arrivalYear: z.number().int().nullable().optional(),
+  summary: z.string().min(1),
+  description: z.string().min(1),
+  missionPurpose: z.string().min(1),
+  howItWorked: z.string().min(1),
+  discoveries: z.string().min(1),
+  currentStatusNote: z.string().nullable().optional(),
+  latitude: z.number().nullable().optional(),
+  longitude: z.number().nullable().optional(),
+  isPublished: z.boolean().default(false),
+});
+
+export const updateMachineSchema = z
+  .object({
+    slug: z
+      .string()
+      .min(1)
+      .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Slug must be kebab-case')
+      .optional(),
+    bodyId: z.string().uuid().optional(),
+    name: z.string().min(1).optional(),
+    kind: z.nativeEnum(MachineKind).optional(),
+    state: z.nativeEnum(MachineState).optional(),
+    stateSince: z.string().nullable().optional(),
+    launchYear: z.number().int().nullable().optional(),
+    arrivalYear: z.number().int().nullable().optional(),
+    summary: z.string().min(1).optional(),
+    description: z.string().min(1).optional(),
+    missionPurpose: z.string().min(1).optional(),
+    howItWorked: z.string().min(1).optional(),
+    discoveries: z.string().min(1).optional(),
+    currentStatusNote: z.string().nullable().optional(),
+    latitude: z.number().nullable().optional(),
+    longitude: z.number().nullable().optional(),
+    isPublished: z.boolean().optional(),
+  })
+  .strict();
+
+export const createSourceSchema = z.object({
+  title: z.string().min(1),
+  publisher: z.string().min(1),
+  url: z.string().url(),
+});
+
+export const updateSourceSchema = z
+  .object({
+    title: z.string().min(1).optional(),
+    publisher: z.string().min(1).optional(),
+    url: z.string().url().optional(),
+  })
+  .strict();
+
+export const createFactSchema = z.object({
+  label: z.string().min(1),
+  value: z.string().min(1),
+  unit: z.string().nullable().optional(),
+  sourceId: z.string().uuid(),
+  sortOrder: z.number().int().default(0),
+});
+
+export const updateFactSchema = z
+  .object({
+    label: z.string().min(1).optional(),
+    value: z.string().min(1).optional(),
+    unit: z.string().nullable().optional(),
+    sourceId: z.string().uuid().optional(),
+    sortOrder: z.number().int().optional(),
+  })
+  .strict();
+
+export const createEventSchema = z.object({
+  dateLabel: z.string().min(1),
+  dateIso: z
+    .string()
+    .datetime()
+    .nullable()
+    .optional()
+    .transform((v) => (v ? new Date(v) : null)),
+  title: z.string().min(1),
+  description: z.string().min(1),
+  sourceId: z.string().uuid(),
+  sortOrder: z.number().int().default(0),
+});
+
+export const updateEventSchema = z
+  .object({
+    dateLabel: z.string().min(1).optional(),
+    dateIso: z
+      .string()
+      .datetime()
+      .nullable()
+      .optional()
+      .transform((v) => (v ? new Date(v) : null)),
+    title: z.string().min(1).optional(),
+    description: z.string().min(1).optional(),
+    sourceId: z.string().uuid().optional(),
+    sortOrder: z.number().int().optional(),
+  })
+  .strict();
+
+export const createImageSchema = z.object({
+  path: z.string().min(1),
+  alt: z.string().min(1),
+  label: z.nativeEnum(MediaLabel),
+  credit: z.string().min(1),
+  sourceUrl: z.string().url().nullable().optional(),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  isCover: z.boolean().default(false),
+  sortOrder: z.number().int().default(0),
+});
+
+export const updateImageSchema = z
+  .object({
+    path: z.string().min(1).optional(),
+    alt: z.string().min(1).optional(),
+    label: z.nativeEnum(MediaLabel).optional(),
+    credit: z.string().min(1).optional(),
+    sourceUrl: z.string().url().nullable().optional(),
+    width: z.number().int().positive().optional(),
+    height: z.number().int().positive().optional(),
+    isCover: z.boolean().optional(),
+    sortOrder: z.number().int().optional(),
+  })
+  .strict();
