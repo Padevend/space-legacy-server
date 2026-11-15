@@ -1,130 +1,79 @@
-export const MissionStatus = {
-  PLANNED: 'PLANNED',
-  ACTIVE: 'ACTIVE',
-  COMPLETED: 'COMPLETED',
-  PARTIALLY_COMPLETED: 'PARTIALLY_COMPLETED',
-  FAILED: 'FAILED',
-  UNKNOWN: 'UNKNOWN',
+export const AccountRole = {
+  USER: 'USER',
+  ADMIN: 'ADMIN',
 } as const;
-export type MissionStatus = (typeof MissionStatus)[keyof typeof MissionStatus];
+export type AccountRole = (typeof AccountRole)[keyof typeof AccountRole];
 
-export const EquipmentType = {
-  SPACECRAFT: 'SPACECRAFT',
+export const UserRole = AccountRole;
+export type UserRole = AccountRole;
+
+export const MachineKind = {
   LANDER: 'LANDER',
   ROVER: 'ROVER',
+  HELICOPTER: 'HELICOPTER',
+  LANDING_CRAFT_STAGE: 'LANDING_CRAFT_STAGE',
+  INSTRUMENT: 'INSTRUMENT',
   ORBITER: 'ORBITER',
-  MODULE: 'MODULE',
-  STAGE: 'STAGE',
-  SCIENTIFIC_INSTRUMENT: 'SCIENTIFIC_INSTRUMENT',
-  COMPONENT: 'COMPONENT',
-  ARTIFACT: 'ARTIFACT',
   OTHER: 'OTHER',
 } as const;
-export type EquipmentType = (typeof EquipmentType)[keyof typeof EquipmentType];
+export type MachineKind = (typeof MachineKind)[keyof typeof MachineKind];
 
-export const OperationalStatus = {
-  OPERATIONAL: 'OPERATIONAL',
-  INACTIVE: 'INACTIVE',
-  MISSION_ENDED: 'MISSION_ENDED',
-  FAILED: 'FAILED',
+export const MachineState = {
+  STILL_ACTIVE: 'STILL_ACTIVE',
+  STOPPED_ANSWERING: 'STOPPED_ANSWERING',
+  JOB_FINISHED: 'JOB_FINISHED',
+  LEFT_ON_PURPOSE: 'LEFT_ON_PURPOSE',
   UNKNOWN: 'UNKNOWN',
 } as const;
-export type OperationalStatus = (typeof OperationalStatus)[keyof typeof OperationalStatus];
+export type MachineState = (typeof MachineState)[keyof typeof MachineState];
 
-export const PhysicalStatus = {
-  LEFT_ON_SURFACE: 'LEFT_ON_SURFACE',
-  IN_ORBIT: 'IN_ORBIT',
-  RETURNED_TO_EARTH: 'RETURNED_TO_EARTH',
-  DESTROYED: 'DESTROYED',
-  LOST: 'LOST',
-  UNKNOWN: 'UNKNOWN',
+export const MediaLabel = {
+  REAL_PHOTO: 'REAL_PHOTO',
+  RECONSTRUCTION: 'RECONSTRUCTION',
+  AI_ILLUSTRATION: 'AI_ILLUSTRATION',
+  DATA_CHART: 'DATA_CHART',
 } as const;
-export type PhysicalStatus = (typeof PhysicalStatus)[keyof typeof PhysicalStatus];
+export type MediaLabel = (typeof MediaLabel)[keyof typeof MediaLabel];
 
-export const EventType = {
-  LAUNCH: 'LAUNCH',
-  LANDING: 'LANDING',
-  FLYBY: 'FLYBY',
-  ORBIT_INSERTION: 'ORBIT_INSERTION',
-  DEPLOYMENT: 'DEPLOYMENT',
-  ACTIVATION: 'ACTIVATION',
-  SCIENTIFIC_DISCOVERY: 'SCIENTIFIC_DISCOVERY',
-  COMMUNICATION: 'COMMUNICATION',
-  LAST_SIGNAL: 'LAST_SIGNAL',
-  MISSION_END: 'MISSION_END',
-  OTHER: 'OTHER',
+export const ContentOrigin = {
+  AUTHORED: 'AUTHORED',
+  GENERATED: 'GENERATED',
 } as const;
-export type EventType = (typeof EventType)[keyof typeof EventType];
+export type ContentOrigin = (typeof ContentOrigin)[keyof typeof ContentOrigin];
 
-export const DatePrecision = {
-  EXACT: 'EXACT',
-  ESTIMATED: 'ESTIMATED',
-  YEAR_ONLY: 'YEAR_ONLY',
-  MONTH_ONLY: 'MONTH_ONLY',
-  UNKNOWN: 'UNKNOWN',
-} as const;
-export type DatePrecision = (typeof DatePrecision)[keyof typeof DatePrecision];
-
-export const CelestialBodyType = {
-  STAR: 'STAR',
-  PLANET: 'PLANET',
-  MOON: 'MOON',
-  ASTEROID: 'ASTEROID',
-  DWARF_PLANET: 'DWARF_PLANET',
-  COMET: 'COMET',
-  OTHER: 'OTHER',
-} as const;
-export type CelestialBodyType = (typeof CelestialBodyType)[keyof typeof CelestialBodyType];
-
-export const LocationType = {
-  LAUNCH_SITE: 'LAUNCH_SITE',
-  LANDING_SITE: 'LANDING_SITE',
-  SURFACE_LOCATION: 'SURFACE_LOCATION',
-  ORBIT: 'ORBIT',
-  SPACE_REGION: 'SPACE_REGION',
-  FACILITY: 'FACILITY',
-  OTHER: 'OTHER',
-} as const;
-export type LocationType = (typeof LocationType)[keyof typeof LocationType];
-
-export const SourceType = {
-  OFFICIAL_DOCUMENT: 'OFFICIAL_DOCUMENT',
-  SCIENTIFIC_PAPER: 'SCIENTIFIC_PAPER',
-  NASA_WEBPAGE: 'NASA_WEBPAGE',
-  DATASET: 'DATASET',
-  BOOK: 'BOOK',
-  ARTICLE: 'ARTICLE',
+export const GenerationKind = {
   VIDEO: 'VIDEO',
-  OTHER: 'OTHER',
+  ARTICLE: 'ARTICLE',
 } as const;
-export type SourceType = (typeof SourceType)[keyof typeof SourceType];
+export type GenerationKind = (typeof GenerationKind)[keyof typeof GenerationKind];
 
-export const StoryType = {
-  LEGACY_STORY: 'LEGACY_STORY',
-  BEHIND_THE_TECHNOLOGY: 'BEHIND_THE_TECHNOLOGY',
-  FINAL_CHAPTER: 'FINAL_CHAPTER',
-  SPACE_FACT: 'SPACE_FACT',
+export const GenerationStatus = {
+  QUEUED: 'QUEUED',
+  RUNNING: 'RUNNING',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
 } as const;
-export type StoryType = (typeof StoryType)[keyof typeof StoryType];
+export type GenerationStatus = (typeof GenerationStatus)[keyof typeof GenerationStatus];
 
-export const PublicationStatus = {
-  DRAFT: 'DRAFT',
-  REVIEW: 'REVIEW',
-  PUBLISHED: 'PUBLISHED',
-  ARCHIVED: 'ARCHIVED',
+export const QuizLevel = {
+  EXPLORER: 'EXPLORER',
+  EXPERT: 'EXPERT',
 } as const;
-export type PublicationStatus = (typeof PublicationStatus)[keyof typeof PublicationStatus];
+export type QuizLevel = (typeof QuizLevel)[keyof typeof QuizLevel];
 
-export const UserRole = {
-  ADMIN: 'ADMIN',
-  EDITOR: 'EDITOR',
+export const BadgeRule = {
+  QUIZ_COMPLETED_COUNT: 'QUIZ_COMPLETED_COUNT',
+  PERFECT_SCORE_COUNT: 'PERFECT_SCORE_COUNT',
+  BODY_ALL_QUIZZES: 'BODY_ALL_QUIZZES',
 } as const;
-export type UserRole = (typeof UserRole)[keyof typeof UserRole];
+export type BadgeRule = (typeof BadgeRule)[keyof typeof BadgeRule];
 
 export const IngestionStatus = {
-  PENDING: 'PENDING',
-  RUNNING: 'RUNNING',
-  COMPLETED: 'COMPLETED',
+  RECEIVED: 'RECEIVED',
+  VALIDATED: 'VALIDATED',
+  REJECTED: 'REJECTED',
+  COMMITTED: 'COMMITTED',
   FAILED: 'FAILED',
 } as const;
 export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionStatus];
