@@ -140,3 +140,11 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
   - **Générations IA :** Supervision des tâches du microservice Python avec métriques de latence/tokens, synchronisation (`/poll`) et annulation (`/cancel`).
 - **Gestion universelle des états :** Tout écran gère les états de chargement, état vide explicite et retour d'erreur formaté selon la norme N12.
 - **Sécurité et conformité :** La page frontend est servie de façon statique sécurisée ; toutes les mutations et lectures nécessitent un jeton d'authentification Bearer au rôle `ADMIN`.
+
+### D20 : Durcissement sécuritaire, politique CSP, isolation des origines et caviardage de logs (N6, N9, N11, N12)
+- **Décision :** Finaliser et verrouiller le durcissement sécuritaire global du socle backend :
+  - **En-têtes sécurisés :** Application systématique de `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer`, `Cross-Origin-Resource-Policy: cross-origin`, et politique CSP stricte `default-src 'none'; frame-ancestors 'none'; base-uri 'none'` sur toute l'API JSON (avec exemption ciblée pour l'interface Mission Control `/admin`).
+  - **CORS strict :** Contrôle rigoureux par liste blanche dynamique d'origines autorisées sans recours aux wildcards permissifs lorsque les identifiants sont acceptés.
+  - **Protection CSRF :** Vérification stricte des en-têtes `Origin` et `Host` sur l'ensemble des requêtes mutantes (`POST`, `PUT`, `PATCH`, `DELETE`).
+  - **Limitation de débit (Rate Limiting) :** Plafonds par adresse IP avec en-têtes normés `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` et `Retry-After`.
+  - **Caviardage de secrets dans les journaux (N9) :** Masquage irréversible des mots de passe, jetons de session, clés API et en-têtes d'authentification (`authorization`, `cookie`, `apiKey`, `password`) dans Pino pour éliminer tout risque de fuite d'informations sensibles.
