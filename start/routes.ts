@@ -6,6 +6,7 @@ import { registerCelestialBodiesPublicRoutes } from '#modules/celestial_bodies/r
 import { registerMachinesPublicRoutes } from '#modules/machines/routes/public';
 import { registerLogbookPublicRoutes } from '#modules/logbook/routes/public';
 import { registerIdentityPublicRoutes } from '#modules/identity/routes/public';
+import { registerGamesPublicRoutes } from '#modules/games/routes/public';
 
 // Root health aliases for infrastructure/container orchestration probes
 const rHealth = router.forModule('health');
@@ -27,6 +28,9 @@ registerLogbookPublicRoutes(router);
 
 // Stage S6: Identity & Session Management Routes
 registerIdentityPublicRoutes(router);
+
+// Stage S7: Games, Quizzes & Badges Routes
+registerGamesPublicRoutes(router);
 
 router.leaveGroup();
 
