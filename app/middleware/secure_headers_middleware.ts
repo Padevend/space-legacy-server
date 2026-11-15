@@ -14,7 +14,12 @@ export const secureHeadersMiddleware = (): MiddlewareHandler => {
     c.header('Permissions-Policy', securityConfig.headers.permissionsPolicy);
     c.header('Cross-Origin-Resource-Policy', securityConfig.headers.crossOriginResourcePolicy);
 
-    if (!c.req.path.startsWith('/docs') && !c.req.path.startsWith('/swagger') && !c.req.path.startsWith('/scalar')) {
+    if (
+      !c.req.path.startsWith('/docs') &&
+      !c.req.path.startsWith('/swagger') &&
+      !c.req.path.startsWith('/scalar') &&
+      !c.req.path.startsWith('/admin')
+    ) {
       c.header('Content-Security-Policy', securityConfig.headers.contentSecurityPolicy);
     }
 
