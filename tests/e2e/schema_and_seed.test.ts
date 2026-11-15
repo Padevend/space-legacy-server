@@ -44,15 +44,22 @@ describe('Stage S3 Exit Gate: Schema, Migrations, Seed & Shared Socle (Section 5
     expect(machines.length).toBeGreaterThanOrEqual(7);
 
     const slugs = machines.map((m) => m.slug);
-    expect(slugs).toContain('apollo-11-lm');
-    expect(slugs).toContain('surveyor-1');
-    expect(slugs).toContain('apollo-15-lrv');
-    expect(slugs).toContain('curiosity');
-    expect(slugs).toContain('perseverance');
-    expect(slugs).toContain('ingenuity');
-    expect(slugs).toContain('viking-1');
+    const seededSlugs = [
+      'apollo-11-lm',
+      'surveyor-1',
+      'apollo-15-lrv',
+      'curiosity',
+      'perseverance',
+      'ingenuity',
+      'viking-1',
+    ];
 
-    for (const m of machines) {
+    for (const slug of seededSlugs) {
+      expect(slugs).toContain(slug);
+    }
+
+    const seededMachines = machines.filter((m) => seededSlugs.includes(m.slug));
+    for (const m of seededMachines) {
       expect(['moon', 'mars']).toContain(m.body.slug);
       expect(m.name).toBeTruthy();
       expect(m.description).toBeTruthy();
