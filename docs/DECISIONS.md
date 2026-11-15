@@ -63,3 +63,7 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
 ### D11 : Quarantaine des modules pré-recadrage et seed authentique NASA (N1, N7)
 - **Décision :** Déplacement des modules v1/v2 dans `legacy/` via `git mv` afin de préserver l'historique Git sans perturber le typage TypeScript (`tsconfig.json` exclut `legacy/`).
 - **Seed conforme N7 :** Seuls la Lune et Mars sont injectés, accompagnés de 7 machines réelles de la NASA dont chaque fait, chiffre et date est relié à une source officielle `nasa.gov` / `jpl.nasa.gov`. Aucune donnée inventée.
+
+### D12 : Pagination par curseur opaque et agrégation de facettes pour le catalogue (N4, N5, N12)
+- **Décision :** La pagination des machines utilise un curseur opaque encodé en base64url contenant `{ createdAt, id }` avec un tri déterministe `[createdAt desc, id desc]`. La requête extrait `limit + 1` éléments pour déterminer `hasMore` sans `COUNT(*)` coûteux sur chaque requête.
+- **Facettes de filtrage :** Les facettes (`body`, `kind`, `state`) sont calculées en base via `groupBy` sur l'ensemble des machines publiées, permettant au client de disposer des décomptes exacts pour guider la navigation sans dépendre d'un moteur de recherche tiers hors MVP.
