@@ -36,6 +36,22 @@
         }
       }
     },
+    "/admin": {
+      "get": {
+        "summary": "Admin mission control back-office frontend single-page application",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Dashboard"
+        ],
+        "operationId": "admin.ui",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
     "/api/v1/health/live": {
       "get": {
         "summary": "Process Liveness Probe",

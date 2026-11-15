@@ -4,6 +4,7 @@ Auto-generated route registry of all active HTTP endpoints.
 
 | Method | Path | Module | Name | Auth | Role | Rate Limit | Summary |
 |---|---|---|---|---|---|---|---|
+| `GET` | `/admin` | `dashboard` | `admin.ui` | user | EDITOR | admin | Admin mission control back-office frontend single-page application |
 | `PATCH` | `/api/v1/admin/bodies/:id` | `celestial_bodies` | `admin.bodies.update` | user | EDITOR | admin | Targeted partial PATCH update of a celestial body |
 | `GET` | `/api/v1/admin/generation/jobs` | `generation` | `admin.generation.jobs.index` | user | EDITOR | admin | List asynchronous generation jobs |
 | `POST` | `/api/v1/admin/generation/jobs` | `generation` | `admin.generation.jobs.create` | user | EDITOR | admin | Submit an article or video generation job |

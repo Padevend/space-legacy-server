@@ -7,7 +7,7 @@ import { registerMachinesPublicRoutes } from '#modules/machines/routes/public';
 import { registerLogbookPublicRoutes } from '#modules/logbook/routes/public';
 import { registerIdentityPublicRoutes } from '#modules/identity/routes/public';
 import { registerGamesPublicRoutes } from '#modules/games/routes/public';
-import { registerDashboardAdminRoutes } from '#modules/dashboard/routes/admin';
+import { registerDashboardAdminRoutes, registerDashboardUiRoute } from '#modules/dashboard/routes/admin';
 import { registerCelestialBodiesAdminRoutes } from '#modules/celestial_bodies/routes/admin';
 import { registerMachinesAdminRoutes } from '#modules/machines/routes/admin';
 import { registerLogbookAdminRoutes } from '#modules/logbook/routes/admin';
@@ -20,6 +20,9 @@ import { requireRole } from '#middleware/ability_middleware';
 const rHealth = router.forModule('health');
 rHealth.get('/health/live', [HealthController, 'live']).as('health.root_live');
 rHealth.get('/health/ready', [HealthController, 'ready']).as('health.root_ready');
+
+// Admin Mission Control UI (served single-page app)
+registerDashboardUiRoute(router);
 
 // Group all versioned API routes under /api/v1
 router.enterGroup('/api/v1', []);
