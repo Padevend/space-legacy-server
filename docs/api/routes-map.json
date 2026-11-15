@@ -1,5 +1,245 @@
 [
   {
+    "method": "PATCH",
+    "path": "/api/v1/admin/bodies/:id",
+    "module": "celestial_bodies",
+    "name": "admin.bodies.update",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Targeted partial PATCH update of a celestial body"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/logbook",
+    "module": "logbook",
+    "name": "admin.logbook.index",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "List all logbook entries for administration"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/logbook",
+    "module": "logbook",
+    "name": "admin.logbook.store",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Create new logbook entry for a machine"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/logbook/:id",
+    "module": "logbook",
+    "name": "admin.logbook.destroy",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Delete a logbook entry"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/logbook/:id",
+    "module": "logbook",
+    "name": "admin.logbook.show",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Get single logbook entry by UUID"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/logbook/:id",
+    "module": "logbook",
+    "name": "admin.logbook.update",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Targeted partial PATCH update of a logbook entry"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/machines",
+    "module": "machines",
+    "name": "admin.machines.index",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "List all machines including draft/unpublished"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/machines",
+    "module": "machines",
+    "name": "admin.machines.store",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Create new machine draft"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/machines/:id",
+    "module": "machines",
+    "name": "admin.machines.destroy",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Delete machine and cascade to sub-resources"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/machines/:id",
+    "module": "machines",
+    "name": "admin.machines.show",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Get full machine details by UUID for administration"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/machines/:id",
+    "module": "machines",
+    "name": "admin.machines.update",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Targeted partial PATCH update of a machine"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/machines/:id/events",
+    "module": "machines",
+    "name": "admin.machines.events.store",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Add a timeline event to a machine"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/machines/:id/events/:subId",
+    "module": "machines",
+    "name": "admin.machines.events.destroy",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Delete a timeline event"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/machines/:id/events/:subId",
+    "module": "machines",
+    "name": "admin.machines.events.update",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Targeted partial PATCH update of a timeline event"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/machines/:id/facts",
+    "module": "machines",
+    "name": "admin.machines.facts.store",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Add a key fact to a machine"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/machines/:id/facts/:subId",
+    "module": "machines",
+    "name": "admin.machines.facts.destroy",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Delete a key fact"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/machines/:id/facts/:subId",
+    "module": "machines",
+    "name": "admin.machines.facts.update",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Targeted partial PATCH update of a key fact"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/machines/:id/images",
+    "module": "machines",
+    "name": "admin.machines.images.store",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Add an image to a machine"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/machines/:id/images/:subId",
+    "module": "machines",
+    "name": "admin.machines.images.destroy",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Delete an image"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/machines/:id/images/:subId",
+    "module": "machines",
+    "name": "admin.machines.images.update",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Targeted partial PATCH update of an image"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/machines/:id/sources",
+    "module": "machines",
+    "name": "admin.machines.sources.store",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Add a verified source to a machine"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/machines/:id/sources/:subId",
+    "module": "machines",
+    "name": "admin.machines.sources.destroy",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Delete a machine source"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/machines/:id/sources/:subId",
+    "module": "machines",
+    "name": "admin.machines.sources.update",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Targeted partial PATCH update of a machine source"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/overview",
+    "module": "dashboard",
+    "name": "admin.overview",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "Back-office administration overview counters and metrics"
+  },
+  {
     "method": "POST",
     "path": "/api/v1/auth/login",
     "module": "identity",

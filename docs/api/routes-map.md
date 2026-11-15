@@ -4,6 +4,30 @@ Auto-generated route registry of all active HTTP endpoints.
 
 | Method | Path | Module | Name | Auth | Role | Rate Limit | Summary |
 |---|---|---|---|---|---|---|---|
+| `PATCH` | `/api/v1/admin/bodies/:id` | `celestial_bodies` | `admin.bodies.update` | user | EDITOR | admin | Targeted partial PATCH update of a celestial body |
+| `GET` | `/api/v1/admin/logbook` | `logbook` | `admin.logbook.index` | user | EDITOR | admin | List all logbook entries for administration |
+| `POST` | `/api/v1/admin/logbook` | `logbook` | `admin.logbook.store` | user | EDITOR | admin | Create new logbook entry for a machine |
+| `DELETE` | `/api/v1/admin/logbook/:id` | `logbook` | `admin.logbook.destroy` | user | EDITOR | admin | Delete a logbook entry |
+| `GET` | `/api/v1/admin/logbook/:id` | `logbook` | `admin.logbook.show` | user | EDITOR | admin | Get single logbook entry by UUID |
+| `PATCH` | `/api/v1/admin/logbook/:id` | `logbook` | `admin.logbook.update` | user | EDITOR | admin | Targeted partial PATCH update of a logbook entry |
+| `GET` | `/api/v1/admin/machines` | `machines` | `admin.machines.index` | user | EDITOR | admin | List all machines including draft/unpublished |
+| `POST` | `/api/v1/admin/machines` | `machines` | `admin.machines.store` | user | EDITOR | admin | Create new machine draft |
+| `DELETE` | `/api/v1/admin/machines/:id` | `machines` | `admin.machines.destroy` | user | EDITOR | admin | Delete machine and cascade to sub-resources |
+| `GET` | `/api/v1/admin/machines/:id` | `machines` | `admin.machines.show` | user | EDITOR | admin | Get full machine details by UUID for administration |
+| `PATCH` | `/api/v1/admin/machines/:id` | `machines` | `admin.machines.update` | user | EDITOR | admin | Targeted partial PATCH update of a machine |
+| `POST` | `/api/v1/admin/machines/:id/events` | `machines` | `admin.machines.events.store` | user | EDITOR | admin | Add a timeline event to a machine |
+| `DELETE` | `/api/v1/admin/machines/:id/events/:subId` | `machines` | `admin.machines.events.destroy` | user | EDITOR | admin | Delete a timeline event |
+| `PATCH` | `/api/v1/admin/machines/:id/events/:subId` | `machines` | `admin.machines.events.update` | user | EDITOR | admin | Targeted partial PATCH update of a timeline event |
+| `POST` | `/api/v1/admin/machines/:id/facts` | `machines` | `admin.machines.facts.store` | user | EDITOR | admin | Add a key fact to a machine |
+| `DELETE` | `/api/v1/admin/machines/:id/facts/:subId` | `machines` | `admin.machines.facts.destroy` | user | EDITOR | admin | Delete a key fact |
+| `PATCH` | `/api/v1/admin/machines/:id/facts/:subId` | `machines` | `admin.machines.facts.update` | user | EDITOR | admin | Targeted partial PATCH update of a key fact |
+| `POST` | `/api/v1/admin/machines/:id/images` | `machines` | `admin.machines.images.store` | user | EDITOR | admin | Add an image to a machine |
+| `DELETE` | `/api/v1/admin/machines/:id/images/:subId` | `machines` | `admin.machines.images.destroy` | user | EDITOR | admin | Delete an image |
+| `PATCH` | `/api/v1/admin/machines/:id/images/:subId` | `machines` | `admin.machines.images.update` | user | EDITOR | admin | Targeted partial PATCH update of an image |
+| `POST` | `/api/v1/admin/machines/:id/sources` | `machines` | `admin.machines.sources.store` | user | EDITOR | admin | Add a verified source to a machine |
+| `DELETE` | `/api/v1/admin/machines/:id/sources/:subId` | `machines` | `admin.machines.sources.destroy` | user | EDITOR | admin | Delete a machine source |
+| `PATCH` | `/api/v1/admin/machines/:id/sources/:subId` | `machines` | `admin.machines.sources.update` | user | EDITOR | admin | Targeted partial PATCH update of a machine source |
+| `GET` | `/api/v1/admin/overview` | `dashboard` | `admin.overview` | user | EDITOR | admin | Back-office administration overview counters and metrics |
 | `POST` | `/api/v1/auth/login` | `identity` | `identity.login` | public | - | login | POST /api/v1/auth/login |
 | `POST` | `/api/v1/auth/logout` | `identity` | `identity.logout` | public | - | publicRead | POST /api/v1/auth/logout |
 | `POST` | `/api/v1/auth/register` | `identity` | `identity.register` | public | - | publicRead | POST /api/v1/auth/register |

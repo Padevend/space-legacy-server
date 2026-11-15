@@ -434,6 +434,370 @@
           }
         }
       }
+    },
+    "/api/v1/admin/overview": {
+      "get": {
+        "summary": "Back-office administration overview counters and metrics",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Dashboard"
+        ],
+        "operationId": "admin.overview",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/bodies/{id}": {
+      "patch": {
+        "summary": "Targeted partial PATCH update of a celestial body",
+        "description": "",
+        "tags": [
+          "Admin",
+          "CelestialBodies"
+        ],
+        "operationId": "admin.bodies.update",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines": {
+      "get": {
+        "summary": "List all machines including draft/unpublished",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Machines"
+        ],
+        "operationId": "admin.machines.index",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new machine draft",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Machines"
+        ],
+        "operationId": "admin.machines.store",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}": {
+      "get": {
+        "summary": "Get full machine details by UUID for administration",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Machines"
+        ],
+        "operationId": "admin.machines.show",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Targeted partial PATCH update of a machine",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Machines"
+        ],
+        "operationId": "admin.machines.update",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete machine and cascade to sub-resources",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Machines"
+        ],
+        "operationId": "admin.machines.destroy",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/sources": {
+      "post": {
+        "summary": "Add a verified source to a machine",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Sources"
+        ],
+        "operationId": "admin.machines.sources.store",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/sources/{subId}": {
+      "patch": {
+        "summary": "Targeted partial PATCH update of a machine source",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Sources"
+        ],
+        "operationId": "admin.machines.sources.update",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a machine source",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Sources"
+        ],
+        "operationId": "admin.machines.sources.destroy",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/facts": {
+      "post": {
+        "summary": "Add a key fact to a machine",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Facts"
+        ],
+        "operationId": "admin.machines.facts.store",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/facts/{subId}": {
+      "patch": {
+        "summary": "Targeted partial PATCH update of a key fact",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Facts"
+        ],
+        "operationId": "admin.machines.facts.update",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a key fact",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Facts"
+        ],
+        "operationId": "admin.machines.facts.destroy",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/events": {
+      "post": {
+        "summary": "Add a timeline event to a machine",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Events"
+        ],
+        "operationId": "admin.machines.events.store",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/events/{subId}": {
+      "patch": {
+        "summary": "Targeted partial PATCH update of a timeline event",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Events"
+        ],
+        "operationId": "admin.machines.events.update",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a timeline event",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Events"
+        ],
+        "operationId": "admin.machines.events.destroy",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/images": {
+      "post": {
+        "summary": "Add an image to a machine",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Images"
+        ],
+        "operationId": "admin.machines.images.store",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/machines/{id}/images/{subId}": {
+      "patch": {
+        "summary": "Targeted partial PATCH update of an image",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Images"
+        ],
+        "operationId": "admin.machines.images.update",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an image",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Images"
+        ],
+        "operationId": "admin.machines.images.destroy",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/logbook": {
+      "get": {
+        "summary": "List all logbook entries for administration",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Logbook"
+        ],
+        "operationId": "admin.logbook.index",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new logbook entry for a machine",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Logbook"
+        ],
+        "operationId": "admin.logbook.store",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/logbook/{id}": {
+      "get": {
+        "summary": "Get single logbook entry by UUID",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Logbook"
+        ],
+        "operationId": "admin.logbook.show",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Targeted partial PATCH update of a logbook entry",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Logbook"
+        ],
+        "operationId": "admin.logbook.update",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a logbook entry",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Logbook"
+        ],
+        "operationId": "admin.logbook.destroy",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
     }
   }
 }
