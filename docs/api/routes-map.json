@@ -46,6 +46,24 @@
   },
   {
     "method": "GET",
+    "path": "/api/v1/machines/:slug/logbook",
+    "module": "logbook",
+    "name": "logbook.public_list",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/machines/:slug/logbook"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/machines/:slug/logbook/:entry",
+    "module": "logbook",
+    "name": "logbook.public_show",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/machines/:slug/logbook/:entry"
+  },
+  {
+    "method": "GET",
     "path": "/health/live",
     "module": "health",
     "name": "health.root_live",
