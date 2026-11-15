@@ -798,6 +798,86 @@
           }
         }
       }
+    },
+    "/api/v1/admin/ingestion/spec": {
+      "get": {
+        "summary": "Get ingestion bundle specification and limits",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Ingestion"
+        ],
+        "operationId": "admin.ingestion.spec",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/ingestion/template.zip": {
+      "get": {
+        "summary": "Download valid template ZIP bundle",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Ingestion"
+        ],
+        "operationId": "admin.ingestion.template",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/ingestion/validate": {
+      "post": {
+        "summary": "Dry-run validation of a ZIP bundle without database mutation",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Ingestion"
+        ],
+        "operationId": "admin.ingestion.validate",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/ingestion": {
+      "post": {
+        "summary": "Validate and import a ZIP bundle atomically into database",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Ingestion"
+        ],
+        "operationId": "admin.ingestion.import",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/v1/admin/ingestion/{id}": {
+      "get": {
+        "summary": "Get ingestion batch status and report",
+        "description": "",
+        "tags": [
+          "Admin",
+          "Ingestion"
+        ],
+        "operationId": "admin.ingestion.show",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
     }
   }
 }

@@ -11,6 +11,7 @@ import { registerDashboardAdminRoutes } from '#modules/dashboard/routes/admin';
 import { registerCelestialBodiesAdminRoutes } from '#modules/celestial_bodies/routes/admin';
 import { registerMachinesAdminRoutes } from '#modules/machines/routes/admin';
 import { registerLogbookAdminRoutes } from '#modules/logbook/routes/admin';
+import { registerIngestionAdminRoutes } from '#modules/ingestion/routes/admin';
 import { auth } from '#middleware/auth_middleware';
 import { requireRole } from '#middleware/ability_middleware';
 
@@ -44,6 +45,7 @@ registerDashboardAdminRoutes(router);
 registerCelestialBodiesAdminRoutes(router);
 registerMachinesAdminRoutes(router);
 registerLogbookAdminRoutes(router);
+registerIngestionAdminRoutes(router);
 router.leaveGroup();
 
 router.leaveGroup();
