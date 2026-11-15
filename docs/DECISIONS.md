@@ -113,3 +113,18 @@ Ce document consigne l'ensemble des décisions normatives et techniques prises d
   - Unicité des slugs (`DUPLICATE_SLUG`).
 - **Atomicité transactionnelle et sécurité disque :** En cas d'erreur sur une seule entrée ou règle, rejet complet 422 avec enveloppe N12 et aucun enregistrement en base ni fichier sur disque (les écritures d'images et l'upsert SQL ne sont exécutés qu'après la validation totale du lot).
 - **Audit et traçabilité :** Chaque lot validé ou rejeté est persisté dans `ingestion_batches` avec son condensat SHA-256, son statut (`VALIDATED`, `COMMITTED`, `REJECTED`) et son rapport d'exécution détaillé.
+
+### D18 : Délégation asynchrone des générations IA au service Python et propagation automatique (N4, N6, N7, N11, N12)
+- **Décision :** Implémenter le module `generation` permettant la délégation asynchrone de génération de récits de bord (logbook entries), quiz et faits de machines à un microservice Python dédié via `/api/v1/admin/generation`.
+- **Architecture asynchrone & Contrat HTTP (N11, N12) :**
+  - La soumission d'une tâche (`POST /api/v1/admin/generation/jobs`) crée un enregistrement en base `GenerationJob` avec l'état `PENDING` et délègue l'exécution au service Python via `POST /api/v1/generate`.
+  - La communication est sécurisée par clé API (`x-api-key`), timeout configurable et mécanisme de retry avec backoff exponentiel.
+  - La liste blanche d'hôtes autorisés (`PYTHON_ALLOWED_RESULT_HOSTS`) empêche toute redirection malveillante ou SSRF lors du traitement des URLs de résultats.
+  - En cas d'indisponibilité ou d'erreur réseau du service Python, une erreur normée 503 `SERVICE_UNAVAILABLE` est renvoyée avec le code d'erreur `GENERATION_SERVICE_UNAVAILABLE`.
+- **Synchronisation et propagation automatique :**
+  - La synchronisation manuelle ou périodique (`POST /api/v1/admin/generation/jobs/:id/poll`) interroge le service Python (`GET /api/v1/generate/jobs/:id`).
+  - Lorsque l'état passe à `COMPLETED`, les métriques d'exécution (`tokensUsed`, `modelName`, `generationTimeMs`) sont persistées et le résultat est automatiquement propagé vers l'entité cible (ex: mise à jour du champ `content` d'une `LogbookEntry` ciblée).
+  - L'annulation (`POST /api/v1/admin/generation/jobs/:id/cancel`) transmet la demande d'annulation au service Python et bascule le statut local en `FAILED` avec le message d'erreur `"Generation job cancelled by user."`.
+- **Pureté architecturale et isolation des modules (N4) :**
+  - Le repository de génération `generation_repository.ts` manipule exclusivement la table `generation_jobs`.
+  - Toute interaction avec les entités d'autres modules (vérification de l'existence ou mise à jour de contenu d'entrées de journal) est réalisée via des requêtes SQL brutes isolées (`$queryRaw`, `$executeRaw`), garantissant l'absence de couplage direct avec les délégués Prisma d'autres modules et respectant strictement `tests/unit/module_ownership.spec.ts`.
