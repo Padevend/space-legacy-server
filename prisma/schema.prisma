@@ -7,556 +7,435 @@ datasource db {
 }
 
 // ======================================================
-// ENUMS
+// ENUMS (Section 5)
 // ======================================================
 
-enum MissionStatus {
-  PLANNED
-  ACTIVE
-  COMPLETED
-  PARTIALLY_COMPLETED
-  FAILED
-  UNKNOWN
+enum AccountRole {
+  USER
+  ADMIN
 }
 
-enum EquipmentType {
-  SPACECRAFT
+enum MachineKind {
   LANDER
   ROVER
+  HELICOPTER
+  LANDING_CRAFT_STAGE
+  INSTRUMENT
   ORBITER
-  MODULE
-  STAGE
-  SCIENTIFIC_INSTRUMENT
-  COMPONENT
-  ARTIFACT
   OTHER
 }
 
-enum OperationalStatus {
-  OPERATIONAL
-  INACTIVE
-  MISSION_ENDED
-  FAILED
+enum MachineState {
+  STILL_ACTIVE
+  STOPPED_ANSWERING
+  JOB_FINISHED
+  LEFT_ON_PURPOSE
   UNKNOWN
 }
 
-enum PhysicalStatus {
-  LEFT_ON_SURFACE
-  IN_ORBIT
-  RETURNED_TO_EARTH
-  DESTROYED
-  LOST
-  UNKNOWN
+enum MediaLabel {
+  REAL_PHOTO
+  RECONSTRUCTION
+  AI_ILLUSTRATION
+  DATA_CHART
 }
 
-enum EventType {
-  LAUNCH
-  LANDING
-  FLYBY
-  ORBIT_INSERTION
-  DEPLOYMENT
-  ACTIVATION
-  SCIENTIFIC_DISCOVERY
-  COMMUNICATION
-  LAST_SIGNAL
-  MISSION_END
-  OTHER
+enum ContentOrigin {
+  AUTHORED
+  GENERATED
 }
 
-enum DatePrecision {
-  EXACT
-  ESTIMATED
-  YEAR_ONLY
-  MONTH_ONLY
-  UNKNOWN
-}
-
-enum CelestialBodyType {
-  STAR
-  PLANET
-  MOON
-  ASTEROID
-  DWARF_PLANET
-  COMET
-  OTHER
-}
-
-enum LocationType {
-  LAUNCH_SITE
-  LANDING_SITE
-  SURFACE_LOCATION
-  ORBIT
-  SPACE_REGION
-  FACILITY
-  OTHER
-}
-
-enum SourceType {
-  OFFICIAL_DOCUMENT
-  SCIENTIFIC_PAPER
-  NASA_WEBPAGE
-  DATASET
-  BOOK
-  ARTICLE
+enum GenerationKind {
   VIDEO
-  OTHER
+  ARTICLE
 }
 
-enum StoryType {
-  LEGACY_STORY
-  BEHIND_THE_TECHNOLOGY
-  FINAL_CHAPTER
-  SPACE_FACT
+enum GenerationStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
 }
 
-enum PublicationStatus {
-  DRAFT
-  REVIEW
-  PUBLISHED
-  ARCHIVED
+enum QuizLevel {
+  EXPLORER
+  EXPERT
+}
+
+enum BadgeRule {
+  QUIZ_COMPLETED_COUNT
+  PERFECT_SCORE_COUNT
+  BODY_ALL_QUIZZES
+}
+
+enum IngestionStatus {
+  RECEIVED
+  VALIDATED
+  REJECTED
+  COMMITTED
+  FAILED
 }
 
 // ======================================================
-// CORE MODELS
+// IDENTITY MODULE (Section 5)
 // ======================================================
 
-// module: missions
-model Mission {
-  missionId     String        @id @default(uuid()) @db.Uuid
-  name          String
-  slug          String        @unique
-  description   String?       @db.Text
-  agency        String?
-  missionStatus MissionStatus @default(UNKNOWN)
+// module: identity
+model Visitor {
+  id         String         @id @default(uuid()) @db.Uuid
+  createdAt  DateTime       @default(now())
+  lastSeenAt DateTime       @default(now())
+  account    Account?
+  sessions   Session[]
+  attempts   QuizAttempt[]
+  badges     VisitorBadge[]
 
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
-
-  equipment     MissionEquipment[]
-  events        Event[]
-  stories       StoryMission[]
-  sources       MissionSource[]
-
-  @@index([name])
-  @@index([missionStatus])
-  @@map("missions")
+  @@index([lastSeenAt])
+  @@map("visitors")
 }
 
-// module: equipment
-model Equipment {
-  equipmentId       String            @id @default(uuid()) @db.Uuid
-  parentEquipmentId String?           @db.Uuid
+// module: identity
+model Account {
+  id           String      @id @default(uuid()) @db.Uuid
+  visitorId    String      @unique @db.Uuid
+  visitor      Visitor     @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  email        String      @unique
+  passwordHash String
+  displayName  String
+  role         AccountRole @default(USER)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
 
-  name              String
-  slug              String            @unique
-  description       String?           @db.Text
-  equipmentType     EquipmentType
-  manufacturer      String?
-
-  operationalStatus OperationalStatus @default(UNKNOWN)
-  physicalStatus    PhysicalStatus    @default(UNKNOWN)
-
-  createdAt         DateTime          @default(now())
-  updatedAt         DateTime          @updatedAt
-
-  // Recursive parent-child relationship
-  parent            Equipment?        @relation("EquipmentHierarchy", fields: [parentEquipmentId], references: [equipmentId], onDelete: Restrict)
-  children          Equipment[]       @relation("EquipmentHierarchy")
-
-  missions          MissionEquipment[]
-  events            EventEquipment[]
-  locations         EquipmentLocation[]
-  stories           StoryEquipment[]
-  sources           EquipmentSource[]
-
-  @@index([name])
-  @@index([equipmentType])
-  @@index([parentEquipmentId])
-  @@index([operationalStatus])
-  @@index([physicalStatus])
-  @@map("equipments")
+  @@map("accounts")
 }
 
-// module: events
-model Event {
-  eventId       String        @id @default(uuid()) @db.Uuid
-  missionId     String        @db.Uuid
+// module: identity
+model Session {
+  id         String   @id @default(uuid()) @db.Uuid
+  visitorId  String   @db.Uuid
+  visitor    Visitor  @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  tokenHash  String   @unique
+  expiresAt  DateTime
+  lastUsedAt DateTime @default(now())
+  createdAt  DateTime @default(now())
 
-  title         String
-  description   String?       @db.Text
-  eventType     EventType
-
-  eventDate     DateTime?     @db.Date
-  eventTime     DateTime?     @db.Time(0)
-  timeStandard  String?
-  datePrecision DatePrecision @default(UNKNOWN)
-  isEstimated   Boolean       @default(false)
-  sequenceOrder Int           @default(0)
-
-  createdAt     DateTime      @default(now())
-
-  mission       Mission       @relation(fields: [missionId], references: [missionId], onDelete: Restrict)
-
-  equipment     EventEquipment[]
-  locations     EventLocation[]
-  stories       StoryEvent[]
-  sources       EventSource[]
-
-  @@index([missionId])
-  @@index([eventDate])
-  @@index([eventType])
-  @@index([sequenceOrder])
-  @@map("events")
+  @@index([visitorId])
+  @@index([expiresAt])
+  @@map("sessions")
 }
+
+// ======================================================
+// CELESTIAL BODIES MODULE (Section 5)
+// ======================================================
 
 // module: celestial_bodies
 model CelestialBody {
-  celestialBodyId String            @id @default(uuid()) @db.Uuid
-  name            String            @unique
-  bodyType        CelestialBodyType
-  description     String?           @db.Text
-
-  locations       Location[]
+  id          String    @id @default(uuid()) @db.Uuid
+  slug        String    @unique
+  name        String
+  summary     String
+  imagePath   String?
+  sortOrder   Int       @default(0)
+  isPublished Boolean   @default(true)
+  machines    Machine[]
+  quizzes     Quiz[]
+  badges      Badge[]
 
   @@map("celestial_bodies")
 }
 
-// module: locations
-model Location {
-  locationId      String       @id @default(uuid()) @db.Uuid
-  celestialBodyId String?      @db.Uuid
+// ======================================================
+// MACHINES MODULE (Section 5)
+// ======================================================
 
-  name            String
-  locationType    LocationType
+// module: machines
+model Machine {
+  id                String          @id @default(uuid()) @db.Uuid
+  slug              String          @unique
+  bodyId            String          @db.Uuid
+  body              CelestialBody   @relation(fields: [bodyId], references: [id], onDelete: Restrict)
+  name              String
+  kind              MachineKind
+  state             MachineState
+  stateSince        String?
+  launchYear        Int?
+  arrivalYear       Int?
+  summary           String
+  description       String          @db.Text
+  missionPurpose    String          @db.Text
+  howItWorked       String          @db.Text
+  discoveries       String          @db.Text
+  currentStatusNote String?         @db.Text
+  latitude          Float?
+  longitude         Float?
+  isPublished       Boolean         @default(false)
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  sources           MachineSource[]
+  facts             MachineFact[]
+  events            MachineEvent[]
+  images            MachineImage[]
+  logbook           LogbookEntry[]
+  quizzes           Quiz[]
 
-  latitude        Decimal?     @db.Decimal(10, 7)
-  longitude       Decimal?     @db.Decimal(10, 7)
-  altitude        Decimal?     @db.Decimal(14, 4)
-  referenceSystem String?
-  description     String?      @db.Text
+  @@index([bodyId, isPublished])
+  @@index([kind])
+  @@index([state])
+  @@index([arrivalYear])
+  @@map("machines")
+}
 
-  celestialBody   CelestialBody? @relation(fields: [celestialBodyId], references: [celestialBodyId], onDelete: SetNull)
+// module: machines
+model MachineSource {
+  id        String         @id @default(uuid()) @db.Uuid
+  machineId String         @db.Uuid
+  machine   Machine        @relation(fields: [machineId], references: [id], onDelete: Cascade)
+  title     String
+  publisher String
+  url       String
+  facts     MachineFact[]
+  events    MachineEvent[]
 
-  events          EventLocation[]
-  equipments      EquipmentLocation[]
+  @@unique([machineId, url])
+  @@map("machine_sources")
+}
 
-  @@index([celestialBodyId])
-  @@index([name])
-  @@map("locations")
+// module: machines
+model MachineFact {
+  id        String        @id @default(uuid()) @db.Uuid
+  machineId String        @db.Uuid
+  machine   Machine       @relation(fields: [machineId], references: [id], onDelete: Cascade)
+  label     String
+  value     String
+  unit      String?
+  sourceId  String        @db.Uuid
+  source    MachineSource @relation(fields: [sourceId], references: [id], onDelete: Restrict)
+  sortOrder Int           @default(0)
+
+  @@index([machineId, sortOrder])
+  @@map("machine_facts")
+}
+
+// module: machines
+model MachineEvent {
+  id          String        @id @default(uuid()) @db.Uuid
+  machineId   String        @db.Uuid
+  machine     Machine       @relation(fields: [machineId], references: [id], onDelete: Cascade)
+  dateLabel   String
+  dateIso     DateTime?
+  title       String
+  description String        @db.Text
+  sourceId    String        @db.Uuid
+  source      MachineSource @relation(fields: [sourceId], references: [id], onDelete: Restrict)
+  sortOrder   Int           @default(0)
+
+  @@index([machineId, sortOrder])
+  @@map("machine_events")
+}
+
+// module: machines
+model MachineImage {
+  id        String     @id @default(uuid()) @db.Uuid
+  machineId String     @db.Uuid
+  machine   Machine    @relation(fields: [machineId], references: [id], onDelete: Cascade)
+  path      String
+  alt       String
+  label     MediaLabel
+  credit    String
+  sourceUrl String?
+  width     Int
+  height    Int
+  isCover   Boolean    @default(false)
+  sortOrder Int        @default(0)
+
+  @@index([machineId, sortOrder])
+  @@map("machine_images")
 }
 
 // ======================================================
-// DOCUMENTATION AND TRACEABILITY
+// LOGBOOK MODULE (Section 5)
 // ======================================================
 
-// module: sources
-model Source {
-  sourceId        String     @id @default(uuid()) @db.Uuid
+// module: logbook
+model LogbookEntry {
+  id               String          @id @default(uuid()) @db.Uuid
+  machineId        String          @db.Uuid
+  machine          Machine         @relation(fields: [machineId], references: [id], onDelete: Cascade)
+  slug             String
+  title            String
+  summary          String
+  articleMarkdown  String?         @db.Text
+  articleOrigin    ContentOrigin?
+  videoUrl         String?
+  videoOrigin      ContentOrigin?
+  videoDurationSec Int?
+  isPublished      Boolean         @default(false)
+  publishedAt      DateTime?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  jobs             GenerationJob[]
 
-  title           String
-  url             String
-  publisher       String
-  author          String?
-  publicationDate DateTime?  @db.Date
-  sourceType      SourceType
-  accessedAt      DateTime   @default(now())
-
-  missions        MissionSource[]
-  equipments      EquipmentSource[]
-  events          EventSource[]
-  stories         StorySource[]
-
-  @@unique([url])
-  @@index([sourceType])
-  @@index([publisher])
-  @@map("sources")
-}
-
-// ======================================================
-// EDITORIAL CONTENT
-// ======================================================
-
-// module: stories
-model Story {
-  storyId           String            @id @default(uuid()) @db.Uuid
-
-  title             String
-  slug              String            @unique
-  hook              String?           @db.Text
-  content           String            @db.Text
-
-  storyType         StoryType
-  durationSeconds   Int?
-  language          String            @default("en")
-  publicationStatus PublicationStatus @default(DRAFT)
-
-  publishedAt       DateTime?
-  createdAt         DateTime          @default(now())
-  updatedAt         DateTime          @updatedAt
-
-  missions          StoryMission[]
-  equipments        StoryEquipment[]
-  events            StoryEvent[]
-  sources           StorySource[]
-
-  @@index([storyType])
-  @@index([publicationStatus])
-  @@index([language])
-  @@map("stories")
+  @@unique([machineId, slug])
+  @@map("logbook_entries")
 }
 
 // ======================================================
-// MISSION ASSOCIATIONS
+// GENERATION MODULE (Section 5)
 // ======================================================
 
-// module: missions
-model MissionEquipment {
-  missionId                String @db.Uuid
-  equipmentId              String @db.Uuid
+// module: generation
+model GenerationJob {
+  id             String           @id @default(uuid()) @db.Uuid
+  logbookEntryId String           @db.Uuid
+  logbookEntry   LogbookEntry     @relation(fields: [logbookEntryId], references: [id], onDelete: Cascade)
+  kind           GenerationKind
+  status         GenerationStatus @default(QUEUED)
+  externalJobId  String?
+  requestedById  String?          @db.Uuid
+  requestPayload Json
+  resultText     String?          @db.Text
+  resultUrl      String?
+  errorCode      String?
+  errorMessage   String?
+  attempts       Int              @default(0)
+  createdAt      DateTime         @default(now())
+  startedAt      DateTime?
+  finishedAt     DateTime?
+  updatedAt      DateTime         @updatedAt
 
-  missionRole              String
-  participationDescription String? @db.Text
-
-  mission                  Mission   @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
-  equipment                Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
-  @@id([missionId, equipmentId])
-  @@index([equipmentId])
-  @@map("mission_equipments")
-}
-
-// module: sources
-model MissionSource {
-  missionId        String  @db.Uuid
-  sourceId         String  @db.Uuid
-  claimDescription String? @db.Text
-
-  mission          Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
-  source           Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
-
-  @@id([missionId, sourceId])
-  @@index([sourceId])
-  @@map("mission_sources")
+  @@index([status, updatedAt])
+  @@map("generation_jobs")
 }
 
 // ======================================================
-// EQUIPMENT ASSOCIATIONS
+// GAMES MODULE (Section 5)
 // ======================================================
 
-// module: events
-model EventEquipment {
-  eventId     String  @db.Uuid
-  equipmentId String  @db.Uuid
+// module: games
+model Quiz {
+  id          String         @id @default(uuid()) @db.Uuid
+  slug        String         @unique
+  title       String
+  level       QuizLevel
+  bodyId      String?        @db.Uuid
+  body        CelestialBody? @relation(fields: [bodyId], references: [id], onDelete: SetNull)
+  machineId   String?        @db.Uuid
+  machine     Machine?       @relation(fields: [machineId], references: [id], onDelete: SetNull)
+  isPublished Boolean        @default(false)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  questions   QuizQuestion[]
+  attempts    QuizAttempt[]
 
-  roleInEvent String?
-  description String? @db.Text
-
-  event       Event     @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-  equipment   Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
-  @@id([eventId, equipmentId])
-  @@index([equipmentId])
-  @@map("event_equipments")
+  @@map("quizzes")
 }
 
-// module: locations
-model EquipmentLocation {
-  equipmentLocationId String        @id @default(uuid()) @db.Uuid
-  equipmentId         String        @db.Uuid
-  locationId          String        @db.Uuid
+// module: games
+model QuizQuestion {
+  id          String       @id @default(uuid()) @db.Uuid
+  quizId      String       @db.Uuid
+  quiz        Quiz         @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  prompt      String       @db.Text
+  explanation String       @db.Text
+  sortOrder   Int          @default(0)
+  options     QuizOption[]
+  answers     QuizAnswer[]
 
-  startDate           DateTime?     @db.Date
-  endDate             DateTime?     @db.Date
-  locationPrecision   DatePrecision @default(UNKNOWN)
-
-  equipment           Equipment     @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-  location            Location      @relation(fields: [locationId], references: [locationId], onDelete: Cascade)
-
-  @@unique([equipmentId, locationId, startDate])
-  @@index([locationId])
-  @@map("equipment_locations")
+  @@map("quiz_questions")
 }
 
-// module: sources
-model EquipmentSource {
-  equipmentId      String  @db.Uuid
-  sourceId         String  @db.Uuid
-  claimDescription String? @db.Text
+// module: games
+model QuizOption {
+  id         String       @id @default(uuid()) @db.Uuid
+  questionId String       @db.Uuid
+  question   QuizQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  label      String
+  isCorrect  Boolean      @default(false)
+  sortOrder  Int          @default(0)
+  answers    QuizAnswer[]
 
-  equipment        Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-  source           Source    @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
-
-  @@id([equipmentId, sourceId])
-  @@index([sourceId])
-  @@map("equipment_sources")
+  @@map("quiz_options")
 }
 
-// ======================================================
-// EVENT ASSOCIATIONS
-// ======================================================
+// module: games
+model QuizAttempt {
+  id        String       @id @default(uuid()) @db.Uuid
+  visitorId String       @db.Uuid
+  visitor   Visitor      @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  quizId    String       @db.Uuid
+  quiz      Quiz         @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  score     Int
+  maxScore  Int
+  createdAt DateTime     @default(now())
+  answers   QuizAnswer[]
 
-// module: events
-model EventLocation {
-  eventId       String   @db.Uuid
-  locationId    String   @db.Uuid
-
-  locationRole  String?
-  sequenceOrder Int      @default(0)
-
-  event         Event    @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-  location      Location @relation(fields: [locationId], references: [locationId], onDelete: Cascade)
-
-  @@id([eventId, locationId])
-  @@index([locationId])
-  @@map("event_locations")
+  @@index([visitorId, quizId])
+  @@map("quiz_attempts")
 }
 
-// module: sources
-model EventSource {
-  eventId          String  @db.Uuid
-  sourceId         String  @db.Uuid
-  claimDescription String? @db.Text
+// module: games
+model QuizAnswer {
+  id         String       @id @default(uuid()) @db.Uuid
+  attemptId  String       @db.Uuid
+  attempt    QuizAttempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId String       @db.Uuid
+  question   QuizQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  optionId   String       @db.Uuid
+  option     QuizOption   @relation(fields: [optionId], references: [id], onDelete: Cascade)
+  isCorrect  Boolean
 
-  event            Event   @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-  source           Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
-
-  @@id([eventId, sourceId])
-  @@index([sourceId])
-  @@map("event_sources")
+  @@unique([attemptId, questionId])
+  @@map("quiz_answers")
 }
 
-// ======================================================
-// STORY ASSOCIATIONS
-// ======================================================
+// module: games
+model Badge {
+  id          String         @id @default(uuid()) @db.Uuid
+  slug        String         @unique
+  name        String
+  description String
+  iconKey     String
+  rule        BadgeRule
+  threshold   Int            @default(1)
+  bodyId      String?        @db.Uuid
+  body        CelestialBody? @relation(fields: [bodyId], references: [id], onDelete: SetNull)
+  sortOrder   Int            @default(0)
+  earned      VisitorBadge[]
 
-// module: stories
-model StoryMission {
-  storyId      String  @db.Uuid
-  missionId    String  @db.Uuid
-  displayOrder Int     @default(0)
-
-  story        Story   @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-  mission      Mission @relation(fields: [missionId], references: [missionId], onDelete: Cascade)
-
-  @@id([storyId, missionId])
-  @@index([missionId])
-  @@map("story_missions")
+  @@map("badges")
 }
 
-// module: stories
-model StoryEquipment {
-  storyId       String    @db.Uuid
-  equipmentId   String    @db.Uuid
+// module: games
+model VisitorBadge {
+  visitorId String   @db.Uuid
+  visitor   Visitor  @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  badgeId   String   @db.Uuid
+  badge     Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  earnedAt  DateTime @default(now())
 
-  displayOrder  Int       @default(0)
-  narrativeRole String?
-
-  story         Story     @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-  equipment     Equipment @relation(fields: [equipmentId], references: [equipmentId], onDelete: Cascade)
-
-  @@id([storyId, equipmentId])
-  @@index([equipmentId])
-  @@map("story_equipments")
-}
-
-// module: stories
-model StoryEvent {
-  storyId      String @db.Uuid
-  eventId      String @db.Uuid
-  displayOrder Int    @default(0)
-
-  story        Story  @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-  event        Event  @relation(fields: [eventId], references: [eventId], onDelete: Cascade)
-
-  @@id([storyId, eventId])
-  @@index([eventId])
-  @@map("story_events")
-}
-
-// module: stories
-model StorySource {
-  storyId          String  @db.Uuid
-  sourceId         String  @db.Uuid
-
-  claimDescription String? @db.Text
-  displayOrder     Int     @default(0)
-
-  story            Story   @relation(fields: [storyId], references: [storyId], onDelete: Cascade)
-  source           Source  @relation(fields: [sourceId], references: [sourceId], onDelete: Cascade)
-
-  @@id([storyId, sourceId])
-  @@index([sourceId])
-  @@map("story_sources")
+  @@id([visitorId, badgeId])
+  @@map("visitor_badges")
 }
 
 // ======================================================
-// ADDITIVE MODELS (AUTH, RBAC, INGESTION)
+// INGESTION MODULE (Section 5)
 // ======================================================
-
-enum UserRole {
-  ADMIN
-  EDITOR
-}
-
-// module: auth
-model User {
-  userId           String         @id @default(uuid()) @db.Uuid
-  email            String         @unique
-  passwordHash     String
-  role             UserRole       @default(EDITOR)
-  isActive         Boolean        @default(true)
-  failedLoginCount Int            @default(0)
-  lockedUntil      DateTime?
-  lastLoginAt      DateTime?
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
-
-  refreshTokens    RefreshToken[]
-
-  @@index([email])
-  @@map("users")
-}
-
-// module: auth
-model RefreshToken {
-  refreshTokenId String    @id @default(uuid()) @db.Uuid
-  tokenHash      String    @unique
-  userId         String    @db.Uuid
-  familyId       String    @db.Uuid
-  expiresAt      DateTime
-  revokedAt      DateTime?
-  replacedById   String?   @db.Uuid
-  userAgentHash  String?
-  createdAt      DateTime  @default(now())
-
-  user           User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
-
-  @@index([userId])
-  @@index([familyId])
-  @@map("refresh_tokens")
-}
-
-enum IngestionStatus {
-  PENDING
-  RUNNING
-  COMPLETED
-  FAILED
-}
 
 // module: ingestion
-model IngestionRun {
-  ingestionRunId String          @id @default(uuid()) @db.Uuid
-  status         IngestionStatus @default(PENDING)
-  countsSummary  Json?           @db.JsonB
-  errorSummary   String?         @db.Text
-  dryRun         Boolean         @default(false)
-  contentHash    String?
-  startedAt      DateTime        @default(now())
-  completedAt    DateTime?
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
+model IngestionBatch {
+  id            String          @id @default(uuid()) @db.Uuid
+  requestedById String?         @db.Uuid
+  filename      String
+  sizeBytes     Int
+  sha256        String
+  status        IngestionStatus @default(RECEIVED)
+  rejectCode    String?
+  rejectReason  String?
+  report        Json?
+  createdAt     DateTime        @default(now())
+  finishedAt    DateTime?
 
-  @@index([status])
   @@index([createdAt])
-  @@map("ingestion_runs")
+  @@map("ingestion_batches")
 }
