@@ -36,13 +36,31 @@
       "name": "Moon-Equip-1794702301066",
       "bodyType": "MOON",
       "description": null
+    },
+    {
+      "celestialBodyId": "e668f902-62d1-4587-8dd4-95a601959c38",
+      "name": "Moon-Equip-1794702522623",
+      "bodyType": "MOON",
+      "description": null
+    },
+    {
+      "celestialBodyId": "4ef48768-1f47-4931-971b-87092b5092ec",
+      "name": "Moon-Equip-1794702653187",
+      "bodyType": "MOON",
+      "description": null
+    },
+    {
+      "celestialBodyId": "b4a36aab-74dc-48be-95e1-38c8c414d5a2",
+      "name": "Moon-Equip-1794703460750",
+      "bodyType": "MOON",
+      "description": null
     }
   ],
   "meta": {
-    "requestId": "6bec98ee-7e23-43ad-9dcb-5288e234a428",
+    "requestId": "7deee308-e772-49a8-99f1-124e31c8f4f1",
     "page": 1,
     "pageSize": 10,
-    "total": 6,
+    "total": 9,
     "totalPages": 1
   }
 }

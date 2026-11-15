@@ -388,6 +388,69 @@
   },
   {
     "method": "GET",
+    "path": "/api/v1/admin/media",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "GET /api/v1/admin/media"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/media",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "POST /api/v1/admin/media"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/media/:id",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/media/:id"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/media/:id",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "GET /api/v1/admin/media/:id"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/media/:id",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PATCH /api/v1/admin/media/:id"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/media/:id/equipment/:equipmentId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/media/:id/equipment/:equipmentId"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/admin/media/:id/equipment/:equipmentId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PUT /api/v1/admin/media/:id/equipment/:equipmentId"
+  },
+  {
+    "method": "GET",
     "path": "/api/v1/admin/missions",
     "module": "admin",
     "auth": "user",
@@ -574,6 +637,150 @@
     "role": "EDITOR",
     "rateLimitTier": "admin",
     "summary": "PATCH /api/v1/admin/sources/:id"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/stories",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "GET /api/v1/admin/stories"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/stories",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "POST /api/v1/admin/stories"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/stories/:id",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/stories/:id"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/admin/stories/:id",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "GET /api/v1/admin/stories/:id"
+  },
+  {
+    "method": "PATCH",
+    "path": "/api/v1/admin/stories/:id",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PATCH /api/v1/admin/stories/:id"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/stories/:id/equipment/:equipmentId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/stories/:id/equipment/:equipmentId"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/admin/stories/:id/equipment/:equipmentId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PUT /api/v1/admin/stories/:id/equipment/:equipmentId"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/stories/:id/events/:eventId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/stories/:id/events/:eventId"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/admin/stories/:id/events/:eventId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PUT /api/v1/admin/stories/:id/events/:eventId"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/stories/:id/media/:mediaId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/stories/:id/media/:mediaId"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/admin/stories/:id/media/:mediaId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PUT /api/v1/admin/stories/:id/media/:mediaId"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/stories/:id/missions/:missionId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/stories/:id/missions/:missionId"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/admin/stories/:id/missions/:missionId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PUT /api/v1/admin/stories/:id/missions/:missionId"
+  },
+  {
+    "method": "DELETE",
+    "path": "/api/v1/admin/stories/:id/sources/:sourceId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "DELETE /api/v1/admin/stories/:id/sources/:sourceId"
+  },
+  {
+    "method": "PUT",
+    "path": "/api/v1/admin/stories/:id/sources/:sourceId",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "PUT /api/v1/admin/stories/:id/sources/:sourceId"
+  },
+  {
+    "method": "POST",
+    "path": "/api/v1/admin/stories/:id/transitions",
+    "module": "admin",
+    "auth": "user",
+    "role": "EDITOR",
+    "rateLimitTier": "admin",
+    "summary": "POST /api/v1/admin/stories/:id/transitions"
   },
   {
     "method": "GET",
@@ -808,6 +1015,22 @@
   },
   {
     "method": "GET",
+    "path": "/api/v1/media",
+    "module": "media",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/media"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/media/:id",
+    "module": "media",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/media/:id"
+  },
+  {
+    "method": "GET",
     "path": "/api/v1/missions",
     "module": "missions",
     "auth": "public",
@@ -853,6 +1076,22 @@
     "auth": "public",
     "rateLimitTier": "publicRead",
     "summary": "GET /api/v1/sources/:id"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/stories",
+    "module": "stories",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/stories"
+  },
+  {
+    "method": "GET",
+    "path": "/api/v1/stories/:idOrSlug",
+    "module": "stories",
+    "auth": "public",
+    "rateLimitTier": "publicRead",
+    "summary": "GET /api/v1/stories/:idOrSlug"
   },
   {
     "method": "GET",

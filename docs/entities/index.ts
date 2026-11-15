@@ -35,3 +35,12 @@ export * as EventResponse from './event/api_response.js';
 export * as MeasurementEntity from './measurement/model.js';
 export * as MeasurementRequest from './measurement/api_request.js';
 export * as MeasurementResponse from './measurement/api_response.js';
+
+// Editorial (Stage 5)
+export * as MediaEntity from './media/model.js';
+export * as MediaRequest from './media/api_request.js';
+export * as MediaResponse from './media/api_response.js';
+
+export * as StoryEntity from './story/model.js';
+export * as StoryRequest from './story/api_request.js';
+export * as StoryResponse from './story/api_response.js';

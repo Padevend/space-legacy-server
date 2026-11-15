@@ -54,24 +54,63 @@
       "updatedAt": "2026-11-15T00:28:42.914Z"
     },
     {
-      "equipmentId": "06324308-5b27-4781-bc50-abd3a687499c",
+      "equipmentId": "47904b0f-cb0c-471f-9c6e-64be65843924",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794702654328",
+      "slug": "lrv-mass-1794702654328",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T00:30:54.335Z",
+      "updatedAt": "2026-11-15T00:30:54.335Z"
+    },
+    {
+      "equipmentId": "6f8e3c50-ec0d-4ab8-b0b5-a5440093939d",
+      "parentEquipmentId": null,
+      "name": "LRV Rover Mass Test-1794703460807",
+      "slug": "lrv-mass-1794703460807",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T00:44:20.811Z",
+      "updatedAt": "2026-11-15T00:44:20.811Z"
+    },
+    {
+      "equipmentId": "6a92a392-bf6f-4998-92d6-f4846dff7b11",
       "parentEquipmentId": null,
       "name": "Lunar Roving Vehicle (LRV-3)",
-      "slug": "lrv-test-1794702520967",
+      "slug": "lrv-test-1794703458584",
       "description": "Electric four-wheeled rover used on the lunar surface during Apollo 17.",
       "equipmentType": "ROVER",
       "manufacturer": "Boeing / Delco",
       "operationalStatus": "INACTIVE",
       "physicalStatus": "LEFT_ON_SURFACE",
-      "createdAt": "2026-11-15T00:28:42.801Z",
-      "updatedAt": "2026-11-15T00:28:42.801Z"
+      "createdAt": "2026-11-15T00:44:20.941Z",
+      "updatedAt": "2026-11-15T00:44:20.941Z"
+    },
+    {
+      "equipmentId": "b44547b4-d47a-4b54-b0b6-c4b5faefb41f",
+      "parentEquipmentId": null,
+      "name": "Lunar Roving Vehicle 1794703356362",
+      "slug": "lrv-1794703356362",
+      "description": null,
+      "equipmentType": "ROVER",
+      "manufacturer": null,
+      "operationalStatus": "UNKNOWN",
+      "physicalStatus": "UNKNOWN",
+      "createdAt": "2026-11-15T00:42:36.363Z",
+      "updatedAt": "2026-11-15T00:42:36.363Z"
     }
   ],
   "meta": {
-    "requestId": "aecf8705-a847-4449-b580-dd3401e31af9",
+    "requestId": "87a0a9e3-976b-4845-9a35-7d8bca770004",
     "page": 1,
     "pageSize": 10,
-    "total": 5,
+    "total": 8,
     "totalPages": 1
   }
 }

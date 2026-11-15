@@ -1,12 +1,12 @@
 {
   "success": true,
   "data": {
-    "celestialBodyId": "61542d93-5c27-49f9-b9ee-ba79f7ee3514",
-    "name": "Europa-Test-1794702514696",
+    "celestialBodyId": "65714a4a-053d-4ea4-847a-0dd8428b83e0",
+    "name": "Europa-Test-1794703463175",
     "bodyType": "MOON",
     "description": "Sixth-closest moon of Jupiter."
   },
   "meta": {
-    "requestId": "cbee584b-0410-4cac-ba38-dbffcf63be1e"
+    "requestId": "bab936b4-88cd-49df-9399-b0d19fbc19ad"
   }
 }

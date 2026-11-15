@@ -15,4 +15,11 @@ Every attack vector listed in Section 6 of the specification is mapped to its co
 | **Broken Access Control & IDOR** | Role-based policies per route (`ADMIN`, `EDITOR`), admin user route isolation | `src/core/security/auth-middleware.ts`, `src/modules/users/` | `tests/security/rbac.test.ts` |
 | **Mass Assignment** | Strict `.strict()` Zod schemas, explicit DTOs, no request body spreading | `src/modules/users/users.schemas.ts`, `auth.schemas.ts` | `tests/security/rbac.test.ts` |
 | **Information Leakage** | Unified error format, production detail masking, Pino log redaction | `src/core/exceptions/error-handler.ts`, `src/core/logger/index.ts` | `tests/e2e/errors.test.ts` |
+| **Hierarchy Cycle Denial-of-Service** | Ancestor graph traversal cycle detection blocking recursive self-references | `src/modules/equipment/equipment.service.ts` | `tests/e2e/equipment.test.ts` |
+| **Include Depth / Query Bomb** | Whitelist relation includes, hard cap at 3 relations, strictly depth 1, 50-item bounded | `src/modules/missions/missions.service.ts`, `equipment.service.ts` | `tests/e2e/missions.test.ts` |
+| **Scientific Precision Loss** | String decimal serialization preserving full 8-decimal scientific measurement fidelity | `src/modules/measurements/measurements.serializer.ts` | `tests/e2e/measurements.test.ts` |
+| **Unpublished Editorial Leakage** | Public routes enforce `publicationStatus = PUBLISHED`; drafts/reviews/archives return 404 | `src/modules/stories/stories.service.ts` | `tests/e2e/stories.test.ts` |
+| **Editorial State Machine Bypass** | Transition state machine blocking illegal publishing skips with 409 CONFLICT | `src/modules/stories/stories.service.ts` | `tests/e2e/stories.test.ts` |
+| **AI Provenance Transparency** | Serializer deterministically computes `requiresAiLabel: true` for AI-generated illustrations | `src/modules/media/media.serializer.ts` | `tests/e2e/media.test.ts` |
+| **Editorial Content XSS** | Plain-text sanitization discarding script and HTML tags on story title, hook, content | `src/modules/stories/stories.service.ts`, `src/core/security/sanitize.ts` | `tests/e2e/stories.test.ts` |
 | **Supply Chain** | Committed lockfile, pinned Docker digests, `pnpm audit` gate | `package.json`, `pnpm-lock.yaml`, `Dockerfile` | `pnpm verify` |

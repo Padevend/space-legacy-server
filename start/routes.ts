@@ -14,6 +14,8 @@ import { publicMissionsRouter, adminMissionsRouter } from '../src/modules/missio
 import { publicEquipmentRouter, adminEquipmentRouter } from '../src/modules/equipment/equipment.routes.js';
 import { publicEventsRouter, adminEventsRouter } from '../src/modules/events/events.routes.js';
 import { publicMeasurementsRouter, adminMeasurementsRouter } from '../src/modules/measurements/measurements.routes.js';
+import { publicMediaRouter, adminMediaRouter } from '../src/modules/media/media.routes.js';
+import { publicStoriesRouter, adminStoriesRouter } from '../src/modules/stories/stories.routes.js';
 
 export function registerRoutes(app: OpenAPIHono<AppEnv>): void {
   // Liveness and Readiness Probes
@@ -35,6 +37,10 @@ export function registerRoutes(app: OpenAPIHono<AppEnv>): void {
   app.route('/api/v1/events', publicEventsRouter);
   app.route('/api/v1/measurements', publicMeasurementsRouter);
 
+  // Editorial Content (Public)
+  app.route('/api/v1/media', publicMediaRouter);
+  app.route('/api/v1/stories', publicStoriesRouter);
+
   // Admin Management Surfaces
   app.route('/api/v1/admin/users', usersRouter);
   app.route('/api/v1/admin/celestial-bodies', adminCelestialBodiesRouter);
@@ -47,4 +53,8 @@ export function registerRoutes(app: OpenAPIHono<AppEnv>): void {
   app.route('/api/v1/admin/equipment', adminEquipmentRouter);
   app.route('/api/v1/admin/events', adminEventsRouter);
   app.route('/api/v1/admin/measurements', adminMeasurementsRouter);
+
+  // Editorial Content (Admin)
+  app.route('/api/v1/admin/media', adminMediaRouter);
+  app.route('/api/v1/admin/stories', adminStoriesRouter);
 }

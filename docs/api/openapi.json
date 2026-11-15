@@ -1148,6 +1148,435 @@
           }
         ]
       },
+      "Media": {
+        "type": "object",
+        "properties": {
+          "mediaId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          },
+          "title": {
+            "type": "string",
+            "example": "Apollo 11 Eagle Lunar Module on the Moon"
+          },
+          "mediaType": {
+            "type": "string",
+            "enum": [
+              "IMAGE",
+              "VIDEO",
+              "AUDIO",
+              "MODEL_3D",
+              "DOCUMENT",
+              "ANIMATION",
+              "OTHER"
+            ],
+            "example": "IMAGE"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://images.nasa.gov/details-AS11-40-5922"
+          },
+          "thumbnailUrl": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://images.nasa.gov/thumb-AS11-40-5922.jpg"
+          },
+          "caption": {
+            "type": "string",
+            "nullable": true,
+            "example": "Buzz Aldrin walks on the surface of the Moon."
+          },
+          "credit": {
+            "type": "string",
+            "nullable": true,
+            "example": "NASA / Neil Armstrong"
+          },
+          "creditUrl": {
+            "type": "string",
+            "nullable": true,
+            "example": "https://nasa.gov"
+          },
+          "provenanceType": {
+            "type": "string",
+            "enum": [
+              "NASA_ARCHIVE",
+              "RECONSTRUCTION_3D",
+              "AI_GENERATED_ILLUSTRATION",
+              "DATA_VISUALIZATION",
+              "OTHER"
+            ],
+            "example": "NASA_ARCHIVE"
+          },
+          "requiresAiLabel": {
+            "type": "boolean",
+            "example": false,
+            "description": "Mandatory label indicator; true when provenanceType is AI_GENERATED_ILLUSTRATION."
+          },
+          "altText": {
+            "type": "string",
+            "nullable": true,
+            "example": "Astronaut in spacesuit standing on lunar surface."
+          },
+          "downloadStatus": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "PENDING",
+              "FAILED",
+              "EXTERNAL_ONLY"
+            ],
+            "example": "EXTERNAL_ONLY"
+          }
+        },
+        "required": [
+          "mediaId",
+          "title",
+          "mediaType",
+          "url",
+          "thumbnailUrl",
+          "caption",
+          "credit",
+          "creditUrl",
+          "provenanceType",
+          "requiresAiLabel",
+          "altText",
+          "downloadStatus"
+        ]
+      },
+      "MediaDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Media"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "equipments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "equipmentId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "representationType": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "equipmentId",
+                    "name",
+                    "slug",
+                    "representationType"
+                  ]
+                }
+              },
+              "stories": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "storyId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "captionOverride": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "displayOrder": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "storyId",
+                    "title",
+                    "slug",
+                    "captionOverride",
+                    "displayOrder"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Story": {
+        "type": "object",
+        "properties": {
+          "storyId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+          },
+          "title": {
+            "type": "string",
+            "example": "The Loneliest Rover: Opportunity on Mars"
+          },
+          "slug": {
+            "type": "string",
+            "example": "the-loneliest-rover"
+          },
+          "hook": {
+            "type": "string",
+            "nullable": true,
+            "example": "Designed for 90 days, it survived 14 years on Mars."
+          },
+          "content": {
+            "type": "string",
+            "example": "Full narrative text recounting Opportunity marathon exploration."
+          },
+          "storyType": {
+            "type": "string",
+            "enum": [
+              "LEGACY_STORY",
+              "BEHIND_THE_TECHNOLOGY",
+              "FINAL_CHAPTER",
+              "SPACE_FACT"
+            ],
+            "example": "LEGACY_STORY"
+          },
+          "durationSeconds": {
+            "type": "integer",
+            "nullable": true,
+            "example": 360
+          },
+          "language": {
+            "type": "string",
+            "example": "en"
+          },
+          "publicationStatus": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "REVIEW",
+              "PUBLISHED",
+              "ARCHIVED"
+            ],
+            "example": "PUBLISHED"
+          },
+          "publishedAt": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "example": "2026-11-15T00:00:00.000Z"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-15T00:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-11-15T00:00:00.000Z"
+          }
+        },
+        "required": [
+          "storyId",
+          "title",
+          "slug",
+          "hook",
+          "content",
+          "storyType",
+          "durationSeconds",
+          "language",
+          "publicationStatus",
+          "publishedAt",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "StoryDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Story"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "missions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "missionId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "displayOrder": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "missionId",
+                    "name",
+                    "slug",
+                    "displayOrder"
+                  ]
+                }
+              },
+              "equipments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "equipmentId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "slug": {
+                      "type": "string"
+                    },
+                    "displayOrder": {
+                      "type": "number"
+                    },
+                    "narrativeRole": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "equipmentId",
+                    "name",
+                    "slug",
+                    "displayOrder",
+                    "narrativeRole"
+                  ]
+                }
+              },
+              "events": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "eventId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "eventType": {
+                      "type": "string"
+                    },
+                    "displayOrder": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "eventId",
+                    "title",
+                    "eventType",
+                    "displayOrder"
+                  ]
+                }
+              },
+              "media": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "mediaId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "thumbnailUrl": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "provenanceType": {
+                      "type": "string"
+                    },
+                    "requiresAiLabel": {
+                      "type": "boolean"
+                    },
+                    "displayOrder": {
+                      "type": "number"
+                    },
+                    "captionOverride": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "mediaId",
+                    "title",
+                    "url",
+                    "thumbnailUrl",
+                    "provenanceType",
+                    "requiresAiLabel",
+                    "displayOrder",
+                    "captionOverride"
+                  ]
+                }
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "sourceId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "displayOrder": {
+                      "type": "number"
+                    },
+                    "claimDescription": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "sourceId",
+                    "title",
+                    "url",
+                    "displayOrder",
+                    "claimDescription"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
       "CreateUserRequest": {
         "type": "object",
         "properties": {
@@ -2262,6 +2691,408 @@
             "nullable": true,
             "maxLength": 2000,
             "example": "NASA SP-4029 Table 3-1"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateMediaRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "example": "Apollo 11 Eagle Lunar Module"
+          },
+          "mediaType": {
+            "type": "string",
+            "enum": [
+              "IMAGE",
+              "VIDEO",
+              "AUDIO",
+              "MODEL_3D",
+              "DOCUMENT",
+              "ANIMATION",
+              "OTHER"
+            ],
+            "example": "IMAGE"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048,
+            "pattern": "^https?:\\/\\//i",
+            "example": "https://images.nasa.gov/details-AS11-40-5922"
+          },
+          "thumbnailUrl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2048,
+            "pattern": "^https?:\\/\\//i",
+            "example": "https://images.nasa.gov/thumb-AS11-40-5922.jpg"
+          },
+          "caption": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5000,
+            "example": "Buzz Aldrin walks on the surface of the Moon."
+          },
+          "credit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255,
+            "example": "NASA / Neil Armstrong"
+          },
+          "creditUrl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2048,
+            "pattern": "^https?:\\/\\//i",
+            "example": "https://nasa.gov"
+          },
+          "provenanceType": {
+            "type": "string",
+            "enum": [
+              "NASA_ARCHIVE",
+              "RECONSTRUCTION_3D",
+              "AI_GENERATED_ILLUSTRATION",
+              "DATA_VISUALIZATION",
+              "OTHER"
+            ],
+            "example": "NASA_ARCHIVE"
+          },
+          "altText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1000,
+            "example": "Astronaut in spacesuit on Moon"
+          },
+          "downloadStatus": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "PENDING",
+              "FAILED",
+              "EXTERNAL_ONLY"
+            ],
+            "default": "EXTERNAL_ONLY",
+            "example": "EXTERNAL_ONLY"
+          }
+        },
+        "required": [
+          "title",
+          "mediaType",
+          "url",
+          "provenanceType"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateMediaRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "example": "Apollo 11 Eagle Lunar Module"
+          },
+          "mediaType": {
+            "type": "string",
+            "enum": [
+              "IMAGE",
+              "VIDEO",
+              "AUDIO",
+              "MODEL_3D",
+              "DOCUMENT",
+              "ANIMATION",
+              "OTHER"
+            ],
+            "example": "IMAGE"
+          },
+          "url": {
+            "type": "string",
+            "maxLength": 2048,
+            "pattern": "^https?:\\/\\//i",
+            "example": "https://images.nasa.gov/details-AS11-40-5922"
+          },
+          "thumbnailUrl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2048,
+            "pattern": "^https?:\\/\\//i",
+            "example": "https://images.nasa.gov/thumb-AS11-40-5922.jpg"
+          },
+          "caption": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5000,
+            "example": "Buzz Aldrin walks on the surface of the Moon."
+          },
+          "credit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255,
+            "example": "NASA / Neil Armstrong"
+          },
+          "creditUrl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2048,
+            "pattern": "^https?:\\/\\//i",
+            "example": "https://nasa.gov"
+          },
+          "provenanceType": {
+            "type": "string",
+            "enum": [
+              "NASA_ARCHIVE",
+              "RECONSTRUCTION_3D",
+              "AI_GENERATED_ILLUSTRATION",
+              "DATA_VISUALIZATION",
+              "OTHER"
+            ],
+            "example": "NASA_ARCHIVE"
+          },
+          "altText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1000,
+            "example": "Astronaut in spacesuit on Moon"
+          },
+          "downloadStatus": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "PENDING",
+              "FAILED",
+              "EXTERNAL_ONLY"
+            ],
+            "default": "EXTERNAL_ONLY",
+            "example": "EXTERNAL_ONLY"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LinkMediaEquipmentRequest": {
+        "type": "object",
+        "properties": {
+          "representationType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255,
+            "example": "PRIMARY_PHOTO"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateStoryRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "example": "The Loneliest Rover"
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "the-loneliest-rover"
+          },
+          "hook": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2000,
+            "example": "Surviving 14 years on Mars."
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50000,
+            "example": "Full story text..."
+          },
+          "storyType": {
+            "type": "string",
+            "enum": [
+              "LEGACY_STORY",
+              "BEHIND_THE_TECHNOLOGY",
+              "FINAL_CHAPTER",
+              "SPACE_FACT"
+            ],
+            "example": "LEGACY_STORY"
+          },
+          "durationSeconds": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "exclusiveMinimum": true,
+            "example": 300
+          },
+          "language": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 10,
+            "default": "en",
+            "example": "en"
+          }
+        },
+        "required": [
+          "title",
+          "slug",
+          "content",
+          "storyType"
+        ],
+        "additionalProperties": false
+      },
+      "UpdateStoryRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "example": "The Loneliest Rover"
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "example": "the-loneliest-rover"
+          },
+          "hook": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2000,
+            "example": "Surviving 14 years on Mars."
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50000,
+            "example": "Full story text..."
+          },
+          "storyType": {
+            "type": "string",
+            "enum": [
+              "LEGACY_STORY",
+              "BEHIND_THE_TECHNOLOGY",
+              "FINAL_CHAPTER",
+              "SPACE_FACT"
+            ],
+            "example": "LEGACY_STORY"
+          },
+          "durationSeconds": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "exclusiveMinimum": true,
+            "example": 300
+          },
+          "language": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 10,
+            "default": "en",
+            "example": "en"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StoryTransitionRequest": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "enum": [
+              "DRAFT",
+              "REVIEW",
+              "PUBLISHED",
+              "ARCHIVED"
+            ],
+            "example": "REVIEW",
+            "description": "Target publication status"
+          }
+        },
+        "required": [
+          "to"
+        ],
+        "additionalProperties": false
+      },
+      "LinkStoryMissionRequest": {
+        "type": "object",
+        "properties": {
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "example": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "LinkStoryEquipmentRequest": {
+        "type": "object",
+        "properties": {
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "example": 0
+          },
+          "narrativeRole": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255,
+            "example": "Primary subject"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LinkStoryEventRequest": {
+        "type": "object",
+        "properties": {
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "example": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "LinkStoryMediaRequest": {
+        "type": "object",
+        "properties": {
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "example": 0
+          },
+          "captionOverride": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2000,
+            "example": "Custom caption for this story"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LinkStorySourceRequest": {
+        "type": "object",
+        "properties": {
+          "displayOrder": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "example": 0
+          },
+          "claimDescription": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2000,
+            "example": "Mission log reference"
           }
         },
         "additionalProperties": false
@@ -5348,6 +6179,489 @@
           },
           "404": {
             "description": "Measurement not found."
+          },
+          "422": {
+            "description": "Unprocessable query parameters."
+          }
+        }
+      }
+    },
+    "/api/v1/media": {
+      "get": {
+        "summary": "List Media",
+        "description": "Retrieves a paginated list of media assets (photos, 3D models, audio, videos) with computed AI label requirement.",
+        "tags": [
+          "Media"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "required": false,
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "required": false,
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "IMAGE",
+                "VIDEO",
+                "AUDIO",
+                "MODEL_3D",
+                "DOCUMENT",
+                "ANIMATION",
+                "OTHER"
+              ],
+              "description": "Filter by media type"
+            },
+            "required": false,
+            "description": "Filter by media type",
+            "name": "mediaType",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "NASA_ARCHIVE",
+                "RECONSTRUCTION_3D",
+                "AI_GENERATED_ILLUSTRATION",
+                "DATA_VISUALIZATION",
+                "OTHER"
+              ],
+              "description": "Filter by provenance type"
+            },
+            "required": false,
+            "description": "Filter by provenance type",
+            "name": "provenanceType",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Search term for media title or caption"
+            },
+            "required": false,
+            "description": "Search term for media title or caption",
+            "name": "search",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "title",
+                "mediaType",
+                "provenanceType"
+              ],
+              "default": "title"
+            },
+            "required": false,
+            "name": "orderBy",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "asc"
+            },
+            "required": false,
+            "name": "order",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of media assets.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Media"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        },
+                        "page": {
+                          "type": "number"
+                        },
+                        "pageSize": {
+                          "type": "number"
+                        },
+                        "total": {
+                          "type": "number"
+                        },
+                        "totalPages": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "requestId",
+                        "page",
+                        "pageSize",
+                        "total",
+                        "totalPages"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/media/{id}": {
+      "get": {
+        "summary": "Get Media By ID",
+        "description": "Retrieves details for a single media asset by UUID with computed requiresAiLabel flag and optional includes.",
+        "tags": [
+          "Media"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated relations to include (max 3): equipments,stories",
+              "example": "equipments,stories"
+            },
+            "required": false,
+            "description": "Comma-separated relations to include (max 3): equipments,stories",
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Media details with requested relations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/MediaDetail"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Media not found."
+          },
+          "422": {
+            "description": "Unprocessable query parameters."
+          }
+        }
+      }
+    },
+    "/api/v1/stories": {
+      "get": {
+        "summary": "List Published Stories",
+        "description": "Retrieves a paginated list of published educational and narrative stories. Unpublished stories (draft, review, archived) are strictly filtered out.",
+        "tags": [
+          "Stories"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "required": false,
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "required": false,
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "LEGACY_STORY",
+                "BEHIND_THE_TECHNOLOGY",
+                "FINAL_CHAPTER",
+                "SPACE_FACT"
+              ],
+              "description": "Filter by story type"
+            },
+            "required": false,
+            "description": "Filter by story type",
+            "name": "storyType",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Filter by language code (e.g. en)"
+            },
+            "required": false,
+            "description": "Filter by language code (e.g. en)",
+            "name": "language",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Filter by associated equipment"
+            },
+            "required": false,
+            "description": "Filter by associated equipment",
+            "name": "equipmentId",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Search term for title, hook, or content"
+            },
+            "required": false,
+            "description": "Search term for title, hook, or content",
+            "name": "search",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "title",
+                "publishedAt",
+                "createdAt"
+              ],
+              "default": "publishedAt"
+            },
+            "required": false,
+            "name": "orderBy",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            },
+            "required": false,
+            "name": "order",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of published stories.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Story"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        },
+                        "page": {
+                          "type": "number"
+                        },
+                        "pageSize": {
+                          "type": "number"
+                        },
+                        "total": {
+                          "type": "number"
+                        },
+                        "totalPages": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "requestId",
+                        "page",
+                        "pageSize",
+                        "total",
+                        "totalPages"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/stories/{idOrSlug}": {
+      "get": {
+        "summary": "Get Published Story By ID or Slug",
+        "description": "Retrieves details for a single published story by UUID or unique slug. Returns 404 if the story does not exist or is not in PUBLISHED status.",
+        "tags": [
+          "Stories"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "example": "the-loneliest-rover",
+              "description": "UUID or unique slug"
+            },
+            "required": true,
+            "description": "UUID or unique slug",
+            "name": "idOrSlug",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated relations to include (max 3): missions,equipments,events,media,sources",
+              "example": "equipments,media"
+            },
+            "required": false,
+            "description": "Comma-separated relations to include (max 3): missions,equipments,events,media,sources",
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Published story details with requested relations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/StoryDetail"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Story not found or not published."
           },
           "422": {
             "description": "Unprocessable query parameters."
@@ -11757,6 +13071,2149 @@
         "responses": {
           "200": {
             "description": "Source unlinked from measurement.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Association not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/media": {
+      "get": {
+        "summary": "List Media",
+        "description": "Retrieves a paginated list of media assets (photos, 3D models, audio, videos) with computed AI label requirement.",
+        "tags": [
+          "Media"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "required": false,
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "required": false,
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "IMAGE",
+                "VIDEO",
+                "AUDIO",
+                "MODEL_3D",
+                "DOCUMENT",
+                "ANIMATION",
+                "OTHER"
+              ],
+              "description": "Filter by media type"
+            },
+            "required": false,
+            "description": "Filter by media type",
+            "name": "mediaType",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "NASA_ARCHIVE",
+                "RECONSTRUCTION_3D",
+                "AI_GENERATED_ILLUSTRATION",
+                "DATA_VISUALIZATION",
+                "OTHER"
+              ],
+              "description": "Filter by provenance type"
+            },
+            "required": false,
+            "description": "Filter by provenance type",
+            "name": "provenanceType",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Search term for media title or caption"
+            },
+            "required": false,
+            "description": "Search term for media title or caption",
+            "name": "search",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "title",
+                "mediaType",
+                "provenanceType"
+              ],
+              "default": "title"
+            },
+            "required": false,
+            "name": "orderBy",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "asc"
+            },
+            "required": false,
+            "name": "order",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of media assets.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Media"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        },
+                        "page": {
+                          "type": "number"
+                        },
+                        "pageSize": {
+                          "type": "number"
+                        },
+                        "total": {
+                          "type": "number"
+                        },
+                        "totalPages": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "requestId",
+                        "page",
+                        "pageSize",
+                        "total",
+                        "totalPages"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Media",
+        "description": "Adds a new media asset to the repository. If provenance is AI_GENERATED_ILLUSTRATION, requiresAiLabel is automatically set to true.",
+        "tags": [
+          "Admin Media"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMediaRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Media successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Media"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "422": {
+            "description": "Validation failed."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/media/{id}": {
+      "get": {
+        "summary": "Get Media By ID",
+        "description": "Retrieves details for a single media asset by UUID with computed requiresAiLabel flag and optional includes.",
+        "tags": [
+          "Media"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated relations to include (max 3): equipments,stories",
+              "example": "equipments,stories"
+            },
+            "required": false,
+            "description": "Comma-separated relations to include (max 3): equipments,stories",
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Media details with requested relations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/MediaDetail"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Media not found."
+          },
+          "422": {
+            "description": "Unprocessable query parameters."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Media",
+        "description": "Modifies attributes of an existing media asset.",
+        "tags": [
+          "Admin Media"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMediaRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Media successfully updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Media"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Media not found."
+          },
+          "422": {
+            "description": "Validation failed."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Media",
+        "description": "Permanently removes a media asset (Admin only).",
+        "tags": [
+          "Admin Media"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Media deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "403": {
+            "description": "Forbidden (Admin role required)."
+          },
+          "404": {
+            "description": "Media not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/media/{id}/equipment/{equipmentId}": {
+      "put": {
+        "summary": "Link Media to Equipment",
+        "description": "Associates a media asset with an equipment piece.",
+        "tags": [
+          "Admin Media"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "equipmentId",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkMediaEquipmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Equipment linked to media.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Media or Equipment not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink Equipment from Media",
+        "description": "Removes equipment association from media asset.",
+        "tags": [
+          "Admin Media"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "equipmentId",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Equipment unlinked from media.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Association not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories": {
+      "get": {
+        "summary": "List All Stories (Admin)",
+        "description": "Retrieves a paginated list of all stories regardless of publication status.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "required": false,
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "required": false,
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "DRAFT",
+                "REVIEW",
+                "PUBLISHED",
+                "ARCHIVED"
+              ],
+              "description": "Filter by publication status"
+            },
+            "required": false,
+            "description": "Filter by publication status",
+            "name": "publicationStatus",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "LEGACY_STORY",
+                "BEHIND_THE_TECHNOLOGY",
+                "FINAL_CHAPTER",
+                "SPACE_FACT"
+              ],
+              "description": "Filter by story type"
+            },
+            "required": false,
+            "description": "Filter by story type",
+            "name": "storyType",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Filter by language code"
+            },
+            "required": false,
+            "description": "Filter by language code",
+            "name": "language",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Filter by associated equipment"
+            },
+            "required": false,
+            "description": "Filter by associated equipment",
+            "name": "equipmentId",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Search term for title, hook, or content"
+            },
+            "required": false,
+            "description": "Search term for title, hook, or content",
+            "name": "search",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "title",
+                "publishedAt",
+                "createdAt",
+                "updatedAt"
+              ],
+              "default": "updatedAt"
+            },
+            "required": false,
+            "name": "orderBy",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            },
+            "required": false,
+            "name": "order",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of all stories.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Story"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        },
+                        "page": {
+                          "type": "number"
+                        },
+                        "pageSize": {
+                          "type": "number"
+                        },
+                        "total": {
+                          "type": "number"
+                        },
+                        "totalPages": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "requestId",
+                        "page",
+                        "pageSize",
+                        "total",
+                        "totalPages"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Story",
+        "description": "Creates a new story in DRAFT status. Content is sanitized against XSS.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Story created in DRAFT status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Story"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "409": {
+            "description": "Slug conflict."
+          },
+          "422": {
+            "description": "Validation failed."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories/{id}": {
+      "get": {
+        "summary": "Get Story By ID (Admin)",
+        "description": "Retrieves any story by UUID with relations regardless of publication status.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "description": "Comma-separated relations to include (max 3): missions,equipments,events,media,sources",
+              "example": "equipments,media"
+            },
+            "required": false,
+            "description": "Comma-separated relations to include (max 3): missions,equipments,events,media,sources",
+            "name": "include",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Story details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/StoryDetail"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story not found."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Story",
+        "description": "Updates content and metadata of a story. Status transitions must use the dedicated transitions endpoint.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Story updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Story"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story not found."
+          },
+          "409": {
+            "description": "Slug conflict."
+          },
+          "422": {
+            "description": "Validation failed."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Story",
+        "description": "Permanently removes a story (Admin only).",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Story deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "403": {
+            "description": "Forbidden (Admin role required)."
+          },
+          "404": {
+            "description": "Story not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories/{id}/transitions": {
+      "post": {
+        "summary": "Transition Story Publication Status",
+        "description": "Transitions a story between editorial lifecycle states (DRAFT -> REVIEW -> PUBLISHED -> ARCHIVED). Enforces valid transitions and updates publishedAt when transitioning to PUBLISHED.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoryTransitionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Status successfully transitioned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Story"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story not found."
+          },
+          "409": {
+            "description": "Invalid status transition."
+          },
+          "422": {
+            "description": "Validation failed."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories/{id}/missions/{missionId}": {
+      "put": {
+        "summary": "Link Mission to Story",
+        "description": "Associates a mission with an editorial story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "missionId",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkStoryMissionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mission linked to story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story or Mission not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink Mission from Story",
+        "description": "Removes mission association from story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "missionId",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Mission unlinked from story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Association not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories/{id}/equipment/{equipmentId}": {
+      "put": {
+        "summary": "Link Equipment to Story",
+        "description": "Associates an equipment piece with an editorial story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "equipmentId",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkStoryEquipmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Equipment linked to story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story or Equipment not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink Equipment from Story",
+        "description": "Removes equipment association from story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "equipmentId",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Equipment unlinked from story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Association not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories/{id}/events/{eventId}": {
+      "put": {
+        "summary": "Link Event to Story",
+        "description": "Associates a timeline event with an editorial story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "eventId",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkStoryEventRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Event linked to story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story or Event not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink Event from Story",
+        "description": "Removes event association from story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "eventId",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Event unlinked from story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Association not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories/{id}/media/{mediaId}": {
+      "put": {
+        "summary": "Link Media to Story",
+        "description": "Associates a media item (photo/video/model) with an editorial story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "mediaId",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkStoryMediaRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Media linked to story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story or Media not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink Media from Story",
+        "description": "Removes media association from story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "mediaId",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Media unlinked from story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Association not found."
+          }
+        }
+      }
+    },
+    "/api/v1/admin/stories/{id}/sources/{sourceId}": {
+      "put": {
+        "summary": "Link Source to Story",
+        "description": "Associates a reference source with an editorial story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "sourceId",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkStorySourceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Source linked to story.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "enum": [
+                        true
+                      ]
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "requestId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "requestId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "data",
+                    "meta"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated."
+          },
+          "404": {
+            "description": "Story or Source not found."
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink Source from Story",
+        "description": "Removes source association from story.",
+        "tags": [
+          "Admin Stories"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "id",
+            "in": "path"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "required": true,
+            "name": "sourceId",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Source unlinked from story.",
             "content": {
               "application/json": {
                 "schema": {

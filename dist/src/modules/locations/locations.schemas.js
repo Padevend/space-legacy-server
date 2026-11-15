@@ -8,6 +8,7 @@ export const LocationTypeEnum = z.enum([
     'FACILITY',
     'OTHER',
 ]);
+export const datePrecisionEnum = z.enum(['EXACT', 'ESTIMATED', 'YEAR_ONLY', 'MONTH_ONLY', 'UNKNOWN']);
 export const locationSchema = z
     .object({
     locationId: z.string().uuid().openapi({ example: '123e4567-e89b-12d3-a456-426614174000' }),

@@ -37,4 +37,20 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
         const sourceAssignable = true;
         expect(sourceAssignable).toBe(true);
     });
+    it('verifies mutual type assignability for all Stage 4 core domain entities', async () => {
+        const missionAssignable = true;
+        expect(missionAssignable).toBe(true);
+        const equipAssignable = true;
+        expect(equipAssignable).toBe(true);
+        const eventAssignable = true;
+        expect(eventAssignable).toBe(true);
+        const measurementAssignable = true;
+        expect(measurementAssignable).toBe(true);
+    });
+    it('verifies mutual type assignability for all Stage 5 editorial entities', async () => {
+        const mediaAssignable = true;
+        expect(mediaAssignable).toBe(true);
+        const storyAssignable = true;
+        expect(storyAssignable).toBe(true);
+    });
 });

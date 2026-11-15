@@ -4,6 +4,6 @@
     "code": "VALIDATION_ERROR",
     "message": "Hierarchy cycle detected: equipment cannot be an ancestor of its parent.",
     "status": 422,
-    "requestId": "369c47c9-45c9-45cb-a5e9-2db53fc3358e"
+    "requestId": "62221b50-3d28-4eec-bbd6-48ec97c5e4c5"
   }
 }

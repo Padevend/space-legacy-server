@@ -2,18 +2,18 @@
   "success": true,
   "data": {
     "user": {
-      "userId": "a194e7c6-2fea-44da-854c-84f571a42f72",
-      "email": "auth-test-1794702514690@spacelegacy.test",
+      "userId": "e52ccdd3-07bf-404c-8ab3-2f9ef9b0e411",
+      "email": "auth-test-1794703458580@spacelegacy.test",
       "role": "EDITOR",
       "isActive": true,
-      "createdAt": "2026-11-15T00:28:36.041Z",
-      "updatedAt": "2026-11-15T00:28:37.188Z"
+      "createdAt": "2026-11-15T00:44:19.845Z",
+      "updatedAt": "2026-11-15T00:44:20.952Z"
     },
-    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF1dGgtdGVzdC0xNzk0NzAyNTE0NjkwQHNwYWNlbGVnYWN5LnRlc3QiLCJyb2xlIjoiRURJVE9SIiwic3ViIjoiYTE5NGU3YzYtMmZlYS00NGRhLTg1NGMtODRmNTcxYTQyZjcyIiwiaXNzIjoic3BhY2UtbGVnYWN5IiwiYXVkIjoic3BhY2UtbGVnYWN5LWNsaWVudCIsImp0aSI6ImQ3MjM2NTI0LTc5ZTUtNDZlZi1hMmI0LTg3Mzg2YTE3NjI3YiIsImlhdCI6MTc5NDcwMjUxNywiZXhwIjoxNzk0NzAzNDE3fQ.6hrfvGaLwP1rUWAWMtzi0xpvH3Fzwd1-QWFpe3L5yA4",
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF1dGgtdGVzdC0xNzk0NzAzNDU4NTgwQHNwYWNlbGVnYWN5LnRlc3QiLCJyb2xlIjoiRURJVE9SIiwic3ViIjoiZTUyY2NkZDMtMDdiZi00MDRjLThhYjMtMmY5ZWY5YjBlNDExIiwiaXNzIjoic3BhY2UtbGVnYWN5IiwiYXVkIjoic3BhY2UtbGVnYWN5LWNsaWVudCIsImp0aSI6IjYzMDYzZjNhLWRiNmYtNDZiNy1hM2IzLThmYjc4YWY3ZTg3ZCIsImlhdCI6MTc5NDcwMzQ2MCwiZXhwIjoxNzk0NzA0MzYwfQ.ag1fMVyssxybRMNKfy0psNbV612V1A154WhLiaEDeEo",
     "tokenType": "Bearer",
     "expiresIn": 900
   },
   "meta": {
-    "requestId": "6257d6bb-3d25-4ee6-b6a2-b35f5cbf8e48"
+    "requestId": "34895a86-21cb-4850-924c-9159b48a1cd1"
   }
 }

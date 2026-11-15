@@ -50,6 +50,9 @@ export class AppException extends Error {
     static validation(details, message = 'Request validation failed.') {
         return new AppException({ code: 'VALIDATION_ERROR', message, details });
     }
+    static unprocessable(message = 'Unprocessable entity.', details) {
+        return new AppException({ code: 'VALIDATION_ERROR', message, details });
+    }
     static accountLocked(message) {
         return new AppException({ code: 'ACCOUNT_LOCKED', message });
     }

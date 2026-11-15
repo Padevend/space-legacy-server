@@ -98,4 +98,20 @@ describe('Documentation Anti-Drift Verification (Contract)', () => {
     const measurementAssignable: AssertAssignable<MeasurementSerializer, MeasurementEntity> = true;
     expect(measurementAssignable).toBe(true);
   });
+
+  it('verifies mutual type assignability for all Stage 5 editorial entities', async () => {
+    type AssertAssignable<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
+
+    // Media
+    type MediaSerializer = import('../../src/modules/media/media.schemas.js').MediaDto;
+    type MediaEntity = import('../../docs/entities/media/model.js').Media;
+    const mediaAssignable: AssertAssignable<MediaSerializer, MediaEntity> = true;
+    expect(mediaAssignable).toBe(true);
+
+    // Story
+    type StorySerializer = import('../../src/modules/stories/stories.schemas.js').StoryDto;
+    type StoryEntity = import('../../docs/entities/story/model.js').Story;
+    const storyAssignable: AssertAssignable<StorySerializer, StoryEntity> = true;
+    expect(storyAssignable).toBe(true);
+  });
 });
